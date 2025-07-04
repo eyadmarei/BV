@@ -106,7 +106,18 @@ The application is designed for easy deployment on platforms supporting Node.js 
 
 Preferred communication style: Simple, everyday language.
 
-## Changelog
+## Recent Changes
 
-Changelog:
-- July 04, 2025. Initial setup
+- July 04, 2025: Initial project setup with property showcase and business services
+- July 04, 2025: Updated homepage layout - removed hero messaging, moved property cards to top as "Dubai Properties" section
+- July 04, 2025: Added dedicated Buy/Sell section with vertical navigation and detailed service offerings
+- July 04, 2025: Updated services to focus on property investment: Property Search & Legal Advice, Business Setup & Residency, Bank Account Opening, Property Management, Investor Concierge
+- July 04, 2025: Fixed navigation warnings by replacing nested anchor tags with span elements
+
+## User Preferences
+
+- Prefers "Dubai Properties" over "Global Projects" 
+- Wants property investment focus with confidence messaging
+- Likes black and white theme with gold accents
+- Wants property cards (Villas, Townhouses, Apartments) as the main hero section
+- Prefers Buy/Sell section with detailed vertical service navigation

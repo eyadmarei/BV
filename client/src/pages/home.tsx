@@ -18,41 +18,16 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Property Cards Section */}
+      {/* Dubai Properties Section */}
       <section className="pt-24 pb-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <span className="text-sm font-semibold tracking-wide uppercase gold">
-              Exclusive
-            </span>
-            <h1 className="text-5xl md:text-7xl font-bold text-black mt-4 mb-6">
-              INVEST IN<br/>
-              <span className="text-charcoal">PROPERTY</span>
-            </h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              <strong>Invest in Property with Confidence — From Purchase to Setup, We Handle It All</strong>
-            </p>
-            <div className="mt-8">
-              <div className="flex items-center justify-center space-x-4 text-sm text-gray-500">
-                <span>TOMEN FRIEDMAN | CA DRE# 01750117</span>
-                <span>•</span>
-                <span>ISIDORA FRIEDMAN | CA DRE# 01937864</span>
-              </div>
-            </div>
-          </motion.div>
-          
           <motion.div 
             className="text-center mb-12"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl font-bold text-black mb-4">Global Projects</h2>
+            <h2 className="text-4xl font-bold text-black mb-4">Dubai Properties</h2>
             <p className="text-gray-600 text-lg">Exceptional properties across diverse markets</p>
           </motion.div>
           

@@ -18,20 +18,20 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4">Properties</h4>
             <ul className="space-y-2 text-gray-400">
-              <li><Link href="/properties/villa"><a className="hover:text-yellow-400 transition-colors duration-300">Luxury Villas</a></Link></li>
-              <li><Link href="/properties/townhouse"><a className="hover:text-yellow-400 transition-colors duration-300">Modern Townhouses</a></Link></li>
-              <li><Link href="/properties/apartment"><a className="hover:text-yellow-400 transition-colors duration-300">Premium Apartments</a></Link></li>
-              <li><Link href="/properties"><a className="hover:text-yellow-400 transition-colors duration-300">All Properties</a></Link></li>
+              <li><Link href="/properties/villa"><span className="hover:text-yellow-400 transition-colors duration-300 cursor-pointer">Luxury Villas</span></Link></li>
+              <li><Link href="/properties/townhouse"><span className="hover:text-yellow-400 transition-colors duration-300 cursor-pointer">Modern Townhouses</span></Link></li>
+              <li><Link href="/properties/apartment"><span className="hover:text-yellow-400 transition-colors duration-300 cursor-pointer">Premium Apartments</span></Link></li>
+              <li><Link href="/properties"><span className="hover:text-yellow-400 transition-colors duration-300 cursor-pointer">All Properties</span></Link></li>
             </ul>
           </div>
           
           <div>
             <h4 className="text-white font-semibold mb-4">Services</h4>
             <ul className="space-y-2 text-gray-400">
-              <li><Link href="/services"><a className="hover:text-yellow-400 transition-colors duration-300">Company Formation</a></Link></li>
-              <li><Link href="/services"><a className="hover:text-yellow-400 transition-colors duration-300">Immigration & Visas</a></Link></li>
-              <li><Link href="/services"><a className="hover:text-yellow-400 transition-colors duration-300">Banking Solutions</a></Link></li>
-              <li><Link href="/services"><a className="hover:text-yellow-400 transition-colors duration-300">Investment Advisory</a></Link></li>
+              <li><Link href="/services"><span className="hover:text-yellow-400 transition-colors duration-300 cursor-pointer">Company Formation</span></Link></li>
+              <li><Link href="/services"><span className="hover:text-yellow-400 transition-colors duration-300 cursor-pointer">Immigration & Visas</span></Link></li>
+              <li><Link href="/services"><span className="hover:text-yellow-400 transition-colors duration-300 cursor-pointer">Banking Solutions</span></Link></li>
+              <li><Link href="/services"><span className="hover:text-yellow-400 transition-colors duration-300 cursor-pointer">Investment Advisory</span></Link></li>
             </ul>
           </div>
           
