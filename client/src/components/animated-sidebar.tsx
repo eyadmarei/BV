@@ -142,62 +142,69 @@ export default function AnimatedSidebar() {
         </motion.div>
       </div>
 
-      {/* Expanded Overlay Card */}
+      {/* Transparent Overlay */}
       <AnimatePresence>
         {showOverlay && (
           <motion.div
-            className="fixed inset-0 bg-black/20 backdrop-blur-[2px] z-30 flex items-center justify-center p-8"
+            className="absolute left-24 top-0 right-0 bottom-0 z-20 pointer-events-none"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            onClick={() => setShowOverlay(false)}
+            transition={{ duration: 0.5 }}
           >
+            {/* Overlay Content */}
             <motion.div
-              className="bg-white/95 backdrop-blur-md rounded-3xl overflow-hidden shadow-2xl max-w-md w-full mx-4 border border-white/20"
-              initial={{ scale: 0.8, opacity: 0, y: 50 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.8, opacity: 0, y: 50 }}
-              transition={{ duration: 0.4, type: "spring", damping: 25 }}
-              onClick={(e) => e.stopPropagation()}
+              className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent backdrop-blur-sm"
+              initial={{ x: -100 }}
+              animate={{ x: 0 }}
+              exit={{ x: -100 }}
+              transition={{ duration: 0.6 }}
             >
-              {/* Header */}
-              <div className={`relative h-32 bg-gradient-to-br ${currentOption.color}/90 p-6`}>
-                <div className="absolute inset-0 bg-gradient-to-br from-gold/30 to-gold/15"></div>
-                <div className="relative z-10 flex items-center">
+              <div className="p-8 h-full flex flex-col justify-center max-w-lg">
+                {/* Header */}
+                <motion.div 
+                  className="flex items-center mb-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                >
                   <motion.div 
-                    className="w-16 h-16 bg-gold/20 rounded-2xl flex items-center justify-center mr-4"
+                    className="w-16 h-16 bg-gold/20 rounded-2xl flex items-center justify-center mr-4 backdrop-blur-sm border border-gold/30"
                     animate={{ rotate: 360 }}
-                    transition={{ duration: 1, ease: "easeInOut" }}
+                    transition={{ duration: 2, ease: "easeInOut", repeat: Infinity }}
                   >
                     <IconComponent className="w-8 h-8 text-gold" />
                   </motion.div>
                   <div>
-                    <h2 className="text-gold text-3xl font-bold">{currentOption.type}</h2>
-                    <p className="text-white/90 text-sm">{currentOption.subtitle}</p>
+                    <h2 className="text-gold text-4xl font-bold">{currentOption.type}</h2>
+                    <p className="text-white/90 text-lg">{currentOption.subtitle}</p>
                   </div>
-                </div>
-              </div>
+                </motion.div>
 
-              {/* Content */}
-              <div className="p-6 bg-white/80 backdrop-blur-sm">
-                <p className="text-gray-800 text-sm leading-relaxed mb-6 font-medium">
+                {/* Description */}
+                <motion.p 
+                  className="text-white/90 text-lg leading-relaxed mb-8"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                >
                   {currentOption.description}
-                </p>
+                </motion.p>
                 
-                <div className="space-y-4 mb-6">
+                {/* Features */}
+                <div className="space-y-4 mb-8">
                   {currentOption.features.map((feature, featureIndex) => {
                     const FeatureIcon = feature.icon;
                     return (
                       <motion.div 
                         key={featureIndex}
-                        className="flex items-center text-gray-700 text-sm bg-white/60 p-3 rounded-lg backdrop-blur-sm"
-                        initial={{ opacity: 0, x: -20 }}
+                        className="flex items-center text-white/90 text-lg"
+                        initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: featureIndex * 0.1 }}
+                        transition={{ delay: 0.6 + featureIndex * 0.1 }}
                       >
-                        <div className="w-8 h-8 bg-gold/20 rounded-lg flex items-center justify-center mr-3">
-                          <FeatureIcon className="w-4 h-4 text-gold" />
+                        <div className="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center mr-4 backdrop-blur-sm border border-gold/30">
+                          <FeatureIcon className="w-6 h-6 text-gold" />
                         </div>
                         <span className="font-medium">{feature.text}</span>
                       </motion.div>
@@ -205,20 +212,19 @@ export default function AnimatedSidebar() {
                   })}
                 </div>
                 
-                <div className="flex space-x-3">
-                  <Link href="/contact" className="flex-1">
-                    <Button className="w-full bg-gold text-black hover:bg-yellow-500 font-semibold">
-                      Start {currentOption.type} Process
+                {/* Action Button */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1 }}
+                  className="pointer-events-auto"
+                >
+                  <Link href="/contact">
+                    <Button className="bg-gold text-black hover:bg-yellow-500 font-semibold text-lg px-8 py-3">
+                      Start {currentOption.type} Process →
                     </Button>
                   </Link>
-                  <Button 
-                    variant="outline" 
-                    className="px-4"
-                    onClick={() => setShowOverlay(false)}
-                  >
-                    Close
-                  </Button>
-                </div>
+                </motion.div>
               </div>
             </motion.div>
           </motion.div>
