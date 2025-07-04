@@ -146,7 +146,7 @@ export default function AnimatedSidebar() {
       <AnimatePresence>
         {showOverlay && (
           <motion.div
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-30 flex items-center justify-center p-8"
+            className="fixed inset-0 bg-black/20 backdrop-blur-[2px] z-30 flex items-center justify-center p-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -154,7 +154,7 @@ export default function AnimatedSidebar() {
             onClick={() => setShowOverlay(false)}
           >
             <motion.div
-              className="bg-white rounded-3xl overflow-hidden shadow-2xl max-w-md w-full mx-4"
+              className="bg-white/95 backdrop-blur-md rounded-3xl overflow-hidden shadow-2xl max-w-md w-full mx-4 border border-white/20"
               initial={{ scale: 0.8, opacity: 0, y: 50 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.8, opacity: 0, y: 50 }}
@@ -162,8 +162,8 @@ export default function AnimatedSidebar() {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header */}
-              <div className={`relative h-32 bg-gradient-to-br ${currentOption.color} p-6`}>
-                <div className="absolute inset-0 bg-gradient-to-br from-gold/20 to-gold/10"></div>
+              <div className={`relative h-32 bg-gradient-to-br ${currentOption.color}/90 p-6`}>
+                <div className="absolute inset-0 bg-gradient-to-br from-gold/30 to-gold/15"></div>
                 <div className="relative z-10 flex items-center">
                   <motion.div 
                     className="w-16 h-16 bg-gold/20 rounded-2xl flex items-center justify-center mr-4"
@@ -180,8 +180,8 @@ export default function AnimatedSidebar() {
               </div>
 
               {/* Content */}
-              <div className="p-6">
-                <p className="text-gray-700 text-sm leading-relaxed mb-6">
+              <div className="p-6 bg-white/80 backdrop-blur-sm">
+                <p className="text-gray-800 text-sm leading-relaxed mb-6 font-medium">
                   {currentOption.description}
                 </p>
                 
@@ -191,15 +191,15 @@ export default function AnimatedSidebar() {
                     return (
                       <motion.div 
                         key={featureIndex}
-                        className="flex items-center text-gray-600 text-sm"
+                        className="flex items-center text-gray-700 text-sm bg-white/60 p-3 rounded-lg backdrop-blur-sm"
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: featureIndex * 0.1 }}
                       >
-                        <div className="w-8 h-8 bg-gold/10 rounded-lg flex items-center justify-center mr-3">
+                        <div className="w-8 h-8 bg-gold/20 rounded-lg flex items-center justify-center mr-3">
                           <FeatureIcon className="w-4 h-4 text-gold" />
                         </div>
-                        <span>{feature.text}</span>
+                        <span className="font-medium">{feature.text}</span>
                       </motion.div>
                     );
                   })}
