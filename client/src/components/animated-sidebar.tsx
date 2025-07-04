@@ -142,90 +142,87 @@ export default function AnimatedSidebar() {
         </motion.div>
       </div>
 
-      {/* Transparent Overlay */}
+      {/* Transparent Card Overlay */}
       <AnimatePresence>
         {showOverlay && (
           <motion.div
-            className="absolute left-24 top-0 right-0 bottom-0 z-20 pointer-events-none"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
+            className="absolute left-24 top-8 z-20 pointer-events-none"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -50 }}
+            transition={{ duration: 0.6 }}
           >
-            {/* Overlay Content */}
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent backdrop-blur-sm"
-              initial={{ x: -100 }}
-              animate={{ x: 0 }}
-              exit={{ x: -100 }}
-              transition={{ duration: 0.6 }}
+              className="bg-black/70 backdrop-blur-md rounded-3xl p-8 max-w-md border border-gold/30 shadow-2xl"
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.9 }}
+              transition={{ duration: 0.4 }}
             >
-              <div className="p-8 h-full flex flex-col justify-center max-w-lg">
-                {/* Header */}
+              {/* Header */}
+              <motion.div 
+                className="flex items-center mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+              >
                 <motion.div 
-                  className="flex items-center mb-6"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
+                  className="w-16 h-16 bg-gold/20 rounded-2xl flex items-center justify-center mr-4 backdrop-blur-sm border border-gold/30"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 2, ease: "easeInOut", repeat: Infinity }}
                 >
-                  <motion.div 
-                    className="w-16 h-16 bg-gold/20 rounded-2xl flex items-center justify-center mr-4 backdrop-blur-sm border border-gold/30"
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 2, ease: "easeInOut", repeat: Infinity }}
-                  >
-                    <IconComponent className="w-8 h-8 text-gold" />
-                  </motion.div>
-                  <div>
-                    <h2 className="text-gold text-4xl font-bold">{currentOption.type}</h2>
-                    <p className="text-white/90 text-lg">{currentOption.subtitle}</p>
-                  </div>
+                  <IconComponent className="w-8 h-8 text-gold" />
                 </motion.div>
-
-                {/* Description */}
-                <motion.p 
-                  className="text-white/90 text-lg leading-relaxed mb-8"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                >
-                  {currentOption.description}
-                </motion.p>
-                
-                {/* Features */}
-                <div className="space-y-4 mb-8">
-                  {currentOption.features.map((feature, featureIndex) => {
-                    const FeatureIcon = feature.icon;
-                    return (
-                      <motion.div 
-                        key={featureIndex}
-                        className="flex items-center text-white/90 text-lg"
-                        initial={{ opacity: 0, x: -30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.6 + featureIndex * 0.1 }}
-                      >
-                        <div className="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center mr-4 backdrop-blur-sm border border-gold/30">
-                          <FeatureIcon className="w-6 h-6 text-gold" />
-                        </div>
-                        <span className="font-medium">{feature.text}</span>
-                      </motion.div>
-                    );
-                  })}
+                <div>
+                  <h2 className="text-gold text-3xl font-bold">{currentOption.type}</h2>
+                  <p className="text-white/90 text-sm">{currentOption.subtitle}</p>
                 </div>
-                
-                {/* Action Button */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1 }}
-                  className="pointer-events-auto"
-                >
-                  <Link href="/contact">
-                    <Button className="bg-gold text-black hover:bg-yellow-500 font-semibold text-lg px-8 py-3">
-                      Start {currentOption.type} Process →
-                    </Button>
-                  </Link>
-                </motion.div>
+              </motion.div>
+
+              {/* Description */}
+              <motion.p 
+                className="text-white/90 text-sm leading-relaxed mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+              >
+                {currentOption.description}
+              </motion.p>
+              
+              {/* Features */}
+              <div className="space-y-3 mb-6">
+                {currentOption.features.map((feature, featureIndex) => {
+                  const FeatureIcon = feature.icon;
+                  return (
+                    <motion.div 
+                      key={featureIndex}
+                      className="flex items-center text-white/90 text-sm"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.6 + featureIndex * 0.1 }}
+                    >
+                      <div className="w-8 h-8 bg-gold/20 rounded-lg flex items-center justify-center mr-3 backdrop-blur-sm border border-gold/30">
+                        <FeatureIcon className="w-4 h-4 text-gold" />
+                      </div>
+                      <span className="font-medium">{feature.text}</span>
+                    </motion.div>
+                  );
+                })}
               </div>
+              
+              {/* Action Button */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1 }}
+                className="pointer-events-auto"
+              >
+                <Link href="/contact">
+                  <Button className="w-full bg-gold text-black hover:bg-yellow-500 font-semibold">
+                    Start {currentOption.type} Process
+                  </Button>
+                </Link>
+              </motion.div>
             </motion.div>
           </motion.div>
         )}
