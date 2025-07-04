@@ -139,104 +139,103 @@ export default function AnimatedSidebar() {
         </motion.div>
       </div>
 
-      {/* Transparent Card Overlay */}
+      {/* Full Section Overlay */}
       <AnimatePresence>
         {showOverlay && (
           <motion.div
-            className="absolute left-24 top-8 z-20 pointer-events-none"
-            initial={{ opacity: 0, x: -200 }}
-            animate={{ 
-              opacity: 1, 
-              x: [0, 100, 200, 300],
-              transition: {
-                x: { duration: 2.5, ease: "easeInOut" },
-                opacity: { duration: 0.3 }
-              }
-            }}
-            exit={{ opacity: 0, x: 400 }}
-            transition={{ duration: 0.5 }}
+            className="absolute left-24 top-0 right-0 bottom-0 z-20 pointer-events-none overflow-hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
           >
             <motion.div
-              className="bg-amber-900/30 backdrop-blur-sm rounded-3xl p-8 max-w-md border border-amber-600/20 shadow-2xl"
-              initial={{ scale: 0.8, rotateY: -10 }}
+              className="absolute inset-0 bg-gradient-to-r from-amber-900/50 via-amber-800/30 to-transparent backdrop-blur-sm"
+              initial={{ x: "-100%" }}
               animate={{ 
-                scale: 1, 
-                rotateY: 0,
+                x: "0%",
                 transition: {
-                  duration: 0.6,
-                  ease: "easeOut"
+                  duration: 2.5,
+                  ease: "easeInOut"
                 }
               }}
-              exit={{ scale: 0.8, rotateY: 10 }}
-              transition={{ duration: 0.4 }}
-              style={{
-                background: 'linear-gradient(135deg, rgba(120, 53, 15, 0.4), rgba(92, 51, 23, 0.3), rgba(69, 26, 3, 0.2))'
-              }}
+              exit={{ x: "100%" }}
+              transition={{ duration: 0.5 }}
             >
-              {/* Header */}
-              <motion.div 
-                className="flex items-center mb-6"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-              >
-                <motion.div 
-                  className="w-16 h-16 bg-amber-600/30 rounded-2xl flex items-center justify-center mr-4 backdrop-blur-sm border border-amber-400/40"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 2, ease: "easeInOut", repeat: Infinity }}
+              <div className="h-full flex items-center justify-start pl-8 max-w-lg">
+                <motion.div
+                  className="bg-amber-900/60 backdrop-blur-md rounded-3xl p-6 border border-amber-600/40 shadow-2xl"
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.8, opacity: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
                 >
-                  <IconComponent className="w-8 h-8 text-amber-300" />
-                </motion.div>
-                <div>
-                  <h2 className="text-amber-200 text-3xl font-bold drop-shadow-lg">{currentOption.type}</h2>
-                  <p className="text-amber-100/90 text-sm">{currentOption.subtitle}</p>
-                </div>
-              </motion.div>
-
-              {/* Description */}
-              <motion.p 
-                className="text-amber-100/90 text-sm leading-relaxed mb-6 drop-shadow-sm"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-              >
-                {currentOption.description}
-              </motion.p>
-              
-              {/* Features */}
-              <div className="space-y-3 mb-6">
-                {currentOption.features.map((feature, featureIndex) => {
-                  const FeatureIcon = feature.icon;
-                  return (
+                  {/* Header */}
+                  <motion.div 
+                    className="flex items-center mb-4"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                  >
                     <motion.div 
-                      key={featureIndex}
-                      className="flex items-center text-amber-100/90 text-sm"
-                      initial={{ opacity: 0, x: -30 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.6 + featureIndex * 0.15, ease: "easeOut" }}
+                      className="w-12 h-12 bg-amber-600/40 rounded-xl flex items-center justify-center mr-3 backdrop-blur-sm border border-amber-400/50"
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 2, ease: "easeInOut", repeat: Infinity }}
                     >
-                      <div className="w-8 h-8 bg-amber-600/30 rounded-lg flex items-center justify-center mr-3 backdrop-blur-sm border border-amber-400/40">
-                        <FeatureIcon className="w-4 h-4 text-amber-300" />
-                      </div>
-                      <span className="font-medium drop-shadow-sm">{feature.text}</span>
+                      <IconComponent className="w-6 h-6 text-amber-300" />
                     </motion.div>
-                  );
-                })}
+                    <div>
+                      <h2 className="text-amber-200 text-2xl font-bold drop-shadow-lg">{currentOption.type}</h2>
+                      <p className="text-amber-100/90 text-xs">{currentOption.subtitle}</p>
+                    </div>
+                  </motion.div>
+
+                  {/* Description */}
+                  <motion.p 
+                    className="text-amber-100/90 text-xs leading-relaxed mb-4 drop-shadow-sm"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6 }}
+                  >
+                    {currentOption.description}
+                  </motion.p>
+                  
+                  {/* Features */}
+                  <div className="space-y-2 mb-4">
+                    {currentOption.features.map((feature, featureIndex) => {
+                      const FeatureIcon = feature.icon;
+                      return (
+                        <motion.div 
+                          key={featureIndex}
+                          className="flex items-center text-amber-100/90 text-xs"
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.8 + featureIndex * 0.1 }}
+                        >
+                          <div className="w-6 h-6 bg-amber-600/40 rounded-lg flex items-center justify-center mr-2 backdrop-blur-sm border border-amber-400/50">
+                            <FeatureIcon className="w-3 h-3 text-amber-300" />
+                          </div>
+                          <span className="font-medium drop-shadow-sm">{feature.text}</span>
+                        </motion.div>
+                      );
+                    })}
+                  </div>
+                  
+                  {/* Action Button */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 1.2 }}
+                    className="pointer-events-auto"
+                  >
+                    <Link href="/contact">
+                      <Button className="w-full bg-amber-500/80 text-amber-900 hover:bg-amber-400/90 font-semibold backdrop-blur-sm border border-amber-400/50 shadow-lg text-xs py-2">
+                        Start {currentOption.type} Process
+                      </Button>
+                    </Link>
+                  </motion.div>
+                </motion.div>
               </div>
-              
-              {/* Action Button */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1, ease: "easeOut" }}
-                className="pointer-events-auto"
-              >
-                <Link href="/contact">
-                  <Button className="w-full bg-amber-500/80 text-amber-900 hover:bg-amber-400/90 font-semibold backdrop-blur-sm border border-amber-400/50 shadow-lg">
-                    Start {currentOption.type} Process
-                  </Button>
-                </Link>
-              </motion.div>
             </motion.div>
           </motion.div>
         )}
