@@ -38,18 +38,13 @@ export default function AnimatedSidebar() {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % options.length);
-    }, 3000);
+      // Show overlay briefly when auto-switching
+      setShowOverlay(true);
+      setTimeout(() => setShowOverlay(false), 2500);
+    }, 4000);
     
     return () => clearInterval(interval);
   }, []);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowOverlay(true);
-    }, 1000);
-    
-    return () => clearTimeout(timer);
-  }, [activeIndex]);
 
   const currentOption = options[activeIndex];
   const IconComponent = currentOption.icon;
@@ -69,6 +64,8 @@ export default function AnimatedSidebar() {
               onClick={() => {
                 setActiveIndex(index);
                 setShowOverlay(true);
+                // Hide overlay after animation completes
+                setTimeout(() => setShowOverlay(false), 3000);
               }}
               whileHover={{ scale: 1.05 }}
               animate={{ 
@@ -147,17 +144,31 @@ export default function AnimatedSidebar() {
         {showOverlay && (
           <motion.div
             className="absolute left-24 top-8 z-20 pointer-events-none"
-            initial={{ opacity: 0, x: -100 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -100 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            initial={{ opacity: 0, x: -200 }}
+            animate={{ 
+              opacity: 1, 
+              x: [0, 100, 200, 300],
+              transition: {
+                x: { duration: 2.5, ease: "easeInOut" },
+                opacity: { duration: 0.3 }
+              }
+            }}
+            exit={{ opacity: 0, x: 400 }}
+            transition={{ duration: 0.5 }}
           >
             <motion.div
               className="bg-amber-900/30 backdrop-blur-sm rounded-3xl p-8 max-w-md border border-amber-600/20 shadow-2xl"
               initial={{ scale: 0.8, rotateY: -10 }}
-              animate={{ scale: 1, rotateY: 0 }}
-              exit={{ scale: 0.8, rotateY: -10 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+              animate={{ 
+                scale: 1, 
+                rotateY: 0,
+                transition: {
+                  duration: 0.6,
+                  ease: "easeOut"
+                }
+              }}
+              exit={{ scale: 0.8, rotateY: 10 }}
+              transition={{ duration: 0.4 }}
               style={{
                 background: 'linear-gradient(135deg, rgba(120, 53, 15, 0.4), rgba(92, 51, 23, 0.3), rgba(69, 26, 3, 0.2))'
               }}
