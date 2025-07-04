@@ -14,11 +14,11 @@ export default function HeroSection() {
             Exclusive
           </span>
           <h1 className="text-5xl md:text-7xl font-bold text-black mt-4 mb-6">
-            LUXURY<br/>
-            <span className="text-charcoal">PROPERTIES</span>
+            INVEST IN<br/>
+            <span className="text-charcoal">PROPERTY</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Discover exceptional properties and comprehensive business services with our premium real estate and corporate solutions.
+            <strong>Invest in Property with Confidence — From Purchase to Setup, We Handle It All</strong>
           </p>
           <div className="mt-8">
             <div className="flex items-center justify-center space-x-4 text-sm text-gray-500">

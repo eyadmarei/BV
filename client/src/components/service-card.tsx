@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Building, FileText, CreditCard, Check } from "lucide-react";
+import { Building, FileText, CreditCard, Check, Users, UserCheck } from "lucide-react";
 import type { Service } from "@shared/schema";
 
 interface ServiceCardProps {
@@ -12,6 +12,8 @@ const iconMap = {
   building: Building,
   passport: FileText,
   university: CreditCard,
+  management: Users,
+  concierge: UserCheck,
 };
 
 export default function ServiceCard({ service, delay = 0 }: ServiceCardProps) {

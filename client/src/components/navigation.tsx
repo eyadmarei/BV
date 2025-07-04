@@ -28,11 +28,11 @@ export default function Navigation() {
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href}>
-                <a className={`nav-link text-charcoal hover:text-black font-medium ${
+                <span className={`nav-link text-charcoal hover:text-black font-medium cursor-pointer ${
                   location === link.href ? 'text-black' : ''
                 }`}>
                   {link.label}
-                </a>
+                </span>
               </Link>
             ))}
             <Link href="/contact">
@@ -60,12 +60,12 @@ export default function Navigation() {
             <div className="flex flex-col space-y-3">
               {navLinks.map((link) => (
                 <Link key={link.href} href={link.href}>
-                  <a 
-                    className="text-charcoal hover:text-black font-medium px-3 py-2"
+                  <span 
+                    className="text-charcoal hover:text-black font-medium px-3 py-2 cursor-pointer block"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {link.label}
-                  </a>
+                  </span>
                 </Link>
               ))}
               <Link href="/contact">

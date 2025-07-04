@@ -92,25 +92,39 @@ export class MemStorage implements IStorage {
     // Sample services
     const sampleServices: InsertService[] = [
       {
-        title: "Company Establishment",
-        description: "Complete business formation services including legal structure, registration, licensing, and compliance setup.",
+        title: "Property Search & Legal Advice",
+        description: "Expert property identification and comprehensive legal guidance to ensure secure transactions and optimal investment decisions.",
         icon: "building",
-        features: ["Business registration & licensing", "Legal structure consultation", "Compliance & regulatory guidance"],
+        features: ["Market analysis & property sourcing", "Legal due diligence", "Contract negotiation & review"],
+        category: "property"
+      },
+      {
+        title: "Business Setup & Residency",
+        description: "Complete business formation and residency solutions for international property investors seeking long-term opportunities.",
+        icon: "passport",
+        features: ["Company incorporation", "Investor visa assistance", "Residency permit processing"],
         category: "business"
       },
       {
-        title: "Visa Services",
-        description: "Expert immigration and visa assistance for investors, professionals, and families seeking international opportunities.",
-        icon: "passport",
-        features: ["Investment visa programs", "Professional work permits", "Family reunification"],
-        category: "visa"
+        title: "Bank Account Opening",
+        description: "Streamlined banking solutions to facilitate property purchases and ongoing financial management in your investment country.",
+        icon: "university",
+        features: ["Local bank account setup", "International transfer services", "Investment financing options"],
+        category: "banking"
       },
       {
-        title: "Banking Solutions",
-        description: "Comprehensive banking services including account setup, international transfers, and wealth management solutions.",
-        icon: "university",
-        features: ["Business & personal accounts", "International banking", "Investment & wealth management"],
-        category: "banking"
+        title: "Property Management",
+        description: "Full-service property management ensuring your investment maintains its value and generates optimal returns.",
+        icon: "building",
+        features: ["Tenant placement & screening", "Maintenance & repairs", "Financial reporting & rent collection"],
+        category: "management"
+      },
+      {
+        title: "Investor Concierge",
+        description: "Personalized concierge services providing ongoing support for all aspects of your property investment journey.",
+        icon: "passport",
+        features: ["24/7 investor support", "Local market insights", "Investment portfolio optimization"],
+        category: "concierge"
       }
     ];
 
@@ -132,7 +146,16 @@ export class MemStorage implements IStorage {
 
   async createProperty(insertProperty: InsertProperty): Promise<Property> {
     const id = this.currentPropertyId++;
-    const property: Property = { ...insertProperty, id };
+    const property: Property = { 
+      ...insertProperty, 
+      id,
+      price: insertProperty.price ?? null,
+      location: insertProperty.location ?? null,
+      bedrooms: insertProperty.bedrooms ?? null,
+      bathrooms: insertProperty.bathrooms ?? null,
+      area: insertProperty.area ?? null,
+      featured: insertProperty.featured ?? null
+    };
     this.properties.set(id, property);
     return property;
   }
@@ -148,7 +171,11 @@ export class MemStorage implements IStorage {
 
   async createService(insertService: InsertService): Promise<Service> {
     const id = this.currentServiceId++;
-    const service: Service = { ...insertService, id };
+    const service: Service = { 
+      ...insertService, 
+      id,
+      features: insertService.features ?? null
+    };
     this.services.set(id, service);
     return service;
   }
@@ -163,6 +190,8 @@ export class MemStorage implements IStorage {
     const inquiry: Inquiry = { 
       ...insertInquiry, 
       id,
+      phone: insertInquiry.phone ?? null,
+      service: insertInquiry.service ?? null,
       createdAt: new Date()
     };
     this.inquiries.set(id, inquiry);
