@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 
 export default function AnimatedSidebar() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [showOverlay, setShowOverlay] = useState(true);
+  const [showOverlay, setShowOverlay] = useState(false);
   
   const options = [
     {
@@ -36,17 +36,32 @@ export default function AnimatedSidebar() {
   ];
 
   useEffect(() => {
-    // Initial display for 8 seconds
-    setTimeout(() => setShowOverlay(false), 8000);
+    let timeouts: NodeJS.Timeout[] = [];
     
-    // Then start cycling
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % options.length);
+    const startCycle = () => {
+      // Show overlay
       setShowOverlay(true);
-      setTimeout(() => setShowOverlay(false), 8000);
-    }, 12000);
+      
+      // Hide after 8 seconds
+      const hideTimeout = setTimeout(() => {
+        setShowOverlay(false);
+      }, 8000);
+      timeouts.push(hideTimeout);
+      
+      // Switch to next option and show again after 4 more seconds (total 12)
+      const nextTimeout = setTimeout(() => {
+        setActiveIndex((prev) => (prev + 1) % options.length);
+        startCycle(); // Recursive call to continue cycle
+      }, 12000);
+      timeouts.push(nextTimeout);
+    };
     
-    return () => clearInterval(interval);
+    // Start the cycle
+    startCycle();
+    
+    return () => {
+      timeouts.forEach(timeout => clearTimeout(timeout));
+    };
   }, []);
 
   const currentOption = options[activeIndex];
