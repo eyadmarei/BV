@@ -62,10 +62,14 @@ export default function AnimatedSidebar() {
                 index === activeIndex ? 'shadow-2xl' : 'shadow-lg'
               }`}
               onClick={() => {
+                console.log('Sidebar clicked, showing overlay');
                 setActiveIndex(index);
                 setShowOverlay(true);
                 // Hide overlay after animation completes
-                setTimeout(() => setShowOverlay(false), 3000);
+                setTimeout(() => {
+                  console.log('Hiding overlay');
+                  setShowOverlay(false);
+                }, 4000);
               }}
               whileHover={{ scale: 1.05 }}
               animate={{ 
@@ -143,7 +147,7 @@ export default function AnimatedSidebar() {
       <AnimatePresence>
         {showOverlay && (
           <motion.div
-            className="absolute left-24 top-0 right-0 bottom-0 z-20 pointer-events-none overflow-hidden"
+            className="absolute left-24 top-0 w-full h-full z-30 pointer-events-none overflow-hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
