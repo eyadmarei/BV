@@ -35,7 +35,15 @@ export default function AnimatedSidebar() {
     }
   ];
 
-  // Removed auto-cycle - overlay only toggles on click
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % options.length);
+      setShowOverlay(true);
+      setTimeout(() => setShowOverlay(false), 8000);
+    }, 12000);
+    
+    return () => clearInterval(interval);
+  }, []);
 
   const currentOption = options[activeIndex];
   const IconComponent = currentOption.icon;
@@ -53,10 +61,10 @@ export default function AnimatedSidebar() {
                 index === activeIndex ? 'shadow-2xl' : 'shadow-lg'
               }`}
               onClick={() => {
-                console.log('Sidebar clicked, toggling overlay');
+                console.log('Sidebar clicked, showing overlay');
                 setActiveIndex(index);
-                // Toggle overlay - show if hidden, hide if shown
-                setShowOverlay(!showOverlay);
+                setShowOverlay(true);
+                setTimeout(() => setShowOverlay(false), 8000);
               }}
               whileHover={{ scale: 1.05 }}
               animate={{ 
@@ -134,7 +142,7 @@ export default function AnimatedSidebar() {
       <AnimatePresence>
         {showOverlay && (
           <motion.div
-            className="fixed left-0 top-24 right-0 h-80 z-30 pointer-events-none overflow-hidden"
+            className="fixed left-0 top-96 right-0 h-80 z-30 pointer-events-none overflow-hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
