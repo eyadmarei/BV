@@ -174,64 +174,55 @@ export default function AnimatedSidebar() {
                   exit={{ scale: 0.9, opacity: 0 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
                 >
-                  {/* Horizontal Layout for Buy/Sell Options */}
+                  {/* Single Option Layout - Only Active Option */}
                   <div className="flex items-center justify-between h-full">
-                    {options.map((option, optionIndex) => {
-                      const OptionIcon = option.icon;
-                      const isActive = optionIndex === activeIndex;
-                      return (
-                        <motion.div
-                          key={option.type}
-                          className={`flex-1 px-6 h-full flex flex-col justify-center ${
-                            isActive ? 'opacity-100' : 'opacity-60'
-                          }`}
-                          initial={{ opacity: 0, x: -30 }}
-                          animate={{ opacity: isActive ? 1 : 0.6, x: 0 }}
-                          transition={{ delay: 0.4 + optionIndex * 0.2 }}
+                    <motion.div
+                      className="flex-1 px-6 h-full flex flex-col justify-center"
+                      initial={{ opacity: 0, x: -30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.4 }}
+                    >
+                      {/* Header */}
+                      <div className="flex items-center mb-3">
+                        <motion.div 
+                          className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center mr-4 backdrop-blur-sm border border-white/30"
+                          animate={{ rotate: 360 }}
+                          transition={{ duration: 2, ease: "easeInOut", repeat: Infinity }}
                         >
-                          {/* Header */}
-                          <div className="flex items-center mb-1">
-                            <motion.div 
-                              className="w-6 h-6 bg-white/20 rounded-lg flex items-center justify-center mr-2 backdrop-blur-sm border border-white/30"
-                              animate={{ 
-                                rotate: isActive ? 360 : 0,
-                                scale: isActive ? 1.1 : 1
-                              }}
-                              transition={{ duration: 1, ease: "easeInOut" }}
-                            >
-                              <OptionIcon className="w-3 h-3 text-white" />
-                            </motion.div>
-                            <div>
-                              <h3 className="text-white text-lg font-bold drop-shadow-lg">{option.type}</h3>
-                              <p className="text-gray-300 text-xs">{option.subtitle}</p>
-                            </div>
-                          </div>
-
-                          {/* Description */}
-                          <p className="text-gray-200 text-xs leading-relaxed mb-1">
-                            {option.description.substring(0, 80)}...
-                          </p>
-                          
-                          {/* Key Features */}
-                          <div className="space-y-1">
-                            {option.features.slice(0, 1).map((feature, featureIndex) => {
-                              const FeatureIcon = feature.icon;
-                              return (
-                                <div 
-                                  key={featureIndex}
-                                  className="flex items-center text-gray-200 text-xs"
-                                >
-                                  <div className="w-3 h-3 bg-white/20 rounded flex items-center justify-center mr-2">
-                                    <FeatureIcon className="w-2 h-2 text-white" />
-                                  </div>
-                                  <span className="font-medium drop-shadow-sm">{feature.text}</span>
-                                </div>
-                              );
-                            })}
-                          </div>
+                          <IconComponent className="w-5 h-5 text-white" />
                         </motion.div>
-                      );
-                    })}
+                        <div>
+                          <h3 className="text-white text-2xl font-bold drop-shadow-lg">{currentOption.type}</h3>
+                          <p className="text-gray-300 text-sm">{currentOption.subtitle}</p>
+                        </div>
+                      </div>
+
+                      {/* Description */}
+                      <p className="text-gray-200 text-sm leading-relaxed mb-4">
+                        {currentOption.description}
+                      </p>
+                      
+                      {/* All Features */}
+                      <div className="space-y-2 mb-4">
+                        {currentOption.features.map((feature, featureIndex) => {
+                          const FeatureIcon = feature.icon;
+                          return (
+                            <motion.div 
+                              key={featureIndex}
+                              className="flex items-center text-gray-200 text-sm"
+                              initial={{ opacity: 0, x: -20 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: 0.6 + featureIndex * 0.2 }}
+                            >
+                              <div className="w-6 h-6 bg-white/20 rounded-lg flex items-center justify-center mr-3 backdrop-blur-sm border border-white/30">
+                                <FeatureIcon className="w-3 h-3 text-white" />
+                              </div>
+                              <span className="font-medium drop-shadow-sm">{feature.text}</span>
+                            </motion.div>
+                          );
+                        })}
+                      </div>
+                    </motion.div>
                     
                     {/* Action Button */}
                     <motion.div
