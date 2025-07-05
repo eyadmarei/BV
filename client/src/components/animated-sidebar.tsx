@@ -40,8 +40,8 @@ export default function AnimatedSidebar() {
       setActiveIndex((prev) => (prev + 1) % options.length);
       // Show overlay briefly when auto-switching
       setShowOverlay(true);
-      setTimeout(() => setShowOverlay(false), 2500);
-    }, 4000);
+      setTimeout(() => setShowOverlay(false), 6000);
+    }, 10000);
     
     return () => clearInterval(interval);
   }, []);
@@ -69,7 +69,7 @@ export default function AnimatedSidebar() {
                 setTimeout(() => {
                   console.log('Hiding overlay');
                   setShowOverlay(false);
-                }, 4000);
+                }, 8000);
               }}
               whileHover={{ scale: 1.05 }}
               animate={{ 
@@ -154,25 +154,25 @@ export default function AnimatedSidebar() {
             transition={{ duration: 0.3 }}
           >
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-amber-900/60 via-amber-800/40 to-amber-700/30 backdrop-blur-sm"
+              className="absolute inset-0 bg-gradient-to-r from-black/70 via-gray-800/50 to-gray-600/30 backdrop-blur-sm"
               initial={{ x: "-100%" }}
               animate={{ 
                 x: "0%",
                 transition: {
-                  duration: 2.5,
+                  duration: 4.0,
                   ease: "easeInOut"
                 }
               }}
               exit={{ x: "100%" }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 1.0 }}
             >
               <div className="h-full flex items-center justify-center px-8">
                 <motion.div
-                  className="bg-amber-900/70 backdrop-blur-md rounded-3xl p-6 border border-amber-600/50 shadow-2xl max-w-4xl w-full"
-                  initial={{ scale: 0.8, opacity: 0 }}
+                  className="bg-black/60 backdrop-blur-md rounded-2xl p-4 border border-white/20 shadow-2xl max-w-5xl w-full"
+                  initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  exit={{ scale: 0.8, opacity: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
+                  exit={{ scale: 0.9, opacity: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
                 >
                   {/* Horizontal Layout for Buy/Sell Options */}
                   <div className="flex items-center justify-between h-full">
@@ -190,39 +190,39 @@ export default function AnimatedSidebar() {
                           transition={{ delay: 0.4 + optionIndex * 0.2 }}
                         >
                           {/* Header */}
-                          <div className="flex items-center mb-2">
+                          <div className="flex items-center mb-1">
                             <motion.div 
-                              className="w-8 h-8 bg-amber-600/40 rounded-lg flex items-center justify-center mr-3 backdrop-blur-sm border border-amber-400/50"
+                              className="w-6 h-6 bg-white/20 rounded-lg flex items-center justify-center mr-2 backdrop-blur-sm border border-white/30"
                               animate={{ 
                                 rotate: isActive ? 360 : 0,
                                 scale: isActive ? 1.1 : 1
                               }}
                               transition={{ duration: 1, ease: "easeInOut" }}
                             >
-                              <OptionIcon className="w-4 h-4 text-amber-300" />
+                              <OptionIcon className="w-3 h-3 text-white" />
                             </motion.div>
                             <div>
-                              <h3 className="text-amber-200 text-lg font-bold drop-shadow-lg">{option.type}</h3>
-                              <p className="text-amber-100/90 text-xs">{option.subtitle}</p>
+                              <h3 className="text-white text-lg font-bold drop-shadow-lg">{option.type}</h3>
+                              <p className="text-gray-300 text-xs">{option.subtitle}</p>
                             </div>
                           </div>
 
                           {/* Description */}
-                          <p className="text-amber-100/90 text-xs leading-relaxed mb-2">
-                            {option.description.substring(0, 120)}...
+                          <p className="text-gray-200 text-xs leading-relaxed mb-1">
+                            {option.description.substring(0, 80)}...
                           </p>
                           
                           {/* Key Features */}
                           <div className="space-y-1">
-                            {option.features.slice(0, 2).map((feature, featureIndex) => {
+                            {option.features.slice(0, 1).map((feature, featureIndex) => {
                               const FeatureIcon = feature.icon;
                               return (
                                 <div 
                                   key={featureIndex}
-                                  className="flex items-center text-amber-100/90 text-xs"
+                                  className="flex items-center text-gray-200 text-xs"
                                 >
-                                  <div className="w-4 h-4 bg-amber-600/40 rounded flex items-center justify-center mr-2">
-                                    <FeatureIcon className="w-2 h-2 text-amber-300" />
+                                  <div className="w-3 h-3 bg-white/20 rounded flex items-center justify-center mr-2">
+                                    <FeatureIcon className="w-2 h-2 text-white" />
                                   </div>
                                   <span className="font-medium drop-shadow-sm">{feature.text}</span>
                                 </div>
@@ -235,13 +235,13 @@ export default function AnimatedSidebar() {
                     
                     {/* Action Button */}
                     <motion.div
-                      className="px-6 pointer-events-auto"
+                      className="px-4 pointer-events-auto"
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: 1.0 }}
                     >
                       <Link href="/contact">
-                        <Button className="bg-amber-500/90 text-amber-900 hover:bg-amber-400 font-bold backdrop-blur-sm border border-amber-400/50 shadow-lg px-6 py-3 rounded-2xl">
+                        <Button className="bg-white/90 text-black hover:bg-white font-bold backdrop-blur-sm border border-white/30 shadow-lg px-4 py-2 rounded-xl text-sm">
                           Get Started
                         </Button>
                       </Link>
