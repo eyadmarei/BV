@@ -18,8 +18,41 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
+      {/* Hero Video Section */}
+      <section className="pt-16 pb-12 bg-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            className="text-center mb-8"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1 className="text-5xl font-bold text-white mb-4">Dubai Real Estate Excellence</h1>
+            <p className="text-gray-300 text-xl">Experience luxury properties in the heart of Dubai</p>
+          </motion.div>
+          
+          <motion.div 
+            className="flex justify-center"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.3 }}
+          >
+            <video 
+              className="rounded-2xl shadow-2xl max-w-4xl w-full h-auto"
+              controls
+              autoPlay
+              muted
+              loop
+            >
+              <source src="/attached_assets/WhatsApp Video 2025-07-06 at 03.15.52_6b085703_1751757407515.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Dubai Properties Section with Animated Sidebar */}
-      <section className="pt-24 pb-20 bg-gray-50">
+      <section className="pt-20 pb-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-12"
