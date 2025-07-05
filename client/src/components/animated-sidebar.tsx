@@ -142,7 +142,7 @@ export default function AnimatedSidebar() {
       <AnimatePresence>
         {showOverlay && (
           <motion.div
-            className="fixed left-0 top-96 right-0 h-80 z-30 pointer-events-none overflow-hidden"
+            className="fixed left-0 top-20 right-0 h-64 z-30 pointer-events-none overflow-hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -161,56 +161,58 @@ export default function AnimatedSidebar() {
               exit={{ x: "100%" }}
               transition={{ duration: 1.0 }}
             >
-              <div className="h-full flex items-center justify-center px-8">
+              <div className="h-full flex items-center justify-center px-4">
                 <motion.div
-                  className="bg-black/60 backdrop-blur-md rounded-3xl p-12 border border-white/20 shadow-2xl max-w-6xl w-full h-full"
+                  className="bg-black/60 backdrop-blur-md rounded-2xl p-8 border border-white/20 shadow-2xl w-full h-full max-w-none"
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0.9, opacity: 0 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
                 >
-                  {/* Single Option Layout - Only Active Option */}
+                  {/* Horizontal Stretched Layout */}
                   <div className="flex items-center justify-between h-full">
                     <motion.div
-                      className="flex-1 px-6 h-full flex flex-col justify-center"
+                      className="flex-1 px-8 h-full flex items-center"
                       initial={{ opacity: 0, x: -30 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.4 }}
                     >
-                      {/* Header */}
-                      <div className="flex items-center mb-3">
+                      {/* Left Side - Header & Icon */}
+                      <div className="flex items-center mr-8">
                         <motion.div 
-                          className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center mr-4 backdrop-blur-sm border border-white/30"
+                          className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mr-6 backdrop-blur-sm border border-white/30"
                           animate={{ rotate: 360 }}
                           transition={{ duration: 2, ease: "easeInOut", repeat: Infinity }}
                         >
-                          <IconComponent className="w-5 h-5 text-white" />
+                          <IconComponent className="w-8 h-8 text-white" />
                         </motion.div>
                         <div>
-                          <h3 className="text-white text-2xl font-bold drop-shadow-lg">{currentOption.type}</h3>
-                          <p className="text-gray-300 text-sm">{currentOption.subtitle}</p>
+                          <h3 className="text-white text-3xl font-bold drop-shadow-lg">{currentOption.type}</h3>
+                          <p className="text-gray-300 text-lg">{currentOption.subtitle}</p>
                         </div>
                       </div>
 
-                      {/* Description */}
-                      <p className="text-gray-200 text-sm leading-relaxed mb-4">
-                        {currentOption.description}
-                      </p>
+                      {/* Center - Description */}
+                      <div className="flex-1 px-8">
+                        <p className="text-gray-200 text-lg leading-relaxed">
+                          {currentOption.description}
+                        </p>
+                      </div>
                       
-                      {/* All Features */}
-                      <div className="space-y-2 mb-4">
+                      {/* Right Side - Features */}
+                      <div className="flex flex-col space-y-3 min-w-96">
                         {currentOption.features.map((feature, featureIndex) => {
                           const FeatureIcon = feature.icon;
                           return (
                             <motion.div 
                               key={featureIndex}
-                              className="flex items-center text-gray-200 text-sm"
-                              initial={{ opacity: 0, x: -20 }}
+                              className="flex items-center text-gray-200 text-base"
+                              initial={{ opacity: 0, x: 20 }}
                               animate={{ opacity: 1, x: 0 }}
                               transition={{ delay: 0.6 + featureIndex * 0.2 }}
                             >
-                              <div className="w-6 h-6 bg-white/20 rounded-lg flex items-center justify-center mr-3 backdrop-blur-sm border border-white/30">
-                                <FeatureIcon className="w-3 h-3 text-white" />
+                              <div className="w-8 h-8 bg-white/20 rounded-xl flex items-center justify-center mr-4 backdrop-blur-sm border border-white/30">
+                                <FeatureIcon className="w-4 h-4 text-white" />
                               </div>
                               <span className="font-medium drop-shadow-sm">{feature.text}</span>
                             </motion.div>
