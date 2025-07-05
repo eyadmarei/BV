@@ -39,7 +39,6 @@ export default function AnimatedSidebar() {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % options.length);
       setShowOverlay(true);
-      setTimeout(() => setShowOverlay(false), 8000);
     }, 12000);
     
     return () => clearInterval(interval);
@@ -64,7 +63,6 @@ export default function AnimatedSidebar() {
                 console.log('Sidebar clicked, showing overlay');
                 setActiveIndex(index);
                 setShowOverlay(true);
-                setTimeout(() => setShowOverlay(false), 8000);
               }}
               whileHover={{ scale: 1.05 }}
               animate={{ 
@@ -170,7 +168,7 @@ export default function AnimatedSidebar() {
                   transition={{ duration: 0.8, delay: 0.3 }}
                 >
                   {/* Horizontal Stretched Layout */}
-                  <div className="flex items-center justify-between h-full">
+                  <div className="flex items-center justify-between h-full relative">
                     <motion.div
                       className="flex-1 px-8 h-full flex items-center"
                       initial={{ opacity: 0, x: -30 }}
@@ -214,19 +212,13 @@ export default function AnimatedSidebar() {
                       </div>
                     </motion.div>
                     
-                    {/* Action Button */}
-                    <motion.div
-                      className="px-4 pointer-events-auto"
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 1.0 }}
+                    {/* Hide Button */}
+                    <button
+                      className="absolute top-2 right-2 w-8 h-8 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center transition-colors pointer-events-auto"
+                      onClick={() => setShowOverlay(false)}
                     >
-                      <Link href="/contact">
-                        <Button className="bg-white/90 text-black hover:bg-white font-bold backdrop-blur-sm border border-white/30 shadow-lg px-4 py-2 rounded-xl text-sm">
-                          Get Started
-                        </Button>
-                      </Link>
-                    </motion.div>
+                      <span className="text-gray-800 font-bold text-lg">−</span>
+                    </button>
                   </div>
                 </motion.div>
               </div>
