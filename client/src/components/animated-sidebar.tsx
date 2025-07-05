@@ -35,16 +35,7 @@ export default function AnimatedSidebar() {
     }
   ];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % options.length);
-      // Show overlay briefly when auto-switching
-      setShowOverlay(true);
-      setTimeout(() => setShowOverlay(false), 6000);
-    }, 10000);
-    
-    return () => clearInterval(interval);
-  }, []);
+  // Removed auto-cycle - overlay only toggles on click
 
   const currentOption = options[activeIndex];
   const IconComponent = currentOption.icon;
@@ -62,14 +53,10 @@ export default function AnimatedSidebar() {
                 index === activeIndex ? 'shadow-2xl' : 'shadow-lg'
               }`}
               onClick={() => {
-                console.log('Sidebar clicked, showing overlay');
+                console.log('Sidebar clicked, toggling overlay');
                 setActiveIndex(index);
-                setShowOverlay(true);
-                // Hide overlay after animation completes
-                setTimeout(() => {
-                  console.log('Hiding overlay');
-                  setShowOverlay(false);
-                }, 8000);
+                // Toggle overlay - show if hidden, hide if shown
+                setShowOverlay(!showOverlay);
               }}
               whileHover={{ scale: 1.05 }}
               animate={{ 
@@ -147,7 +134,7 @@ export default function AnimatedSidebar() {
       <AnimatePresence>
         {showOverlay && (
           <motion.div
-            className="fixed left-0 top-24 right-0 h-32 z-30 pointer-events-none overflow-hidden"
+            className="fixed left-0 top-24 right-0 h-48 z-30 pointer-events-none overflow-hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -168,7 +155,7 @@ export default function AnimatedSidebar() {
             >
               <div className="h-full flex items-center justify-center px-8">
                 <motion.div
-                  className="bg-black/60 backdrop-blur-md rounded-2xl p-4 border border-white/20 shadow-2xl max-w-5xl w-full"
+                  className="bg-black/60 backdrop-blur-md rounded-2xl p-8 border border-white/20 shadow-2xl max-w-6xl w-full"
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0.9, opacity: 0 }}
