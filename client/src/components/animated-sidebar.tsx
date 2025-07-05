@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 
 export default function AnimatedSidebar() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [showOverlay, setShowOverlay] = useState(false);
+  const [showOverlay, setShowOverlay] = useState(true);
   
   const options = [
     {
@@ -36,6 +36,10 @@ export default function AnimatedSidebar() {
   ];
 
   useEffect(() => {
+    // Initial display for 8 seconds
+    setTimeout(() => setShowOverlay(false), 8000);
+    
+    // Then start cycling
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % options.length);
       setShowOverlay(true);
