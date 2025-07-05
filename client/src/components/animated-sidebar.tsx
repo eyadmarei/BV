@@ -134,7 +134,7 @@ export default function AnimatedSidebar() {
       <AnimatePresence>
         {showOverlay && (
           <motion.div
-            className="fixed left-0 top-24 right-0 h-48 z-30 pointer-events-none overflow-hidden"
+            className="fixed left-0 top-24 right-0 h-80 z-30 pointer-events-none overflow-hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -155,7 +155,7 @@ export default function AnimatedSidebar() {
             >
               <div className="h-full flex items-center justify-center px-8">
                 <motion.div
-                  className="bg-black/60 backdrop-blur-md rounded-2xl p-8 border border-white/20 shadow-2xl max-w-6xl w-full"
+                  className="bg-black/60 backdrop-blur-md rounded-3xl p-12 border border-white/20 shadow-2xl max-w-6xl w-full h-full"
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0.9, opacity: 0 }}
