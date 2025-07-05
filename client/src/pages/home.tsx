@@ -19,35 +19,46 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Video Section */}
-      <section className="pt-16 pb-12 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            className="text-center mb-8"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-5xl font-bold text-white mb-4">Dubai Real Estate Excellence</h1>
-            <p className="text-gray-300 text-xl">Experience luxury properties in the heart of Dubai</p>
-          </motion.div>
-          
-          <motion.div 
-            className="flex justify-center"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.3 }}
-          >
-            <video 
-              className="rounded-2xl shadow-2xl max-w-4xl w-full h-auto"
-              controls
-              autoPlay
-              muted
-              loop
+      <section className="relative h-screen overflow-hidden">
+        {/* Background Video */}
+        <video 
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
+          <source src="/attached_assets/WhatsApp Video 2025-07-06 at 03.15.52_6b085703_1751757407515.mp4" type="video/mp4" />
+        </video>
+        
+        {/* Dark Overlay */}
+        <div className="absolute top-0 left-0 w-full h-full bg-black/40"></div>
+        
+        {/* Content */}
+        <div className="relative z-10 flex items-center justify-center h-full">
+          <div className="text-center px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.5 }}
             >
-              <source src="/attached_assets/WhatsApp Video 2025-07-06 at 03.15.52_6b085703_1751757407515.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </motion.div>
+              <h1 className="text-6xl md:text-7xl font-bold text-white mb-6 drop-shadow-lg">
+                Dubai Real Estate Excellence
+              </h1>
+              <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto drop-shadow-md">
+                Experience luxury properties in the heart of Dubai
+              </p>
+              <motion.button
+                className="bg-white text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors shadow-lg"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 1 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                Explore Properties
+              </motion.button>
+            </motion.div>
+          </div>
         </div>
       </section>
 
