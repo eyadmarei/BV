@@ -4,6 +4,7 @@ import PropertyCard from "@/components/property-card";
 import ServiceCard from "@/components/service-card";
 import AnimatedSidebar from "@/components/animated-sidebar";
 import type { Property, Service } from "@shared/schema";
+import heroVideo from "@assets/WhatsApp Video 2025-07-06 at 03.15.52_6b085703_1751757407515.mp4";
 
 export default function Home() {
   const { data: properties, isLoading: propertiesLoading } = useQuery<Property[]>({
@@ -19,7 +20,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Video Section */}
-      <section className="relative h-screen overflow-hidden">
+      <section className="relative h-screen overflow-hidden bg-black">
         {/* Background Video */}
         <video 
           className="absolute top-0 left-0 w-full h-full object-cover"
@@ -27,8 +28,12 @@ export default function Home() {
           muted
           loop
           playsInline
+          onError={(e) => console.error('Video error:', e)}
+          onLoadStart={() => console.log('Video loading started')}
+          onCanPlay={() => console.log('Video can play')}
         >
-          <source src="/attached_assets/WhatsApp Video 2025-07-06 at 03.15.52_6b085703_1751757407515.mp4" type="video/mp4" />
+          <source src="/hero-video.mp4" type="video/mp4" />
+          <source src={heroVideo} type="video/mp4" />
         </video>
         
         {/* Dark Overlay */}
