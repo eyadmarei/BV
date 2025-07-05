@@ -36,32 +36,13 @@ export default function AnimatedSidebar() {
   ];
 
   useEffect(() => {
-    let timeouts: NodeJS.Timeout[] = [];
-    
-    const startCycle = () => {
-      // Show overlay
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % options.length);
       setShowOverlay(true);
-      
-      // Hide after 8 seconds
-      const hideTimeout = setTimeout(() => {
-        setShowOverlay(false);
-      }, 8000);
-      timeouts.push(hideTimeout);
-      
-      // Switch to next option and show again after 4 more seconds (total 12)
-      const nextTimeout = setTimeout(() => {
-        setActiveIndex((prev) => (prev + 1) % options.length);
-        startCycle(); // Recursive call to continue cycle
-      }, 12000);
-      timeouts.push(nextTimeout);
-    };
+      setTimeout(() => setShowOverlay(false), 8000);
+    }, 12000);
     
-    // Start the cycle
-    startCycle();
-    
-    return () => {
-      timeouts.forEach(timeout => clearTimeout(timeout));
-    };
+    return () => clearInterval(interval);
   }, []);
 
   const currentOption = options[activeIndex];
@@ -161,14 +142,14 @@ export default function AnimatedSidebar() {
       <AnimatePresence>
         {showOverlay && (
           <motion.div
-            className="absolute left-24 top-full right-0 h-80 z-30 pointer-events-none overflow-hidden"
+            className="fixed left-0 top-96 right-0 h-80 z-30 pointer-events-none overflow-hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-black/20 via-gray-800/15 to-gray-600/10 backdrop-blur-sm"
+              className="absolute inset-0 bg-gradient-to-r from-black/70 via-gray-800/50 to-gray-600/30 backdrop-blur-sm"
               initial={{ x: "-100%" }}
               animate={{ 
                 x: "0%",
@@ -182,7 +163,7 @@ export default function AnimatedSidebar() {
             >
               <div className="h-full flex items-center justify-center px-8">
                 <motion.div
-                  className="bg-black/30 backdrop-blur-md rounded-3xl p-12 border border-white/10 shadow-2xl max-w-6xl w-full h-full"
+                  className="bg-black/60 backdrop-blur-md rounded-3xl p-12 border border-white/20 shadow-2xl max-w-6xl w-full h-full"
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0.9, opacity: 0 }}
