@@ -143,18 +143,18 @@ export default function AnimatedSidebar() {
         </motion.div>
       </div>
 
-      {/* Full Section Overlay */}
+      {/* Horizontal Overlay Over Dubai Properties Header */}
       <AnimatePresence>
         {showOverlay && (
           <motion.div
-            className="absolute left-24 top-0 w-full h-full z-30 pointer-events-none overflow-hidden"
+            className="fixed left-0 top-24 right-0 h-32 z-30 pointer-events-none overflow-hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-amber-900/50 via-amber-800/30 to-transparent backdrop-blur-sm"
+              className="absolute inset-0 bg-gradient-to-r from-amber-900/60 via-amber-800/40 to-amber-700/30 backdrop-blur-sm"
               initial={{ x: "-100%" }}
               animate={{ 
                 x: "0%",
@@ -166,78 +166,87 @@ export default function AnimatedSidebar() {
               exit={{ x: "100%" }}
               transition={{ duration: 0.5 }}
             >
-              <div className="h-full flex items-center justify-start pl-8 max-w-lg">
+              <div className="h-full flex items-center justify-center px-8">
                 <motion.div
-                  className="bg-amber-900/60 backdrop-blur-md rounded-3xl p-6 border border-amber-600/40 shadow-2xl"
+                  className="bg-amber-900/70 backdrop-blur-md rounded-3xl p-6 border border-amber-600/50 shadow-2xl max-w-4xl w-full"
                   initial={{ scale: 0.8, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0.8, opacity: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
                 >
-                  {/* Header */}
-                  <motion.div 
-                    className="flex items-center mb-4"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4 }}
-                  >
-                    <motion.div 
-                      className="w-12 h-12 bg-amber-600/40 rounded-xl flex items-center justify-center mr-3 backdrop-blur-sm border border-amber-400/50"
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 2, ease: "easeInOut", repeat: Infinity }}
-                    >
-                      <IconComponent className="w-6 h-6 text-amber-300" />
-                    </motion.div>
-                    <div>
-                      <h2 className="text-amber-200 text-2xl font-bold drop-shadow-lg">{currentOption.type}</h2>
-                      <p className="text-amber-100/90 text-xs">{currentOption.subtitle}</p>
-                    </div>
-                  </motion.div>
-
-                  {/* Description */}
-                  <motion.p 
-                    className="text-amber-100/90 text-xs leading-relaxed mb-4 drop-shadow-sm"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.6 }}
-                  >
-                    {currentOption.description}
-                  </motion.p>
-                  
-                  {/* Features */}
-                  <div className="space-y-2 mb-4">
-                    {currentOption.features.map((feature, featureIndex) => {
-                      const FeatureIcon = feature.icon;
+                  {/* Horizontal Layout for Buy/Sell Options */}
+                  <div className="flex items-center justify-between h-full">
+                    {options.map((option, optionIndex) => {
+                      const OptionIcon = option.icon;
+                      const isActive = optionIndex === activeIndex;
                       return (
-                        <motion.div 
-                          key={featureIndex}
-                          className="flex items-center text-amber-100/90 text-xs"
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.8 + featureIndex * 0.1 }}
+                        <motion.div
+                          key={option.type}
+                          className={`flex-1 px-6 h-full flex flex-col justify-center ${
+                            isActive ? 'opacity-100' : 'opacity-60'
+                          }`}
+                          initial={{ opacity: 0, x: -30 }}
+                          animate={{ opacity: isActive ? 1 : 0.6, x: 0 }}
+                          transition={{ delay: 0.4 + optionIndex * 0.2 }}
                         >
-                          <div className="w-6 h-6 bg-amber-600/40 rounded-lg flex items-center justify-center mr-2 backdrop-blur-sm border border-amber-400/50">
-                            <FeatureIcon className="w-3 h-3 text-amber-300" />
+                          {/* Header */}
+                          <div className="flex items-center mb-2">
+                            <motion.div 
+                              className="w-8 h-8 bg-amber-600/40 rounded-lg flex items-center justify-center mr-3 backdrop-blur-sm border border-amber-400/50"
+                              animate={{ 
+                                rotate: isActive ? 360 : 0,
+                                scale: isActive ? 1.1 : 1
+                              }}
+                              transition={{ duration: 1, ease: "easeInOut" }}
+                            >
+                              <OptionIcon className="w-4 h-4 text-amber-300" />
+                            </motion.div>
+                            <div>
+                              <h3 className="text-amber-200 text-lg font-bold drop-shadow-lg">{option.type}</h3>
+                              <p className="text-amber-100/90 text-xs">{option.subtitle}</p>
+                            </div>
                           </div>
-                          <span className="font-medium drop-shadow-sm">{feature.text}</span>
+
+                          {/* Description */}
+                          <p className="text-amber-100/90 text-xs leading-relaxed mb-2">
+                            {option.description.substring(0, 120)}...
+                          </p>
+                          
+                          {/* Key Features */}
+                          <div className="space-y-1">
+                            {option.features.slice(0, 2).map((feature, featureIndex) => {
+                              const FeatureIcon = feature.icon;
+                              return (
+                                <div 
+                                  key={featureIndex}
+                                  className="flex items-center text-amber-100/90 text-xs"
+                                >
+                                  <div className="w-4 h-4 bg-amber-600/40 rounded flex items-center justify-center mr-2">
+                                    <FeatureIcon className="w-2 h-2 text-amber-300" />
+                                  </div>
+                                  <span className="font-medium drop-shadow-sm">{feature.text}</span>
+                                </div>
+                              );
+                            })}
+                          </div>
                         </motion.div>
                       );
                     })}
+                    
+                    {/* Action Button */}
+                    <motion.div
+                      className="px-6 pointer-events-auto"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 1.0 }}
+                    >
+                      <Link href="/contact">
+                        <Button className="bg-amber-500/90 text-amber-900 hover:bg-amber-400 font-bold backdrop-blur-sm border border-amber-400/50 shadow-lg px-6 py-3 rounded-2xl">
+                          Get Started
+                        </Button>
+                      </Link>
+                    </motion.div>
                   </div>
-                  
-                  {/* Action Button */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 1.2 }}
-                    className="pointer-events-auto"
-                  >
-                    <Link href="/contact">
-                      <Button className="w-full bg-amber-500/80 text-amber-900 hover:bg-amber-400/90 font-semibold backdrop-blur-sm border border-amber-400/50 shadow-lg text-xs py-2">
-                        Start {currentOption.type} Process
-                      </Button>
-                    </Link>
-                  </motion.div>
                 </motion.div>
               </div>
             </motion.div>
