@@ -60,7 +60,7 @@ export default function PropertyCard({ property, delay = 0, onViewCollection }: 
           </p>
           <Link href={`/properties/${property.type}`}>
             <Button 
-              className="bg-gold text-black hover:bg-yellow-500 font-semibold"
+              className="bg-black text-white hover:bg-gray-800 font-semibold"
               onClick={onViewCollection}
             >
               View Collection
