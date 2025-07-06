@@ -22,7 +22,7 @@ export default function Home() {
       <section className="relative h-screen overflow-hidden bg-black">
         {/* Background Video */}
         <video 
-          className="absolute top-24 left-0 w-full h-full object-cover"
+          className="absolute top-0 left-0 w-full h-[calc(100%+6rem)] object-cover transform -translate-y-24"
           autoPlay
           muted
           loop
