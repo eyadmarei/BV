@@ -140,7 +140,7 @@ export default function AnimatedSidebar() {
       <AnimatePresence>
         {showOverlay && (
           <motion.div
-            className="fixed left-0 top-[100vh] right-0 h-48 z-30 pointer-events-none overflow-hidden"
+            className="fixed left-0 top-[calc(100vh-12rem)] right-0 h-48 z-30 pointer-events-none overflow-hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
