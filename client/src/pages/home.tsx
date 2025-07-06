@@ -204,9 +204,9 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="bg-white p-8 rounded-2xl shadow-sm h-fit sticky top-8">
-                <h2 className="text-4xl font-bold text-black mb-4">Our Services</h2>
-                <p className="text-gray-600 text-lg">Complete property investment support from purchase to management</p>
+              <div className="bg-white p-6 rounded-2xl shadow-sm h-fit sticky top-8">
+                <h2 className="text-2xl font-bold text-black mb-2">Our Services</h2>
+                <p className="text-gray-600 text-sm">Complete property investment support from purchase to management</p>
               </div>
             </motion.div>
             
