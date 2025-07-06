@@ -113,6 +113,10 @@ Preferred communication style: Simple, everyday language.
 - July 04, 2025: Added dedicated Buy/Sell section with vertical navigation and detailed service offerings
 - July 04, 2025: Updated services to focus on property investment: Property Search & Legal Advice, Business Setup & Residency, Bank Account Opening, Property Management, Investor Concierge
 - July 04, 2025: Fixed navigation warnings by replacing nested anchor tags with span elements
+- July 06, 2025: Added hero video background with overlay boxes for property types and BUY/SELL services
+- July 06, 2025: Created dedicated Buy & Sell page with detailed property information and services
+- July 06, 2025: Repositioned video to ensure full text visibility, removed animated sidebar component
+- July 06, 2025: Final layout: Hero video with transparent overlay boxes + separate detailed Buy/Sell page
 
 ## User Preferences
 

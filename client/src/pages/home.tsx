@@ -2,7 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import PropertyCard from "@/components/property-card";
 import ServiceCard from "@/components/service-card";
-import AnimatedSidebar from "@/components/animated-sidebar";
 import type { Property, Service } from "@shared/schema";
 import heroVideo from "@assets/WhatsApp Video 2025-07-06 at 03.15.52_6b085703_1751757407515.mp4";
 
@@ -191,32 +190,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Dubai Properties Section with Animated Sidebar */}
+      {/* Dubai Properties Section */}
       <section className="pt-20 pb-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="flex gap-8 items-start">
-            {/* Animated Buy/Sell Sidebar */}
-            <AnimatedSidebar />
-            
-            {/* Property Cards */}
-            <div className="flex-1">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {propertiesLoading ? (
-                  Array.from({ length: 3 }).map((_, i) => (
-                    <div key={i} className="h-80 bg-gray-200 rounded-2xl animate-pulse"></div>
-                  ))
-                ) : (
-                  featuredProperties.map((property, index) => (
-                    <PropertyCard 
-                      key={property.id} 
-                      property={property} 
-                      delay={index * 0.2}
-                    />
-                  ))
-                )}
-              </div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {propertiesLoading ? (
+              Array.from({ length: 3 }).map((_, i) => (
+                <div key={i} className="h-80 bg-gray-200 rounded-2xl animate-pulse"></div>
+              ))
+            ) : (
+              featuredProperties.map((property, index) => (
+                <PropertyCard 
+                  key={property.id} 
+                  property={property} 
+                  delay={index * 0.2}
+                />
+              ))
+            )}
           </div>
         </div>
       </section>
