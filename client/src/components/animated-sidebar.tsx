@@ -140,7 +140,7 @@ export default function AnimatedSidebar() {
       <AnimatePresence>
         {showOverlay && (
           <motion.div
-            className="fixed left-0 top-20 right-0 h-48 z-30 pointer-events-none overflow-hidden"
+            className="fixed left-0 top-[100vh] right-0 h-48 z-30 pointer-events-none overflow-hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -161,7 +161,7 @@ export default function AnimatedSidebar() {
             >
               <div className="h-full flex items-center justify-center px-4">
                 <motion.div
-                  className="bg-white/90 backdrop-blur-md rounded-2xl p-6 border border-gray-200 shadow-2xl w-full h-full max-w-none"
+                  className="bg-white/30 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-xl w-full h-full max-w-none"
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0.9, opacity: 0 }}
@@ -182,11 +182,11 @@ export default function AnimatedSidebar() {
                           animate={{ rotate: 360 }}
                           transition={{ duration: 2, ease: "easeInOut", repeat: Infinity }}
                         >
-                          <IconComponent className="w-6 h-6 text-gray-900" />
+                          <IconComponent className="w-6 h-6 text-white" />
                         </motion.div>
                         <div>
-                          <h3 className="text-gray-900 text-2xl font-bold">{currentOption.type}</h3>
-                          <p className="text-gray-700 text-sm">{currentOption.subtitle}</p>
+                          <h3 className="text-white text-2xl font-bold drop-shadow-lg">{currentOption.type}</h3>
+                          <p className="text-white/90 text-sm drop-shadow-md">{currentOption.subtitle}</p>
                         </div>
                       </div>
                       
@@ -197,13 +197,13 @@ export default function AnimatedSidebar() {
                           return (
                             <motion.div 
                               key={featureIndex}
-                              className="flex items-center text-gray-900 text-sm"
+                              className="flex items-center text-white text-sm"
                               initial={{ opacity: 0, x: 20 }}
                               animate={{ opacity: 1, x: 0 }}
                               transition={{ delay: 0.6 + featureIndex * 0.1 }}
                             >
-                              <div className="w-6 h-6 bg-black/10 rounded-lg flex items-center justify-center mr-2 border border-gray-300">
-                                <FeatureIcon className="w-3 h-3 text-gray-900" />
+                              <div className="w-6 h-6 bg-white/20 rounded-lg flex items-center justify-center mr-2 border border-white/30">
+                                <FeatureIcon className="w-3 h-3 text-white" />
                               </div>
                               <span className="font-medium">{feature.text}</span>
                             </motion.div>

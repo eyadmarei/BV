@@ -70,15 +70,6 @@ export default function Home() {
       {/* Dubai Properties Section with Animated Sidebar */}
       <section className="pt-20 pb-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl font-bold text-black mb-4">Dubai Properties</h2>
-            <p className="text-gray-600 text-lg">Exceptional properties across diverse markets</p>
-          </motion.div>
           
           <div className="flex gap-8 items-start">
             {/* Animated Buy/Sell Sidebar */}
