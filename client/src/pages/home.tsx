@@ -114,75 +114,47 @@ export default function Home() {
               
               {/* BUY/SELL Overlay below property types */}
               <motion.div
-                className="mt-8 flex gap-6 justify-center max-w-4xl mx-auto"
+                className="mt-8 flex flex-col gap-4 justify-center max-w-2xl mx-auto"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 2 }}
               >
                 {/* BUY Box */}
-                <div className="bg-white/30 backdrop-blur-sm rounded-xl p-6 border border-white/20 shadow-xl w-72">
-                  <div className="flex items-center mb-4">
-                    <div className="w-10 h-10 bg-black/10 rounded-lg flex items-center justify-center mr-3">
-                      <svg className="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6M7 13l-1.5 6m0 0h9M7 19h9" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h3 className="text-black text-lg font-bold">BUY</h3>
-                      <p className="text-gray-600 text-sm">Find Your Dream Property</p>
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="flex items-center text-black text-sm">
-                      <div className="w-4 h-4 bg-black/10 rounded mr-2 flex items-center justify-center">
-                        <svg className="w-2 h-2" fill="currentColor" viewBox="0 0 8 8">
-                          <circle cx="4" cy="4" r="3"/>
+                <div className="bg-white/30 backdrop-blur-sm rounded-xl p-4 border border-white/20 shadow-xl w-full h-16">
+                  <div className="flex items-center justify-between h-full">
+                    <div className="flex items-center">
+                      <div className="w-8 h-8 bg-black/10 rounded-lg flex items-center justify-center mr-3">
+                        <svg className="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6M7 13l-1.5 6m0 0h9M7 19h9" />
                         </svg>
                       </div>
-                      <span>Luxury 
-                        Villas
-                        Exclusive luxury villas with premium amenities and breathtaking views in prestigious locations. & Apartments</span>
-                    </div>
-                    <div className="flex items-center text-black text-sm">
-                      <div className="w-4 h-4 bg-black/10 rounded mr-2 flex items-center justify-center">
-                        <svg className="w-2 h-2" fill="currentColor" viewBox="0 0 8 8">
-                          <circle cx="4" cy="4" r="3"/>
-                        </svg>
+                      <div>
+                        <h3 className="text-black text-lg font-bold">BUY</h3>
+                        <p className="text-gray-600 text-xs">Find Your Dream Property</p>
                       </div>
-                      <span>Legal Support & Documentation</span>
+                    </div>
+                    <div className="text-black text-xs">
+                      <span>Luxury Villas & Apartments • Legal Support</span>
                     </div>
                   </div>
                 </div>
 
                 {/* SELL Box */}
-                <div className="bg-white/30 backdrop-blur-sm rounded-xl p-6 border border-white/20 shadow-xl w-72">
-                  <div className="flex items-center mb-4">
-                    <div className="w-10 h-10 bg-black/10 rounded-lg flex items-center justify-center mr-3">
-                      <svg className="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h3 className="text-black text-lg font-bold">SELL</h3>
-                      <p className="text-gray-600 text-sm">Maximize Your Property Value</p>
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="flex items-center text-black text-sm">
-                      <div className="w-4 h-4 bg-black/10 rounded mr-2 flex items-center justify-center">
-                        <svg className="w-2 h-2" fill="currentColor" viewBox="0 0 8 8">
-                          <circle cx="4" cy="4" r="3"/>
+                <div className="bg-white/30 backdrop-blur-sm rounded-xl p-4 border border-white/20 shadow-xl w-full h-16">
+                  <div className="flex items-center justify-between h-full">
+                    <div className="flex items-center">
+                      <div className="w-8 h-8 bg-black/10 rounded-lg flex items-center justify-center mr-3">
+                        <svg className="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
                         </svg>
                       </div>
-                      <span>Market Analysis & Pricing</span>
-                    </div>
-                    <div className="flex items-center text-black text-sm">
-                      <div className="w-4 h-4 bg-black/10 rounded mr-2 flex items-center justify-center">
-                        <svg className="w-2 h-2" fill="currentColor" viewBox="0 0 8 8">
-                          <circle cx="4" cy="4" r="3"/>
-                        </svg>
+                      <div>
+                        <h3 className="text-black text-lg font-bold">SELL</h3>
+                        <p className="text-gray-600 text-xs">Maximize Your Property Value</p>
                       </div>
-                      <span>Professional Marketing</span>
+                    </div>
+                    <div className="text-black text-xs">
+                      <span>Market Analysis • Professional Marketing</span>
                     </div>
                   </div>
                 </div>
