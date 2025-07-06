@@ -133,8 +133,8 @@ export default function Home() {
                         <p className="text-gray-600 text-xs">Find Your Dream Property</p>
                       </div>
                     </div>
-                    <div className="text-black text-xs">
-                      <span>Luxury Villas & Apartments • Legal Support</span>
+                    <div className="text-white text-sm font-bold">
+                      <span>Price Matching • Free Consultation • Property Tours • Legal Support</span>
                     </div>
                   </div>
                 </div>
@@ -153,8 +153,8 @@ export default function Home() {
                         <p className="text-gray-600 text-xs">Maximize Your Property Value</p>
                       </div>
                     </div>
-                    <div className="text-black text-xs">
-                      <span>Market Analysis • Professional Marketing</span>
+                    <div className="text-white text-sm font-bold">
+                      <span>Market Analysis • Professional Marketing • Property Valuation • Expert Consultation</span>
                     </div>
                   </div>
                 </div>
