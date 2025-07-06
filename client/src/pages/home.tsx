@@ -62,6 +62,130 @@ export default function Home() {
               >
                 Explore Properties
               </motion.button>
+              
+              {/* Property Type Boxes with View Collection Buttons */}
+              <motion.div
+                className="mt-8 flex gap-4 justify-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 1.5 }}
+              >
+                {/* Villas */}
+                <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4 border border-white/10 shadow-lg w-36">
+                  <div className="text-center">
+                    <svg className="w-6 h-6 text-white mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>
+                    <h4 className="text-white text-sm font-bold">Villas</h4>
+                    <p className="text-white/80 text-xs mb-3">Luxury Living</p>
+                    <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
+                      View Collection
+                    </button>
+                  </div>
+                </div>
+
+                {/* Townhouses */}
+                <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4 border border-white/10 shadow-lg w-36">
+                  <div className="text-center">
+                    <svg className="w-6 h-6 text-white mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    </svg>
+                    <h4 className="text-white text-sm font-bold">Townhouses</h4>
+                    <p className="text-white/80 text-xs mb-3">Modern Style</p>
+                    <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
+                      View Collection
+                    </button>
+                  </div>
+                </div>
+
+                {/* Apartments */}
+                <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4 border border-white/10 shadow-lg w-36">
+                  <div className="text-center">
+                    <svg className="w-6 h-6 text-white mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
+                    </svg>
+                    <h4 className="text-white text-sm font-bold">Apartments</h4>
+                    <p className="text-white/80 text-xs mb-3">City Views</p>
+                    <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
+                      View Collection
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
+              
+              {/* BUY/SELL Overlay below property types */}
+              <motion.div
+                className="mt-8 flex gap-6 justify-center max-w-4xl mx-auto"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 2 }}
+              >
+                {/* BUY Box */}
+                <div className="bg-white/30 backdrop-blur-sm rounded-xl p-6 border border-white/20 shadow-xl w-72">
+                  <div className="flex items-center mb-4">
+                    <div className="w-10 h-10 bg-black/10 rounded-lg flex items-center justify-center mr-3">
+                      <svg className="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6M7 13l-1.5 6m0 0h9M7 19h9" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-black text-lg font-bold">BUY</h3>
+                      <p className="text-gray-600 text-sm">Find Your Dream Property</p>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex items-center text-black text-sm">
+                      <div className="w-4 h-4 bg-black/10 rounded mr-2 flex items-center justify-center">
+                        <svg className="w-2 h-2" fill="currentColor" viewBox="0 0 8 8">
+                          <circle cx="4" cy="4" r="3"/>
+                        </svg>
+                      </div>
+                      <span>Luxury Villas & Apartments</span>
+                    </div>
+                    <div className="flex items-center text-black text-sm">
+                      <div className="w-4 h-4 bg-black/10 rounded mr-2 flex items-center justify-center">
+                        <svg className="w-2 h-2" fill="currentColor" viewBox="0 0 8 8">
+                          <circle cx="4" cy="4" r="3"/>
+                        </svg>
+                      </div>
+                      <span>Legal Support & Documentation</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* SELL Box */}
+                <div className="bg-white/30 backdrop-blur-sm rounded-xl p-6 border border-white/20 shadow-xl w-72">
+                  <div className="flex items-center mb-4">
+                    <div className="w-10 h-10 bg-black/10 rounded-lg flex items-center justify-center mr-3">
+                      <svg className="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-black text-lg font-bold">SELL</h3>
+                      <p className="text-gray-600 text-sm">Maximize Your Property Value</p>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex items-center text-black text-sm">
+                      <div className="w-4 h-4 bg-black/10 rounded mr-2 flex items-center justify-center">
+                        <svg className="w-2 h-2" fill="currentColor" viewBox="0 0 8 8">
+                          <circle cx="4" cy="4" r="3"/>
+                        </svg>
+                      </div>
+                      <span>Market Analysis & Pricing</span>
+                    </div>
+                    <div className="flex items-center text-black text-sm">
+                      <div className="w-4 h-4 bg-black/10 rounded mr-2 flex items-center justify-center">
+                        <svg className="w-2 h-2" fill="currentColor" viewBox="0 0 8 8">
+                          <circle cx="4" cy="4" r="3"/>
+                        </svg>
+                      </div>
+                      <span>Professional Marketing</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
