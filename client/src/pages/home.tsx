@@ -22,7 +22,7 @@ export default function Home() {
       <section className="relative h-screen overflow-hidden bg-black">
         {/* Background Video */}
         <video 
-          className="absolute top-16 left-0 w-full h-full object-cover"
+          className="absolute top-24 left-0 w-full h-full object-cover"
           autoPlay
           muted
           loop
@@ -139,7 +139,9 @@ export default function Home() {
                           <circle cx="4" cy="4" r="3"/>
                         </svg>
                       </div>
-                      <span>Luxury Villas & Apartments</span>
+                      <span>Luxury 
+                        Villas
+                        Exclusive luxury villas with premium amenities and breathtaking views in prestigious locations. & Apartments</span>
                     </div>
                     <div className="flex items-center text-black text-sm">
                       <div className="w-4 h-4 bg-black/10 rounded mr-2 flex items-center justify-center">
@@ -190,26 +192,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Dubai Properties Section */}
-      <section className="pt-20 pb-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {propertiesLoading ? (
-              Array.from({ length: 3 }).map((_, i) => (
-                <div key={i} className="h-80 bg-gray-200 rounded-2xl animate-pulse"></div>
-              ))
-            ) : (
-              featuredProperties.map((property, index) => (
-                <PropertyCard 
-                  key={property.id} 
-                  property={property} 
-                  delay={index * 0.2}
-                />
-              ))
-            )}
-          </div>
-        </div>
-      </section>
 
       {/* Our Services */}
       <section className="py-20 bg-gray-50">
