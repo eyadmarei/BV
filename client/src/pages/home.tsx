@@ -194,25 +194,25 @@ export default function Home() {
 
 
       {/* Our Services */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-8 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-12">
+          <div className="flex flex-col lg:flex-row gap-8">
             {/* Side Title Box */}
             <motion.div 
-              className="lg:w-1/3"
+              className="lg:w-1/4"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="bg-white p-6 rounded-2xl shadow-sm h-fit sticky top-8">
-                <h2 className="text-2xl font-bold text-black mb-2">Our Services</h2>
-                <p className="text-gray-600 text-sm">Complete property investment support from purchase to management</p>
+              <div className="bg-white p-4 rounded-xl shadow-sm h-fit sticky top-8">
+                <h2 className="text-xl font-bold text-black mb-1">Our Services</h2>
+                <p className="text-gray-600 text-xs">Complete property investment support from purchase to management</p>
               </div>
             </motion.div>
             
             {/* Services Grid */}
-            <div className="lg:w-2/3">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="lg:w-3/4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {servicesLoading ? (
               Array.from({ length: 3 }).map((_, i) => (
                 <div key={i} className="h-96 bg-gray-200 rounded-2xl animate-pulse"></div>

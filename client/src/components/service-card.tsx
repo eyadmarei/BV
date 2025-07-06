@@ -21,28 +21,28 @@ export default function ServiceCard({ service, delay = 0 }: ServiceCardProps) {
 
   return (
     <motion.div
-      className="service-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl"
+      className="service-card bg-white p-4 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay }}
-      whileHover={{ y: -5 }}
+      whileHover={{ y: -3 }}
     >
-      <div className="w-16 h-16 bg-gold/10 rounded-lg flex items-center justify-center mb-6">
-        <IconComponent className="w-8 h-8 gold" />
+      <div className="w-12 h-12 bg-gold/10 rounded-lg flex items-center justify-center mb-3">
+        <IconComponent className="w-6 h-6 gold" />
       </div>
-      <h3 className="text-xl font-bold text-black mb-4">{service.title}</h3>
-      <p className="text-gray-600 mb-6 leading-relaxed">
+      <h3 className="text-lg font-bold text-black mb-2">{service.title}</h3>
+      <p className="text-gray-600 mb-3 leading-relaxed text-sm">
         {service.description}
       </p>
-      <ul className="space-y-2 mb-6 text-sm text-gray-600">
+      <ul className="space-y-1 mb-4 text-xs text-gray-600">
         {service.features?.map((feature, index) => (
           <li key={index} className="flex items-center space-x-2">
-            <Check className="w-4 h-4 gold" />
+            <Check className="w-3 h-3 gold" />
             <span>{feature}</span>
           </li>
         ))}
       </ul>
-      <Button className="w-full bg-gray-900 text-white hover:bg-black font-semibold">
+      <Button className="w-full bg-gray-900 text-white hover:bg-black font-semibold text-sm py-2">
         Learn More
       </Button>
     </motion.div>
