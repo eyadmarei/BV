@@ -136,68 +136,7 @@ export default function AnimatedSidebar() {
         </motion.div>
       </div>
 
-      {/* Static Overlay */}
-      <AnimatePresence>
-        {showOverlay && (
-          <motion.div
-            className="fixed left-0 top-[calc(100vh-12rem)] right-0 h-48 z-30 pointer-events-none overflow-hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="h-full flex items-center justify-center px-4">
-              <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-xl w-full h-full">
-                {/* Content Layout */}
-                <div className="flex items-center justify-between h-full relative">
-                  <div className="flex-1 px-8 h-full flex items-center">
-                    {/* Left Side - Header & Icon */}
-                    <div className="flex items-center mr-6">
-                      <motion.div 
-                        className="w-12 h-12 bg-black/10 rounded-xl flex items-center justify-center mr-4 border border-gray-300"
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 2, ease: "easeInOut", repeat: Infinity }}
-                      >
-                        <IconComponent className="w-6 h-6 text-black" />
-                      </motion.div>
-                      <div>
-                        <h3 className="text-black text-2xl font-bold">{currentOption.type}</h3>
-                        <p className="text-gray-600 text-sm">{currentOption.subtitle}</p>
-                      </div>
-                    </div>
-                    
-                    {/* Right Side - Features */}
-                    <div className="flex flex-wrap gap-6 items-center">
-                      {currentOption.features.slice(0, 3).map((feature, featureIndex) => {
-                        const FeatureIcon = feature.icon;
-                        return (
-                          <div 
-                            key={featureIndex}
-                            className="flex items-center text-black text-sm"
-                          >
-                            <div className="w-6 h-6 bg-black/10 rounded-lg flex items-center justify-center mr-2 border border-gray-300">
-                              <FeatureIcon className="w-3 h-3 text-black" />
-                            </div>
-                            <span className="font-medium">{feature.text}</span>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                  
-                  {/* Hide Button */}
-                  <button
-                    className="absolute top-2 right-2 w-8 h-8 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center transition-colors pointer-events-auto"
-                    onClick={() => setShowOverlay(false)}
-                  >
-                    <span className="text-gray-800 font-bold text-lg">−</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+
     </div>
   );
 }
