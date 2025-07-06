@@ -71,7 +71,7 @@ export default function Home() {
                 transition={{ duration: 1, delay: 1.5 }}
               >
                 {/* BUY Box */}
-                <div className="bg-white/95 backdrop-blur-sm rounded-xl p-6 border border-white/20 shadow-xl w-72">
+                <div className="bg-white/30 backdrop-blur-sm rounded-xl p-6 border border-white/20 shadow-xl w-72">
                   <div className="flex items-center mb-4">
                     <div className="w-10 h-10 bg-black/10 rounded-lg flex items-center justify-center mr-3">
                       <svg className="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -104,7 +104,7 @@ export default function Home() {
                 </div>
 
                 {/* SELL Box */}
-                <div className="bg-white/95 backdrop-blur-sm rounded-xl p-6 border border-white/20 shadow-xl w-72">
+                <div className="bg-white/30 backdrop-blur-sm rounded-xl p-6 border border-white/20 shadow-xl w-72">
                   <div className="flex items-center mb-4">
                     <div className="w-10 h-10 bg-black/10 rounded-lg flex items-center justify-center mr-3">
                       <svg className="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
