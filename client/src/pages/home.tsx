@@ -196,17 +196,23 @@ export default function Home() {
       {/* Our Services */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl font-bold text-black mb-4">Our Services</h2>
-            <p className="text-gray-600 text-lg">Complete property investment support from purchase to management</p>
-          </motion.div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="flex flex-col lg:flex-row gap-12">
+            {/* Side Title Box */}
+            <motion.div 
+              className="lg:w-1/3"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="bg-white p-8 rounded-2xl shadow-sm h-fit sticky top-8">
+                <h2 className="text-4xl font-bold text-black mb-4">Our Services</h2>
+                <p className="text-gray-600 text-lg">Complete property investment support from purchase to management</p>
+              </div>
+            </motion.div>
+            
+            {/* Services Grid */}
+            <div className="lg:w-2/3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {servicesLoading ? (
               Array.from({ length: 3 }).map((_, i) => (
                 <div key={i} className="h-96 bg-gray-200 rounded-2xl animate-pulse"></div>
@@ -220,6 +226,8 @@ export default function Home() {
                 />
               ))
             )}
+              </div>
+            </div>
           </div>
         </div>
       </section>
