@@ -9,6 +9,7 @@ export default function Navigation() {
 
   const navLinks = [
     { href: "/properties", label: "Properties" },
+    { href: "/buy-sell", label: "Buy & Sell" },
     { href: "/services", label: "Services" },
     { href: "/contact", label: "Contact" },
   ];
