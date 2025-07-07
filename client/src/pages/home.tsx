@@ -115,30 +115,32 @@ export default function Home() {
                 </div>
               </motion.div>
               
-              {/* BUY/SELL Wide Buttons */}
+              {/* BUY/SELL Icons */}
               <motion.div
-                className="mt-4 flex gap-3 justify-center"
+                className="mt-4 flex gap-8 justify-center"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 2 }}
               >
                 <Link href="/buy-sell">
-                  <div className="bg-white/20 backdrop-blur-md rounded-lg p-3 border border-white/30 shadow-lg w-52 cursor-pointer hover:bg-white/30 transition-all duration-300">
-                    <div className="text-center">
-                      <h3 className="text-white text-lg font-bold mb-1">BUY</h3>
-                      <p className="text-white/90 text-xs mb-1">Find Your Dream Property</p>
-                      <p className="text-white/70 text-xs leading-tight">Price Matching • Free Consultation</p>
+                  <div className="flex flex-col items-center cursor-pointer hover:scale-110 transition-transform duration-300">
+                    <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-2 border border-white/30">
+                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5-8M7 13l-2.5 8M17 13v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6" />
+                      </svg>
                     </div>
+                    <span className="text-white text-sm font-semibold">BUY</span>
                   </div>
                 </Link>
                 
                 <Link href="/buy-sell">
-                  <div className="bg-white/20 backdrop-blur-md rounded-lg p-3 border border-white/30 shadow-lg w-52 cursor-pointer hover:bg-white/30 transition-all duration-300">
-                    <div className="text-center">
-                      <h3 className="text-white text-lg font-bold mb-1">SELL</h3>
-                      <p className="text-white/90 text-xs mb-1">Maximize Your Property Value</p>
-                      <p className="text-white/70 text-xs leading-tight">Market Analysis • Professional Marketing</p>
+                  <div className="flex flex-col items-center cursor-pointer hover:scale-110 transition-transform duration-300">
+                    <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-2 border border-white/30">
+                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                      </svg>
                     </div>
+                    <span className="text-white text-sm font-semibold">SELL</span>
                   </div>
                 </Link>
               </motion.div>
