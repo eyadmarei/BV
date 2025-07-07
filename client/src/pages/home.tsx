@@ -117,7 +117,7 @@ export default function Home() {
               
               {/* BUY/SELL Icons */}
               <motion.div
-                className="mt-4 flex gap-8 justify-center"
+                className="mt-4 flex justify-between max-w-2xl mx-auto px-4"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 2 }}
@@ -129,7 +129,8 @@ export default function Home() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5-8M7 13l-2.5 8M17 13v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6" />
                       </svg>
                     </div>
-                    <span className="text-white text-sm font-semibold">BUY</span>
+                    <span className="text-white text-sm font-semibold mb-1">BUY</span>
+                    <p className="text-white/80 text-xs text-center">Find Your Dream Property</p>
                   </div>
                 </Link>
                 
@@ -140,7 +141,8 @@ export default function Home() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
                       </svg>
                     </div>
-                    <span className="text-white text-sm font-semibold">SELL</span>
+                    <span className="text-white text-sm font-semibold mb-1">SELL</span>
+                    <p className="text-white/80 text-xs text-center">Maximize Your Property Value</p>
                   </div>
                 </Link>
               </motion.div>
