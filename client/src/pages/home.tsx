@@ -39,50 +39,33 @@ export default function Home() {
         {/* Dark Overlay */}
         <div className="absolute top-0 left-0 w-full h-full bg-black/40"></div>
         
-        {/* Side Buy/Sell Cards */}
-        <div className="absolute left-8 bottom-32 z-20">
+        {/* Buy/Sell Wide Buttons */}
+        <div className="absolute left-8 top-16 z-20 space-y-3">
           <motion.div
-            className="space-y-3"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 2.5 }}
           >
-            {/* BUY Card */}
             <Link href="/buy-sell">
-              <div className="bg-white/30 backdrop-blur-sm rounded-xl p-3 border border-white/20 shadow-xl w-48 cursor-pointer hover:bg-white/40 transition-colors">
-                <div className="flex items-center mb-2">
-                  <div className="w-8 h-8 bg-black/10 rounded-lg flex items-center justify-center mr-2">
-                    <svg className="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6M7 13l-1.5 6m0 0h9M7 19h9" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-black text-lg font-bold">BUY</h3>
-                    <p className="text-gray-600 text-xs">Find Your Dream Property</p>
-                  </div>
-                </div>
-                <div className="text-white text-xs font-bold">
-                  <span>Price Matching • Free Consultation</span>
+              <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-white/40 shadow-xl w-80 cursor-pointer hover:bg-white transition-colors">
+                <div className="text-center">
+                  <h3 className="text-black text-xl font-bold mb-1">BUY</h3>
+                  <p className="text-gray-600 text-sm">Find Your Dream Property</p>
                 </div>
               </div>
             </Link>
-            
-            {/* SELL Card */}
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 2.7 }}
+          >
             <Link href="/buy-sell">
-              <div className="bg-white/30 backdrop-blur-sm rounded-xl p-3 border border-white/20 shadow-xl w-48 cursor-pointer hover:bg-white/40 transition-colors">
-                <div className="flex items-center mb-2">
-                  <div className="w-8 h-8 bg-black/10 rounded-lg flex items-center justify-center mr-2">
-                    <svg className="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-black text-lg font-bold">SELL</h3>
-                    <p className="text-gray-600 text-xs">Maximize Your Property Value</p>
-                  </div>
-                </div>
-                <div className="text-white text-xs font-bold">
-                  <span>Market Analysis • Professional Marketing</span>
+              <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-white/40 shadow-xl w-80 cursor-pointer hover:bg-white transition-colors">
+                <div className="text-center">
+                  <h3 className="text-black text-xl font-bold mb-1">SELL</h3>
+                  <p className="text-gray-600 text-sm">Maximize Your Property Value</p>
                 </div>
               </div>
             </Link>
