@@ -117,13 +117,13 @@ export default function Home() {
               
               {/* BUY/SELL Wide Buttons */}
               <motion.div
-                className="mt-6 flex gap-4 justify-center"
+                className="mt-4 flex gap-3 justify-center"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 2 }}
               >
                 <Link href="/buy-sell">
-                  <div className="bg-white/20 backdrop-blur-md rounded-lg p-3 border border-white/30 shadow-lg w-64 cursor-pointer hover:bg-white/30 transition-all duration-300">
+                  <div className="bg-white/20 backdrop-blur-md rounded-lg p-3 border border-white/30 shadow-lg w-52 cursor-pointer hover:bg-white/30 transition-all duration-300">
                     <div className="text-center">
                       <h3 className="text-white text-lg font-bold mb-1">BUY</h3>
                       <p className="text-white/90 text-xs mb-1">Find Your Dream Property</p>
@@ -133,7 +133,7 @@ export default function Home() {
                 </Link>
                 
                 <Link href="/buy-sell">
-                  <div className="bg-white/20 backdrop-blur-md rounded-lg p-3 border border-white/30 shadow-lg w-64 cursor-pointer hover:bg-white/30 transition-all duration-300">
+                  <div className="bg-white/20 backdrop-blur-md rounded-lg p-3 border border-white/30 shadow-lg w-52 cursor-pointer hover:bg-white/30 transition-all duration-300">
                     <div className="text-center">
                       <h3 className="text-white text-lg font-bold mb-1">SELL</h3>
                       <p className="text-white/90 text-xs mb-1">Maximize Your Property Value</p>
