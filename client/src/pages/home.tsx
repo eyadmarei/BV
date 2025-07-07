@@ -123,7 +123,7 @@ export default function Home() {
                 transition={{ duration: 1, delay: 2 }}
               >
                 <Link href="/buy-sell">
-                  <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-white/40 shadow-xl w-96 cursor-pointer hover:bg-white transition-colors">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-white/40 shadow-xl w-72 cursor-pointer hover:bg-white transition-colors">
                     <div className="text-center">
                       <h3 className="text-black text-xl font-bold mb-1">BUY</h3>
                       <p className="text-gray-600 text-sm mb-2">Find Your Dream Property</p>
@@ -133,7 +133,7 @@ export default function Home() {
                 </Link>
                 
                 <Link href="/buy-sell">
-                  <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-white/40 shadow-xl w-96 cursor-pointer hover:bg-white transition-colors">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-white/40 shadow-xl w-72 cursor-pointer hover:bg-white transition-colors">
                     <div className="text-center">
                       <h3 className="text-black text-xl font-bold mb-1">SELL</h3>
                       <p className="text-gray-600 text-sm mb-2">Maximize Your Property Value</p>
