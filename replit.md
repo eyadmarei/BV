@@ -117,6 +117,7 @@ Preferred communication style: Simple, everyday language.
 - July 06, 2025: Created dedicated Buy & Sell page with detailed property information and services
 - July 06, 2025: Repositioned video to ensure full text visibility, removed animated sidebar component
 - July 06, 2025: Final layout: Hero video with transparent overlay boxes + separate detailed Buy/Sell page
+- July 07, 2025: Replaced "PRESTIGE" text logo with Best View Properties L.L.C company logo in navigation header
 
 ## User Preferences
 

@@ -20,9 +20,11 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/">
-            <div className="text-2xl font-bold text-black cursor-pointer">
-              <span className="gold">P</span>RESTIGE
-            </div>
+            <img 
+              src="/logo.png" 
+              alt="Best View Properties L.L.C" 
+              className="h-10 cursor-pointer"
+            />
           </Link>
           
           {/* Desktop Navigation */}
