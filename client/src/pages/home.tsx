@@ -123,9 +123,14 @@ export default function Home() {
                 transition={{ duration: 1, delay: 2 }}
               >
                 <Link href="/buy-sell">
-                  <div className="flex flex-col items-center cursor-pointer hover:scale-105 transition-transform duration-300">
+                  <div className="flex flex-col items-start cursor-pointer hover:scale-105 transition-transform duration-300">
                     <span className="text-white text-lg font-bold mb-1">BUY</span>
-                    <p className="text-white/80 text-sm text-center">Find Your Dream Property</p>
+                    <p className="text-white/80 text-sm mb-1">Find Your Dream Property</p>
+                    <div className="space-y-0.5">
+                      <p className="text-white/70 text-xs">Legal Support & Documentation</p>
+                      <p className="text-white/70 text-xs">Property Investment Guidance</p>
+                      <p className="text-white/70 text-xs">Financing & Mortgage Support</p>
+                    </div>
                   </div>
                 </Link>
                 
