@@ -123,21 +123,21 @@ export default function Home() {
                 transition={{ duration: 1, delay: 2 }}
               >
                 <Link href="/buy-sell">
-                  <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-white/40 shadow-xl w-72 cursor-pointer hover:bg-white transition-colors">
+                  <div className="bg-white/20 backdrop-blur-md rounded-lg p-3 border border-white/30 shadow-lg w-64 cursor-pointer hover:bg-white/30 transition-all duration-300">
                     <div className="text-center">
-                      <h3 className="text-black text-xl font-bold mb-1">BUY</h3>
-                      <p className="text-gray-600 text-sm mb-2">Find Your Dream Property</p>
-                      <p className="text-gray-500 text-xs">Price Matching • Free Consultation • Property Tours • Legal Support</p>
+                      <h3 className="text-white text-lg font-bold mb-1">BUY</h3>
+                      <p className="text-white/90 text-xs mb-1">Find Your Dream Property</p>
+                      <p className="text-white/70 text-xs leading-tight">Price Matching • Free Consultation</p>
                     </div>
                   </div>
                 </Link>
                 
                 <Link href="/buy-sell">
-                  <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-white/40 shadow-xl w-72 cursor-pointer hover:bg-white transition-colors">
+                  <div className="bg-white/20 backdrop-blur-md rounded-lg p-3 border border-white/30 shadow-lg w-64 cursor-pointer hover:bg-white/30 transition-all duration-300">
                     <div className="text-center">
-                      <h3 className="text-black text-xl font-bold mb-1">SELL</h3>
-                      <p className="text-gray-600 text-sm mb-2">Maximize Your Property Value</p>
-                      <p className="text-gray-500 text-xs">Market Analysis • Professional Marketing • Property Valuation • Expert Consultation</p>
+                      <h3 className="text-white text-lg font-bold mb-1">SELL</h3>
+                      <p className="text-white/90 text-xs mb-1">Maximize Your Property Value</p>
+                      <p className="text-white/70 text-xs leading-tight">Market Analysis • Professional Marketing</p>
                     </div>
                   </div>
                 </Link>
