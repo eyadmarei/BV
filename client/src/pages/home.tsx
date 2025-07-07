@@ -50,7 +50,7 @@ export default function Home() {
               transition={{ duration: 1, delay: 0.5 }}
             >
               <h1 className="text-6xl md:text-7xl font-bold text-white mb-6 drop-shadow-lg mt-16">
-                Dubai Real Estate Excellence
+                Best View Properties
               </h1>
               <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto drop-shadow-md">
                 Experience luxury properties in the heart of Dubai
