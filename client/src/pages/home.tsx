@@ -39,38 +39,7 @@ export default function Home() {
         {/* Dark Overlay */}
         <div className="absolute top-0 left-0 w-full h-full bg-black/40"></div>
         
-        {/* Buy/Sell Wide Buttons */}
-        <div className="absolute left-8 top-16 z-20 space-y-3">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 2.5 }}
-          >
-            <Link href="/buy-sell">
-              <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-white/40 shadow-xl w-80 cursor-pointer hover:bg-white transition-colors">
-                <div className="text-center">
-                  <h3 className="text-black text-xl font-bold mb-1">BUY</h3>
-                  <p className="text-gray-600 text-sm">Find Your Dream Property</p>
-                </div>
-              </div>
-            </Link>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 2.7 }}
-          >
-            <Link href="/buy-sell">
-              <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-white/40 shadow-xl w-80 cursor-pointer hover:bg-white transition-colors">
-                <div className="text-center">
-                  <h3 className="text-black text-xl font-bold mb-1">SELL</h3>
-                  <p className="text-gray-600 text-sm">Maximize Your Property Value</p>
-                </div>
-              </div>
-            </Link>
-          </motion.div>
-        </div>
+
 
         {/* Content */}
         <div className="relative z-10 flex items-center justify-center h-full">
@@ -146,6 +115,33 @@ export default function Home() {
                 </div>
               </motion.div>
               
+              {/* BUY/SELL Wide Buttons */}
+              <motion.div
+                className="mt-6 flex gap-4 justify-center"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 2 }}
+              >
+                <Link href="/buy-sell">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-white/40 shadow-xl w-96 cursor-pointer hover:bg-white transition-colors">
+                    <div className="text-center">
+                      <h3 className="text-black text-xl font-bold mb-1">BUY</h3>
+                      <p className="text-gray-600 text-sm mb-2">Find Your Dream Property</p>
+                      <p className="text-gray-500 text-xs">Price Matching • Free Consultation • Property Tours • Legal Support</p>
+                    </div>
+                  </div>
+                </Link>
+                
+                <Link href="/buy-sell">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-white/40 shadow-xl w-96 cursor-pointer hover:bg-white transition-colors">
+                    <div className="text-center">
+                      <h3 className="text-black text-xl font-bold mb-1">SELL</h3>
+                      <p className="text-gray-600 text-sm mb-2">Maximize Your Property Value</p>
+                      <p className="text-gray-500 text-xs">Market Analysis • Professional Marketing • Property Valuation • Expert Consultation</p>
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
 
             </motion.div>
           </div>
