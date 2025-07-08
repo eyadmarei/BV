@@ -124,13 +124,13 @@ export default function Home() {
               >
                 <Link href="/buy-sell">
                   <div className="cursor-pointer hover:scale-105 transition-transform duration-300">
-                    <span className="text-white text-lg font-bold">BUY</span>
+                    <span className="text-white text-lg font-bold">Start Here</span>
                   </div>
                 </Link>
                 
                 <Link href="/buy-sell">
                   <div className="cursor-pointer hover:scale-105 transition-transform duration-300">
-                    <span className="text-white text-lg font-bold">SELL</span>
+                    <span className="text-white text-lg font-bold">Start Here</span>
                   </div>
                 </Link>
               </motion.div>
