@@ -115,23 +115,17 @@ export default function Home() {
                 </div>
               </motion.div>
               
-              {/* BUY/SELL Text */}
+              {/* Get Started Button */}
               <motion.div
-                className="mt-4 flex justify-start gap-16 max-w-4xl mx-auto px-8"
+                className="mt-6 flex justify-start max-w-4xl mx-auto px-8"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 2 }}
               >
                 <Link href="/buy-sell">
-                  <div className="cursor-pointer hover:scale-105 transition-transform duration-300">
-                    <span className="text-white text-lg font-bold">Start Here</span>
-                  </div>
-                </Link>
-                
-                <Link href="/buy-sell">
-                  <div className="cursor-pointer hover:scale-105 transition-transform duration-300">
-                    <span className="text-white text-lg font-bold">Start Here</span>
-                  </div>
+                  <button className="bg-white/20 backdrop-blur-md border border-white/30 px-6 py-3 rounded-lg text-white font-semibold hover:bg-white/30 transition-all duration-300 hover:scale-105">
+                    Get Started
+                  </button>
                 </Link>
               </motion.div>
 
