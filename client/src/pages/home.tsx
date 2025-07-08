@@ -117,16 +117,18 @@ export default function Home() {
               
               {/* Get Started Button */}
               <motion.div
-                className="mt-6 flex justify-start max-w-4xl mx-auto pl-16"
+                className="mt-6 max-w-4xl mx-auto"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 2 }}
               >
-                <Link href="/buy-sell">
-                  <button className="bg-white/20 backdrop-blur-md border border-white/30 px-6 py-3 rounded-lg text-white font-semibold hover:bg-white/30 transition-all duration-300 hover:scale-105">
-                    Get Started
-                  </button>
-                </Link>
+                <div className="ml-20">
+                  <Link href="/buy-sell">
+                    <button className="bg-white/20 backdrop-blur-md border border-white/30 px-6 py-3 rounded-lg text-white font-semibold hover:bg-white/30 transition-all duration-300 hover:scale-105">
+                      Get Started
+                    </button>
+                  </Link>
+                </div>
               </motion.div>
 
             </motion.div>
