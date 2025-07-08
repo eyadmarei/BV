@@ -123,26 +123,14 @@ export default function Home() {
                 transition={{ duration: 1, delay: 2 }}
               >
                 <Link href="/buy-sell">
-                  <div className="flex flex-col items-start cursor-pointer hover:scale-105 transition-transform duration-300">
-                    <span className="text-white text-lg font-bold mb-1">BUY</span>
-                    <p className="text-white/80 text-sm mb-1">Find Your Dream Property</p>
-                    <div className="space-y-0.5">
-                      <p className="text-white/70 text-xs">Legal Support & Documentation</p>
-                      <p className="text-white/70 text-xs">Property Investment Guidance</p>
-                      <p className="text-white/70 text-xs">Financing & Mortgage Support</p>
-                    </div>
+                  <div className="cursor-pointer hover:scale-105 transition-transform duration-300">
+                    <span className="text-white text-lg font-bold">BUY</span>
                   </div>
                 </Link>
                 
                 <Link href="/buy-sell">
-                  <div className="flex flex-col items-start cursor-pointer hover:scale-105 transition-transform duration-300">
-                    <span className="text-white text-lg font-bold mb-1">SELL</span>
-                    <p className="text-white/80 text-sm mb-1">Maximize Your Property Value</p>
-                    <div className="space-y-0.5">
-                      <p className="text-white/70 text-xs">Market Analysis & Pricing</p>
-                      <p className="text-white/70 text-xs">Professional Marketing</p>
-                      <p className="text-white/70 text-xs">Property Staging & Photography</p>
-                    </div>
+                  <div className="cursor-pointer hover:scale-105 transition-transform duration-300">
+                    <span className="text-white text-lg font-bold">SELL</span>
                   </div>
                 </Link>
               </motion.div>
