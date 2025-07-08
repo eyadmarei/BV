@@ -117,7 +117,7 @@ export default function Home() {
               
               {/* BUY/SELL Text */}
               <motion.div
-                className="mt-4 flex justify-between max-w-md mx-auto px-0"
+                className="mt-4 flex justify-start gap-16 max-w-4xl mx-auto px-8"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 2 }}
