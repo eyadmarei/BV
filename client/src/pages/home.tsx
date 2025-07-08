@@ -135,10 +135,10 @@ export default function Home() {
                 </Link>
                 
                 <Link href="/buy-sell">
-                  <div className="flex flex-col items-end cursor-pointer hover:scale-105 transition-transform duration-300">
+                  <div className="flex flex-col items-start cursor-pointer hover:scale-105 transition-transform duration-300">
                     <span className="text-white text-lg font-bold mb-1">SELL</span>
-                    <p className="text-white/80 text-sm mb-1 text-right">Maximize Your Property Value</p>
-                    <div className="space-y-0.5 text-left">
+                    <p className="text-white/80 text-sm mb-1">Maximize Your Property Value</p>
+                    <div className="space-y-0.5">
                       <p className="text-white/70 text-xs">Market Analysis & Pricing</p>
                       <p className="text-white/70 text-xs">Professional Marketing</p>
                       <p className="text-white/70 text-xs">Property Staging & Photography</p>
