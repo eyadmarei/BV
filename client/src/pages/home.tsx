@@ -117,7 +117,7 @@ export default function Home() {
               
               {/* Get Started Button */}
               <motion.div
-                className="mt-6 flex justify-start max-w-4xl mx-auto pl-12"
+                className="mt-6 flex justify-start max-w-4xl mx-auto pl-14"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 2 }}
