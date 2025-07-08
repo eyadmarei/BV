@@ -21,7 +21,7 @@ export default function ServiceCard({ service, delay = 0 }: ServiceCardProps) {
 
   return (
     <motion.div
-      className="service-card bg-white p-4 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl"
+      className="service-card bg-white p-4 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl h-80 flex flex-col"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay }}
@@ -34,7 +34,7 @@ export default function ServiceCard({ service, delay = 0 }: ServiceCardProps) {
       <p className="text-gray-600 mb-3 leading-relaxed text-sm">
         {service.description}
       </p>
-      <ul className="space-y-1 mb-4 text-xs text-gray-600">
+      <ul className="space-y-1 mb-4 text-xs text-gray-600 flex-grow">
         {service.features?.map((feature, index) => (
           <li key={index} className="flex items-center space-x-2">
             <Check className="w-3 h-3 gold" />
@@ -42,7 +42,7 @@ export default function ServiceCard({ service, delay = 0 }: ServiceCardProps) {
           </li>
         ))}
       </ul>
-      <Button className="w-full bg-gray-900 text-white hover:bg-black font-semibold text-sm py-2">
+      <Button className="w-full bg-gray-900 text-white hover:bg-black font-semibold text-sm py-2 mt-auto">
         Learn More
       </Button>
     </motion.div>
