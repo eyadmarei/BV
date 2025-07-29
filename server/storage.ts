@@ -92,39 +92,39 @@ export class MemStorage implements IStorage {
     // Sample services
     const sampleServices: InsertService[] = [
       {
-        title: "Property Search & Legal Advice",
-        description: "Expert property identification and comprehensive legal guidance to ensure secure transactions and optimal investment decisions.",
+        title: "Buying Properties",
+        description: "Comprehensive property acquisition services covering all types of real estate investments with expert guidance.",
+        icon: "home",
+        features: ["Residential", "Commercial", "Off-Plan", "Consultancy"],
+        category: "buying"
+      },
+      {
+        title: "Selling Properties",
+        description: "Professional property sales services ensuring optimal market value and smooth transaction processes.",
         icon: "building",
-        features: ["Market analysis & property sourcing", "Legal due diligence", "Contract negotiation & review"],
-        category: "property"
+        features: ["Residential", "Commercial", "Off-Plan", "Consultancy"],
+        category: "selling"
       },
       {
-        title: "Business Setup & Residency",
-        description: "Complete business formation and residency solutions for international property investors seeking long-term opportunities.",
-        icon: "passport",
-        features: ["Company incorporation", "Investor visa assistance", "Residency permit processing"],
-        category: "business"
-      },
-      {
-        title: "Bank Account Opening",
-        description: "Streamlined banking solutions to facilitate property purchases and ongoing financial management in your investment country.",
-        icon: "university",
-        features: ["Local bank account setup", "International transfer services", "Investment financing options"],
-        category: "banking"
-      },
-      {
-        title: "Property Management",
-        description: "Full-service property management ensuring your investment maintains its value and generates optimal returns.",
-        icon: "building",
-        features: ["Tenant placement & screening", "Maintenance & repairs", "Financial reporting & rent collection"],
+        title: "Property Management Supervision",
+        description: "Complete property oversight services with free consultations across all management aspects.",
+        icon: "settings",
+        features: ["Property Management Free Consultation", "Property Evaluation Free Consultation", "Mortgage Advisory", "Inspection and Snagging Services", "Industrial Services", "Relocation Services", "Specialized Consultation", "Commercial Property", "Interior Design & Project Execution", "Conveyancing"],
         category: "management"
       },
       {
-        title: "Investor Concierge",
-        description: "Personalized concierge services providing ongoing support for all aspects of your property investment journey.",
-        icon: "passport",
-        features: ["24/7 investor support", "Local market insights", "Investment portfolio optimization"],
-        category: "concierge"
+        title: "Mortgage Advisory",
+        description: "Expert mortgage guidance and financing solutions for all property investment scenarios.",
+        icon: "calculator",
+        features: ["Residential Mortgages", "Commercial Mortgages", "Non-Resident Mortgages", "Financing for Under Construction Properties", "Mortgage Financing", "Shariah Financing Solutions"],
+        category: "mortgage"
+      },
+      {
+        title: "Business and Investment Support",
+        description: "Comprehensive business setup and investment assistance including immigration services for property investors.",
+        icon: "briefcase",
+        features: ["Business Set Up", "Financial Services", "Immigration Service Assistance (Golden Visa)"],
+        category: "business"
       }
     ];
 

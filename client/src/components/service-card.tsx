@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Building, FileText, CreditCard, Check, Users, UserCheck } from "lucide-react";
+import { Building, FileText, CreditCard, Check, Users, UserCheck, Home, Settings, Calculator, Briefcase } from "lucide-react";
 import type { Service } from "@shared/schema";
 
 interface ServiceCardProps {
@@ -14,6 +14,10 @@ const iconMap = {
   university: CreditCard,
   management: Users,
   concierge: UserCheck,
+  home: Home,
+  settings: Settings,
+  calculator: Calculator,
+  briefcase: Briefcase,
 };
 
 export default function ServiceCard({ service, delay = 0 }: ServiceCardProps) {
