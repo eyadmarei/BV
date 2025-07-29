@@ -2,6 +2,7 @@ import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import { useState } from "react";
+import bvLogo from "@assets/image_1753823499504.png";
 
 export default function Navigation() {
   const [location] = useLocation();
@@ -21,9 +22,9 @@ export default function Navigation() {
           {/* Logo */}
           <Link href="/">
             <img 
-              src="/logo.png" 
+              src={bvLogo} 
               alt="Best View Properties L.L.C" 
-              className="h-10 cursor-pointer"
+              className="h-12 cursor-pointer"
             />
           </Link>
           
