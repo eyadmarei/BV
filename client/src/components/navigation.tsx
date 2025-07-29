@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import { useState } from "react";
 import bvLogo from "@assets/image_1753823499504.png";
+import companyName from "@assets/image_1753823659585.png";
 
 export default function Navigation() {
   const [location] = useLocation();
@@ -21,11 +22,18 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/">
-            <img 
-              src={bvLogo} 
-              alt="Best View Properties L.L.C" 
-              className="h-12 cursor-pointer"
-            />
+            <div className="flex items-center space-x-3 cursor-pointer">
+              <img 
+                src={bvLogo} 
+                alt="BV Logo" 
+                className="h-12"
+              />
+              <img 
+                src={companyName} 
+                alt="Best View Properties" 
+                className="h-6"
+              />
+            </div>
           </Link>
           
           {/* Desktop Navigation */}
