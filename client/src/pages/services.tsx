@@ -61,14 +61,14 @@ const serviceCategories = [
     ]
   },
   {
-    id: "financing",
-    label: "Financing Solutions",
+    id: "mortgage-advisory",
+    label: "Mortgage Advisory",
     icon: Calculator,
-    description: "Expert mortgage guidance and financing solutions for all investment scenarios",
+    description: "Expert mortgage guidance and financing solutions for all property investment scenarios",
     subcategories: [
       {
-        title: "Mortgage Advisory",
-        description: "Expert mortgage guidance and financing solutions for all property investment scenarios.",
+        title: "Mortgage Services",
+        description: "Comprehensive mortgage solutions tailored to your investment needs with expert guidance throughout the process.",
         services: [
           { name: "Residential Mortgages", icon: Home },
           { name: "Commercial Mortgages", icon: Building2 },
