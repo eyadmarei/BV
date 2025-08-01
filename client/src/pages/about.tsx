@@ -180,7 +180,7 @@ export default function About() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="mb-16"
         >
-          <div className="bg-black rounded-xl shadow-lg p-8 text-center text-white">
+          <div className="bg-black/20 backdrop-blur-md border border-white/20 rounded-xl shadow-lg p-8 text-center text-white">
             <h2 className="text-3xl font-bold mb-6">Our Commitment</h2>
             <p className="text-lg leading-relaxed max-w-4xl mx-auto">
               We build relationships on <strong>trust, integrity, and results</strong>. Whether you're a first-time buyer, expat, or seasoned investor, we provide dedicated support at every step—ensuring a smooth, rewarding real estate experience.
