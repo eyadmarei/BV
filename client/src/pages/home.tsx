@@ -3,7 +3,11 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { useState } from "react";
 import PropertyCard from "@/components/property-card";
-import { Home as HomeIcon, Settings, Calculator, Briefcase, ArrowLeft } from "lucide-react";
+import { 
+  Home as HomeIcon, Settings, Calculator, Briefcase, ArrowLeft,
+  MapPin, Users, FileText, DollarSign, Shield, Wrench, 
+  Clipboard, Phone, CreditCard, Building2, Globe, Award
+} from "lucide-react";
 import type { Property, Service } from "@shared/schema";
 import heroVideo from "@assets/WhatsApp Video 2025-07-06 at 03.15.52_6b085703_1751757407515.mp4";
 
@@ -13,28 +17,94 @@ const serviceCategories = [
     label: "Property Transactions",
     icon: HomeIcon,
     description: "Buy and sell properties with expert guidance across all market segments",
+    subcategories: [
+      {
+        title: "Buying Properties",
+        description: "Comprehensive property acquisition services covering all types of real estate investments with expert guidance.",
+        services: [
+          { name: "Residential", icon: HomeIcon },
+          { name: "Commercial", icon: Building2 },
+          { name: "Off-Plan", icon: MapPin },
+          { name: "Consultancy", icon: Users }
+        ]
+      },
+      {
+        title: "Selling Properties", 
+        description: "Professional property sales services ensuring optimal market value and smooth transaction processes.",
+        services: [
+          { name: "Residential", icon: HomeIcon },
+          { name: "Commercial", icon: Building2 },
+          { name: "Off-Plan", icon: MapPin },
+          { name: "Consultancy", icon: Users }
+        ]
+      }
+    ]
   },
   {
     id: "property-management",
     label: "Property Management",
     icon: Settings,
     description: "Complete property oversight and management services with expert consultation",
+    subcategories: [
+      {
+        title: "Property Management Supervision",
+        description: "Complete property oversight services with free consultations across all management aspects.",
+        services: [
+          { name: "Property Management Free Consultation", icon: Phone },
+          { name: "Property Evaluation Free Consultation", icon: Calculator },
+          { name: "Inspection and Snagging Services", icon: Clipboard },
+          { name: "Industrial Services", icon: Settings },
+          { name: "Relocation Services", icon: MapPin },
+          { name: "Specialized Consultation", icon: Award },
+          { name: "Commercial Property", icon: Building2 },
+          { name: "Interior Design & Project Execution", icon: Wrench },
+          { name: "Conveyancing", icon: FileText }
+        ]
+      }
+    ]
   },
   {
     id: "mortgage-advisory",
     label: "Mortgage Advisory",
     icon: Calculator,
     description: "Expert mortgage guidance and financing solutions for all property investment scenarios",
+    subcategories: [
+      {
+        title: "Mortgage Services",
+        description: "Comprehensive mortgage solutions tailored to your investment needs with expert guidance throughout the process.",
+        services: [
+          { name: "Residential Mortgages", icon: HomeIcon },
+          { name: "Commercial Mortgages", icon: Building2 },
+          { name: "Non-Resident Mortgages", icon: Globe },
+          { name: "Financing for Under Construction Properties", icon: Settings },
+          { name: "Mortgage Financing", icon: CreditCard },
+          { name: "Shariah Financing Solutions", icon: Shield }
+        ]
+      }
+    ]
   },
   {
     id: "business-support",
     label: "Business Support",
     icon: Briefcase,
     description: "Comprehensive business setup and investment assistance including immigration services",
+    subcategories: [
+      {
+        title: "Business and Investment Support",
+        description: "Comprehensive business setup and investment assistance including immigration services for property investors.",
+        services: [
+          { name: "Business Set Up", icon: Briefcase },
+          { name: "Financial Services", icon: DollarSign },
+          { name: "Immigration Service Assistance (Golden Visa)", icon: Award }
+        ]
+      }
+    ]
   }
 ];
 
 export default function Home() {
+  const [activeTab, setActiveTab] = useState("property-transactions");
+  
   const { data: properties, isLoading: propertiesLoading } = useQuery<Property[]>({
     queryKey: ["/api/properties"],
   });
@@ -44,6 +114,7 @@ export default function Home() {
   });
 
   const featuredProperties = properties?.filter(p => p.featured) || [];
+  const activeCategory = serviceCategories.find(cat => cat.id === activeTab);
 
   return (
     <div className="min-h-screen">
@@ -187,39 +258,107 @@ export default function Home() {
             </p>
           </motion.div>
 
-          {/* Service Category Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {serviceCategories.map((category, index) => {
-              const IconComponent = category.icon;
-              return (
-                <motion.div
-                  key={category.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-lg transition-all duration-300 group cursor-pointer"
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <Link href="/services">
-                    <div>
-                      <div className="flex items-start space-x-4 mb-4">
-                        <div className="bg-black p-3 rounded-lg text-white flex-shrink-0">
-                          <IconComponent className="w-6 h-6" />
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="text-xl font-bold text-black mb-2">{category.label}</h3>
-                          <p className="text-gray-600 text-sm leading-relaxed mb-4">{category.description}</p>
-                          <div className="flex items-center text-black font-medium text-sm group-hover:text-blue-600 transition-colors duration-300">
-                            <span>Learn More</span>
-                            <ArrowLeft className="w-4 h-4 ml-2 rotate-180" />
-                          </div>
+          {/* Horizontal Tabs Layout */}
+          <div className="space-y-8">
+            {/* Tab Navigation - Horizontal across top */}
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+                {serviceCategories.map((category) => {
+                  const IconComponent = category.icon;
+                  return (
+                    <button
+                      key={category.id}
+                      onClick={() => setActiveTab(category.id)}
+                      className={`flex items-center space-x-3 p-4 rounded-lg transition-all duration-300 text-left w-full ${
+                        activeTab === category.id
+                          ? 'bg-black text-white shadow-md'
+                          : 'text-gray-600 hover:bg-gray-50 hover:text-black'
+                      }`}
+                    >
+                      <IconComponent className="w-5 h-5 flex-shrink-0" />
+                      <div className="min-w-0">
+                        <div className="font-semibold text-sm">{category.label}</div>
+                        <div className="text-xs opacity-75">
+                          {category.label === "Property Transactions" ? "Buy & Sell" :
+                           category.label === "Property Management" ? "Oversight" :
+                           category.label === "Mortgage Advisory" ? "Financing" :
+                           "Business Setup"}
                         </div>
                       </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Tab Content - Full width below tabs */}
+            <div>
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4 }}
+                className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden"
+              >
+                {activeCategory && (
+                  <>
+                    {/* All Subcategories for Active Tab */}
+                    <div className="p-6 space-y-8">
+                      {activeCategory.subcategories.map((subcategory, subIndex) => (
+                        <motion.div
+                          key={subIndex}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.4, delay: subIndex * 0.1 }}
+                        >
+                          <div className="mb-6">
+                            <h3 className="text-lg font-bold text-black mb-2">{subcategory.title}</h3>
+                            <p className="text-gray-600 text-sm leading-relaxed">{subcategory.description}</p>
+                          </div>
+                          
+                          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                            {subcategory.services.map((service, serviceIndex) => {
+                              const ServiceIcon = service.icon;
+                              return (
+                                <motion.div
+                                  key={serviceIndex}
+                                  initial={{ opacity: 0, scale: 0.95 }}
+                                  animate={{ opacity: 1, scale: 1 }}
+                                  transition={{ duration: 0.2, delay: serviceIndex * 0.05 }}
+                                  className="bg-gray-50 rounded-lg p-3 hover:bg-gray-100 transition-colors duration-200 cursor-pointer group"
+                                >
+                                  <div className="flex items-center space-x-2">
+                                    <div className="bg-white p-2 rounded-md group-hover:bg-black group-hover:text-white transition-all duration-200">
+                                      <ServiceIcon className="w-4 h-4" />
+                                    </div>
+                                    <span className="text-sm font-medium text-gray-800">{service.name}</span>
+                                  </div>
+                                </motion.div>
+                              );
+                            })}
+                          </div>
+                        </motion.div>
+                      ))}
                     </div>
-                  </Link>
-                </motion.div>
-              );
-            })}
+                    
+                    {/* View All Services Link */}
+                    <div className="px-6 pb-6">
+                      <Link href="/services">
+                        <motion.div 
+                          className="bg-black text-white px-6 py-3 rounded-lg text-center font-medium hover:bg-gray-800 transition-colors duration-300 cursor-pointer group"
+                          whileHover={{ scale: 1.02 }}
+                        >
+                          <div className="flex items-center justify-center space-x-2">
+                            <span>View All Services</span>
+                            <ArrowLeft className="w-4 h-4 rotate-180 group-hover:translate-x-1 transition-transform duration-300" />
+                          </div>
+                        </motion.div>
+                      </Link>
+                    </div>
+                  </>
+                )}
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
