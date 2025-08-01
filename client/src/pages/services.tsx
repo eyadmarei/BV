@@ -101,10 +101,6 @@ const serviceCategories = [
 ];
 
 export default function Services() {
-  const [activeTab, setActiveTab] = useState("property-transactions");
-
-  const activeCategory = serviceCategories.find(cat => cat.id === activeTab);
-
   return (
     <div className="pt-24 min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -122,92 +118,73 @@ export default function Services() {
           </p>
         </motion.div>
 
-        {/* Horizontal Tabs */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 mb-8 overflow-hidden">
-          <div className="flex overflow-x-auto scrollbar-hide">
-            {serviceCategories.map((category) => {
-              const IconComponent = category.icon;
-              return (
-                <button
-                  key={category.id}
-                  onClick={() => setActiveTab(category.id)}
-                  className={`flex-1 min-w-[200px] flex items-center justify-center space-x-3 p-6 transition-all duration-300 border-b-4 ${
-                    activeTab === category.id
-                      ? 'bg-gray-50 border-black text-black'
-                      : 'bg-white border-transparent text-gray-600 hover:bg-gray-50 hover:text-black'
-                  }`}
-                >
-                  <IconComponent className="w-5 h-5" />
-                  <span className="font-semibold text-sm">{category.label}</span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Tab Content - All Subcategories Visible */}
-        <motion.div
-          key={activeTab}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="space-y-6"
-        >
-          {activeCategory && (
-            <>
-              {/* Category Overview */}
-              <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                <div className="flex items-center space-x-4">
-                  <div className="bg-black p-3 rounded-lg text-white">
-                    <activeCategory.icon className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h2 className="text-xl font-bold text-black">{activeCategory.label}</h2>
-                    <p className="text-gray-600 text-sm">{activeCategory.description}</p>
+        {/* All Services Expanded by Default */}
+        <div className="space-y-8">
+          {serviceCategories.map((category, categoryIndex) => {
+            const CategoryIcon = category.icon;
+            return (
+              <motion.div
+                key={category.id}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
+                className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden"
+              >
+                {/* Category Header */}
+                <div className="bg-gradient-to-r from-gray-50 to-white p-6 border-b border-gray-100">
+                  <div className="flex items-center space-x-4">
+                    <div className="bg-black p-3 rounded-lg text-white">
+                      <CategoryIcon className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h2 className="text-xl font-bold text-black">{category.label}</h2>
+                      <p className="text-gray-600 text-sm">{category.description}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* All Subcategories Displayed */}
-              {activeCategory.subcategories.map((subcategory, subIndex) => (
-                <motion.div
-                  key={subIndex}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: subIndex * 0.1 }}
-                  className="bg-white rounded-xl shadow-sm border border-gray-200 p-6"
-                >
-                  <div className="mb-6">
-                    <h3 className="text-lg font-bold text-black mb-2">{subcategory.title}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">{subcategory.description}</p>
-                  </div>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
-                    {subcategory.services.map((service, serviceIndex) => {
-                      const ServiceIcon = service.icon;
-                      return (
-                        <motion.div
-                          key={serviceIndex}
-                          initial={{ opacity: 0, scale: 0.95 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ duration: 0.2, delay: serviceIndex * 0.05 }}
-                          className="bg-gray-50 rounded-lg p-3 hover:bg-gray-100 transition-colors duration-200 cursor-pointer group"
-                        >
-                          <div className="flex items-center space-x-2">
-                            <div className="bg-white p-2 rounded-md group-hover:bg-black group-hover:text-white transition-all duration-200">
-                              <ServiceIcon className="w-4 h-4" />
-                            </div>
-                            <span className="text-sm font-medium text-gray-800">{service.name}</span>
-                          </div>
-                        </motion.div>
-                      );
-                    })}
-                  </div>
-                </motion.div>
-              ))}
-            </>
-          )}
-        </motion.div>
+                {/* All Subcategories Always Visible */}
+                <div className="p-6 space-y-8">
+                  {category.subcategories.map((subcategory, subIndex) => (
+                    <motion.div
+                      key={subIndex}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: subIndex * 0.1 }}
+                    >
+                      <div className="mb-6">
+                        <h3 className="text-lg font-bold text-black mb-2">{subcategory.title}</h3>
+                        <p className="text-gray-600 text-sm leading-relaxed">{subcategory.description}</p>
+                      </div>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+                        {subcategory.services.map((service, serviceIndex) => {
+                          const ServiceIcon = service.icon;
+                          return (
+                            <motion.div
+                              key={serviceIndex}
+                              initial={{ opacity: 0, scale: 0.95 }}
+                              animate={{ opacity: 1, scale: 1 }}
+                              transition={{ duration: 0.2, delay: serviceIndex * 0.05 }}
+                              className="bg-gray-50 rounded-lg p-3 hover:bg-gray-100 transition-colors duration-200 cursor-pointer group"
+                            >
+                              <div className="flex items-center space-x-2">
+                                <div className="bg-white p-2 rounded-md group-hover:bg-black group-hover:text-white transition-all duration-200">
+                                  <ServiceIcon className="w-4 h-4" />
+                                </div>
+                                <span className="text-sm font-medium text-gray-800">{service.name}</span>
+                              </div>
+                            </motion.div>
+                          );
+                        })}
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
