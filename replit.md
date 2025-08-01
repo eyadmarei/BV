@@ -119,6 +119,10 @@ Preferred communication style: Simple, everyday language.
 - July 06, 2025: Final layout: Hero video with transparent overlay boxes + separate detailed Buy/Sell page
 - July 07, 2025: Replaced "PRESTIGE" text logo with Best View Properties L.L.C company logo in navigation header
 - July 07, 2025: Updated to new BV logo and changed "Dubai Real Estate Excellence" to "Best View Properties" in hero section
+- August 01, 2025: Created comprehensive About Us page with full company content, vision, mission, and contact information
+- August 01, 2025: Added About Us navigation link to main site navigation and footer quick links
+- August 01, 2025: Updated footer with black background, About Us section, and Best View Properties L.L.C branding
+- August 01, 2025: Added "Learn About Us" button to home page hero section alongside "Get Started" button
 
 ## User Preferences
 

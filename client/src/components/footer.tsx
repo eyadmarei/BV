@@ -27,12 +27,12 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4 className="text-white font-semibold mb-4">Services</h4>
+            <h4 className="text-white font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-gray-400">
-              <li><Link href="/services"><span className="hover:text-yellow-400 transition-colors duration-300 cursor-pointer">Company Formation</span></Link></li>
-              <li><Link href="/services"><span className="hover:text-yellow-400 transition-colors duration-300 cursor-pointer">Immigration & Visas</span></Link></li>
-              <li><Link href="/services"><span className="hover:text-yellow-400 transition-colors duration-300 cursor-pointer">Banking Solutions</span></Link></li>
-              <li><Link href="/services"><span className="hover:text-yellow-400 transition-colors duration-300 cursor-pointer">Investment Advisory</span></Link></li>
+              <li><Link href="/services"><span className="hover:text-yellow-400 transition-colors duration-300 cursor-pointer">Services</span></Link></li>
+              <li><Link href="/about"><span className="hover:text-yellow-400 transition-colors duration-300 cursor-pointer">About Us</span></Link></li>
+              <li><Link href="/buy-sell"><span className="hover:text-yellow-400 transition-colors duration-300 cursor-pointer">Buy & Sell</span></Link></li>
+              <li><Link href="/contact"><span className="hover:text-yellow-400 transition-colors duration-300 cursor-pointer">Contact</span></Link></li>
             </ul>
           </div>
           
