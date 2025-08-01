@@ -81,7 +81,7 @@ export default function Home() {
                 Best View Properties
               </h1>
               <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto drop-shadow-md">
-                Experience luxury properties in the heart of Dubai
+                Redefining real estate excellence in Dubai by delivering unparalleled service, innovative solutions, and lasting value for our clients
               </p>
               <motion.button
                 className="bg-white text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors shadow-lg"
