@@ -80,7 +80,7 @@ export default function Home() {
               <h1 className="text-6xl md:text-7xl font-bold text-white mb-6 drop-shadow-lg mt-16">
                 Best View Properties
               </h1>
-              <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto drop-shadow-md font-bold">
+              <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto drop-shadow-md">
                 Redefining real estate excellence in Dubai by delivering unparalleled service, innovative solutions, and lasting value for our clients
               </p>
               <motion.button
