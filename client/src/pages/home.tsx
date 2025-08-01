@@ -258,22 +258,19 @@ export default function Home() {
             </p>
           </motion.div>
 
-          {/* Horizontal Tabs Layout */}
-          <div className="space-y-8">
-            {/* Tab Navigation - Horizontal across top */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
-                {serviceCategories.map((category) => {
-                  const IconComponent = category.icon;
-                  return (
-                    <button
-                      key={category.id}
-                      onClick={() => setActiveTab(category.id)}
-                      className={`flex items-center space-x-3 p-4 rounded-lg transition-all duration-300 text-left w-full ${
-                        activeTab === category.id
-                          ? 'bg-black text-white shadow-md'
-                          : 'text-gray-600 hover:bg-gray-50 hover:text-black'
-                      }`}
+          {/* Service Category Cards */}
+          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+              {serviceCategories.map((category, index) => {
+                const IconComponent = category.icon;
+                return (
+                  <Link key={category.id} href="/services">
+                    <motion.div
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      className="flex items-center space-x-3 p-4 rounded-lg transition-all duration-300 text-left w-full text-gray-600 hover:bg-gray-50 hover:text-black cursor-pointer group"
+                      whileHover={{ scale: 1.02 }}
                     >
                       <IconComponent className="w-5 h-5 flex-shrink-0" />
                       <div className="min-w-0">
@@ -285,79 +282,11 @@ export default function Home() {
                            "Business Setup"}
                         </div>
                       </div>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Tab Content - Full width below tabs */}
-            <div>
-              <motion.div
-                key={activeTab}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4 }}
-                className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden"
-              >
-                {activeCategory && (
-                  <>
-                    {/* All Subcategories for Active Tab */}
-                    <div className="p-6 space-y-8">
-                      {activeCategory.subcategories.map((subcategory, subIndex) => (
-                        <motion.div
-                          key={subIndex}
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.4, delay: subIndex * 0.1 }}
-                        >
-                          <div className="mb-6">
-                            <h3 className="text-lg font-bold text-black mb-2">{subcategory.title}</h3>
-                            <p className="text-gray-600 text-sm leading-relaxed">{subcategory.description}</p>
-                          </div>
-                          
-                          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                            {subcategory.services.map((service, serviceIndex) => {
-                              const ServiceIcon = service.icon;
-                              return (
-                                <motion.div
-                                  key={serviceIndex}
-                                  initial={{ opacity: 0, scale: 0.95 }}
-                                  animate={{ opacity: 1, scale: 1 }}
-                                  transition={{ duration: 0.2, delay: serviceIndex * 0.05 }}
-                                  className="bg-gray-50 rounded-lg p-3 hover:bg-gray-100 transition-colors duration-200 cursor-pointer group"
-                                >
-                                  <div className="flex items-center space-x-2">
-                                    <div className="bg-white p-2 rounded-md group-hover:bg-black group-hover:text-white transition-all duration-200">
-                                      <ServiceIcon className="w-4 h-4" />
-                                    </div>
-                                    <span className="text-sm font-medium text-gray-800">{service.name}</span>
-                                  </div>
-                                </motion.div>
-                              );
-                            })}
-                          </div>
-                        </motion.div>
-                      ))}
-                    </div>
-                    
-                    {/* View All Services Link */}
-                    <div className="px-6 pb-6">
-                      <Link href="/services">
-                        <motion.div 
-                          className="bg-black text-white px-6 py-3 rounded-lg text-center font-medium hover:bg-gray-800 transition-colors duration-300 cursor-pointer group"
-                          whileHover={{ scale: 1.02 }}
-                        >
-                          <div className="flex items-center justify-center space-x-2">
-                            <span>View All Services</span>
-                            <ArrowLeft className="w-4 h-4 rotate-180 group-hover:translate-x-1 transition-transform duration-300" />
-                          </div>
-                        </motion.div>
-                      </Link>
-                    </div>
-                  </>
-                )}
-              </motion.div>
+                      <ArrowLeft className="w-4 h-4 rotate-180 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
+                    </motion.div>
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </div>
