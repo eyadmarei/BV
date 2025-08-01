@@ -10,6 +10,14 @@ import {
 } from "lucide-react";
 import type { Property, Service } from "@shared/schema";
 import heroVideo from "@assets/WhatsApp Video 2025-07-06 at 03.15.52_6b085703_1751757407515.mp4";
+import binghatiLogo from "@assets/binghate_1754074726263.png";
+import danubeLogo from "@assets/danube_1754074726264.png";
+import ellingtonLogo from "@assets/download_1754074726265.png";
+import emaarLogo from "@assets/emar_1754074726266.png";
+import imanLogo from "@assets/iman_1754074726267.png";
+import marquisLogo from "@assets/mareques_1754074726267.png";
+import rabdanLogo from "@assets/Rabdan_1754074726268.png";
+import tigerLogo from "@assets/tiger_1754074726270.png";
 
 const serviceCategories = [
   {
@@ -301,7 +309,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-black mb-4">
               Our Partners
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
@@ -317,56 +325,56 @@ export default function Home() {
           >
             <div className="flex justify-center items-center grayscale hover:grayscale-0 transition-all duration-300">
               <img 
-                src="/attached_assets/binghate_1754074726263.png" 
+                src={binghatiLogo} 
                 alt="Binghatti" 
                 className="h-12 w-auto object-contain"
               />
             </div>
             <div className="flex justify-center items-center grayscale hover:grayscale-0 transition-all duration-300">
               <img 
-                src="/attached_assets/danube_1754074726264.png" 
+                src={danubeLogo} 
                 alt="Danube Properties" 
                 className="h-12 w-auto object-contain"
               />
             </div>
             <div className="flex justify-center items-center grayscale hover:grayscale-0 transition-all duration-300">
               <img 
-                src="/attached_assets/download_1754074726265.png" 
+                src={ellingtonLogo} 
                 alt="Ellington Properties" 
                 className="h-12 w-auto object-contain"
               />
             </div>
             <div className="flex justify-center items-center grayscale hover:grayscale-0 transition-all duration-300">
               <img 
-                src="/attached_assets/emar_1754074726266.png" 
+                src={emaarLogo} 
                 alt="Emaar" 
                 className="h-12 w-auto object-contain"
               />
             </div>
             <div className="flex justify-center items-center grayscale hover:grayscale-0 transition-all duration-300">
               <img 
-                src="/attached_assets/iman_1754074726267.png" 
+                src={imanLogo} 
                 alt="Iman Developers" 
                 className="h-12 w-auto object-contain"
               />
             </div>
             <div className="flex justify-center items-center grayscale hover:grayscale-0 transition-all duration-300">
               <img 
-                src="/attached_assets/mareques_1754074726267.png" 
+                src={marquisLogo} 
                 alt="Marquis" 
                 className="h-12 w-auto object-contain"
               />
             </div>
             <div className="flex justify-center items-center grayscale hover:grayscale-0 transition-all duration-300">
               <img 
-                src="/attached_assets/Rabdan_1754074726268.png" 
+                src={rabdanLogo} 
                 alt="Rabdan Developments" 
                 className="h-12 w-auto object-contain"
               />
             </div>
             <div className="flex justify-center items-center grayscale hover:grayscale-0 transition-all duration-300">
               <img 
-                src="/attached_assets/tiger_1754074726270.png" 
+                src={tigerLogo} 
                 alt="Tiger Properties AE" 
                 className="h-12 w-auto object-contain"
               />
