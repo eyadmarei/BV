@@ -122,43 +122,41 @@ export default function Services() {
           </p>
         </motion.div>
 
-        {/* Horizontal Tab Pages Layout */}
-        <div className="flex flex-col lg:flex-row gap-8">
-          {/* Tab Navigation - Horizontal on desktop, vertical on mobile */}
-          <div className="lg:w-1/4">
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-2 lg:p-4">
-              <div className="flex lg:flex-col gap-2">
-                {serviceCategories.map((category) => {
-                  const IconComponent = category.icon;
-                  return (
-                    <button
-                      key={category.id}
-                      onClick={() => setActiveTab(category.id)}
-                      className={`flex items-center space-x-3 p-4 rounded-lg transition-all duration-300 text-left w-full ${
-                        activeTab === category.id
-                          ? 'bg-black text-white shadow-md'
-                          : 'text-gray-600 hover:bg-gray-50 hover:text-black'
-                      }`}
-                    >
-                      <IconComponent className="w-5 h-5 flex-shrink-0" />
-                      <div className="min-w-0">
-                        <div className="font-semibold text-sm truncate">{category.label}</div>
-                        <div className="text-xs opacity-75 truncate">
-                          {category.label === "Property Transactions" ? "Buy & Sell" :
-                           category.label === "Property Management" ? "Oversight" :
-                           category.label === "Mortgage Advisory" ? "Financing" :
-                           "Business Setup"}
-                        </div>
+        {/* Horizontal Tabs at Top */}
+        <div className="space-y-8">
+          {/* Tab Navigation - Horizontal across top */}
+          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+              {serviceCategories.map((category) => {
+                const IconComponent = category.icon;
+                return (
+                  <button
+                    key={category.id}
+                    onClick={() => setActiveTab(category.id)}
+                    className={`flex items-center space-x-3 p-4 rounded-lg transition-all duration-300 text-left w-full ${
+                      activeTab === category.id
+                        ? 'bg-black text-white shadow-md'
+                        : 'text-gray-600 hover:bg-gray-50 hover:text-black'
+                    }`}
+                  >
+                    <IconComponent className="w-5 h-5 flex-shrink-0" />
+                    <div className="min-w-0">
+                      <div className="font-semibold text-sm">{category.label}</div>
+                      <div className="text-xs opacity-75">
+                        {category.label === "Property Transactions" ? "Buy & Sell" :
+                         category.label === "Property Management" ? "Oversight" :
+                         category.label === "Mortgage Advisory" ? "Financing" :
+                         "Business Setup"}
                       </div>
-                    </button>
-                  );
-                })}
-              </div>
+                    </div>
+                  </button>
+                );
+              })}
             </div>
           </div>
 
-          {/* Tab Content - Takes up remaining space */}
-          <div className="lg:w-3/4">
+          {/* Tab Content - Full width below tabs */}
+          <div>
             <motion.div
               key={activeTab}
               initial={{ opacity: 0, x: 20 }}
