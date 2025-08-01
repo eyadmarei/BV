@@ -269,13 +269,13 @@ export default function Home() {
                       initial={{ opacity: 0, y: 30 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: index * 0.1 }}
-                      className="flex items-center space-x-3 p-4 rounded-lg transition-all duration-300 text-left w-full text-gray-600 hover:bg-gray-50 hover:text-black cursor-pointer group"
+                      className="flex items-center space-x-4 p-6 rounded-lg transition-all duration-300 text-left w-full text-gray-600 hover:bg-gray-50 hover:text-black cursor-pointer group"
                       whileHover={{ scale: 1.02 }}
                     >
-                      <IconComponent className="w-5 h-5 flex-shrink-0" />
+                      <IconComponent className="w-6 h-6 flex-shrink-0" />
                       <div className="min-w-0">
-                        <div className="font-semibold text-sm">{category.label}</div>
-                        <div className="text-xs opacity-75">
+                        <div className="font-semibold text-base">{category.label}</div>
+                        <div className="text-sm opacity-75">
                           {category.label === "Property Transactions" ? "Buy & Sell" :
                            category.label === "Property Management" ? "Oversight" :
                            category.label === "Mortgage Advisory" ? "Financing" :
