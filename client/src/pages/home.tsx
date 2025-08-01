@@ -291,6 +291,89 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Partners Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
+              Our Partners
+            </h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Trusted partnerships with Dubai's leading developers and property companies
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 items-center"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <div className="flex justify-center items-center grayscale hover:grayscale-0 transition-all duration-300">
+              <img 
+                src="/attached_assets/binghate_1754074726263.png" 
+                alt="Binghatti" 
+                className="h-12 w-auto object-contain"
+              />
+            </div>
+            <div className="flex justify-center items-center grayscale hover:grayscale-0 transition-all duration-300">
+              <img 
+                src="/attached_assets/danube_1754074726264.png" 
+                alt="Danube Properties" 
+                className="h-12 w-auto object-contain"
+              />
+            </div>
+            <div className="flex justify-center items-center grayscale hover:grayscale-0 transition-all duration-300">
+              <img 
+                src="/attached_assets/download_1754074726265.png" 
+                alt="Ellington Properties" 
+                className="h-12 w-auto object-contain"
+              />
+            </div>
+            <div className="flex justify-center items-center grayscale hover:grayscale-0 transition-all duration-300">
+              <img 
+                src="/attached_assets/emar_1754074726266.png" 
+                alt="Emaar" 
+                className="h-12 w-auto object-contain"
+              />
+            </div>
+            <div className="flex justify-center items-center grayscale hover:grayscale-0 transition-all duration-300">
+              <img 
+                src="/attached_assets/iman_1754074726267.png" 
+                alt="Iman Developers" 
+                className="h-12 w-auto object-contain"
+              />
+            </div>
+            <div className="flex justify-center items-center grayscale hover:grayscale-0 transition-all duration-300">
+              <img 
+                src="/attached_assets/mareques_1754074726267.png" 
+                alt="Marquis" 
+                className="h-12 w-auto object-contain"
+              />
+            </div>
+            <div className="flex justify-center items-center grayscale hover:grayscale-0 transition-all duration-300">
+              <img 
+                src="/attached_assets/Rabdan_1754074726268.png" 
+                alt="Rabdan Developments" 
+                className="h-12 w-auto object-contain"
+              />
+            </div>
+            <div className="flex justify-center items-center grayscale hover:grayscale-0 transition-all duration-300">
+              <img 
+                src="/attached_assets/tiger_1754074726270.png" 
+                alt="Tiger Properties AE" 
+                className="h-12 w-auto object-contain"
+              />
+            </div>
+          </motion.div>
+        </div>
+      </section>
     </div>
   );
 }
