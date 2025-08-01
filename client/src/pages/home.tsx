@@ -197,21 +197,23 @@ export default function Home() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 group"
+                  className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-lg transition-all duration-300 group cursor-pointer"
                   whileHover={{ scale: 1.02 }}
                 >
                   <Link href="/services">
-                    <div className="cursor-pointer">
-                      <div className="flex items-center space-x-4 mb-4">
-                        <div className="bg-black/5 p-3 rounded-xl group-hover:bg-black group-hover:text-white transition-all duration-300">
+                    <div>
+                      <div className="flex items-start space-x-4 mb-4">
+                        <div className="bg-black p-3 rounded-lg text-white flex-shrink-0">
                           <IconComponent className="w-6 h-6" />
                         </div>
-                        <h3 className="text-xl font-bold text-black">{category.label}</h3>
-                      </div>
-                      <p className="text-gray-600 leading-relaxed mb-4">{category.description}</p>
-                      <div className="flex items-center text-black font-medium group-hover:text-gold transition-colors duration-300">
-                        <span>Learn More</span>
-                        <ArrowLeft className="w-4 h-4 ml-2 rotate-180" />
+                        <div className="flex-1">
+                          <h3 className="text-xl font-bold text-black mb-2">{category.label}</h3>
+                          <p className="text-gray-600 text-sm leading-relaxed mb-4">{category.description}</p>
+                          <div className="flex items-center text-black font-medium text-sm group-hover:text-blue-600 transition-colors duration-300">
+                            <span>Learn More</span>
+                            <ArrowLeft className="w-4 h-4 ml-2 rotate-180" />
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </Link>
