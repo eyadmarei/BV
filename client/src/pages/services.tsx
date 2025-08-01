@@ -166,19 +166,6 @@ export default function Services() {
             >
               {activeCategory && (
                 <>
-                  {/* Category Header */}
-                  <div className="bg-gradient-to-r from-gray-50 to-white p-6 border-b border-gray-100">
-                    <div className="flex items-center space-x-4">
-                      <div className="bg-black p-3 rounded-lg text-white">
-                        <activeCategory.icon className="w-6 h-6" />
-                      </div>
-                      <div>
-                        <h2 className="text-2xl font-bold text-black">{activeCategory.label}</h2>
-                        <p className="text-gray-600 text-sm mt-1">{activeCategory.description}</p>
-                      </div>
-                    </div>
-                  </div>
-
                   {/* All Subcategories for Active Tab */}
                   <div className="p-6 space-y-8">
                     {activeCategory.subcategories.map((subcategory, subIndex) => (
