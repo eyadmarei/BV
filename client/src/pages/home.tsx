@@ -301,7 +301,7 @@ export default function Home() {
       </section>
 
       {/* Partners Section */}
-      <section className="py-12 bg-black/80 backdrop-blur-sm">
+      <section className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-8"
@@ -309,20 +309,21 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-lg md:text-xl font-bold text-white mb-2">
+            <h2 className="text-lg md:text-xl font-bold text-black mb-2">
               Our Partners
             </h2>
-            <p className="text-white/80 text-sm max-w-xl mx-auto">
+            <p className="text-gray-600 text-sm max-w-xl mx-auto">
               Trusted partnerships with Dubai's leading developers and property companies
             </p>
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 items-center"
+            className="bg-white rounded-xl shadow-sm border border-gray-200 p-6"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 items-center">
             <div className="flex justify-center items-center grayscale hover:grayscale-0 transition-all duration-300">
               <img 
                 src={binghatiLogo} 
@@ -378,6 +379,7 @@ export default function Home() {
                 alt="Tiger Properties AE" 
                 className="h-16 w-auto object-contain"
               />
+            </div>
             </div>
           </motion.div>
         </div>
