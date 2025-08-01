@@ -11,7 +11,7 @@ export default function Footer() {
               Best View Properties L.L.C
             </div>
             <h4 className="text-lg font-semibold mb-3 text-white">About Us</h4>
-            <p className="text-white/90 leading-relaxed">
+            <p className="text-gray-400 leading-relaxed">
               Best View Properties is a leading real estate brokerage in Dubai, specializing in luxury, residential, and commercial properties. With an extensive portfolio tailored to diverse needs, we help buyers, sellers, investors, and tenants navigate Dubai's dynamic market with confidence. Our expert team delivers personalized service, market insights, and seamless transactions to ensure exceptional results.
             </p>
           </div>
