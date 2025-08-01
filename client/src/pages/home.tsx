@@ -1,10 +1,38 @@
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
+import { useState } from "react";
 import PropertyCard from "@/components/property-card";
-import ServiceCard from "@/components/service-card";
+import { Home as HomeIcon, Settings, Calculator, Briefcase, ArrowLeft } from "lucide-react";
 import type { Property, Service } from "@shared/schema";
 import heroVideo from "@assets/WhatsApp Video 2025-07-06 at 03.15.52_6b085703_1751757407515.mp4";
+
+const serviceCategories = [
+  {
+    id: "property-transactions",
+    label: "Property Transactions",
+    icon: HomeIcon,
+    description: "Buy and sell properties with expert guidance across all market segments",
+  },
+  {
+    id: "property-management",
+    label: "Property Management",
+    icon: Settings,
+    description: "Complete property oversight and management services with expert consultation",
+  },
+  {
+    id: "mortgage-advisory",
+    label: "Mortgage Advisory",
+    icon: Calculator,
+    description: "Expert mortgage guidance and financing solutions for all property investment scenarios",
+  },
+  {
+    id: "business-support",
+    label: "Business Support",
+    icon: Briefcase,
+    description: "Comprehensive business setup and investment assistance including immigration services",
+  }
+];
 
 export default function Home() {
   const { data: properties, isLoading: propertiesLoading } = useQuery<Property[]>({
@@ -140,40 +168,53 @@ export default function Home() {
 
 
       {/* Our Services */}
-      <section className="py-8 bg-gray-50">
+      <section className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-8">
-            {/* Side Title Box */}
-            <motion.div 
-              className="lg:w-1/4"
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="bg-white p-4 rounded-xl shadow-sm h-fit sticky top-8">
-                <h2 className="text-xl font-bold text-black mb-1">Our Services</h2>
-                <p className="text-gray-600 text-xs">Complete property investment support from purchase to management</p>
-              </div>
-            </motion.div>
-            
-            {/* Services Grid */}
-            <div className="lg:w-3/4">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {servicesLoading ? (
-              Array.from({ length: 3 }).map((_, i) => (
-                <div key={i} className="h-96 bg-gray-200 rounded-2xl animate-pulse"></div>
-              ))
-            ) : (
-              services?.map((service, index) => (
-                <ServiceCard 
-                  key={service.id} 
-                  service={service} 
-                  delay={index * 0.2}
-                />
-              ))
-            )}
-              </div>
-            </div>
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
+              Our Services
+            </h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Complete property investment support from purchase to management
+            </p>
+          </motion.div>
+
+          {/* Service Category Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {serviceCategories.map((category, index) => {
+              const IconComponent = category.icon;
+              return (
+                <motion.div
+                  key={category.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 group"
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <Link href="/services">
+                    <div className="cursor-pointer">
+                      <div className="flex items-center space-x-4 mb-4">
+                        <div className="bg-black/5 p-3 rounded-xl group-hover:bg-black group-hover:text-white transition-all duration-300">
+                          <IconComponent className="w-6 h-6" />
+                        </div>
+                        <h3 className="text-xl font-bold text-black">{category.label}</h3>
+                      </div>
+                      <p className="text-gray-600 leading-relaxed mb-4">{category.description}</p>
+                      <div className="flex items-center text-black font-medium group-hover:text-gold transition-colors duration-300">
+                        <span>Learn More</span>
+                        <ArrowLeft className="w-4 h-4 ml-2 rotate-180" />
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
