@@ -18,9 +18,9 @@ export default function Footer() {
             </div>
           </div>
           
-          <div>
+          <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4 border border-white/10 shadow-lg">
             <h4 className="text-white font-semibold mb-4">Properties</h4>
-            <ul className="space-y-2 text-gray-400">
+            <ul className="space-y-2 text-white/80">
               <li><Link href="/properties/villa"><span className="hover:text-yellow-400 transition-colors duration-300 cursor-pointer">Luxury Villas</span></Link></li>
               <li><Link href="/properties/townhouse"><span className="hover:text-yellow-400 transition-colors duration-300 cursor-pointer">Modern Townhouses</span></Link></li>
               <li><Link href="/properties/apartment"><span className="hover:text-yellow-400 transition-colors duration-300 cursor-pointer">Premium Apartments</span></Link></li>
@@ -28,9 +28,9 @@ export default function Footer() {
             </ul>
           </div>
           
-          <div>
+          <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4 border border-white/10 shadow-lg">
             <h4 className="text-white font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-gray-400">
+            <ul className="space-y-2 text-white/80">
               <li><Link href="/services"><span className="hover:text-yellow-400 transition-colors duration-300 cursor-pointer">Services</span></Link></li>
               <li><Link href="/about"><span className="hover:text-yellow-400 transition-colors duration-300 cursor-pointer">About Us</span></Link></li>
               <li><Link href="/buy-sell"><span className="hover:text-yellow-400 transition-colors duration-300 cursor-pointer">Buy & Sell</span></Link></li>
@@ -38,20 +38,20 @@ export default function Footer() {
             </ul>
           </div>
           
-          <div>
+          <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4 border border-white/10 shadow-lg">
             <h4 className="text-white font-semibold mb-4">Connect</h4>
             <div className="flex space-x-4 mb-4">
-              <a href="#" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-gold hover:text-black transition-all duration-300">
+              <a href="#" className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center hover:bg-yellow-400 hover:text-black transition-all duration-300">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-gold hover:text-black transition-all duration-300">
+              <a href="#" className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center hover:bg-yellow-400 hover:text-black transition-all duration-300">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-gold hover:text-black transition-all duration-300">
+              <a href="#" className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center hover:bg-yellow-400 hover:text-black transition-all duration-300">
                 <Twitter className="w-5 h-5" />
               </a>
             </div>
-            <p className="text-gray-400 text-sm">Book an appointment</p>
+            <p className="text-white/80 text-sm">Book an appointment</p>
           </div>
         </div>
         
