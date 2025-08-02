@@ -250,7 +250,7 @@ export default function Home() {
 
 
       {/* Our Services */}
-      <section className="py-12 bg-gray-50">
+      <section className="py-12 bg-gradient-to-r from-white via-gray-100 to-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-12"
@@ -261,13 +261,13 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
               Our Services
             </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-700 text-lg max-w-2xl mx-auto">
               Complete property investment support from purchase to management
             </p>
           </motion.div>
 
           {/* Service Category Cards */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+          <div className="bg-gradient-to-r from-white via-gray-50 to-gray-100 rounded-xl shadow-sm border border-gray-200 p-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
               {serviceCategories.map((category, index) => {
                 const IconComponent = category.icon;
@@ -277,7 +277,12 @@ export default function Home() {
                       initial={{ opacity: 0, y: 30 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: index * 0.1 }}
-                      className="flex items-center space-x-4 p-6 rounded-lg transition-all duration-300 text-left w-full text-gray-600 hover:bg-gray-50 hover:text-black cursor-pointer group"
+                      className={`flex items-center space-x-4 p-6 rounded-lg transition-all duration-300 text-left w-full text-gray-600 hover:text-black cursor-pointer group ${
+                        index === 0 ? 'bg-white hover:bg-gray-50' :
+                        index === 1 ? 'bg-gray-50 hover:bg-gray-100' :
+                        index === 2 ? 'bg-gray-100 hover:bg-gray-150' :
+                        'bg-gray-150 hover:bg-gray-200'
+                      }`}
                       whileHover={{ scale: 1.02 }}
                     >
                       <IconComponent className="w-6 h-6 flex-shrink-0" />

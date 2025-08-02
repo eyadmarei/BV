@@ -61,6 +61,15 @@
   }
 }
 
+@layer utilities {
+  .bg-gray-150 {
+    background-color: #f8f8f8;
+  }
+  .hover\:bg-gray-150:hover {
+    background-color: #f8f8f8;
+  }
+}
+
 @layer components {
   .property-card {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
