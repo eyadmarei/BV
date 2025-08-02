@@ -432,6 +432,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Separator */}
+      <section className="h-8 bg-gradient-to-b from-gray-950 to-gray-100"></section>
+
     </div>
   );
 }
