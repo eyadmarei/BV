@@ -304,6 +304,21 @@ export default function Home() {
       <section className="py-16 bg-gray-950 relative overflow-hidden">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
+          {/* Our Partners Title */}
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-lg md:text-xl font-bold text-white mb-2">
+              Our Partners
+            </h2>
+            <p className="text-white/80 text-sm max-w-lg mx-auto">
+              Trusted partnerships with Dubai's leading developers and property companies
+            </p>
+          </motion.div>
+          
           {/* Partner Logos Grid */}
           <motion.div
             className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 mb-16"
@@ -410,25 +425,6 @@ export default function Home() {
           </motion.div>
 
 
-        </div>
-      </section>
-
-      {/* Our Partners Title Section - Working as Separator */}
-      <section className="py-4 bg-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="text-center"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-lg md:text-xl font-bold text-black mb-2">
-              Our Partners
-            </h2>
-            <p className="text-gray-600 text-sm max-w-lg mx-auto">
-              Trusted partnerships with Dubai's leading developers and property companies
-            </p>
-          </motion.div>
         </div>
       </section>
 
