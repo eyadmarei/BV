@@ -250,7 +250,7 @@ export default function Home() {
 
 
       {/* Our Services */}
-      <section className="py-8 bg-gradient-to-r from-transparent via-gray-500/20 to-transparent">
+      <section className="py-8 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-8"
