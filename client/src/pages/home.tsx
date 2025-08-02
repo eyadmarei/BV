@@ -300,25 +300,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Our Partners Title Section */}
-      <section className="py-4 bg-gradient-to-b from-gray-100 to-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="text-center"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-lg md:text-xl font-bold text-black mb-2">
-              Our Partners
-            </h2>
-            <p className="text-gray-600 text-sm max-w-lg mx-auto">
-              Trusted partnerships with Dubai's leading developers and property companies
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Featured Partners & Projects */}
       <section className="py-16 bg-gray-950 relative overflow-hidden">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -432,8 +413,24 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Separator */}
-      <section className="h-8 bg-gradient-to-b from-gray-950 to-gray-100"></section>
+      {/* Our Partners Title Section - Working as Separator */}
+      <section className="py-4 bg-gradient-to-b from-gray-950 to-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-lg md:text-xl font-bold text-black mb-2">
+              Our Partners
+            </h2>
+            <p className="text-gray-600 text-sm max-w-lg mx-auto">
+              Trusted partnerships with Dubai's leading developers and property companies
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
     </div>
   );
