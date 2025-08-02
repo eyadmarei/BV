@@ -320,7 +320,7 @@ export default function Home() {
       </section>
 
       {/* Featured Partners & Projects */}
-      <section className="py-16 bg-gray-900 relative overflow-hidden">
+      <section className="py-16 bg-gray-950 relative overflow-hidden">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Partner Logos Grid */}
