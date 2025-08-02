@@ -330,78 +330,89 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="flex justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
+            <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
               <img 
                 src={binghatiLogo} 
                 alt="Binghatti" 
-                className="h-16 w-auto object-contain"
+                className="h-16 w-auto object-contain mb-3"
               />
+              <button className="bg-white text-black px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-100 transition-colors">
+                View Collection
+              </button>
             </div>
-            <div className="flex justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
+            <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
               <img 
                 src={danubeLogo} 
                 alt="Danube Properties" 
-                className="h-16 w-auto object-contain"
+                className="h-16 w-auto object-contain mb-3"
               />
+              <button className="bg-white text-black px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-100 transition-colors">
+                View Collection
+              </button>
             </div>
-            <div className="flex justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
+            <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
               <img 
                 src={ellingtonLogo} 
                 alt="Ellington Properties" 
-                className="h-16 w-auto object-contain"
+                className="h-16 w-auto object-contain mb-3"
               />
+              <button className="bg-white text-black px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-100 transition-colors">
+                View Collection
+              </button>
             </div>
-            <div className="flex justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
+            <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
               <img 
                 src={emaarLogo} 
                 alt="Emaar" 
-                className="h-16 w-auto object-contain"
+                className="h-16 w-auto object-contain mb-3"
               />
+              <button className="bg-white text-black px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-100 transition-colors">
+                View Collection
+              </button>
             </div>
-            <div className="flex justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
+            <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
               <img 
                 src={imanLogo} 
                 alt="Iman Developers" 
-                className="h-16 w-auto object-contain"
+                className="h-16 w-auto object-contain mb-3"
               />
+              <button className="bg-white text-black px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-100 transition-colors">
+                View Collection
+              </button>
             </div>
-            <div className="flex justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
+            <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
               <img 
                 src={marquisLogo} 
                 alt="Marquis" 
-                className="h-16 w-auto object-contain"
+                className="h-16 w-auto object-contain mb-3"
               />
+              <button className="bg-white text-black px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-100 transition-colors">
+                View Collection
+              </button>
             </div>
-            <div className="flex justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
+            <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
               <img 
                 src={rabdanLogo} 
                 alt="Rabdan Developments" 
-                className="h-16 w-auto object-contain"
+                className="h-16 w-auto object-contain mb-3"
               />
+              <button className="bg-white text-black px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-100 transition-colors">
+                View Collection
+              </button>
             </div>
-            <div className="flex justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
+            <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
               <img 
                 src={tigerLogo} 
                 alt="Tiger Properties AE" 
-                className="h-16 w-auto object-contain"
+                className="h-16 w-auto object-contain mb-3"
               />
+              <button className="bg-white text-black px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-100 transition-colors">
+                View Collection
+              </button>
             </div>
           </motion.div>
 
-          {/* Featured Projects Placeholder */}
-          <motion.div
-            className="text-center"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 shadow-lg">
-              <h3 className="text-2xl font-bold text-white mb-4">Featured Projects Coming Soon</h3>
-              <p className="text-white/80 text-lg">
-                Showcase of exclusive properties and developments from our trusted partners
-              </p>
-            </div>
-          </motion.div>
+
         </div>
       </section>
 
