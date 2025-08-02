@@ -7,6 +7,7 @@ import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import Home from "@/pages/home";
 import Properties from "@/pages/properties";
+import Projects from "@/pages/projects";
 import Services from "@/pages/services";
 import About from "@/pages/about";
 import Contact from "@/pages/contact";
@@ -19,6 +20,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/properties" component={Properties} />
       <Route path="/properties/:type" component={Properties} />
+      <Route path="/projects" component={Projects} />
       <Route path="/services" component={Services} />
       <Route path="/about" component={About} />
       <Route path="/buy-sell" component={BuySell} />

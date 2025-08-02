@@ -336,9 +336,11 @@ export default function Home() {
                 alt="Binghatti" 
                 className="h-16 w-auto object-contain mb-3"
               />
-              <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
-                View Collection
-              </button>
+              <Link href="/projects?partner=Binghatti">
+                <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
+                  View Collection
+                </button>
+              </Link>
             </div>
             <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
               <img 
@@ -346,9 +348,11 @@ export default function Home() {
                 alt="Danube Properties" 
                 className="h-16 w-auto object-contain mb-3"
               />
-              <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
-                View Collection
-              </button>
+              <Link href="/projects?partner=Danube Properties">
+                <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
+                  View Collection
+                </button>
+              </Link>
             </div>
             <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
               <img 
@@ -356,9 +360,11 @@ export default function Home() {
                 alt="Ellington Properties" 
                 className="h-16 w-auto object-contain mb-3"
               />
-              <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
-                View Collection
-              </button>
+              <Link href="/projects?partner=Ellington Properties">
+                <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
+                  View Collection
+                </button>
+              </Link>
             </div>
             <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
               <img 
@@ -366,9 +372,11 @@ export default function Home() {
                 alt="Emaar" 
                 className="h-16 w-auto object-contain mb-3"
               />
-              <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
-                View Collection
-              </button>
+              <Link href="/projects?partner=Emaar">
+                <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
+                  View Collection
+                </button>
+              </Link>
             </div>
             <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
               <img 
@@ -376,9 +384,11 @@ export default function Home() {
                 alt="Iman Developers" 
                 className="h-16 w-auto object-contain mb-3"
               />
-              <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
-                View Collection
-              </button>
+              <Link href="/projects?partner=Iman Developers">
+                <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
+                  View Collection
+                </button>
+              </Link>
             </div>
             <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
               <img 
@@ -386,9 +396,11 @@ export default function Home() {
                 alt="Marquis" 
                 className="h-16 w-auto object-contain mb-3"
               />
-              <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
-                View Collection
-              </button>
+              <Link href="/projects?partner=Marquis">
+                <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
+                  View Collection
+                </button>
+              </Link>
             </div>
             <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
               <img 
@@ -396,9 +408,11 @@ export default function Home() {
                 alt="Rabdan Developments" 
                 className="h-16 w-auto object-contain mb-3"
               />
-              <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
-                View Collection
-              </button>
+              <Link href="/projects?partner=Rabdan Developments">
+                <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
+                  View Collection
+                </button>
+              </Link>
             </div>
             <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
               <img 
@@ -406,9 +420,11 @@ export default function Home() {
                 alt="Tiger Properties AE" 
                 className="h-16 w-auto object-contain mb-3"
               />
-              <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
-                View Collection
-              </button>
+              <Link href="/projects?partner=Tiger Properties AE">
+                <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
+                  View Collection
+                </button>
+              </Link>
             </div>
           </motion.div>
 
