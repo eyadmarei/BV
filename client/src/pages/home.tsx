@@ -301,27 +301,9 @@ export default function Home() {
       </section>
 
       {/* Featured Partners & Projects */}
-      <section className="py-16 bg-gradient-to-br from-purple-600 via-blue-600 to-teal-500 relative overflow-hidden">
-        {/* Animated background elements */}
-        <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 via-pink-500/20 to-purple-600/20"></div>
-        <div className="absolute top-0 left-0 w-72 h-72 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-yellow-400/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
-        
+      <section className="py-16 bg-black/80 backdrop-blur-sm relative overflow-hidden">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Our Partners
-            </h2>
-            <p className="text-white/90 text-lg max-w-2xl mx-auto">
-              Trusted partnerships with Dubai's leading developers and property companies
-            </p>
-          </motion.div>
-
+          
           {/* Partner Logos Grid */}
           <motion.div
             className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 mb-16"
@@ -333,63 +315,63 @@ export default function Home() {
               <img 
                 src={binghatiLogo} 
                 alt="Binghatti" 
-                className="h-16 w-auto object-contain filter brightness-0 invert hover:filter-none transition-all duration-300"
+                className="h-16 w-auto object-contain"
               />
             </div>
             <div className="flex justify-center items-center bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105">
               <img 
                 src={danubeLogo} 
                 alt="Danube Properties" 
-                className="h-16 w-auto object-contain filter brightness-0 invert hover:filter-none transition-all duration-300"
+                className="h-16 w-auto object-contain"
               />
             </div>
             <div className="flex justify-center items-center bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105">
               <img 
                 src={ellingtonLogo} 
                 alt="Ellington Properties" 
-                className="h-16 w-auto object-contain filter brightness-0 invert hover:filter-none transition-all duration-300"
+                className="h-16 w-auto object-contain"
               />
             </div>
             <div className="flex justify-center items-center bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105">
               <img 
                 src={emaarLogo} 
                 alt="Emaar" 
-                className="h-16 w-auto object-contain filter brightness-0 invert hover:filter-none transition-all duration-300"
+                className="h-16 w-auto object-contain"
               />
             </div>
             <div className="flex justify-center items-center bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105">
               <img 
                 src={imanLogo} 
                 alt="Iman Developers" 
-                className="h-16 w-auto object-contain filter brightness-0 invert hover:filter-none transition-all duration-300"
+                className="h-16 w-auto object-contain"
               />
             </div>
             <div className="flex justify-center items-center bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105">
               <img 
                 src={marquisLogo} 
                 alt="Marquis" 
-                className="h-16 w-auto object-contain filter brightness-0 invert hover:filter-none transition-all duration-300"
+                className="h-16 w-auto object-contain"
               />
             </div>
             <div className="flex justify-center items-center bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105">
               <img 
                 src={rabdanLogo} 
                 alt="Rabdan Developments" 
-                className="h-16 w-auto object-contain filter brightness-0 invert hover:filter-none transition-all duration-300"
+                className="h-16 w-auto object-contain"
               />
             </div>
             <div className="flex justify-center items-center bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105">
               <img 
                 src={tigerLogo} 
                 alt="Tiger Properties AE" 
-                className="h-16 w-auto object-contain filter brightness-0 invert hover:filter-none transition-all duration-300"
+                className="h-16 w-auto object-contain"
               />
             </div>
           </motion.div>
 
           {/* Featured Projects Placeholder */}
           <motion.div
-            className="text-center"
+            className="text-center mb-12"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -400,6 +382,21 @@ export default function Home() {
                 Showcase of exclusive properties and developments from our trusted partners
               </p>
             </div>
+          </motion.div>
+
+          {/* Title and Description at Bottom */}
+          <motion.div
+            className="text-center"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Our Partners
+            </h2>
+            <p className="text-white/90 text-lg max-w-2xl mx-auto">
+              Trusted partnerships with Dubai's leading developers and property companies
+            </p>
           </motion.div>
         </div>
       </section>
