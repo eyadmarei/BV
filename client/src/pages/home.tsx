@@ -336,7 +336,7 @@ export default function Home() {
                 alt="Binghatti" 
                 className="h-16 w-auto object-contain mb-3"
               />
-              <button className="bg-white text-black px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-100 transition-colors">
+              <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
                 View Collection
               </button>
             </div>
@@ -346,7 +346,7 @@ export default function Home() {
                 alt="Danube Properties" 
                 className="h-16 w-auto object-contain mb-3"
               />
-              <button className="bg-white text-black px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-100 transition-colors">
+              <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
                 View Collection
               </button>
             </div>
@@ -356,7 +356,7 @@ export default function Home() {
                 alt="Ellington Properties" 
                 className="h-16 w-auto object-contain mb-3"
               />
-              <button className="bg-white text-black px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-100 transition-colors">
+              <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
                 View Collection
               </button>
             </div>
@@ -366,7 +366,7 @@ export default function Home() {
                 alt="Emaar" 
                 className="h-16 w-auto object-contain mb-3"
               />
-              <button className="bg-white text-black px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-100 transition-colors">
+              <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
                 View Collection
               </button>
             </div>
@@ -376,7 +376,7 @@ export default function Home() {
                 alt="Iman Developers" 
                 className="h-16 w-auto object-contain mb-3"
               />
-              <button className="bg-white text-black px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-100 transition-colors">
+              <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
                 View Collection
               </button>
             </div>
@@ -386,7 +386,7 @@ export default function Home() {
                 alt="Marquis" 
                 className="h-16 w-auto object-contain mb-3"
               />
-              <button className="bg-white text-black px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-100 transition-colors">
+              <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
                 View Collection
               </button>
             </div>
@@ -396,7 +396,7 @@ export default function Home() {
                 alt="Rabdan Developments" 
                 className="h-16 w-auto object-contain mb-3"
               />
-              <button className="bg-white text-black px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-100 transition-colors">
+              <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
                 View Collection
               </button>
             </div>
@@ -406,7 +406,7 @@ export default function Home() {
                 alt="Tiger Properties AE" 
                 className="h-16 w-auto object-contain mb-3"
               />
-              <button className="bg-white text-black px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-100 transition-colors">
+              <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
                 View Collection
               </button>
             </div>
