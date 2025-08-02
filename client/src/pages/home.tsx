@@ -301,10 +301,13 @@ export default function Home() {
       </section>
 
       {/* Featured Partners & Projects */}
-      <section className="py-16 bg-gray-950 relative overflow-hidden">
+      <section className="py-16 bg-gray-950 relative overflow-hidden shadow-lg border-t border-b border-gray-800">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Our Partners Title */}
+          {/* Inner beveled container */}
+          <div className="bg-gray-950 rounded-xl shadow-lg border border-gray-700 p-8">
+          
+            {/* Our Partners Title */}
           <motion.div
             className="text-center mb-12"
             initial={{ opacity: 0, y: 30 }}
@@ -424,7 +427,7 @@ export default function Home() {
             </div>
           </motion.div>
 
-
+          </div>
         </div>
       </section>
 
