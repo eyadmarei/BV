@@ -301,7 +301,7 @@ export default function Home() {
       </section>
 
       {/* Our Partners Title Section */}
-      <section className="py-8 bg-gradient-to-b from-gray-100 to-gray-200">
+      <section className="py-4 bg-gradient-to-b from-gray-100 to-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center"
@@ -309,10 +309,10 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
+            <h2 className="text-lg md:text-xl font-bold text-black mb-2">
               Our Partners
             </h2>
-            <p className="text-gray-700 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-600 text-sm max-w-lg mx-auto">
               Trusted partnerships with Dubai's leading developers and property companies
             </p>
           </motion.div>
