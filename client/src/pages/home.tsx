@@ -330,56 +330,56 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="flex justify-center items-center bg-white/70 backdrop-blur-sm rounded-xl p-4 hover:bg-white/90 transition-all duration-300 hover:scale-105">
+            <div className="flex justify-center items-center bg-black/40 backdrop-blur-sm rounded-xl p-4 hover:bg-black/60 transition-all duration-300 hover:scale-105">
               <img 
                 src={binghatiLogo} 
                 alt="Binghatti" 
                 className="h-16 w-auto object-contain"
               />
             </div>
-            <div className="flex justify-center items-center bg-white/70 backdrop-blur-sm rounded-xl p-4 hover:bg-white/90 transition-all duration-300 hover:scale-105">
+            <div className="flex justify-center items-center bg-black/40 backdrop-blur-sm rounded-xl p-4 hover:bg-black/60 transition-all duration-300 hover:scale-105">
               <img 
                 src={danubeLogo} 
                 alt="Danube Properties" 
                 className="h-16 w-auto object-contain"
               />
             </div>
-            <div className="flex justify-center items-center bg-white/70 backdrop-blur-sm rounded-xl p-4 hover:bg-white/90 transition-all duration-300 hover:scale-105">
+            <div className="flex justify-center items-center bg-black/40 backdrop-blur-sm rounded-xl p-4 hover:bg-black/60 transition-all duration-300 hover:scale-105">
               <img 
                 src={ellingtonLogo} 
                 alt="Ellington Properties" 
                 className="h-16 w-auto object-contain"
               />
             </div>
-            <div className="flex justify-center items-center bg-white/70 backdrop-blur-sm rounded-xl p-4 hover:bg-white/90 transition-all duration-300 hover:scale-105">
+            <div className="flex justify-center items-center bg-black/40 backdrop-blur-sm rounded-xl p-4 hover:bg-black/60 transition-all duration-300 hover:scale-105">
               <img 
                 src={emaarLogo} 
                 alt="Emaar" 
                 className="h-16 w-auto object-contain"
               />
             </div>
-            <div className="flex justify-center items-center bg-white/70 backdrop-blur-sm rounded-xl p-4 hover:bg-white/90 transition-all duration-300 hover:scale-105">
+            <div className="flex justify-center items-center bg-black/40 backdrop-blur-sm rounded-xl p-4 hover:bg-black/60 transition-all duration-300 hover:scale-105">
               <img 
                 src={imanLogo} 
                 alt="Iman Developers" 
                 className="h-16 w-auto object-contain"
               />
             </div>
-            <div className="flex justify-center items-center bg-white/70 backdrop-blur-sm rounded-xl p-4 hover:bg-white/90 transition-all duration-300 hover:scale-105">
+            <div className="flex justify-center items-center bg-black/40 backdrop-blur-sm rounded-xl p-4 hover:bg-black/60 transition-all duration-300 hover:scale-105">
               <img 
                 src={marquisLogo} 
                 alt="Marquis" 
                 className="h-16 w-auto object-contain"
               />
             </div>
-            <div className="flex justify-center items-center bg-white/70 backdrop-blur-sm rounded-xl p-4 hover:bg-white/90 transition-all duration-300 hover:scale-105">
+            <div className="flex justify-center items-center bg-black/40 backdrop-blur-sm rounded-xl p-4 hover:bg-black/60 transition-all duration-300 hover:scale-105">
               <img 
                 src={rabdanLogo} 
                 alt="Rabdan Developments" 
                 className="h-16 w-auto object-contain"
               />
             </div>
-            <div className="flex justify-center items-center bg-white/70 backdrop-blur-sm rounded-xl p-4 hover:bg-white/90 transition-all duration-300 hover:scale-105">
+            <div className="flex justify-center items-center bg-black/40 backdrop-blur-sm rounded-xl p-4 hover:bg-black/60 transition-all duration-300 hover:scale-105">
               <img 
                 src={tigerLogo} 
                 alt="Tiger Properties AE" 
@@ -395,9 +395,9 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-white/40">
-              <h3 className="text-2xl font-bold text-black mb-4">Featured Projects Coming Soon</h3>
-              <p className="text-gray-700 text-lg">
+            <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-8 border border-white/30">
+              <h3 className="text-2xl font-bold text-white mb-4">Featured Projects Coming Soon</h3>
+              <p className="text-white/80 text-lg">
                 Showcase of exclusive properties and developments from our trusted partners
               </p>
             </div>
