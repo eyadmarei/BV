@@ -300,8 +300,27 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Our Partners Title Section */}
+      <section className="py-8 bg-gradient-to-b from-gray-100 to-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
+              Our Partners
+            </h2>
+            <p className="text-gray-700 text-lg max-w-2xl mx-auto">
+              Trusted partnerships with Dubai's leading developers and property companies
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Featured Partners & Projects */}
-      <section className="py-16 bg-black/80 backdrop-blur-sm relative overflow-hidden">
+      <section className="py-16 bg-gradient-to-b from-gray-200 to-gray-300 relative overflow-hidden">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Partner Logos Grid */}
@@ -311,56 +330,56 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="flex justify-center items-center bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+            <div className="flex justify-center items-center bg-white/70 backdrop-blur-sm rounded-xl p-4 hover:bg-white/90 transition-all duration-300 hover:scale-105">
               <img 
                 src={binghatiLogo} 
                 alt="Binghatti" 
                 className="h-16 w-auto object-contain"
               />
             </div>
-            <div className="flex justify-center items-center bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+            <div className="flex justify-center items-center bg-white/70 backdrop-blur-sm rounded-xl p-4 hover:bg-white/90 transition-all duration-300 hover:scale-105">
               <img 
                 src={danubeLogo} 
                 alt="Danube Properties" 
                 className="h-16 w-auto object-contain"
               />
             </div>
-            <div className="flex justify-center items-center bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+            <div className="flex justify-center items-center bg-white/70 backdrop-blur-sm rounded-xl p-4 hover:bg-white/90 transition-all duration-300 hover:scale-105">
               <img 
                 src={ellingtonLogo} 
                 alt="Ellington Properties" 
                 className="h-16 w-auto object-contain"
               />
             </div>
-            <div className="flex justify-center items-center bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+            <div className="flex justify-center items-center bg-white/70 backdrop-blur-sm rounded-xl p-4 hover:bg-white/90 transition-all duration-300 hover:scale-105">
               <img 
                 src={emaarLogo} 
                 alt="Emaar" 
                 className="h-16 w-auto object-contain"
               />
             </div>
-            <div className="flex justify-center items-center bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+            <div className="flex justify-center items-center bg-white/70 backdrop-blur-sm rounded-xl p-4 hover:bg-white/90 transition-all duration-300 hover:scale-105">
               <img 
                 src={imanLogo} 
                 alt="Iman Developers" 
                 className="h-16 w-auto object-contain"
               />
             </div>
-            <div className="flex justify-center items-center bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+            <div className="flex justify-center items-center bg-white/70 backdrop-blur-sm rounded-xl p-4 hover:bg-white/90 transition-all duration-300 hover:scale-105">
               <img 
                 src={marquisLogo} 
                 alt="Marquis" 
                 className="h-16 w-auto object-contain"
               />
             </div>
-            <div className="flex justify-center items-center bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+            <div className="flex justify-center items-center bg-white/70 backdrop-blur-sm rounded-xl p-4 hover:bg-white/90 transition-all duration-300 hover:scale-105">
               <img 
                 src={rabdanLogo} 
                 alt="Rabdan Developments" 
                 className="h-16 w-auto object-contain"
               />
             </div>
-            <div className="flex justify-center items-center bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+            <div className="flex justify-center items-center bg-white/70 backdrop-blur-sm rounded-xl p-4 hover:bg-white/90 transition-all duration-300 hover:scale-105">
               <img 
                 src={tigerLogo} 
                 alt="Tiger Properties AE" 
@@ -371,32 +390,17 @@ export default function Home() {
 
           {/* Featured Projects Placeholder */}
           <motion.div
-            className="text-center mb-12"
+            className="text-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-              <h3 className="text-2xl font-bold text-white mb-4">Featured Projects Coming Soon</h3>
-              <p className="text-white/80 text-lg">
+            <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-white/40">
+              <h3 className="text-2xl font-bold text-black mb-4">Featured Projects Coming Soon</h3>
+              <p className="text-gray-700 text-lg">
                 Showcase of exclusive properties and developments from our trusted partners
               </p>
             </div>
-          </motion.div>
-
-          {/* Title and Description at Bottom */}
-          <motion.div
-            className="text-center"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Our Partners
-            </h2>
-            <p className="text-white/90 text-lg max-w-2xl mx-auto">
-              Trusted partnerships with Dubai's leading developers and property companies
-            </p>
           </motion.div>
         </div>
       </section>
