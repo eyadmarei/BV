@@ -277,12 +277,7 @@ export default function Home() {
                       initial={{ opacity: 0, y: 30 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: index * 0.1 }}
-                      className={`flex items-center space-x-4 p-6 rounded-lg transition-all duration-300 text-left w-full h-24 text-gray-600 hover:text-black cursor-pointer group ${
-                        index === 0 ? 'bg-white/30 hover:bg-white/50' :
-                        index === 1 ? 'bg-gray-200/40 hover:bg-gray-200/60' :
-                        index === 2 ? 'bg-gray-300/50 hover:bg-gray-300/70' :
-                        'bg-gray-400/60 hover:bg-gray-400/80'
-                      }`}
+                      className="flex items-center space-x-4 p-6 rounded-lg transition-all duration-300 text-left w-full h-24 text-gray-600 hover:text-black cursor-pointer group bg-white hover:bg-gray-50"
                       whileHover={{ scale: 1.02 }}
                     >
                       <IconComponent className="w-6 h-6 flex-shrink-0" />
