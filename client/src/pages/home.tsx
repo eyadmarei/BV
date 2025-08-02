@@ -250,7 +250,7 @@ export default function Home() {
 
 
       {/* Our Services */}
-      <section className="py-12 bg-gradient-to-r from-white via-gray-100 to-gray-200">
+      <section className="py-12 bg-gradient-to-r from-transparent via-gray-500/20 to-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-12"
@@ -267,7 +267,7 @@ export default function Home() {
           </motion.div>
 
           {/* Service Category Cards */}
-          <div className="bg-gradient-to-r from-white via-gray-50 to-gray-100 rounded-xl shadow-sm border border-gray-200 p-4">
+          <div className="bg-gradient-to-r from-white/40 via-gray-200/60 to-white/40 backdrop-blur-sm rounded-xl shadow-sm border border-white/20 p-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
               {serviceCategories.map((category, index) => {
                 const IconComponent = category.icon;
@@ -278,10 +278,10 @@ export default function Home() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: index * 0.1 }}
                       className={`flex items-center space-x-4 p-6 rounded-lg transition-all duration-300 text-left w-full text-gray-600 hover:text-black cursor-pointer group ${
-                        index === 0 ? 'bg-white hover:bg-gray-50' :
-                        index === 1 ? 'bg-gray-50 hover:bg-gray-100' :
-                        index === 2 ? 'bg-gray-100 hover:bg-gray-150' :
-                        'bg-gray-150 hover:bg-gray-200'
+                        index === 0 ? 'bg-white/30 hover:bg-white/50' :
+                        index === 1 ? 'bg-gray-200/40 hover:bg-gray-200/60' :
+                        index === 2 ? 'bg-gray-300/50 hover:bg-gray-300/70' :
+                        'bg-gray-400/60 hover:bg-gray-400/80'
                       }`}
                       whileHover={{ scale: 1.02 }}
                     >
