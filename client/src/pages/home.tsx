@@ -414,7 +414,7 @@ export default function Home() {
       </section>
 
       {/* Our Partners Title Section - Working as Separator */}
-      <section className="py-4 bg-gradient-to-b from-gray-950 to-gray-100">
+      <section className="py-4 bg-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center"
