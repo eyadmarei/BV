@@ -267,7 +267,7 @@ export default function Home() {
           </motion.div>
 
           {/* Service Category Cards */}
-          <div className="bg-white/20 backdrop-blur-md rounded-xl shadow-lg border border-white/30 p-4">
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {serviceCategories.map((category, index) => {
                 const IconComponent = category.icon;
