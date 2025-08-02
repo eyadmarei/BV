@@ -250,18 +250,18 @@ export default function Home() {
 
 
       {/* Our Services */}
-      <section className="py-12 bg-gradient-to-r from-transparent via-gray-500/20 to-transparent">
+      <section className="py-8 bg-gradient-to-r from-transparent via-gray-500/20 to-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            className="text-center mb-12"
+            className="text-center mb-8"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
+            <h2 className="text-lg md:text-xl font-bold text-black mb-2">
               Our Services
             </h2>
-            <p className="text-gray-700 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-600 text-sm max-w-lg mx-auto">
               Complete property investment support from purchase to management
             </p>
           </motion.div>
