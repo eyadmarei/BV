@@ -268,7 +268,7 @@ export default function Home() {
 
           {/* Service Category Cards */}
           <div className="bg-gradient-to-r from-white/40 via-gray-200/60 to-white/40 backdrop-blur-sm rounded-xl shadow-sm border border-white/20 p-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {serviceCategories.map((category, index) => {
                 const IconComponent = category.icon;
                 return (
@@ -277,7 +277,7 @@ export default function Home() {
                       initial={{ opacity: 0, y: 30 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: index * 0.1 }}
-                      className={`flex items-center space-x-4 p-6 rounded-lg transition-all duration-300 text-left w-full text-gray-600 hover:text-black cursor-pointer group ${
+                      className={`flex items-center space-x-4 p-6 rounded-lg transition-all duration-300 text-left w-full h-24 text-gray-600 hover:text-black cursor-pointer group ${
                         index === 0 ? 'bg-white/30 hover:bg-white/50' :
                         index === 1 ? 'bg-gray-200/40 hover:bg-gray-200/60' :
                         index === 2 ? 'bg-gray-300/50 hover:bg-gray-300/70' :
