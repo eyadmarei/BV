@@ -320,7 +320,7 @@ export default function Home() {
       </section>
 
       {/* Featured Partners & Projects */}
-      <section className="py-16 bg-gradient-to-b from-gray-200 to-gray-300 relative overflow-hidden">
+      <section className="py-16 bg-black relative overflow-hidden">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Partner Logos Grid */}
@@ -330,56 +330,56 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="flex justify-center items-center bg-gradient-to-br from-black/80 to-black/60 backdrop-blur-md rounded-xl p-4 hover:from-black/90 hover:to-black/70 transition-all duration-300 hover:scale-105 border border-white/10">
+            <div className="flex justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
               <img 
                 src={binghatiLogo} 
                 alt="Binghatti" 
                 className="h-16 w-auto object-contain"
               />
             </div>
-            <div className="flex justify-center items-center bg-gradient-to-br from-black/80 to-black/60 backdrop-blur-md rounded-xl p-4 hover:from-black/90 hover:to-black/70 transition-all duration-300 hover:scale-105 border border-white/10">
+            <div className="flex justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
               <img 
                 src={danubeLogo} 
                 alt="Danube Properties" 
                 className="h-16 w-auto object-contain"
               />
             </div>
-            <div className="flex justify-center items-center bg-gradient-to-br from-black/80 to-black/60 backdrop-blur-md rounded-xl p-4 hover:from-black/90 hover:to-black/70 transition-all duration-300 hover:scale-105 border border-white/10">
+            <div className="flex justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
               <img 
                 src={ellingtonLogo} 
                 alt="Ellington Properties" 
                 className="h-16 w-auto object-contain"
               />
             </div>
-            <div className="flex justify-center items-center bg-gradient-to-br from-black/80 to-black/60 backdrop-blur-md rounded-xl p-4 hover:from-black/90 hover:to-black/70 transition-all duration-300 hover:scale-105 border border-white/10">
+            <div className="flex justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
               <img 
                 src={emaarLogo} 
                 alt="Emaar" 
                 className="h-16 w-auto object-contain"
               />
             </div>
-            <div className="flex justify-center items-center bg-gradient-to-br from-black/80 to-black/60 backdrop-blur-md rounded-xl p-4 hover:from-black/90 hover:to-black/70 transition-all duration-300 hover:scale-105 border border-white/10">
+            <div className="flex justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
               <img 
                 src={imanLogo} 
                 alt="Iman Developers" 
                 className="h-16 w-auto object-contain"
               />
             </div>
-            <div className="flex justify-center items-center bg-gradient-to-br from-black/80 to-black/60 backdrop-blur-md rounded-xl p-4 hover:from-black/90 hover:to-black/70 transition-all duration-300 hover:scale-105 border border-white/10">
+            <div className="flex justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
               <img 
                 src={marquisLogo} 
                 alt="Marquis" 
                 className="h-16 w-auto object-contain"
               />
             </div>
-            <div className="flex justify-center items-center bg-gradient-to-br from-black/80 to-black/60 backdrop-blur-md rounded-xl p-4 hover:from-black/90 hover:to-black/70 transition-all duration-300 hover:scale-105 border border-white/10">
+            <div className="flex justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
               <img 
                 src={rabdanLogo} 
                 alt="Rabdan Developments" 
                 className="h-16 w-auto object-contain"
               />
             </div>
-            <div className="flex justify-center items-center bg-gradient-to-br from-black/80 to-black/60 backdrop-blur-md rounded-xl p-4 hover:from-black/90 hover:to-black/70 transition-all duration-300 hover:scale-105 border border-white/10">
+            <div className="flex justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
               <img 
                 src={tigerLogo} 
                 alt="Tiger Properties AE" 
@@ -395,7 +395,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <div className="bg-gradient-to-br from-black/80 to-black/60 backdrop-blur-md rounded-2xl p-8 border border-white/10">
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 shadow-lg">
               <h3 className="text-2xl font-bold text-white mb-4">Featured Projects Coming Soon</h3>
               <p className="text-white/80 text-lg">
                 Showcase of exclusive properties and developments from our trusted partners
