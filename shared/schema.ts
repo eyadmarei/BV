@@ -68,3 +68,68 @@ export type Inquiry = typeof inquiries.$inferSelect;
 export type InsertInquiry = z.infer<typeof insertInquirySchema>;
 export type User = typeof users.$inferSelect;
 export type InsertUser = z.infer<typeof insertUserSchema>;
+
+// PM Tools Schema
+export const projects = pgTable("projects", {
+  id: serial("id").primaryKey(),
+  title: text("title").notNull(),
+  description: text("description"),
+  startDate: timestamp("start_date").defaultNow(),
+  endDate: timestamp("end_date"),
+  status: text("status").notNull().default("active"), // 'active', 'completed', 'on-hold'
+  totalBudget: integer("total_budget"),
+});
+
+export const releases = pgTable("releases", {
+  id: serial("id").primaryKey(),
+  projectId: integer("project_id").references(() => projects.id),
+  title: text("title").notNull(),
+  theme: text("theme"),
+  order: integer("order").notNull().default(1),
+});
+
+export const phases = pgTable("phases", {
+  id: serial("id").primaryKey(),
+  releaseId: integer("release_id").references(() => releases.id),
+  name: text("name").notNull(),
+  week: integer("week").notNull(),
+  status: text("status").notNull().default("pending"), // 'pending', 'in-progress', 'completed'
+  isDemo: boolean("is_demo").default(false),
+  isMvp: boolean("is_mvp").default(false),
+});
+
+export const milestones = pgTable("milestones", {
+  id: serial("id").primaryKey(),
+  releaseId: integer("release_id").references(() => releases.id),
+  title: text("title").notNull(),
+  description: text("description"),
+  amount: integer("amount").notNull(),
+  type: text("type").notNull(), // 'kickoff', 'completion'
+  isPaid: boolean("is_paid").default(false),
+  dueDate: timestamp("due_date"),
+});
+
+export const insertProjectSchema = createInsertSchema(projects).omit({
+  id: true,
+});
+
+export const insertReleaseSchema = createInsertSchema(releases).omit({
+  id: true,
+});
+
+export const insertPhaseSchema = createInsertSchema(phases).omit({
+  id: true,
+});
+
+export const insertMilestoneSchema = createInsertSchema(milestones).omit({
+  id: true,
+});
+
+export type Project = typeof projects.$inferSelect;
+export type InsertProject = z.infer<typeof insertProjectSchema>;
+export type Release = typeof releases.$inferSelect;
+export type InsertRelease = z.infer<typeof insertReleaseSchema>;
+export type Phase = typeof phases.$inferSelect;
+export type InsertPhase = z.infer<typeof insertPhaseSchema>;
+export type Milestone = typeof milestones.$inferSelect;
+export type InsertMilestone = z.infer<typeof insertMilestoneSchema>;
