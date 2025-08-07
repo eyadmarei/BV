@@ -36,11 +36,6 @@ This is a full-stack web application built for a luxury real estate and business
 2. **Services**: Business services with features and categories
 3. **Inquiries**: Customer contact form submissions
 4. **Users**: Basic user management system
-5. **PM Tools**: Complete project management system including:
-   - **Projects**: Project details with budget and timeline
-   - **Releases**: Project phases with themes and ordering
-   - **Phases**: Individual development phases with status tracking
-   - **Milestones**: Payment milestones with completion tracking
 
 ### Frontend Components
 - **Navigation**: Fixed header with mobile-responsive menu
@@ -55,12 +50,6 @@ This is a full-stack web application built for a luxury real estate and business
 - `GET /api/properties/:id` - Fetch single property
 - `GET /api/services` - Fetch all services
 - `POST /api/inquiries` - Submit customer inquiry
-- `GET /api/projects` - Fetch all projects
-- `GET /api/releases` - Fetch releases (optionally filtered by project)
-- `GET /api/phases` - Fetch phases (optionally filtered by release)
-- `GET /api/milestones` - Fetch milestones (optionally filtered by release)
-- `PATCH /api/phases/:id` - Update phase status
-- `PATCH /api/milestones/:id` - Update milestone payment status
 
 ## Data Flow
 
@@ -134,8 +123,6 @@ Preferred communication style: Simple, everyday language.
 - August 01, 2025: Added About Us navigation link to main site navigation and footer quick links
 - August 01, 2025: Updated footer with black background, About Us section, and Best View Properties L.L.C branding
 - August 01, 2025: Added "Learn About Us" button to home page hero section alongside "Get Started" button
-- August 07, 2025: Built comprehensive PM Tools interface with Gantt chart timeline, payment milestone tracking, and project management dashboard
-- August 07, 2025: Added PDF export functionality with both print-to-PDF and dedicated PDF generation features for professional project reports
 
 ## User Preferences
 

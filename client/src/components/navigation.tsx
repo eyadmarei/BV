@@ -13,7 +13,6 @@ export default function Navigation() {
     { href: "/properties", label: "Properties" },
     { href: "/buy-sell", label: "Buy & Sell" },
     { href: "/services", label: "Services" },
-    { href: "/pm-tools", label: "PM Tools" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
   ];

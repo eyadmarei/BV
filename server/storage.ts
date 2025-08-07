@@ -1,10 +1,4 @@
-import { 
-  properties, services, inquiries, users, projects, releases, phases, milestones,
-  type Property, type Service, type Inquiry, type User, 
-  type Project, type Release, type Phase, type Milestone,
-  type InsertProperty, type InsertService, type InsertInquiry, type InsertUser,
-  type InsertProject, type InsertRelease, type InsertPhase, type InsertMilestone
-} from "@shared/schema";
+import { properties, services, inquiries, users, type Property, type Service, type Inquiry, type User, type InsertProperty, type InsertService, type InsertInquiry, type InsertUser } from "@shared/schema";
 
 export interface IStorage {
   // Properties
@@ -26,28 +20,6 @@ export interface IStorage {
   getUser(id: number): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
-
-  // PM Tools - Projects
-  getProjects(): Promise<Project[]>;
-  getProject(id: number): Promise<Project | undefined>;
-  createProject(project: InsertProject): Promise<Project>;
-
-  // PM Tools - Releases
-  getReleases(projectId?: number): Promise<Release[]>;
-  getRelease(id: number): Promise<Release | undefined>;
-  createRelease(release: InsertRelease): Promise<Release>;
-
-  // PM Tools - Phases
-  getPhases(releaseId?: number): Promise<Phase[]>;
-  getPhase(id: number): Promise<Phase | undefined>;
-  createPhase(phase: InsertPhase): Promise<Phase>;
-  updatePhase(id: number, updates: Partial<Phase>): Promise<Phase>;
-
-  // PM Tools - Milestones
-  getMilestones(releaseId?: number): Promise<Milestone[]>;
-  getMilestone(id: number): Promise<Milestone | undefined>;
-  createMilestone(milestone: InsertMilestone): Promise<Milestone>;
-  updateMilestone(id: number, updates: Partial<Milestone>): Promise<Milestone>;
 }
 
 export class MemStorage implements IStorage {
@@ -55,36 +27,20 @@ export class MemStorage implements IStorage {
   private services: Map<number, Service>;
   private inquiries: Map<number, Inquiry>;
   private users: Map<number, User>;
-  private projects: Map<number, Project>;
-  private releases: Map<number, Release>;
-  private phases: Map<number, Phase>;
-  private milestones: Map<number, Milestone>;
   private currentPropertyId: number;
   private currentServiceId: number;
   private currentInquiryId: number;
   private currentUserId: number;
-  private currentProjectId: number;
-  private currentReleaseId: number;
-  private currentPhaseId: number;
-  private currentMilestoneId: number;
 
   constructor() {
     this.properties = new Map();
     this.services = new Map();
     this.inquiries = new Map();
     this.users = new Map();
-    this.projects = new Map();
-    this.releases = new Map();
-    this.phases = new Map();
-    this.milestones = new Map();
     this.currentPropertyId = 1;
     this.currentServiceId = 1;
     this.currentInquiryId = 1;
     this.currentUserId = 1;
-    this.currentProjectId = 1;
-    this.currentReleaseId = 1;
-    this.currentPhaseId = 1;
-    this.currentMilestoneId = 1;
     
     // Initialize with sample data
     this.initializeData();
@@ -173,69 +129,6 @@ export class MemStorage implements IStorage {
     ];
 
     sampleServices.forEach(service => this.createService(service));
-
-    // Sample PM Tools data
-    this.initializePMToolsData().catch(console.error);
-  }
-
-  private async initializePMToolsData() {
-    // Create a sample project
-    const project = await this.createProject({
-      title: "Order Management Release Plan",
-      description: "Complete order management system development project",
-      totalBudget: 20000,
-      status: "active"
-    });
-
-    // Create releases
-    const releases = [
-      { title: "R1 - Customer & Orders", theme: "Start with the Customer", order: 1 },
-      { title: "R2 - Internal Workflow", theme: "Track & Approve Orders", order: 2 },
-      { title: "R3 - Warehouse Fulfillment", theme: "Approval to Delivery", order: 3 },
-      { title: "R4 - Integration & Enhancements", theme: "Connect & Finalize", order: 4 }
-    ];
-
-    const phaseNames = ["Setup", "Preparation", "Development", "Demo & Review", "Refinement", "UAT & MVP"];
-    
-    for (let releaseIndex = 0; releaseIndex < releases.length; releaseIndex++) {
-      const releaseData = releases[releaseIndex];
-      const release = await this.createRelease({
-        projectId: project.id,
-        ...releaseData
-      });
-
-      // Create phases for each release
-      for (let phaseIndex = 0; phaseIndex < phaseNames.length; phaseIndex++) {
-        const phaseName = phaseNames[phaseIndex];
-        await this.createPhase({
-          releaseId: release.id,
-          name: phaseName,
-          week: phaseIndex,
-          status: "pending",
-          isDemo: phaseName === "Demo & Review",
-          isMvp: phaseName === "UAT & MVP"
-        });
-      }
-
-      // Create milestones for each release
-      await this.createMilestone({
-        releaseId: release.id,
-        title: `Milestone ${releaseIndex * 2 + 1}`,
-        description: "Kickoff & Invoice",
-        amount: 1500,
-        type: "kickoff",
-        isPaid: false
-      });
-
-      await this.createMilestone({
-        releaseId: release.id,
-        title: `Milestone ${releaseIndex * 2 + 2}`,
-        description: "Acceptance Testing & Finalization Complete",
-        amount: 3500,
-        type: "completion",
-        isPaid: false
-      });
-    }
   }
 
   // Properties
@@ -321,122 +214,6 @@ export class MemStorage implements IStorage {
     const user: User = { ...insertUser, id };
     this.users.set(id, user);
     return user;
-  }
-
-  // PM Tools - Projects
-  async getProjects(): Promise<Project[]> {
-    return Array.from(this.projects.values());
-  }
-
-  async getProject(id: number): Promise<Project | undefined> {
-    return this.projects.get(id);
-  }
-
-  async createProject(insertProject: InsertProject): Promise<Project> {
-    const id = this.currentProjectId++;
-    const project: Project = { 
-      id,
-      title: insertProject.title,
-      description: insertProject.description ?? null,
-      startDate: insertProject.startDate ?? new Date(),
-      endDate: insertProject.endDate ?? null,
-      status: insertProject.status ?? "active",
-      totalBudget: insertProject.totalBudget ?? null
-    };
-    this.projects.set(id, project);
-    return project;
-  }
-
-  // PM Tools - Releases
-  async getReleases(projectId?: number): Promise<Release[]> {
-    const releases = Array.from(this.releases.values());
-    return projectId ? releases.filter(r => r.projectId === projectId) : releases;
-  }
-
-  async getRelease(id: number): Promise<Release | undefined> {
-    return this.releases.get(id);
-  }
-
-  async createRelease(insertRelease: InsertRelease): Promise<Release> {
-    const id = this.currentReleaseId++;
-    const release: Release = { 
-      id,
-      title: insertRelease.title,
-      projectId: insertRelease.projectId ?? null,
-      theme: insertRelease.theme ?? null,
-      order: insertRelease.order ?? 1
-    };
-    this.releases.set(id, release);
-    return release;
-  }
-
-  // PM Tools - Phases
-  async getPhases(releaseId?: number): Promise<Phase[]> {
-    const phases = Array.from(this.phases.values());
-    return releaseId ? phases.filter(p => p.releaseId === releaseId) : phases;
-  }
-
-  async getPhase(id: number): Promise<Phase | undefined> {
-    return this.phases.get(id);
-  }
-
-  async createPhase(insertPhase: InsertPhase): Promise<Phase> {
-    const id = this.currentPhaseId++;
-    const phase: Phase = { 
-      id,
-      name: insertPhase.name,
-      week: insertPhase.week,
-      status: insertPhase.status ?? "pending",
-      releaseId: insertPhase.releaseId ?? null,
-      isDemo: insertPhase.isDemo ?? null,
-      isMvp: insertPhase.isMvp ?? null
-    };
-    this.phases.set(id, phase);
-    return phase;
-  }
-
-  async updatePhase(id: number, updates: Partial<Phase>): Promise<Phase> {
-    const phase = this.phases.get(id);
-    if (!phase) {
-      throw new Error(`Phase with id ${id} not found`);
-    }
-    const updatedPhase = { ...phase, ...updates };
-    this.phases.set(id, updatedPhase);
-    return updatedPhase;
-  }
-
-  // PM Tools - Milestones
-  async getMilestones(releaseId?: number): Promise<Milestone[]> {
-    const milestones = Array.from(this.milestones.values());
-    return releaseId ? milestones.filter(m => m.releaseId === releaseId) : milestones;
-  }
-
-  async getMilestone(id: number): Promise<Milestone | undefined> {
-    return this.milestones.get(id);
-  }
-
-  async createMilestone(insertMilestone: InsertMilestone): Promise<Milestone> {
-    const id = this.currentMilestoneId++;
-    const milestone: Milestone = { 
-      ...insertMilestone,
-      id,
-      releaseId: insertMilestone.releaseId ?? null,
-      description: insertMilestone.description ?? null,
-      isPaid: insertMilestone.isPaid ?? null,
-      dueDate: insertMilestone.dueDate ?? null
-    };
-    this.milestones.set(id, milestone);
-    return milestone;
-  }
-
-  async updateMilestone(id: number, updates: Partial<Milestone>): Promise<Milestone> {
-    const milestone = this.milestones.get(id);
-    if (!milestone) {
-      throw new Error(`Milestone with id ${id} not found`);
-    }
-    const updatedMilestone = { ...milestone, ...updates };
-    this.milestones.set(id, updatedMilestone);
-    return updatedMilestone;
   }
 }
 
