@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { CalendarDays, DollarSign, Target, Clock } from "lucide-react";
+import { CalendarDays, DollarSign, Target, Clock, Download, Printer } from "lucide-react";
 import type { Project, Release, Phase, Milestone } from "@shared/schema";
 
 export default function PMToolsPage() {
@@ -46,17 +46,185 @@ export default function PMToolsPage() {
   const kickoffPayments = milestones.filter(m => m.type === "kickoff").reduce((sum, m) => sum + m.amount, 0);
   const completionPayments = milestones.filter(m => m.type === "completion").reduce((sum, m) => sum + m.amount, 0);
 
+  const handlePrintToPDF = () => {
+    window.print();
+  };
+
+  const handleDownloadPDF = () => {
+    // Create a new window for PDF generation
+    const printWindow = window.open('', '_blank');
+    if (printWindow) {
+      printWindow.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>${currentProject?.title || "PM Tools Report"}</title>
+          <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            .header { text-align: center; margin-bottom: 30px; }
+            .summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 30px; }
+            .summary-card { border: 1px solid #ddd; padding: 15px; text-align: center; }
+            .gantt-table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+            .gantt-table th, .gantt-table td { border: 1px solid #333; padding: 10px; text-align: center; }
+            .gantt-table th { background: #333; color: white; }
+            .payment-table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+            .payment-table th, .payment-table td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+            .payment-table th { background: #333; color: white; }
+            .demo-cell { background: #e8e8e8; font-weight: bold; }
+            .mvp-cell { background: #f0f0f0; font-weight: bold; }
+            @media print { body { margin: 0; } }
+          </style>
+        </head>
+        <body>
+          <div class="header">
+            <h1>${currentProject?.title || "PM Tools Report"}</h1>
+            <p>${currentProject?.description || "Project Management Report"}</p>
+          </div>
+          
+          <div class="summary">
+            <div class="summary-card">
+              <h3>Active Releases</h3>
+              <div style="font-size: 24px; font-weight: bold;">${projectReleases.length}</div>
+            </div>
+            <div class="summary-card">
+              <h3>Total Phases</h3>
+              <div style="font-size: 24px; font-weight: bold;">${phases.length}</div>
+            </div>
+            <div class="summary-card">
+              <h3>Paid Milestones</h3>
+              <div style="font-size: 24px; font-weight: bold;">${paidMilestones}/${totalMilestones}</div>
+            </div>
+            <div class="summary-card">
+              <h3>Total Budget</h3>
+              <div style="font-size: 24px; font-weight: bold;">$${totalBudget.toLocaleString()}</div>
+            </div>
+          </div>
+
+          <h2>Project Timeline - Gantt Chart</h2>
+          <table class="gantt-table">
+            <thead>
+              <tr>
+                <th>Release</th>
+                <th>Week 0</th>
+                <th>Week 1</th>
+                <th>Week 2</th>
+                <th>Week 3</th>
+                <th>Week 4</th>
+                <th>Week 5</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${projectReleases.map(release => {
+                const releasePhases = phases.filter(p => p.releaseId === release.id).sort((a, b) => a.week - b.week);
+                return `
+                  <tr>
+                    <td style="text-align: left; background: #f5f5f5;">
+                      <strong>${release.title}</strong><br>
+                      <small>${release.theme}</small>
+                    </td>
+                    ${[0, 1, 2, 3, 4, 5].map(week => {
+                      const phase = releasePhases.find(p => p.week === week);
+                      const isDemo = phase?.isDemo;
+                      const isMvp = phase?.isMvp;
+                      const className = isDemo ? 'demo-cell' : isMvp ? 'mvp-cell' : '';
+                      return `<td class="${className}">${phase?.name || ''}</td>`;
+                    }).join('')}
+                  </tr>
+                `;
+              }).join('')}
+            </tbody>
+          </table>
+
+          <h2>Payment Milestone Schedule</h2>
+          <table class="payment-table">
+            <thead>
+              <tr>
+                <th>Milestone</th>
+                <th>Release Phase</th>
+                <th>Activity/Deliverable</th>
+                <th>Payment Amount</th>
+                <th>Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${milestones.map(milestone => {
+                const release = releases.find(r => r.id === milestone.releaseId);
+                return `
+                  <tr>
+                    <td><strong>${milestone.title}</strong></td>
+                    <td>${release?.title || ''}</td>
+                    <td>${milestone.description || ''}</td>
+                    <td style="font-weight: bold;">$${milestone.amount.toLocaleString()}</td>
+                    <td>${milestone.type.toUpperCase()}</td>
+                  </tr>
+                `;
+              }).join('')}
+            </tbody>
+          </table>
+
+          <h2>Payment Summary</h2>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+            <div style="border: 1px solid #ddd; padding: 20px; text-align: center;">
+              <h3>Kickoff Payments</h3>
+              <div style="font-size: 24px; font-weight: bold;">$${kickoffPayments.toLocaleString()}</div>
+              <div>4 × $1,500 payments</div>
+            </div>
+            <div style="border: 1px solid #ddd; padding: 20px; text-align: center;">
+              <h3>Completion Payments</h3>
+              <div style="font-size: 24px; font-weight: bold;">$${completionPayments.toLocaleString()}</div>
+              <div>4 × $3,500 payments</div>
+            </div>
+            <div style="border: 1px solid #ddd; padding: 20px; text-align: center;">
+              <h3>Total Project Value</h3>
+              <div style="font-size: 24px; font-weight: bold;">$${totalBudget.toLocaleString()}</div>
+              <div>Complete development</div>
+            </div>
+          </div>
+        </body>
+        </html>
+      `);
+      printWindow.document.close();
+      
+      // Wait a moment for content to load, then print
+      setTimeout(() => {
+        printWindow.print();
+        printWindow.close();
+      }, 500);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-light text-gray-900 dark:text-white mb-4">
-            📊 {currentProject?.title || "Project Management Tools"}
-          </h1>
-          <p className="text-gray-600 dark:text-gray-300">
-            {currentProject?.description || "Comprehensive project timeline and payment tracking"}
-          </p>
+          <div className="flex justify-between items-start mb-4">
+            <div className="flex-1">
+              <h1 className="text-4xl font-light text-gray-900 dark:text-white mb-4">
+                📊 {currentProject?.title || "Project Management Tools"}
+              </h1>
+              <p className="text-gray-600 dark:text-gray-300">
+                {currentProject?.description || "Comprehensive project timeline and payment tracking"}
+              </p>
+            </div>
+            <div className="flex gap-3 ml-6">
+              <Button 
+                onClick={handlePrintToPDF}
+                variant="outline"
+                className="flex items-center gap-2"
+              >
+                <Printer className="h-4 w-4" />
+                Print
+              </Button>
+              <Button 
+                onClick={handleDownloadPDF}
+                className="flex items-center gap-2 bg-gray-900 hover:bg-gray-800 text-white"
+              >
+                <Download className="h-4 w-4" />
+                Export PDF
+              </Button>
+            </div>
+          </div>
         </div>
 
         {/* Project Summary Cards */}

@@ -159,3 +159,61 @@
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
+
+/* Print styles for PM Tools */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .min-h-screen {
+    min-height: auto !important;
+  }
+  
+  /* Hide navigation and non-essential elements when printing */
+  nav, .print-hide {
+    display: none !important;
+  }
+  
+  /* Ensure proper page breaks */
+  .print-section {
+    page-break-inside: avoid;
+    margin-bottom: 20px;
+  }
+  
+  /* Optimize tables for printing */
+  table {
+    page-break-inside: auto;
+  }
+  
+  tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+  
+  /* Ensure proper contrast for printing */
+  .bg-gray-900, .bg-gray-800, .bg-gray-700 {
+    background: #333 !important;
+    color: white !important;
+  }
+  
+  .text-gray-900, .text-gray-800 {
+    color: #000 !important;
+  }
+  
+  .text-gray-600, .text-gray-500 {
+    color: #333 !important;
+  }
+  
+  /* Card borders for print */
+  .print-card {
+    border: 1px solid #333 !important;
+    box-shadow: none !important;
+  }
+  
+  /* Hide buttons in print mode */
+  button {
+    display: none !important;
+  }
+}
