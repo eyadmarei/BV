@@ -138,23 +138,33 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const objectPath = req.path.replace('/objects/', '');
       const privateObjectDir = objectStorageService.getPrivateObjectDir();
       
-      // Build full path like "/.private/uploads/uuid"
-      const fullPath = `${privateObjectDir}/${objectPath}`;
+      console.log('Serving object path:', objectPath);
+      console.log('Private object dir:', privateObjectDir);
       
-      // Parse object path 
-      const pathParts = fullPath.split('/').filter(p => p);
-      if (pathParts.length < 2) {
+      // Build full path like "/.private/uploads/uuid"  
+      const fullPath = `${privateObjectDir}/${objectPath}`;
+      console.log('Full path:', fullPath);
+      
+      // Parse using the existing parseObjectPath method
+      const pathParts = fullPath.split('/');
+      if (pathParts.length < 3) {
         return res.status(404).json({ error: "Invalid object path" });
       }
       
-      const bucketName = pathParts[0];
-      const objectName = pathParts.slice(1).join('/');
+      // Skip empty parts and get bucket name (should be first non-empty part)
+      const filteredParts = pathParts.filter(p => p);
+      const bucketName = filteredParts[0];
+      const objectName = filteredParts.slice(1).join('/');
+      
+      console.log('Bucket name:', bucketName);
+      console.log('Object name:', objectName);
       
       const bucket = objectStorageClient.bucket(bucketName);
       const file = bucket.file(objectName);
       
       const [exists] = await file.exists();
       if (!exists) {
+        console.log('Object does not exist:', objectName);
         return res.status(404).json({ error: "Object not found" });
       }
       
