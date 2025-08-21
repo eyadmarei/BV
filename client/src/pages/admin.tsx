@@ -342,12 +342,31 @@ export default function AdminPanel() {
           <div>
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-xl font-bold text-gray-900">Manage Projects</h2>
-              <button
-                onClick={() => setActiveTab('partners')}
-                className="bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800"
-              >
-                Add New Project
-              </button>
+              <div className="flex gap-3">
+                <select
+                  value={selectedPartnerForProject}
+                  onChange={(e) => setSelectedPartnerForProject(e.target.value)}
+                  className="border border-gray-300 rounded-md px-3 py-2 text-sm"
+                >
+                  <option value="">Select Partner</option>
+                  {partners.map(partner => (
+                    <option key={partner} value={partner}>{partner}</option>
+                  ))}
+                </select>
+                <button
+                  onClick={() => {
+                    if (selectedPartnerForProject) {
+                      setFormData(prev => ({ ...prev, partner: selectedPartnerForProject }));
+                      setShowAddProjectForm(true);
+                    } else {
+                      alert('Please select a partner first');
+                    }
+                  }}
+                  className="bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800"
+                >
+                  Add New Project
+                </button>
+              </div>
             </div>
 
             {/* Projects Grid - Organized by Partner */}
@@ -436,13 +455,7 @@ export default function AdminPanel() {
               <div className="text-center py-12">
                 <div className="text-gray-400 text-6xl mb-4">🏗️</div>
                 <h3 className="text-xl font-semibold text-gray-700 mb-2">No Projects Found</h3>
-                <p className="text-gray-500 mb-4">Start by adding your first project from the Partners tab.</p>
-                <button
-                  onClick={() => setActiveTab('partners')}
-                  className="bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800"
-                >
-                  Go to Partners
-                </button>
+                <p className="text-gray-500 mb-4">Start by adding your first project using the "Add New Project" button above.</p>
               </div>
             )}
           </div>
@@ -453,6 +466,31 @@ export default function AdminPanel() {
           <div>
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-xl font-bold text-gray-900">Manage Units</h2>
+              <div className="flex gap-3">
+                <select
+                  value={selectedPartnerForProject}
+                  onChange={(e) => setSelectedPartnerForProject(e.target.value)}
+                  className="border border-gray-300 rounded-md px-3 py-2 text-sm"
+                >
+                  <option value="">Select Partner</option>
+                  {partners.map(partner => (
+                    <option key={partner} value={partner}>{partner}</option>
+                  ))}
+                </select>
+                <button
+                  onClick={() => {
+                    if (selectedPartnerForProject) {
+                      setFormData(prev => ({ ...prev, partner: selectedPartnerForProject }));
+                      setShowAddProjectForm(true);
+                    } else {
+                      alert('Please select a partner first');
+                    }
+                  }}
+                  className="bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800"
+                >
+                  Add Unit
+                </button>
+              </div>
             </div>
 
             <div className="bg-white rounded-lg shadow-md p-6 mb-6">
@@ -548,6 +586,14 @@ export default function AdminPanel() {
                   ))}
                 </tbody>
               </table>
+              
+              {(properties as Property[]).length === 0 && (
+                <div className="text-center py-12">
+                  <div className="text-gray-400 text-6xl mb-4">🏠</div>
+                  <h3 className="text-xl font-semibold text-gray-700 mb-2">No Units Found</h3>
+                  <p className="text-gray-500 mb-4">Start by adding your first unit using the "Add Unit" button above.</p>
+                </div>
+              )}
             </div>
           </div>
         )}
