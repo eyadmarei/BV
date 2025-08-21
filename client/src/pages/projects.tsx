@@ -215,9 +215,9 @@ export default function Projects() {
                   whileHover={{ y: -5 }}
                 >
                   <div className="h-48 bg-gray-200 relative overflow-hidden">
-                    {property.image ? (
+                    {property.imageUrl ? (
                       <img 
-                        src={property.image} 
+                        src={property.imageUrl} 
                         alt={property.title}
                         className="w-full h-full object-cover"
                       />
@@ -243,17 +243,10 @@ export default function Projects() {
                     </div>
                     <p className="text-gray-600 mb-6 line-clamp-3">{property.description}</p>
                     
-                    <div className="flex justify-between items-center">
-                      <div>
-                        {property.price && (
-                          <span className="text-xl font-bold text-black">
-                            AED {(property.price / 1000000).toFixed(1)}M
-                          </span>
-                        )}
-                        {property.featured && (
-                          <div className="text-xs text-yellow-600 font-medium mt-1">⭐ Featured</div>
-                        )}
-                      </div>
+                    <div>
+                      {property.featured && (
+                        <div className="text-sm text-yellow-600 font-medium">⭐ Featured</div>
+                      )}
                     </div>
                   </div>
                 </motion.div>
