@@ -1,31 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { ObjectUploader } from '../../components/ObjectUploader';
+import { LocalImageUploader } from '../components/LocalImageUploader';
 import { useAuth } from '../hooks/useAuth';
 import { apiRequest } from '../lib/queryClient';
 import type { Property, InsertProperty } from '@shared/schema';
 
-// Helper function to convert Google Cloud Storage URLs to local object paths
+// Helper function to handle image URLs (now local images)
 const convertImageUrl = (url: string): string => {
-  if (!url || !url.includes('storage.googleapis.com')) {
+  if (!url) return url;
+  
+  // If already a local image path, return as is
+  if (url.startsWith('/images/')) {
     return url;
   }
   
-  // Extract the object path from the Google Cloud Storage URL
-  try {
-    const urlObj = new URL(url);
-    const pathParts = urlObj.pathname.split('/');
-    if (pathParts.length >= 3) {
-      // Remove bucket name and keep the object path
-      const objectPath = pathParts.slice(2).join('/');
-      return `/objects/${objectPath}`;
-    }
-  } catch (e) {
-    console.error('Error parsing image URL:', e);
+  // If it's still a cloud storage URL, we can't display it anymore
+  if (url.includes('storage.googleapis.com')) {
+    return ''; // Return empty to show fallback
   }
   
-  return url; // Return original URL if conversion fails
+  return url;
 };
 
 export default function AdminPanel() {
@@ -165,23 +160,6 @@ export default function AdminPanel() {
     }
   };
 
-  const handleImageUpload = async () => {
-    try {
-      const response = await fetch('/api/objects/upload', { method: 'POST' });
-      const { uploadURL } = await response.json();
-      return { method: 'PUT' as const, url: uploadURL };
-    } catch (error) {
-      console.error('Error getting upload URL:', error);
-      throw error;
-    }
-  };
-
-  const handleImageComplete = (result: any) => {
-    if (result.successful && result.successful[0]) {
-      const imageURL = result.successful[0].uploadURL;
-      setFormData(prev => ({ ...prev, imageUrl: imageURL }));
-    }
-  };
 
   const startAddProject = (partner: string) => {
     setSelectedPartnerForProject(partner);
@@ -752,25 +730,21 @@ export default function AdminPanel() {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-3">Property Images</label>
-                  <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
-                    <ObjectUploader
-                      onGetUploadParameters={handleImageUpload}
-                      onComplete={handleImageComplete}
-                      maxNumberOfFiles={1}
-                      maxFileSize={10485760}
-                    >
-                      <div className="flex flex-col items-center">
-                        <div className="text-4xl mb-2">📁</div>
-                        <span className="text-sm">Upload Property Image</span>
-                      </div>
-                    </ObjectUploader>
-                    {formData.imageUrl && (
-                      <div className="mt-4">
-                        <img src={formData.imageUrl} alt="Preview" className="max-w-32 h-20 object-cover rounded mx-auto" />
-                        <p className="text-xs text-green-600 mt-1">Image uploaded successfully</p>
-                      </div>
-                    )}
-                  </div>
+                  <LocalImageUploader
+                    onImageSelected={(imageUrl) => setFormData(prev => ({ ...prev, imageUrl }))}
+                    className="w-full"
+                  >
+                    <div className="flex flex-col items-center">
+                      <div className="text-4xl mb-2">📁</div>
+                      <span className="text-sm">Upload Property Image</span>
+                    </div>
+                  </LocalImageUploader>
+                  {formData.imageUrl && (
+                    <div className="mt-4">
+                      <img src={convertImageUrl(formData.imageUrl)} alt="Preview" className="max-w-32 h-20 object-cover rounded mx-auto" />
+                      <p className="text-xs text-green-600 mt-1">Image uploaded successfully</p>
+                    </div>
+                  )}
                 </div>
 
                 <div>
@@ -920,14 +894,12 @@ export default function AdminPanel() {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Property Image</label>
-                  <ObjectUploader
-                    onGetUploadParameters={handleImageUpload}
-                    onComplete={handleImageComplete}
-                    maxNumberOfFiles={1}
-                    maxFileSize={10485760}
+                  <LocalImageUploader
+                    onImageSelected={(imageUrl) => setFormData(prev => ({ ...prev, imageUrl }))}
+                    className="w-full"
                   >
-                    <span>📁 Upload New Image</span>
-                  </ObjectUploader>
+                    📁 Upload New Image
+                  </LocalImageUploader>
                 </div>
 
                 <div>

@@ -6,6 +6,9 @@ import { setupAuth, isAuthenticated, isAdmin } from "./replitAuth";
 import { seedDatabase } from "./seedDatabase";
 import { insertPropertySchema, insertServiceSchema, insertInquirySchema } from "@shared/schema";
 import { z } from "zod";
+import multer from "multer";
+import path from "path";
+import fs from "fs";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Setup authentication
@@ -122,57 +125,49 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.post("/api/objects/upload", isAuthenticated, async (req, res) => {
-    try {
-      const uploadURL = await objectStorageService.getObjectEntityUploadURL();
-      res.json({ uploadURL });
-    } catch (error) {
-      console.error("Error generating upload URL:", error);
-      res.status(500).json({ error: "Failed to generate upload URL" });
+  // Local file storage setup
+  const storage_multer = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'uploads/images/');
+    },
+    filename: function (req, file, cb) {
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+      cb(null, uniqueSuffix + path.extname(file.originalname));
     }
   });
 
-  // Route to serve private object storage images  
-  app.get("/objects/*", isAuthenticated, async (req, res) => {
-    try {
-      const objectPath = req.path.replace('/objects/', '');
-      const privateObjectDir = objectStorageService.getPrivateObjectDir();
-      
-      console.log('Serving object path:', objectPath);
-      console.log('Private object dir:', privateObjectDir);
-      
-      // Build full path like "/.private/uploads/uuid"  
-      const fullPath = `${privateObjectDir}/${objectPath}`;
-      console.log('Full path:', fullPath);
-      
-      // Parse using the existing parseObjectPath method
-      const pathParts = fullPath.split('/');
-      if (pathParts.length < 3) {
-        return res.status(404).json({ error: "Invalid object path" });
-      }
-      
-      // Skip empty parts and get bucket name (should be first non-empty part)
-      const filteredParts = pathParts.filter(p => p);
-      const bucketName = filteredParts[0];
-      const objectName = filteredParts.slice(1).join('/');
-      
-      console.log('Bucket name:', bucketName);
-      console.log('Object name:', objectName);
-      
-      const bucket = objectStorageClient.bucket(bucketName);
-      const file = bucket.file(objectName);
-      
-      const [exists] = await file.exists();
-      if (!exists) {
-        console.log('Object does not exist:', objectName);
-        return res.status(404).json({ error: "Object not found" });
-      }
-      
-      objectStorageService.downloadObject(file, res);
-    } catch (error) {
-      console.error("Error accessing private object:", error);
-      return res.status(500).json({ error: "Internal server error" });
+  const upload = multer({ 
+    storage: storage_multer,
+    limits: {
+      fileSize: 10 * 1024 * 1024 // 10MB limit
     }
+  });
+
+  // Local file upload endpoint
+  app.post("/api/upload-image", isAuthenticated, upload.single('image'), async (req, res) => {
+    try {
+      if (!req.file) {
+        return res.status(400).json({ error: "No file uploaded" });
+      }
+
+      const imageUrl = `/images/${req.file.filename}`;
+      res.json({ imageUrl });
+    } catch (error) {
+      console.error("Error uploading file:", error);
+      res.status(500).json({ error: "Failed to upload file" });
+    }
+  });
+
+  // Serve local images
+  app.get("/images/:filename", (req, res) => {
+    const filename = req.params.filename;
+    const imagePath = path.join(process.cwd(), 'uploads', 'images', filename);
+    
+    if (!fs.existsSync(imagePath)) {
+      return res.status(404).json({ error: "Image not found" });
+    }
+    
+    res.sendFile(imagePath);
   });
 
   // Admin routes for property management
