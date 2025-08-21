@@ -4,6 +4,7 @@ export interface IStorage {
   // Properties
   getProperties(): Promise<Property[]>;
   getPropertiesByType(type: string): Promise<Property[]>;
+  getPropertiesByPartner(partner: string): Promise<Property[]>;
   getProperty(id: number): Promise<Property | undefined>;
   createProperty(property: InsertProperty): Promise<Property>;
   
@@ -47,42 +48,128 @@ export class MemStorage implements IStorage {
   }
 
   private initializeData() {
-    // Sample properties
+    // Sample properties organized by partner
     const sampleProperties: InsertProperty[] = [
+      // Emaar Properties
       {
-        title: "Modern Luxury Villa",
-        type: "villa",
-        description: "Exclusive luxury villa with premium amenities and breathtaking views in prestigious location.",
-        imageUrl: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-        price: 2500000,
-        location: "Beverly Hills, CA",
-        bedrooms: 5,
-        bathrooms: 6,
-        area: 8500,
-        featured: true
-      },
-      {
-        title: "Contemporary Townhouse",
-        type: "townhouse",
-        description: "Contemporary townhouse in prime location offering the perfect blend of privacy and community.",
-        imageUrl: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-        price: 1200000,
-        location: "Manhattan, NY",
-        bedrooms: 3,
-        bathrooms: 3,
-        area: 3200,
-        featured: true
-      },
-      {
-        title: "Sophisticated Apartment",
+        title: "Montiva by Vida",
         type: "apartment",
-        description: "Sophisticated apartment with modern design and world-class amenities in urban center.",
+        description: "Sophisticated apartment in the heart of Dubai Marina with stunning waterfront views and premium amenities.",
         imageUrl: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-        price: 850000,
-        location: "Miami, FL",
+        partner: "Emaar",
+        price: 1500000,
+        location: "Dubai Marina, Dubai",
         bedrooms: 2,
         bathrooms: 2,
-        area: 1800,
+        area: 1200,
+        featured: true
+      },
+      {
+        title: "Baystar by VIDA",
+        type: "apartment",
+        description: "Luxurious waterfront apartment with panoramic views and world-class amenities by VIDA Hotels.",
+        imageUrl: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+        partner: "Emaar",
+        price: 1800000,
+        location: "Dubai Marina, Dubai",
+        bedrooms: 3,
+        bathrooms: 3,
+        area: 1600,
+        featured: true
+      },
+      {
+        title: "Selvara3",
+        type: "villa",
+        description: "Exclusive villa development with contemporary design and premium finishes in prestigious location.",
+        imageUrl: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+        partner: "Emaar",
+        price: 3500000,
+        location: "Arabian Ranches, Dubai",
+        bedrooms: 4,
+        bathrooms: 5,
+        area: 4200,
+        featured: true
+      },
+      // Binghatti Properties
+      {
+        title: "Binghatti Avenue",
+        type: "apartment",
+        description: "Modern apartment complex with innovative design and luxury amenities in prime Dubai location.",
+        imageUrl: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+        partner: "Binghatti",
+        price: 950000,
+        location: "Business Bay, Dubai",
+        bedrooms: 1,
+        bathrooms: 2,
+        area: 800,
+        featured: true
+      },
+      {
+        title: "Binghatti Stars",
+        type: "apartment",
+        description: "Iconic tower development with distinctive architectural design and premium facilities.",
+        imageUrl: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+        partner: "Binghatti",
+        price: 1200000,
+        location: "Al Jaddaf, Dubai",
+        bedrooms: 2,
+        bathrooms: 2,
+        area: 1100,
+        featured: true
+      },
+      // Danube Properties
+      {
+        title: "Danube Diamondz",
+        type: "apartment",
+        description: "Premium apartment development with modern amenities and strategic location advantages.",
+        imageUrl: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+        partner: "Danube Properties",
+        price: 850000,
+        location: "Jumeirah Lake Towers, Dubai",
+        bedrooms: 2,
+        bathrooms: 2,
+        area: 1000,
+        featured: true
+      },
+      {
+        title: "Danube Elitz",
+        type: "apartment",
+        description: "Contemporary residential tower with excellent connectivity and modern living spaces.",
+        imageUrl: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+        partner: "Danube Properties",
+        price: 750000,
+        location: "Furjan, Dubai",
+        bedrooms: 1,
+        bathrooms: 1,
+        area: 750,
+        featured: false
+      },
+      // Tiger Properties AE
+      {
+        title: "Tiger Residences",
+        type: "villa",
+        description: "Luxury villa community with contemporary design and exclusive amenities for discerning residents.",
+        imageUrl: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+        partner: "Tiger Properties AE",
+        price: 2800000,
+        location: "Dubai Land, Dubai",
+        bedrooms: 4,
+        bathrooms: 4,
+        area: 3500,
+        featured: true
+      },
+      // Ellington Properties
+      {
+        title: "Ellington House",
+        type: "townhouse",
+        description: "Sophisticated townhouse development with premium finishes and family-oriented community.",
+        imageUrl: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+        partner: "Ellington Properties",
+        price: 1600000,
+        location: "Dubai Hills Estate, Dubai",
+        bedrooms: 3,
+        bathrooms: 3,
+        area: 2200,
         featured: true
       }
     ];
@@ -138,6 +225,10 @@ export class MemStorage implements IStorage {
 
   async getPropertiesByType(type: string): Promise<Property[]> {
     return Array.from(this.properties.values()).filter(p => p.type === type);
+  }
+
+  async getPropertiesByPartner(partner: string): Promise<Property[]> {
+    return Array.from(this.properties.values()).filter(p => p.partner === partner);
   }
 
   async getProperty(id: number): Promise<Property | undefined> {

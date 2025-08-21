@@ -8,6 +8,7 @@ export const properties = pgTable("properties", {
   type: text("type").notNull(), // 'villa', 'townhouse', 'apartment'
   description: text("description").notNull(),
   imageUrl: text("image_url").notNull(),
+  partner: text("partner").notNull(), // partner/developer name
   price: integer("price"),
   location: text("location"),
   bedrooms: integer("bedrooms"),

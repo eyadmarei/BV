@@ -14,15 +14,15 @@ import rabdanLogo from '@assets/Rabdan_1754074726268.png';
 import tigerLogo from '@assets/tiger_1754074726270.png';
 
 const partners = [
-  { name: 'All Partners', logo: null },
-  { name: 'Binghatti', logo: binghatiLogo },
-  { name: 'Danube Properties', logo: danubeLogo },
-  { name: 'Ellington Properties', logo: ellingtonLogo },
-  { name: 'Emaar', logo: emaarLogo },
-  { name: 'Iman Developers', logo: imanLogo },
-  { name: 'Marquis', logo: marquisLogo },
-  { name: 'Rabdan Developments', logo: rabdanLogo },
-  { name: 'Tiger Properties AE', logo: tigerLogo },
+  { name: 'All Partners', logo: null, description: 'View all partner properties', established: null, totalProperties: null },
+  { name: 'Binghatti', logo: binghatiLogo, description: 'Innovative architectural designs with distinctive lifestyle developments', established: '2008', totalProperties: 25 },
+  { name: 'Danube Properties', logo: danubeLogo, description: 'Affordable luxury properties with modern amenities and prime locations', established: '1993', totalProperties: 18 },
+  { name: 'Ellington Properties', logo: ellingtonLogo, description: 'Contemporary design-focused developments in premium Dubai locations', established: '2014', totalProperties: 12 },
+  { name: 'Emaar', logo: emaarLogo, description: 'World-class developments including Dubai Mall, Burj Khalifa and luxury communities', established: '1997', totalProperties: 45 },
+  { name: 'Iman Developers', logo: imanLogo, description: 'Quality residential and commercial developments with modern infrastructure', established: '2010', totalProperties: 8 },
+  { name: 'Marquis', logo: marquisLogo, description: 'Luxury residential projects with premium finishes and exclusive amenities', established: '2015', totalProperties: 6 },
+  { name: 'Rabdan Developments', logo: rabdanLogo, description: 'Sustainable and innovative property developments in key Dubai areas', established: '2016', totalProperties: 10 },
+  { name: 'Tiger Properties AE', logo: tigerLogo, description: 'Premium villa communities and luxury residential developments', established: '2012', totalProperties: 15 },
 ];
 
 const propertyTypes = ['All', 'Villa', 'Townhouse', 'Apartment'];
@@ -48,9 +48,8 @@ export default function Projects() {
   // Filter properties based on selected partner and type
   const filteredProperties = (properties as any[]).filter((property: any) => {
     const typeMatch = selectedType === 'All' || property.type === selectedType.toLowerCase();
-    // For now, we'll show all properties since we don't have partner-specific data yet
-    // In future, you can add partner field to properties and filter by it
-    return typeMatch;
+    const partnerMatch = selectedPartner === 'All Partners' || property.partner === selectedPartner;
+    return typeMatch && partnerMatch;
   });
 
   return (
@@ -131,6 +130,60 @@ export default function Projects() {
         </div>
       </section>
 
+      {/* Partner Details Section */}
+      {selectedPartner !== 'All Partners' && (
+        <section className="py-8 bg-gray-50 border-b border-gray-200">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              className="bg-white rounded-xl p-8 shadow-lg"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="flex items-center mb-6">
+                <div className="h-16 w-16 bg-gray-100 rounded-full flex items-center justify-center mr-6">
+                  {partners.find(p => p.name === selectedPartner)?.logo ? (
+                    <img 
+                      src={partners.find(p => p.name === selectedPartner)?.logo || ''} 
+                      alt={selectedPartner}
+                      className="h-12 w-auto object-contain"
+                    />
+                  ) : (
+                    <span className="text-gray-600 font-bold text-xl">{selectedPartner.charAt(0)}</span>
+                  )}
+                </div>
+                <div>
+                  <h2 className="text-3xl font-bold text-black mb-2">{selectedPartner}</h2>
+                  <p className="text-gray-600 text-lg">
+                    {partners.find(p => p.name === selectedPartner)?.description}
+                  </p>
+                </div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="text-center p-4 bg-gray-50 rounded-lg">
+                  <div className="text-2xl font-bold text-black">
+                    {partners.find(p => p.name === selectedPartner)?.established || 'N/A'}
+                  </div>
+                  <div className="text-gray-600 text-sm font-medium">Established</div>
+                </div>
+                <div className="text-center p-4 bg-gray-50 rounded-lg">
+                  <div className="text-2xl font-bold text-black">
+                    {partners.find(p => p.name === selectedPartner)?.totalProperties || 0}+
+                  </div>
+                  <div className="text-gray-600 text-sm font-medium">Total Projects</div>
+                </div>
+                <div className="text-center p-4 bg-gray-50 rounded-lg">
+                  <div className="text-2xl font-bold text-black">
+                    {filteredProperties.length}
+                  </div>
+                  <div className="text-gray-600 text-sm font-medium">Available Properties</div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      )}
+
       {/* Properties Grid */}
       <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -180,10 +233,55 @@ export default function Projects() {
                     </div>
                   </div>
                   <div className="p-6">
-                    <h4 className="text-xl font-bold text-black mb-2">{property.title}</h4>
-                    <p className="text-gray-600 mb-4">{property.description}</p>
+                    <div className="flex items-center justify-between mb-2">
+                      <h4 className="text-xl font-bold text-black">{property.title}</h4>
+                      {property.partner && (
+                        <span className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">
+                          {property.partner}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-gray-600 mb-4 line-clamp-2">{property.description}</p>
+                    
+                    {/* Property Details */}
+                    <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
+                      {property.bedrooms && (
+                        <div className="flex items-center text-gray-600">
+                          <span className="mr-1">🛏️</span>
+                          <span>{property.bedrooms} Beds</span>
+                        </div>
+                      )}
+                      {property.bathrooms && (
+                        <div className="flex items-center text-gray-600">
+                          <span className="mr-1">🚿</span>
+                          <span>{property.bathrooms} Baths</span>
+                        </div>
+                      )}
+                      {property.area && (
+                        <div className="flex items-center text-gray-600">
+                          <span className="mr-1">📐</span>
+                          <span>{property.area.toLocaleString()} sq ft</span>
+                        </div>
+                      )}
+                      {property.location && (
+                        <div className="flex items-center text-gray-600">
+                          <span className="mr-1">📍</span>
+                          <span className="truncate">{property.location}</span>
+                        </div>
+                      )}
+                    </div>
+                    
                     <div className="flex justify-between items-center">
-                      <span className="text-2xl font-bold text-black">{property.price}</span>
+                      <div>
+                        {property.price && (
+                          <span className="text-2xl font-bold text-black">
+                            AED {(property.price / 1000000).toFixed(1)}M
+                          </span>
+                        )}
+                        {property.featured && (
+                          <div className="text-xs text-yellow-600 font-medium mt-1">⭐ Featured</div>
+                        )}
+                      </div>
                       <button className="bg-black text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">
                         View Details
                       </button>
