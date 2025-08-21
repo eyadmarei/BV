@@ -1,4 +1,6 @@
-import { properties, services, inquiries, users, type Property, type Service, type Inquiry, type User, type InsertProperty, type InsertService, type InsertInquiry, type InsertUser } from "@shared/schema";
+import { properties, services, inquiries, users, type Property, type Service, type Inquiry, type User, type UpsertUser, type InsertProperty, type InsertService, type InsertInquiry } from "@shared/schema";
+import { db } from "./db";
+import { eq } from "drizzle-orm";
 
 export interface IStorage {
   // Properties
@@ -7,6 +9,8 @@ export interface IStorage {
   getPropertiesByPartner(partner: string): Promise<Property[]>;
   getProperty(id: number): Promise<Property | undefined>;
   createProperty(property: InsertProperty): Promise<Property>;
+  updateProperty(id: number, property: Partial<InsertProperty>): Promise<Property>;
+  deleteProperty(id: number): Promise<boolean>;
   
   // Services
   getServices(): Promise<Service[]>;
@@ -17,10 +21,103 @@ export interface IStorage {
   getInquiries(): Promise<Inquiry[]>;
   createInquiry(inquiry: InsertInquiry): Promise<Inquiry>;
   
-  // Users
-  getUser(id: number): Promise<User | undefined>;
-  getUserByUsername(username: string): Promise<User | undefined>;
-  createUser(user: InsertUser): Promise<User>;
+  // Users (for Replit Auth)
+  getUser(id: string): Promise<User | undefined>;
+  upsertUser(user: UpsertUser): Promise<User>;
+}
+
+export class DatabaseStorage implements IStorage {
+  // Properties
+  async getProperties(): Promise<Property[]> {
+    return await db.select().from(properties);
+  }
+
+  async getPropertiesByType(type: string): Promise<Property[]> {
+    return await db.select().from(properties).where(eq(properties.type, type));
+  }
+
+  async getPropertiesByPartner(partner: string): Promise<Property[]> {
+    return await db.select().from(properties).where(eq(properties.partner, partner));
+  }
+
+  async getProperty(id: number): Promise<Property | undefined> {
+    const [property] = await db.select().from(properties).where(eq(properties.id, id));
+    return property;
+  }
+
+  async createProperty(insertProperty: InsertProperty): Promise<Property> {
+    const [property] = await db
+      .insert(properties)
+      .values(insertProperty)
+      .returning();
+    return property;
+  }
+
+  async updateProperty(id: number, updateData: Partial<InsertProperty>): Promise<Property> {
+    const [property] = await db
+      .update(properties)
+      .set(updateData)
+      .where(eq(properties.id, id))
+      .returning();
+    return property;
+  }
+
+  async deleteProperty(id: number): Promise<boolean> {
+    const result = await db.delete(properties).where(eq(properties.id, id));
+    return result.rowCount !== null && result.rowCount > 0;
+  }
+
+  // Services
+  async getServices(): Promise<Service[]> {
+    return await db.select().from(services);
+  }
+
+  async getService(id: number): Promise<Service | undefined> {
+    const [service] = await db.select().from(services).where(eq(services.id, id));
+    return service;
+  }
+
+  async createService(insertService: InsertService): Promise<Service> {
+    const [service] = await db
+      .insert(services)
+      .values(insertService)
+      .returning();
+    return service;
+  }
+
+  // Inquiries
+  async getInquiries(): Promise<Inquiry[]> {
+    return await db.select().from(inquiries);
+  }
+
+  async createInquiry(insertInquiry: InsertInquiry): Promise<Inquiry> {
+    const [inquiry] = await db
+      .insert(inquiries)
+      .values(insertInquiry)
+      .returning();
+    return inquiry;
+  }
+
+  // Users (for Replit Auth)
+  async getUser(id: string): Promise<User | undefined> {
+    const [user] = await db.select().from(users).where(eq(users.id, id));
+    return user;
+  }
+
+  async upsertUser(userData: UpsertUser): Promise<User> {
+    const [user] = await db
+      .insert(users)
+      .values(userData)
+      .onConflictDoUpdate({
+        target: users.id,
+        set: {
+          ...userData,
+          updatedAt: new Date(),
+        },
+      })
+      .returning();
+    return user;
+  }
 }
 
 export class MemStorage implements IStorage {
@@ -289,23 +386,53 @@ export class MemStorage implements IStorage {
     return inquiry;
   }
 
-  // Users
-  async getUser(id: number): Promise<User | undefined> {
-    return this.users.get(id);
+  // Users (Legacy - for fallback)
+  async getUser(id: string): Promise<User | undefined> {
+    return Array.from(this.users.values()).find(u => u.id === id);
   }
 
-  async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
+  async upsertUser(userData: UpsertUser): Promise<User> {
+    const existing = Array.from(this.users.values()).find(u => u.id === userData.id);
+    if (existing) {
+      const updated = { 
+        ...existing, 
+        ...userData,
+        firstName: userData.firstName || null,
+        lastName: userData.lastName || null,
+        email: userData.email || null,
+        profileImageUrl: userData.profileImageUrl || null,
+        updatedAt: new Date() 
+      };
+      this.users.set(parseInt(existing.id), updated);
+      return updated;
+    } else {
+      const newUserId = this.currentUserId++;
+      const newUser: User = {
+        id: userData.id || newUserId.toString(),
+        firstName: userData.firstName || null,
+        lastName: userData.lastName || null,
+        email: userData.email || null,
+        profileImageUrl: userData.profileImageUrl || null,
+        isAdmin: userData.isAdmin || false,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      };
+      this.users.set(newUserId, newUser);
+      return newUser;
+    }
   }
 
-  async createUser(insertUser: InsertUser): Promise<User> {
-    const id = this.currentUserId++;
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
-    return user;
+  async updateProperty(id: number, updateData: Partial<InsertProperty>): Promise<Property> {
+    const existing = this.properties.get(id);
+    if (!existing) throw new Error('Property not found');
+    const updated = { ...existing, ...updateData };
+    this.properties.set(id, updated);
+    return updated;
+  }
+
+  async deleteProperty(id: number): Promise<boolean> {
+    return this.properties.delete(id);
   }
 }
 
-export const storage = new MemStorage();
+export const storage = new DatabaseStorage();
