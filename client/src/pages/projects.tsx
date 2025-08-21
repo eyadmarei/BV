@@ -241,40 +241,12 @@ export default function Projects() {
                         </span>
                       )}
                     </div>
-                    <p className="text-gray-600 mb-4 line-clamp-2">{property.description}</p>
-                    
-                    {/* Property Details */}
-                    <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
-                      {property.bedrooms && (
-                        <div className="flex items-center text-gray-600">
-                          <span className="mr-1">🛏️</span>
-                          <span>{property.bedrooms} Beds</span>
-                        </div>
-                      )}
-                      {property.bathrooms && (
-                        <div className="flex items-center text-gray-600">
-                          <span className="mr-1">🚿</span>
-                          <span>{property.bathrooms} Baths</span>
-                        </div>
-                      )}
-                      {property.area && (
-                        <div className="flex items-center text-gray-600">
-                          <span className="mr-1">📐</span>
-                          <span>{property.area.toLocaleString()} sq ft</span>
-                        </div>
-                      )}
-                      {property.location && (
-                        <div className="flex items-center text-gray-600">
-                          <span className="mr-1">📍</span>
-                          <span className="truncate">{property.location}</span>
-                        </div>
-                      )}
-                    </div>
+                    <p className="text-gray-600 mb-6 line-clamp-3">{property.description}</p>
                     
                     <div className="flex justify-between items-center">
                       <div>
                         {property.price && (
-                          <span className="text-2xl font-bold text-black">
+                          <span className="text-xl font-bold text-black">
                             AED {(property.price / 1000000).toFixed(1)}M
                           </span>
                         )}
@@ -282,9 +254,6 @@ export default function Projects() {
                           <div className="text-xs text-yellow-600 font-medium mt-1">⭐ Featured</div>
                         )}
                       </div>
-                      <button className="bg-black text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">
-                        View Details
-                      </button>
                     </div>
                   </div>
                 </motion.div>

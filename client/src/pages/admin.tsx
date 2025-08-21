@@ -276,6 +276,12 @@ export default function AdminPanel() {
           <div>
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-xl font-bold text-gray-900">Manage Partners</h2>
+              <button
+                onClick={() => {/* Add partner functionality can be added here */}}
+                className="bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800"
+              >
+                Add Partner
+              </button>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -310,18 +316,18 @@ export default function AdminPanel() {
                     
                     <div className="flex gap-2">
                       <button
-                        onClick={() => startAddProject(partner)}
-                        className="flex-1 bg-black text-white px-3 py-2 rounded-md text-sm hover:bg-gray-800"
-                      >
-                        Add Project
-                      </button>
-                      <button
                         onClick={() => {
                           setActiveTab('projects');
                         }}
                         className="flex-1 bg-gray-100 text-gray-700 px-3 py-2 rounded-md text-sm hover:bg-gray-200"
                       >
                         View Projects
+                      </button>
+                      <button
+                        onClick={() => {/* Edit partner functionality */}}
+                        className="flex-1 bg-blue-600 text-white px-3 py-2 rounded-md text-sm hover:bg-blue-700"
+                      >
+                        Edit Partner
                       </button>
                     </div>
                   </motion.div>
