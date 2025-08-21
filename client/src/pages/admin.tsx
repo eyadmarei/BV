@@ -6,6 +6,28 @@ import { useAuth } from '../hooks/useAuth';
 import { apiRequest } from '../lib/queryClient';
 import type { Property, InsertProperty } from '@shared/schema';
 
+// Helper function to convert Google Cloud Storage URLs to local object paths
+const convertImageUrl = (url: string): string => {
+  if (!url || !url.includes('storage.googleapis.com')) {
+    return url;
+  }
+  
+  // Extract the object path from the Google Cloud Storage URL
+  try {
+    const urlObj = new URL(url);
+    const pathParts = urlObj.pathname.split('/');
+    if (pathParts.length >= 3) {
+      // Remove bucket name and keep the object path
+      const objectPath = pathParts.slice(2).join('/');
+      return `/objects/${objectPath}`;
+    }
+  } catch (e) {
+    console.error('Error parsing image URL:', e);
+  }
+  
+  return url; // Return original URL if conversion fails
+};
+
 export default function AdminPanel() {
   const { user, isLoading: authLoading, isAuthenticated, isAdmin } = useAuth();
   const [activeTab, setActiveTab] = useState<'partners' | 'projects' | 'units'>('partners');
@@ -394,9 +416,14 @@ export default function AdminPanel() {
                           <div className="h-48 bg-gray-200 relative">
                             {property.imageUrl ? (
                               <img
-                                src={property.imageUrl}
+                                src={convertImageUrl(property.imageUrl)}
                                 alt={property.title}
                                 className="w-full h-full object-cover"
+                                onError={(e) => {
+                                  const target = e.target as HTMLImageElement;
+                                  target.style.display = 'none';
+                                  target.parentElement!.innerHTML = '<div class="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center"><span class="text-gray-600 font-semibold">Image Error</span></div>';
+                                }}
                               />
                             ) : (
                               <div className="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center">
@@ -536,7 +563,16 @@ export default function AdminPanel() {
                         <div className="flex items-center">
                           <div className="h-10 w-10 flex-shrink-0">
                             {property.imageUrl ? (
-                              <img className="h-10 w-10 rounded-full object-cover" src={property.imageUrl} alt="" />
+                              <img 
+                                className="h-10 w-10 rounded-full object-cover" 
+                                src={convertImageUrl(property.imageUrl)} 
+                                alt=""
+                                onError={(e) => {
+                                  const target = e.target as HTMLImageElement;
+                                  target.style.display = 'none';
+                                  target.parentElement!.innerHTML = '<div class="h-10 w-10 rounded-full bg-gray-300 flex items-center justify-center">🏠</div>';
+                                }}
+                              />
                             ) : (
                               <div className="h-10 w-10 rounded-full bg-gray-300 flex items-center justify-center">
                                 🏠

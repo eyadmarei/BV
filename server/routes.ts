@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { ObjectStorageService } from "./objectStorage";
+import { ObjectStorageService, ObjectNotFoundError, objectStorageClient } from "./objectStorage";
 import { setupAuth, isAuthenticated, isAdmin } from "./replitAuth";
 import { seedDatabase } from "./seedDatabase";
 import { insertPropertySchema, insertServiceSchema, insertInquirySchema } from "@shared/schema";
@@ -129,6 +129,39 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       console.error("Error generating upload URL:", error);
       res.status(500).json({ error: "Failed to generate upload URL" });
+    }
+  });
+
+  // Route to serve private object storage images  
+  app.get("/objects/*", isAuthenticated, async (req, res) => {
+    try {
+      const objectPath = req.path.replace('/objects/', '');
+      const privateObjectDir = objectStorageService.getPrivateObjectDir();
+      
+      // Build full path like "/.private/uploads/uuid"
+      const fullPath = `${privateObjectDir}/${objectPath}`;
+      
+      // Parse object path 
+      const pathParts = fullPath.split('/').filter(p => p);
+      if (pathParts.length < 2) {
+        return res.status(404).json({ error: "Invalid object path" });
+      }
+      
+      const bucketName = pathParts[0];
+      const objectName = pathParts.slice(1).join('/');
+      
+      const bucket = objectStorageClient.bucket(bucketName);
+      const file = bucket.file(objectName);
+      
+      const [exists] = await file.exists();
+      if (!exists) {
+        return res.status(404).json({ error: "Object not found" });
+      }
+      
+      objectStorageService.downloadObject(file, res);
+    } catch (error) {
+      console.error("Error accessing private object:", error);
+      return res.status(500).json({ error: "Internal server error" });
     }
   });
 
