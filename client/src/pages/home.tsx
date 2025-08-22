@@ -231,16 +231,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 
-              className="text-xl font-bold mb-2"
-              style={{
-                background: 'linear-gradient(135deg, #c0c0c0, #e5e5e5, #a8a8a8)',
-                WebkitBackgroundClip: 'text',
-                backgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                textShadow: '0 0 15px rgba(192, 192, 192, 0.6)'
-              }}
-            >
+            <h2 className="text-xl font-bold mb-2 text-gray-800">
               Premium Collections from our Partner Network
             </h2>
           </motion.div>
@@ -627,20 +618,19 @@ export default function Home() {
       </section>
 
       {/* Our Services */}
-      <section className="py-8 bg-white">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Header Section */}
           <motion.div
-            className="text-center mb-8"
-            initial={{ opacity: 0, y: 30 }}
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-lg md:text-xl font-bold text-black mb-2">
+            <h2 className="text-xl font-bold mb-2 text-gray-800">
               Our Services
             </h2>
-            <p className="text-gray-600 text-sm max-w-lg mx-auto">
-              Complete property investment support from purchase to management
-            </p>
           </motion.div>
 
           {/* Service Category Cards */}
