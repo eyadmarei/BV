@@ -270,14 +270,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Partners - Dark Metallic Style */}
-      <section 
-        className="py-16 relative overflow-hidden"
-        style={{
-          background: 'linear-gradient(135deg, #f8f8f8 0%, #e8e8e8 50%, #dcdcdc 100%)'
-        }}
-      >
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Featured Partners - Silver Glowy Container */}
+      <section className="py-16 relative">
+        <div className="max-w-6xl mx-auto px-6">
+          <div 
+            className="rounded-2xl p-8 relative overflow-hidden"
+            style={{
+              background: 'linear-gradient(135deg, #f8f8f8 0%, #e8e8e8 50%, #dcdcdc 100%)',
+              border: '2px solid rgba(192, 192, 192, 0.4)',
+              boxShadow: '0 0 30px rgba(192, 192, 192, 0.6), inset 0 1px 3px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1)'
+            }}
+          >
           
           {/* Header Section */}
           <motion.div
@@ -736,6 +739,7 @@ export default function Home() {
             </div>
 
           </motion.div>
+          </div>
         </div>
       </section>
 
