@@ -232,20 +232,17 @@ export default function Home() {
             transition={{ duration: 0.8 }}
           >
             <h2 
-              className="text-2xl font-bold mb-2"
+              className="text-xl font-bold mb-2"
               style={{
-                background: 'linear-gradient(135deg, #d4af37, #ffd700, #b8860b)',
+                background: 'linear-gradient(135deg, #c0c0c0, #e5e5e5, #a8a8a8)',
                 WebkitBackgroundClip: 'text',
                 backgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
-                textShadow: '0 0 10px rgba(212, 175, 55, 0.3)'
+                textShadow: '0 0 15px rgba(192, 192, 192, 0.6)'
               }}
             >
               Premium Collections from our Partner Network
             </h2>
-            <p className="text-sm text-gray-600 max-w-2xl mx-auto">
-              Collaborating with Dubai's most prestigious developers to bring you exclusive access to luxury properties and investment opportunities
-            </p>
           </motion.div>
           
           {/* Partner Cards Grid - Horizontal Layout */}
