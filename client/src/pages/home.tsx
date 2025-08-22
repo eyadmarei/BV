@@ -270,17 +270,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Partners - Silver Glowy Container */}
-      <section className="py-16 relative">
-        <div className="max-w-6xl mx-auto px-6">
-          <div 
-            className="rounded-2xl p-8 relative overflow-hidden"
-            style={{
-              background: 'linear-gradient(135deg, #f8f8f8 0%, #e8e8e8 50%, #dcdcdc 100%)',
-              border: '2px solid rgba(192, 192, 192, 0.4)',
-              boxShadow: '0 0 30px rgba(192, 192, 192, 0.6), inset 0 1px 3px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1)'
-            }}
-          >
+      {/* Featured Partners */}
+      <section className="py-16 relative bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Header Section */}
           <motion.div
@@ -291,7 +283,7 @@ export default function Home() {
           >
             <div>
               <h2 
-                className="font-bold text-gray-700 mb-1"
+                className="font-bold text-gray-800 mb-1"
                 style={{
                   fontSize: 'clamp(20px,2.5vw,28px)',
                   letterSpacing: '.3px'
@@ -299,7 +291,7 @@ export default function Home() {
               >
                 Featured Developers
               </h2>
-              <p className="text-gray-600 text-sm">
+              <p className="text-gray-700 text-sm">
                 Curated luxury projects from top UAE developers
               </p>
             </div>
@@ -335,9 +327,10 @@ export default function Home() {
               <div 
                 className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(160deg, #2a2a2a, #1a1a1a, #333333)',
-                  boxShadow: 'inset 0 1px 2px rgba(255,255,255,.1), inset 0 -1px 2px rgba(0,0,0,.3)',
-                  aspectRatio: '1 / 1'
+                  background: 'linear-gradient(160deg, #e5e5e5, #c5c5c5, #d5d5d5)',
+                  boxShadow: 'inset 0 2px 4px rgba(255,255,255,.8), inset 0 -2px 4px rgba(0,0,0,.2), 0 0 8px rgba(192,192,192,.4)',
+                  aspectRatio: '1 / 1',
+                  border: '1px solid rgba(192,192,192,.3)'
                 }}
               >
                 <img 
@@ -350,12 +343,12 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="text-white font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
+              <div className="text-gray-800 font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
                 Binghatti
               </div>
               <Link href="/projects?partner=Binghatti">
                 <button 
-                  className="border-none cursor-pointer font-medium text-gray-300 bg-transparent text-xs hover:text-gray-100 transition-colors duration-200"
+                  className="border-none cursor-pointer font-medium text-gray-600 bg-transparent text-xs hover:text-gray-800 transition-colors duration-200"
                   style={{
                     padding: '6px 12px',
                     letterSpacing: '.3px'
@@ -387,9 +380,10 @@ export default function Home() {
               <div 
                 className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(160deg, #2a2a2a, #1a1a1a, #333333)',
-                  boxShadow: 'inset 0 1px 2px rgba(255,255,255,.1), inset 0 -1px 2px rgba(0,0,0,.3)',
-                  aspectRatio: '1 / 1'
+                  background: 'linear-gradient(160deg, #e5e5e5, #c5c5c5, #d5d5d5)',
+                  boxShadow: 'inset 0 2px 4px rgba(255,255,255,.8), inset 0 -2px 4px rgba(0,0,0,.2), 0 0 8px rgba(192,192,192,.4)',
+                  aspectRatio: '1 / 1',
+                  border: '1px solid rgba(192,192,192,.3)'
                 }}
               >
                 <img 
@@ -402,12 +396,12 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="text-white font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
+              <div className="text-gray-800 font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
                 Danube Properties
               </div>
               <Link href="/projects?partner=Danube Properties">
                 <button 
-                  className="border-none cursor-pointer font-medium text-gray-300 bg-transparent text-xs hover:text-gray-100 transition-colors duration-200"
+                  className="border-none cursor-pointer font-medium text-gray-600 bg-transparent text-xs hover:text-gray-800 transition-colors duration-200"
                   style={{
                     padding: '6px 12px',
                     letterSpacing: '.3px'
@@ -439,9 +433,10 @@ export default function Home() {
               <div 
                 className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(160deg, #2a2a2a, #1a1a1a, #333333)',
-                  boxShadow: 'inset 0 1px 2px rgba(255,255,255,.1), inset 0 -1px 2px rgba(0,0,0,.3)',
-                  aspectRatio: '1 / 1'
+                  background: 'linear-gradient(160deg, #e5e5e5, #c5c5c5, #d5d5d5)',
+                  boxShadow: 'inset 0 2px 4px rgba(255,255,255,.8), inset 0 -2px 4px rgba(0,0,0,.2), 0 0 8px rgba(192,192,192,.4)',
+                  aspectRatio: '1 / 1',
+                  border: '1px solid rgba(192,192,192,.3)'
                 }}
               >
                 <img 
@@ -454,12 +449,12 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="text-white font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
+              <div className="text-gray-800 font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
                 Ellington Properties
               </div>
               <Link href="/projects?partner=Ellington Properties">
                 <button 
-                  className="border-none cursor-pointer font-medium text-gray-300 bg-transparent text-xs hover:text-gray-100 transition-colors duration-200"
+                  className="border-none cursor-pointer font-medium text-gray-600 bg-transparent text-xs hover:text-gray-800 transition-colors duration-200"
                   style={{
                     padding: '6px 12px',
                     letterSpacing: '.3px'
@@ -499,9 +494,10 @@ export default function Home() {
               <div 
                 className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(160deg, #2a2a2a, #1a1a1a, #333333)',
-                  boxShadow: 'inset 0 1px 2px rgba(255,255,255,.1), inset 0 -1px 2px rgba(0,0,0,.3)',
-                  aspectRatio: '1 / 1'
+                  background: 'linear-gradient(160deg, #e5e5e5, #c5c5c5, #d5d5d5)',
+                  boxShadow: 'inset 0 2px 4px rgba(255,255,255,.8), inset 0 -2px 4px rgba(0,0,0,.2), 0 0 8px rgba(192,192,192,.4)',
+                  aspectRatio: '1 / 1',
+                  border: '1px solid rgba(192,192,192,.3)'
                 }}
               >
                 <img 
@@ -514,12 +510,12 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="text-white font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
+              <div className="text-gray-800 font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
                 Emaar
               </div>
               <Link href="/projects?partner=Emaar">
                 <button 
-                  className="border-none cursor-pointer font-medium text-gray-300 bg-transparent text-xs hover:text-gray-100 transition-colors duration-200"
+                  className="border-none cursor-pointer font-medium text-gray-600 bg-transparent text-xs hover:text-gray-800 transition-colors duration-200"
                   style={{
                     padding: '6px 12px',
                     letterSpacing: '.3px'
@@ -551,9 +547,10 @@ export default function Home() {
               <div 
                 className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(160deg, #2a2a2a, #1a1a1a, #333333)',
-                  boxShadow: 'inset 0 1px 2px rgba(255,255,255,.1), inset 0 -1px 2px rgba(0,0,0,.3)',
-                  aspectRatio: '1 / 1'
+                  background: 'linear-gradient(160deg, #e5e5e5, #c5c5c5, #d5d5d5)',
+                  boxShadow: 'inset 0 2px 4px rgba(255,255,255,.8), inset 0 -2px 4px rgba(0,0,0,.2), 0 0 8px rgba(192,192,192,.4)',
+                  aspectRatio: '1 / 1',
+                  border: '1px solid rgba(192,192,192,.3)'
                 }}
               >
                 <img 
@@ -566,12 +563,12 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="text-white font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
+              <div className="text-gray-800 font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
                 IMAN Developers
               </div>
               <Link href="/projects?partner=Iman Developers">
                 <button 
-                  className="border-none cursor-pointer font-medium text-gray-300 bg-transparent text-xs hover:text-gray-100 transition-colors duration-200"
+                  className="border-none cursor-pointer font-medium text-gray-600 bg-transparent text-xs hover:text-gray-800 transition-colors duration-200"
                   style={{
                     padding: '6px 12px',
                     letterSpacing: '.3px'
@@ -603,9 +600,10 @@ export default function Home() {
               <div 
                 className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(160deg, #2a2a2a, #1a1a1a, #333333)',
-                  boxShadow: 'inset 0 1px 2px rgba(255,255,255,.1), inset 0 -1px 2px rgba(0,0,0,.3)',
-                  aspectRatio: '1 / 1'
+                  background: 'linear-gradient(160deg, #e5e5e5, #c5c5c5, #d5d5d5)',
+                  boxShadow: 'inset 0 2px 4px rgba(255,255,255,.8), inset 0 -2px 4px rgba(0,0,0,.2), 0 0 8px rgba(192,192,192,.4)',
+                  aspectRatio: '1 / 1',
+                  border: '1px solid rgba(192,192,192,.3)'
                 }}
               >
                 <img 
@@ -618,12 +616,12 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="text-white font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
+              <div className="text-gray-800 font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
                 Marquis
               </div>
               <Link href="/projects?partner=Marquis">
                 <button 
-                  className="border-none cursor-pointer font-medium text-gray-300 bg-transparent text-xs hover:text-gray-100 transition-colors duration-200"
+                  className="border-none cursor-pointer font-medium text-gray-600 bg-transparent text-xs hover:text-gray-800 transition-colors duration-200"
                   style={{
                     padding: '6px 12px',
                     letterSpacing: '.3px'
@@ -655,9 +653,10 @@ export default function Home() {
               <div 
                 className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(160deg, #2a2a2a, #1a1a1a, #333333)',
-                  boxShadow: 'inset 0 1px 2px rgba(255,255,255,.1), inset 0 -1px 2px rgba(0,0,0,.3)',
-                  aspectRatio: '1 / 1'
+                  background: 'linear-gradient(160deg, #e5e5e5, #c5c5c5, #d5d5d5)',
+                  boxShadow: 'inset 0 2px 4px rgba(255,255,255,.8), inset 0 -2px 4px rgba(0,0,0,.2), 0 0 8px rgba(192,192,192,.4)',
+                  aspectRatio: '1 / 1',
+                  border: '1px solid rgba(192,192,192,.3)'
                 }}
               >
                 <img 
@@ -670,12 +669,12 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="text-white font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
+              <div className="text-gray-800 font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
                 Rabdan
               </div>
               <Link href="/projects?partner=Rabdan Developments">
                 <button 
-                  className="border-none cursor-pointer font-medium text-gray-300 bg-transparent text-xs hover:text-gray-100 transition-colors duration-200"
+                  className="border-none cursor-pointer font-medium text-gray-600 bg-transparent text-xs hover:text-gray-800 transition-colors duration-200"
                   style={{
                     padding: '6px 12px',
                     letterSpacing: '.3px'
@@ -707,9 +706,10 @@ export default function Home() {
               <div 
                 className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(160deg, #2a2a2a, #1a1a1a, #333333)',
-                  boxShadow: 'inset 0 1px 2px rgba(255,255,255,.1), inset 0 -1px 2px rgba(0,0,0,.3)',
-                  aspectRatio: '1 / 1'
+                  background: 'linear-gradient(160deg, #e5e5e5, #c5c5c5, #d5d5d5)',
+                  boxShadow: 'inset 0 2px 4px rgba(255,255,255,.8), inset 0 -2px 4px rgba(0,0,0,.2), 0 0 8px rgba(192,192,192,.4)',
+                  aspectRatio: '1 / 1',
+                  border: '1px solid rgba(192,192,192,.3)'
                 }}
               >
                 <img 
@@ -722,12 +722,12 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="text-white font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
+              <div className="text-gray-800 font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
                 Tiger Properties
               </div>
               <Link href="/projects?partner=Tiger Properties AE">
                 <button 
-                  className="border-none cursor-pointer font-medium text-gray-300 bg-transparent text-xs hover:text-gray-100 transition-colors duration-200"
+                  className="border-none cursor-pointer font-medium text-gray-600 bg-transparent text-xs hover:text-gray-800 transition-colors duration-200"
                   style={{
                     padding: '6px 12px',
                     letterSpacing: '.3px'
@@ -739,7 +739,6 @@ export default function Home() {
             </div>
 
           </motion.div>
-          </div>
         </div>
       </section>
 
