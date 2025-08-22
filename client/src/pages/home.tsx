@@ -162,15 +162,6 @@ export default function Home() {
               <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto drop-shadow-md">
                 Redefining real estate excellence in Dubai by delivering unparalleled service, innovative solutions, and lasting value for our clients
               </p>
-              <motion.button
-                className="bg-white text-black px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors shadow-lg"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 1 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                Explore Properties
-              </motion.button>
               
               {/* Property Type Boxes with View Collection Buttons */}
               <motion.div
