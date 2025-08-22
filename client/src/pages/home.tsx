@@ -312,7 +312,7 @@ export default function Home() {
               <div 
                 className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
-                  background: 'linear-gradient(160deg, #e8e8e8, #f5f5f5 30%, #d0d0d0 70%, #c0c0c0)',
+                  background: 'linear-gradient(160deg, #e0e0e0, #ededed 30%, #c8c8c8 70%, #b8b8b8)',
                   boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1), 0 6px 25px rgba(0,0,0,0.15), 0 0 15px rgba(192,192,192,0.6)',
                   transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease',
                   border: '1px solid rgba(255,255,255,0.4)'
@@ -364,7 +364,7 @@ export default function Home() {
               <div 
                 className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
-                  background: 'linear-gradient(160deg, #e8e8e8, #f5f5f5 30%, #d0d0d0 70%, #c0c0c0)',
+                  background: 'linear-gradient(160deg, #e0e0e0, #ededed 30%, #c8c8c8 70%, #b8b8b8)',
                   boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1), 0 6px 25px rgba(0,0,0,0.15), 0 0 15px rgba(192,192,192,0.6)',
                   transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease',
                   border: '1px solid rgba(255,255,255,0.4)'
@@ -414,7 +414,7 @@ export default function Home() {
               <div 
                 className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
-                  background: 'linear-gradient(160deg, #e8e8e8, #f5f5f5 30%, #d0d0d0 70%, #c0c0c0)',
+                  background: 'linear-gradient(160deg, #e0e0e0, #ededed 30%, #c8c8c8 70%, #b8b8b8)',
                   boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1), 0 6px 25px rgba(0,0,0,0.15), 0 0 15px rgba(192,192,192,0.6)',
                   transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease',
                   border: '1px solid rgba(255,255,255,0.4)'
@@ -464,7 +464,7 @@ export default function Home() {
               <div 
                 className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
-                  background: 'linear-gradient(160deg, #e8e8e8, #f5f5f5 30%, #d0d0d0 70%, #c0c0c0)',
+                  background: 'linear-gradient(160deg, #e0e0e0, #ededed 30%, #c8c8c8 70%, #b8b8b8)',
                   boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1), 0 6px 25px rgba(0,0,0,0.15), 0 0 15px rgba(192,192,192,0.6)',
                   transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease',
                   border: '1px solid rgba(255,255,255,0.4)'
@@ -514,7 +514,7 @@ export default function Home() {
               <div 
                 className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
-                  background: 'linear-gradient(160deg, #e8e8e8, #f5f5f5 30%, #d0d0d0 70%, #c0c0c0)',
+                  background: 'linear-gradient(160deg, #e0e0e0, #ededed 30%, #c8c8c8 70%, #b8b8b8)',
                   boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1), 0 6px 25px rgba(0,0,0,0.15), 0 0 15px rgba(192,192,192,0.6)',
                   transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease',
                   border: '1px solid rgba(255,255,255,0.4)'
@@ -564,7 +564,7 @@ export default function Home() {
               <div 
                 className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
-                  background: 'linear-gradient(160deg, #e8e8e8, #f5f5f5 30%, #d0d0d0 70%, #c0c0c0)',
+                  background: 'linear-gradient(160deg, #e0e0e0, #ededed 30%, #c8c8c8 70%, #b8b8b8)',
                   boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1), 0 6px 25px rgba(0,0,0,0.15), 0 0 15px rgba(192,192,192,0.6)',
                   transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease',
                   border: '1px solid rgba(255,255,255,0.4)'
@@ -614,7 +614,7 @@ export default function Home() {
               <div 
                 className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
-                  background: 'linear-gradient(160deg, #e8e8e8, #f5f5f5 30%, #d0d0d0 70%, #c0c0c0)',
+                  background: 'linear-gradient(160deg, #e0e0e0, #ededed 30%, #c8c8c8 70%, #b8b8b8)',
                   boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1), 0 6px 25px rgba(0,0,0,0.15), 0 0 15px rgba(192,192,192,0.6)',
                   transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease',
                   border: '1px solid rgba(255,255,255,0.4)'
@@ -664,7 +664,7 @@ export default function Home() {
               <div 
                 className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
-                  background: 'linear-gradient(160deg, #e8e8e8, #f5f5f5 30%, #d0d0d0 70%, #c0c0c0)',
+                  background: 'linear-gradient(160deg, #e0e0e0, #ededed 30%, #c8c8c8 70%, #b8b8b8)',
                   boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1), 0 6px 25px rgba(0,0,0,0.15), 0 0 15px rgba(192,192,192,0.6)',
                   transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease',
                   border: '1px solid rgba(255,255,255,0.4)'
