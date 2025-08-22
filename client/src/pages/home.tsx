@@ -260,7 +260,7 @@ export default function Home() {
               <div 
                 className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
-                  background: 'linear-gradient(160deg, #d8d8d8, #e5e5e5 30%, #c0c0c0 70%, #b0b0b0)',
+                  background: 'linear-gradient(160deg, #555555, #666666 30%, #444444 70%, #333333)',
                   boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1), 0 6px 25px rgba(0,0,0,0.15), 0 0 15px rgba(192,192,192,0.6)',
                   transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease',
                   border: '1px solid rgba(255,255,255,0.4)'
@@ -306,7 +306,7 @@ export default function Home() {
               <div 
                 className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
-                  background: 'linear-gradient(160deg, #d8d8d8, #e5e5e5 30%, #c0c0c0 70%, #b0b0b0)',
+                  background: 'linear-gradient(160deg, #555555, #666666 30%, #444444 70%, #333333)',
                   boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1), 0 6px 25px rgba(0,0,0,0.15), 0 0 15px rgba(192,192,192,0.6)',
                   transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease',
                   border: '1px solid rgba(255,255,255,0.4)'
@@ -352,7 +352,7 @@ export default function Home() {
               <div 
                 className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
-                  background: 'linear-gradient(160deg, #d8d8d8, #e5e5e5 30%, #c0c0c0 70%, #b0b0b0)',
+                  background: 'linear-gradient(160deg, #555555, #666666 30%, #444444 70%, #333333)',
                   boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1), 0 6px 25px rgba(0,0,0,0.15), 0 0 15px rgba(192,192,192,0.6)',
                   transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease',
                   border: '1px solid rgba(255,255,255,0.4)'
@@ -398,7 +398,7 @@ export default function Home() {
               <div 
                 className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
-                  background: 'linear-gradient(160deg, #d8d8d8, #e5e5e5 30%, #c0c0c0 70%, #b0b0b0)',
+                  background: 'linear-gradient(160deg, #555555, #666666 30%, #444444 70%, #333333)',
                   boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1), 0 6px 25px rgba(0,0,0,0.15), 0 0 15px rgba(192,192,192,0.6)',
                   transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease',
                   border: '1px solid rgba(255,255,255,0.4)'
@@ -444,7 +444,7 @@ export default function Home() {
               <div 
                 className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
-                  background: 'linear-gradient(160deg, #d8d8d8, #e5e5e5 30%, #c0c0c0 70%, #b0b0b0)',
+                  background: 'linear-gradient(160deg, #555555, #666666 30%, #444444 70%, #333333)',
                   boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1), 0 6px 25px rgba(0,0,0,0.15), 0 0 15px rgba(192,192,192,0.6)',
                   transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease',
                   border: '1px solid rgba(255,255,255,0.4)'
@@ -490,7 +490,7 @@ export default function Home() {
               <div 
                 className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
-                  background: 'linear-gradient(160deg, #d8d8d8, #e5e5e5 30%, #c0c0c0 70%, #b0b0b0)',
+                  background: 'linear-gradient(160deg, #555555, #666666 30%, #444444 70%, #333333)',
                   boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1), 0 6px 25px rgba(0,0,0,0.15), 0 0 15px rgba(192,192,192,0.6)',
                   transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease',
                   border: '1px solid rgba(255,255,255,0.4)'
@@ -536,7 +536,7 @@ export default function Home() {
               <div 
                 className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
-                  background: 'linear-gradient(160deg, #d8d8d8, #e5e5e5 30%, #c0c0c0 70%, #b0b0b0)',
+                  background: 'linear-gradient(160deg, #555555, #666666 30%, #444444 70%, #333333)',
                   boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1), 0 6px 25px rgba(0,0,0,0.15), 0 0 15px rgba(192,192,192,0.6)',
                   transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease',
                   border: '1px solid rgba(255,255,255,0.4)'
@@ -582,7 +582,7 @@ export default function Home() {
               <div 
                 className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
-                  background: 'linear-gradient(160deg, #d8d8d8, #e5e5e5 30%, #c0c0c0 70%, #b0b0b0)',
+                  background: 'linear-gradient(160deg, #555555, #666666 30%, #444444 70%, #333333)',
                   boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1), 0 6px 25px rgba(0,0,0,0.15), 0 0 15px rgba(192,192,192,0.6)',
                   transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease',
                   border: '1px solid rgba(255,255,255,0.4)'
@@ -623,6 +623,21 @@ export default function Home() {
               </Link>
             </div>
 
+          </motion.div>
+          
+          {/* Bottom Content */}
+          <motion.div
+            className="text-center mt-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <h3 className="text-lg font-semibold text-gray-800 mb-2">
+              Premium Partner Network
+            </h3>
+            <p className="text-sm text-gray-600 max-w-2xl mx-auto">
+              Collaborating with Dubai's most prestigious developers to bring you exclusive access to luxury properties and investment opportunities
+            </p>
           </motion.div>
         </div>
       </section>
