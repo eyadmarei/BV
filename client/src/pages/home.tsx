@@ -341,7 +341,7 @@ export default function Home() {
                   />
                 </div>
                 {/* Name at bottom */}
-                <div className="font-semibold text-sm" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                <div className="font-semibold text-xs" style={{ letterSpacing: '.1px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                   Binghatti
                 </div>
               </div>
@@ -393,7 +393,7 @@ export default function Home() {
                     }}
                   />
                 </div>
-                <div className="font-semibold text-sm" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                <div className="font-semibold text-xs" style={{ letterSpacing: '.1px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                   Danube Properties
                 </div>
               </div>
@@ -444,7 +444,7 @@ export default function Home() {
                     }}
                   />
                 </div>
-                <div className="font-semibold text-sm" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                <div className="font-semibold text-xs" style={{ letterSpacing: '.1px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                   Ellington Properties
                 </div>
               </div>
@@ -495,7 +495,7 @@ export default function Home() {
                     }}
                   />
                 </div>
-                <div className="font-semibold text-sm" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                <div className="font-semibold text-xs" style={{ letterSpacing: '.1px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                   Emaar
                 </div>
               </div>
@@ -546,7 +546,7 @@ export default function Home() {
                     }}
                   />
                 </div>
-                <div className="font-semibold text-sm" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                <div className="font-semibold text-xs" style={{ letterSpacing: '.1px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                   IMAN Developers
                 </div>
               </div>
@@ -597,7 +597,7 @@ export default function Home() {
                     }}
                   />
                 </div>
-                <div className="font-semibold text-sm" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                <div className="font-semibold text-xs" style={{ letterSpacing: '.1px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                   Marquis
                 </div>
               </div>
@@ -648,7 +648,7 @@ export default function Home() {
                     }}
                   />
                 </div>
-                <div className="font-semibold text-sm" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                <div className="font-semibold text-xs" style={{ letterSpacing: '.1px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                   Rabdan
                 </div>
               </div>
@@ -699,7 +699,7 @@ export default function Home() {
                     }}
                   />
                 </div>
-                <div className="font-semibold text-sm" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                <div className="font-semibold text-xs" style={{ letterSpacing: '.1px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                   Tiger Properties
                 </div>
               </div>
