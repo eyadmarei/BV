@@ -312,7 +312,7 @@ export default function Home() {
             
             {/* Binghatti */}
             <div 
-              className="relative rounded-lg p-4 overflow-hidden flex flex-col items-center"
+              className="relative rounded-lg p-6 overflow-hidden flex flex-col justify-between items-center h-40"
               style={{
                 background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
                 boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
@@ -328,7 +328,7 @@ export default function Home() {
               }}
             >
               {/* Logo directly on card */}
-              <div className="flex items-center justify-center mb-3" style={{ aspectRatio: '1 / 1', width: '60%' }}>
+              <div className="flex items-center justify-center flex-1" style={{ width: '90%' }}>
                 <img 
                   src={binghatiLogo} 
                   alt="Binghatti logo"
@@ -339,29 +339,31 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="font-semibold text-sm mb-2" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                Binghatti
-              </div>
-              <Link href="/projects?partner=Binghatti">
-                <div 
-                  className="text-xs cursor-pointer transition-opacity hover:opacity-70"
-                  style={{ 
-                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', 
-                    WebkitBackgroundClip: 'text', 
-                    backgroundClip: 'text', 
-                    WebkitTextFillColor: 'transparent',
-                    fontSize: '10px',
-                    letterSpacing: '.1px'
-                  }}
-                >
-                  View Collection
+              <div className="flex flex-col items-center gap-1">
+                <div className="font-semibold text-sm" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                  Binghatti
                 </div>
-              </Link>
+                <Link href="/projects?partner=Binghatti">
+                  <div 
+                    className="text-xs cursor-pointer transition-opacity hover:opacity-70"
+                    style={{ 
+                      background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', 
+                      WebkitBackgroundClip: 'text', 
+                      backgroundClip: 'text', 
+                      WebkitTextFillColor: 'transparent',
+                      fontSize: '10px',
+                      letterSpacing: '.1px'
+                    }}
+                  >
+                    View Collection
+                  </div>
+                </Link>
+              </div>
             </div>
 
             {/* Danube Properties */}
             <div 
-              className="relative rounded-lg p-4 overflow-hidden flex flex-col items-center"
+              className="relative rounded-lg p-6 overflow-hidden flex flex-col justify-between items-center h-40"
               style={{
                 background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
                 boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
@@ -376,7 +378,7 @@ export default function Home() {
                 e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
               }}
             >
-              <div className="flex items-center justify-center mb-3" style={{ aspectRatio: '1 / 1', width: '60%' }}>
+              <div className="flex items-center justify-center flex-1" style={{ width: '90%' }}>
                 <img 
                   src={danubeLogo} 
                   alt="Danube Properties logo"
@@ -387,29 +389,31 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="font-semibold text-sm mb-2" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                Danube Properties
-              </div>
-              <Link href="/projects?partner=Danube Properties">
-                <div 
-                  className="text-xs cursor-pointer transition-opacity hover:opacity-70"
-                  style={{ 
-                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', 
-                    WebkitBackgroundClip: 'text', 
-                    backgroundClip: 'text', 
-                    WebkitTextFillColor: 'transparent',
-                    fontSize: '10px',
-                    letterSpacing: '.1px'
-                  }}
-                >
-                  View Collection
+              <div className="flex flex-col items-center gap-1">
+                <div className="font-semibold text-sm" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                  Danube Properties
                 </div>
-              </Link>
+                <Link href="/projects?partner=Danube Properties">
+                  <div 
+                    className="text-xs cursor-pointer transition-opacity hover:opacity-70"
+                    style={{ 
+                      background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', 
+                      WebkitBackgroundClip: 'text', 
+                      backgroundClip: 'text', 
+                      WebkitTextFillColor: 'transparent',
+                      fontSize: '10px',
+                      letterSpacing: '.1px'
+                    }}
+                  >
+                    View Collection
+                  </div>
+                </Link>
+              </div>
             </div>
 
             {/* Ellington Properties */}
             <div 
-              className="relative rounded-lg p-4 overflow-hidden flex flex-col items-center"
+              className="relative rounded-lg p-6 overflow-hidden flex flex-col justify-between items-center h-40"
               style={{
                 background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
                 boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
@@ -424,7 +428,7 @@ export default function Home() {
                 e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
               }}
             >
-              <div className="flex items-center justify-center mb-3" style={{ aspectRatio: '1 / 1', width: '60%' }}>
+              <div className="flex items-center justify-center flex-1" style={{ width: '90%' }}>
                 <img 
                   src={ellingtonLogo} 
                   alt="Ellington Properties logo"
@@ -435,24 +439,26 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="font-semibold text-sm mb-2" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                Ellington Properties
-              </div>
-              <Link href="/projects?partner=Ellington Properties">
-                <div 
-                  className="text-xs cursor-pointer transition-opacity hover:opacity-70"
-                  style={{ 
-                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', 
-                    WebkitBackgroundClip: 'text', 
-                    backgroundClip: 'text', 
-                    WebkitTextFillColor: 'transparent',
-                    fontSize: '10px',
-                    letterSpacing: '.1px'
-                  }}
-                >
-                  View Collection
+              <div className="flex flex-col items-center gap-1">
+                <div className="font-semibold text-sm" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                  Ellington Properties
                 </div>
-              </Link>
+                <Link href="/projects?partner=Ellington Properties">
+                  <div 
+                    className="text-xs cursor-pointer transition-opacity hover:opacity-70"
+                    style={{ 
+                      background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', 
+                      WebkitBackgroundClip: 'text', 
+                      backgroundClip: 'text', 
+                      WebkitTextFillColor: 'transparent',
+                      fontSize: '10px',
+                      letterSpacing: '.1px'
+                    }}
+                  >
+                    View Collection
+                  </div>
+                </Link>
+              </div>
             </div>
 
             {/* Emaar */}
@@ -522,7 +528,7 @@ export default function Home() {
 
             {/* Iman Developers */}
             <div 
-              className="relative rounded-lg p-4 overflow-hidden flex flex-col items-center"
+              className="relative rounded-lg p-6 overflow-hidden flex flex-col justify-between items-center h-40"
               style={{
                 background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
                 boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
@@ -537,7 +543,7 @@ export default function Home() {
                 e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
               }}
             >
-              <div className="flex items-center justify-center mb-3" style={{ aspectRatio: '1 / 1', width: '60%' }}>
+              <div className="flex items-center justify-center flex-1" style={{ width: '90%' }}>
                 <img 
                   src={imanLogo} 
                   alt="IMAN Developers logo"
@@ -548,29 +554,31 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="font-semibold text-sm mb-2" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                IMAN Developers
-              </div>
-              <Link href="/projects?partner=Iman Developers">
-                <div 
-                  className="text-xs cursor-pointer transition-opacity hover:opacity-70"
-                  style={{ 
-                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', 
-                    WebkitBackgroundClip: 'text', 
-                    backgroundClip: 'text', 
-                    WebkitTextFillColor: 'transparent',
-                    fontSize: '10px',
-                    letterSpacing: '.1px'
-                  }}
-                >
-                  View Collection
+              <div className="flex flex-col items-center gap-1">
+                <div className="font-semibold text-sm" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                  IMAN Developers
                 </div>
-              </Link>
+                <Link href="/projects?partner=Iman Developers">
+                  <div 
+                    className="text-xs cursor-pointer transition-opacity hover:opacity-70"
+                    style={{ 
+                      background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', 
+                      WebkitBackgroundClip: 'text', 
+                      backgroundClip: 'text', 
+                      WebkitTextFillColor: 'transparent',
+                      fontSize: '10px',
+                      letterSpacing: '.1px'
+                    }}
+                  >
+                    View Collection
+                  </div>
+                </Link>
+              </div>
             </div>
 
             {/* Marquis */}
             <div 
-              className="relative rounded-lg p-4 overflow-hidden flex flex-col items-center"
+              className="relative rounded-lg p-6 overflow-hidden flex flex-col justify-between items-center h-40"
               style={{
                 background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
                 boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
@@ -585,7 +593,7 @@ export default function Home() {
                 e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
               }}
             >
-              <div className="flex items-center justify-center mb-3" style={{ aspectRatio: '1 / 1', width: '60%' }}>
+              <div className="flex items-center justify-center flex-1" style={{ width: '90%' }}>
                 <img 
                   src={marquisLogo} 
                   alt="Marquis logo"
@@ -596,29 +604,31 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="font-semibold text-sm mb-2" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                Marquis
-              </div>
-              <Link href="/projects?partner=Marquis">
-                <div 
-                  className="text-xs cursor-pointer transition-opacity hover:opacity-70"
-                  style={{ 
-                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', 
-                    WebkitBackgroundClip: 'text', 
-                    backgroundClip: 'text', 
-                    WebkitTextFillColor: 'transparent',
-                    fontSize: '10px',
-                    letterSpacing: '.1px'
-                  }}
-                >
-                  View Collection
+              <div className="flex flex-col items-center gap-1">
+                <div className="font-semibold text-sm" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                  Marquis
                 </div>
-              </Link>
+                <Link href="/projects?partner=Marquis">
+                  <div 
+                    className="text-xs cursor-pointer transition-opacity hover:opacity-70"
+                    style={{ 
+                      background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', 
+                      WebkitBackgroundClip: 'text', 
+                      backgroundClip: 'text', 
+                      WebkitTextFillColor: 'transparent',
+                      fontSize: '10px',
+                      letterSpacing: '.1px'
+                    }}
+                  >
+                    View Collection
+                  </div>
+                </Link>
+              </div>
             </div>
 
             {/* Rabdan */}
             <div 
-              className="relative rounded-lg p-4 overflow-hidden flex flex-col items-center"
+              className="relative rounded-lg p-6 overflow-hidden flex flex-col justify-between items-center h-40"
               style={{
                 background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
                 boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
@@ -633,7 +643,7 @@ export default function Home() {
                 e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
               }}
             >
-              <div className="flex items-center justify-center mb-3" style={{ aspectRatio: '1 / 1', width: '60%' }}>
+              <div className="flex items-center justify-center flex-1" style={{ width: '90%' }}>
                 <img 
                   src={rabdanLogo} 
                   alt="Rabdan logo"
@@ -644,24 +654,26 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="font-semibold text-sm mb-2" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                Rabdan
-              </div>
-              <Link href="/projects?partner=Rabdan Developments">
-                <div 
-                  className="text-xs cursor-pointer transition-opacity hover:opacity-70"
-                  style={{ 
-                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', 
-                    WebkitBackgroundClip: 'text', 
-                    backgroundClip: 'text', 
-                    WebkitTextFillColor: 'transparent',
-                    fontSize: '10px',
-                    letterSpacing: '.1px'
-                  }}
-                >
-                  View Collection
+              <div className="flex flex-col items-center gap-1">
+                <div className="font-semibold text-sm" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                  Rabdan
                 </div>
-              </Link>
+                <Link href="/projects?partner=Rabdan Developments">
+                  <div 
+                    className="text-xs cursor-pointer transition-opacity hover:opacity-70"
+                    style={{ 
+                      background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', 
+                      WebkitBackgroundClip: 'text', 
+                      backgroundClip: 'text', 
+                      WebkitTextFillColor: 'transparent',
+                      fontSize: '10px',
+                      letterSpacing: '.1px'
+                    }}
+                  >
+                    View Collection
+                  </div>
+                </Link>
+              </div>
             </div>
 
             {/* Tiger Properties */}
