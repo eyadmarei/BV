@@ -10,16 +10,7 @@ import type { Property, InsertProperty } from '@shared/schema';
 const convertImageUrl = (url: string): string => {
   if (!url) return url;
   
-  // If already a local image path, return as is
-  if (url.startsWith('/images/')) {
-    return url;
-  }
-  
-  // If it's still a cloud storage URL, we can't display it anymore
-  if (url.includes('storage.googleapis.com')) {
-    return ''; // Return empty to show fallback
-  }
-  
+  // Local images should work as-is
   return url;
 };
 
