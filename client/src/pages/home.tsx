@@ -311,214 +311,205 @@ export default function Home() {
           >
             
             {/* Binghatti */}
-            <div 
-              className="relative rounded-lg p-6 overflow-hidden flex flex-col justify-between items-center h-40"
-              style={{
-                background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
-                boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
-                transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 10px 26px rgba(192,192,192,.4), 0 0 12px rgba(192,192,192,.4)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0px)';
-                e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
-              }}
-            >
-              {/* Logo directly on card */}
-              <div className="flex items-center justify-center flex-1" style={{ width: '90%' }}>
-                <img 
-                  src={binghatiLogo} 
-                  alt="Binghatti logo"
-                  style={{
-                    maxWidth: '100%',
-                    maxHeight: '100%',
-                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
-                  }}
-                />
-              </div>
-              <div className="flex flex-col items-center gap-1">
+            <div className="flex flex-col items-center">
+              <div 
+                className="relative rounded-lg p-4 overflow-hidden flex flex-col justify-between items-center h-32 w-full"
+                style={{
+                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
+                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
+                  transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 10px 26px rgba(192,192,192,.4), 0 0 12px rgba(192,192,192,.4)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0px)';
+                  e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
+                }}
+              >
+                {/* Logo */}
+                <div className="flex items-center justify-center flex-1" style={{ width: '90%' }}>
+                  <img 
+                    src={binghatiLogo} 
+                    alt="Binghatti logo"
+                    style={{
+                      maxWidth: '100%',
+                      maxHeight: '100%',
+                      filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
+                    }}
+                  />
+                </div>
+                {/* Name at bottom */}
                 <div className="font-semibold text-sm" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                   Binghatti
                 </div>
-                <Link href="/projects?partner=Binghatti">
-                  <div 
-                    className="text-xs cursor-pointer transition-opacity hover:opacity-70"
-                    style={{ 
-                      background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', 
-                      WebkitBackgroundClip: 'text', 
-                      backgroundClip: 'text', 
-                      WebkitTextFillColor: 'transparent',
-                      fontSize: '10px',
-                      letterSpacing: '.1px'
-                    }}
-                  >
-                    View Collection
-                  </div>
-                </Link>
               </div>
-            </div>
-
-            {/* Danube Properties */}
-            <div 
-              className="relative rounded-lg p-6 overflow-hidden flex flex-col justify-between items-center h-40"
-              style={{
-                background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
-                boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
-                transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 10px 26px rgba(192,192,192,.4), 0 0 12px rgba(192,192,192,.4)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0px)';
-                e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
-              }}
-            >
-              <div className="flex items-center justify-center flex-1" style={{ width: '90%' }}>
-                <img 
-                  src={danubeLogo} 
-                  alt="Danube Properties logo"
-                  style={{
-                    maxWidth: '100%',
-                    maxHeight: '100%',
-                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
-                  }}
-                />
-              </div>
-              <div className="flex flex-col items-center gap-1">
-                <div className="font-semibold text-sm" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                  Danube Properties
-                </div>
-                <Link href="/projects?partner=Danube Properties">
-                  <div 
-                    className="text-xs cursor-pointer transition-opacity hover:opacity-70"
-                    style={{ 
-                      background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', 
-                      WebkitBackgroundClip: 'text', 
-                      backgroundClip: 'text', 
-                      WebkitTextFillColor: 'transparent',
-                      fontSize: '10px',
-                      letterSpacing: '.1px'
-                    }}
-                  >
-                    View Collection
-                  </div>
-                </Link>
-              </div>
-            </div>
-
-            {/* Ellington Properties */}
-            <div 
-              className="relative rounded-lg p-6 overflow-hidden flex flex-col justify-between items-center h-40"
-              style={{
-                background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
-                boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
-                transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 10px 26px rgba(192,192,192,.4), 0 0 12px rgba(192,192,192,.4)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0px)';
-                e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
-              }}
-            >
-              <div className="flex items-center justify-center flex-1" style={{ width: '90%' }}>
-                <img 
-                  src={ellingtonLogo} 
-                  alt="Ellington Properties logo"
-                  style={{
-                    maxWidth: '100%',
-                    maxHeight: '100%',
-                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
-                  }}
-                />
-              </div>
-              <div className="flex flex-col items-center gap-1">
-                <div className="font-semibold text-sm" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                  Ellington Properties
-                </div>
-                <Link href="/projects?partner=Ellington Properties">
-                  <div 
-                    className="text-xs cursor-pointer transition-opacity hover:opacity-70"
-                    style={{ 
-                      background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', 
-                      WebkitBackgroundClip: 'text', 
-                      backgroundClip: 'text', 
-                      WebkitTextFillColor: 'transparent',
-                      fontSize: '10px',
-                      letterSpacing: '.1px'
-                    }}
-                  >
-                    View Collection
-                  </div>
-                </Link>
-              </div>
-            </div>
-
-            {/* Emaar */}
-            <div 
-              className="relative rounded-lg p-4 overflow-hidden"
-              style={{
-                background: '#1a1a1add',
-                boxShadow: '0 6px 20px rgba(0,0,0,.4)',
-                border: '1px solid rgba(255,255,255,.06)',
-                transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 10px 26px rgba(192,192,192,.4)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0px)';
-                e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,.4)';
-              }}
-            >
-              <div className="absolute top-2 right-2 text-xs text-black rounded-full px-2 py-1 opacity-95"
-                   style={{
-                     background: 'linear-gradient(135deg, #f0f0f0, #c0c0c0)',
-                     border: '1px solid #2a2a2a',
-                     boxShadow: '0 0 6px rgba(192,192,192,0.7)'
-                   }}>
-                Premium
-              </div>
-              <div 
-                className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
-                style={{
-                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
-                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
-                  aspectRatio: '1 / 1',
-
-                }}
-              >
-                <img 
-                  src={emaarLogo} 
-                  alt="Emaar logo"
-                  style={{
-                    maxWidth: '85%',
-                    maxHeight: '85%',
-                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
-                  }}
-                />
-              </div>
-              <div className="font-semibold text-sm mb-2" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                Emaar
-              </div>
-              <Link href="/projects?partner=Emaar">
+              {/* View Collection outside container */}
+              <Link href="/projects?partner=Binghatti" className="mt-2">
                 <div 
-                  className="text-xs cursor-pointer transition-opacity hover:opacity-70"
+                  className="text-xs cursor-pointer transition-all hover:opacity-70"
                   style={{ 
-                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', 
+                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)', 
                     WebkitBackgroundClip: 'text', 
                     backgroundClip: 'text', 
                     WebkitTextFillColor: 'transparent',
                     fontSize: '10px',
-                    letterSpacing: '.1px'
+                    letterSpacing: '.1px',
+                    textShadow: '0 0 8px rgba(192,192,192,0.6)'
+                  }}
+                >
+                  View Collection
+                </div>
+              </Link>
+            </div>
+
+            {/* Danube Properties */}
+            <div className="flex flex-col items-center">
+              <div 
+                className="relative rounded-lg p-4 overflow-hidden flex flex-col justify-between items-center h-32 w-full"
+                style={{
+                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
+                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
+                  transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 10px 26px rgba(192,192,192,.4), 0 0 12px rgba(192,192,192,.4)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0px)';
+                  e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
+                }}
+              >
+                <div className="flex items-center justify-center flex-1" style={{ width: '90%' }}>
+                  <img 
+                    src={danubeLogo} 
+                    alt="Danube Properties logo"
+                    style={{
+                      maxWidth: '100%',
+                      maxHeight: '100%',
+                      filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
+                    }}
+                  />
+                </div>
+                <div className="font-semibold text-sm" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                  Danube Properties
+                </div>
+              </div>
+              <Link href="/projects?partner=Danube Properties" className="mt-2">
+                <div 
+                  className="text-xs cursor-pointer transition-all hover:opacity-70"
+                  style={{ 
+                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)', 
+                    WebkitBackgroundClip: 'text', 
+                    backgroundClip: 'text', 
+                    WebkitTextFillColor: 'transparent',
+                    fontSize: '10px',
+                    letterSpacing: '.1px',
+                    textShadow: '0 0 8px rgba(192,192,192,0.6)'
+                  }}
+                >
+                  View Collection
+                </div>
+              </Link>
+            </div>
+
+            {/* Ellington Properties */}
+            <div className="flex flex-col items-center">
+              <div 
+                className="relative rounded-lg p-4 overflow-hidden flex flex-col justify-between items-center h-32 w-full"
+                style={{
+                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
+                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
+                  transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 10px 26px rgba(192,192,192,.4), 0 0 12px rgba(192,192,192,.4)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0px)';
+                  e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
+                }}
+              >
+                <div className="flex items-center justify-center flex-1" style={{ width: '90%' }}>
+                  <img 
+                    src={ellingtonLogo} 
+                    alt="Ellington Properties logo"
+                    style={{
+                      maxWidth: '100%',
+                      maxHeight: '100%',
+                      filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
+                    }}
+                  />
+                </div>
+                <div className="font-semibold text-sm" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                  Ellington Properties
+                </div>
+              </div>
+              <Link href="/projects?partner=Ellington Properties" className="mt-2">
+                <div 
+                  className="text-xs cursor-pointer transition-all hover:opacity-70"
+                  style={{ 
+                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)', 
+                    WebkitBackgroundClip: 'text', 
+                    backgroundClip: 'text', 
+                    WebkitTextFillColor: 'transparent',
+                    fontSize: '10px',
+                    letterSpacing: '.1px',
+                    textShadow: '0 0 8px rgba(192,192,192,0.6)'
+                  }}
+                >
+                  View Collection
+                </div>
+              </Link>
+            </div>
+
+            {/* Emaar */}
+            <div className="flex flex-col items-center">
+              <div 
+                className="relative rounded-lg p-4 overflow-hidden flex flex-col justify-between items-center h-32 w-full"
+                style={{
+                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
+                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
+                  transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 10px 26px rgba(192,192,192,.4), 0 0 12px rgba(192,192,192,.4)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0px)';
+                  e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
+                }}
+              >
+                <div className="flex items-center justify-center flex-1" style={{ width: '90%' }}>
+                  <img 
+                    src={emaarLogo} 
+                    alt="Emaar logo"
+                    style={{
+                      maxWidth: '100%',
+                      maxHeight: '100%',
+                      filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
+                    }}
+                  />
+                </div>
+                <div className="font-semibold text-sm" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                  Emaar
+                </div>
+              </div>
+              <Link href="/projects?partner=Emaar" className="mt-2">
+                <div 
+                  className="text-xs cursor-pointer transition-all hover:opacity-70"
+                  style={{ 
+                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)', 
+                    WebkitBackgroundClip: 'text', 
+                    backgroundClip: 'text', 
+                    WebkitTextFillColor: 'transparent',
+                    fontSize: '10px',
+                    letterSpacing: '.1px',
+                    textShadow: '0 0 8px rgba(192,192,192,0.6)'
                   }}
                 >
                   View Collection
@@ -527,196 +518,202 @@ export default function Home() {
             </div>
 
             {/* Iman Developers */}
-            <div 
-              className="relative rounded-lg p-6 overflow-hidden flex flex-col justify-between items-center h-40"
-              style={{
-                background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
-                boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
-                transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 10px 26px rgba(192,192,192,.4), 0 0 12px rgba(192,192,192,.4)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0px)';
-                e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
-              }}
-            >
-              <div className="flex items-center justify-center flex-1" style={{ width: '90%' }}>
-                <img 
-                  src={imanLogo} 
-                  alt="IMAN Developers logo"
-                  style={{
-                    maxWidth: '100%',
-                    maxHeight: '100%',
-                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
-                  }}
-                />
-              </div>
-              <div className="flex flex-col items-center gap-1">
+            <div className="flex flex-col items-center">
+              <div 
+                className="relative rounded-lg p-4 overflow-hidden flex flex-col justify-between items-center h-32 w-full"
+                style={{
+                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
+                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
+                  transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 10px 26px rgba(192,192,192,.4), 0 0 12px rgba(192,192,192,.4)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0px)';
+                  e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
+                }}
+              >
+                <div className="flex items-center justify-center flex-1" style={{ width: '90%' }}>
+                  <img 
+                    src={imanLogo} 
+                    alt="IMAN Developers logo"
+                    style={{
+                      maxWidth: '100%',
+                      maxHeight: '100%',
+                      filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
+                    }}
+                  />
+                </div>
                 <div className="font-semibold text-sm" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                   IMAN Developers
                 </div>
-                <Link href="/projects?partner=Iman Developers">
-                  <div 
-                    className="text-xs cursor-pointer transition-opacity hover:opacity-70"
-                    style={{ 
-                      background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', 
-                      WebkitBackgroundClip: 'text', 
-                      backgroundClip: 'text', 
-                      WebkitTextFillColor: 'transparent',
-                      fontSize: '10px',
-                      letterSpacing: '.1px'
-                    }}
-                  >
-                    View Collection
-                  </div>
-                </Link>
               </div>
-            </div>
-
-            {/* Marquis */}
-            <div 
-              className="relative rounded-lg p-6 overflow-hidden flex flex-col justify-between items-center h-40"
-              style={{
-                background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
-                boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
-                transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 10px 26px rgba(192,192,192,.4), 0 0 12px rgba(192,192,192,.4)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0px)';
-                e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
-              }}
-            >
-              <div className="flex items-center justify-center flex-1" style={{ width: '90%' }}>
-                <img 
-                  src={marquisLogo} 
-                  alt="Marquis logo"
-                  style={{
-                    maxWidth: '100%',
-                    maxHeight: '100%',
-                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
-                  }}
-                />
-              </div>
-              <div className="flex flex-col items-center gap-1">
-                <div className="font-semibold text-sm" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                  Marquis
-                </div>
-                <Link href="/projects?partner=Marquis">
-                  <div 
-                    className="text-xs cursor-pointer transition-opacity hover:opacity-70"
-                    style={{ 
-                      background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', 
-                      WebkitBackgroundClip: 'text', 
-                      backgroundClip: 'text', 
-                      WebkitTextFillColor: 'transparent',
-                      fontSize: '10px',
-                      letterSpacing: '.1px'
-                    }}
-                  >
-                    View Collection
-                  </div>
-                </Link>
-              </div>
-            </div>
-
-            {/* Rabdan */}
-            <div 
-              className="relative rounded-lg p-6 overflow-hidden flex flex-col justify-between items-center h-40"
-              style={{
-                background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
-                boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
-                transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 10px 26px rgba(192,192,192,.4), 0 0 12px rgba(192,192,192,.4)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0px)';
-                e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
-              }}
-            >
-              <div className="flex items-center justify-center flex-1" style={{ width: '90%' }}>
-                <img 
-                  src={rabdanLogo} 
-                  alt="Rabdan logo"
-                  style={{
-                    maxWidth: '100%',
-                    maxHeight: '100%',
-                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
-                  }}
-                />
-              </div>
-              <div className="flex flex-col items-center gap-1">
-                <div className="font-semibold text-sm" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                  Rabdan
-                </div>
-                <Link href="/projects?partner=Rabdan Developments">
-                  <div 
-                    className="text-xs cursor-pointer transition-opacity hover:opacity-70"
-                    style={{ 
-                      background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', 
-                      WebkitBackgroundClip: 'text', 
-                      backgroundClip: 'text', 
-                      WebkitTextFillColor: 'transparent',
-                      fontSize: '10px',
-                      letterSpacing: '.1px'
-                    }}
-                  >
-                    View Collection
-                  </div>
-                </Link>
-              </div>
-            </div>
-
-            {/* Tiger Properties */}
-            <div 
-              className="relative rounded-lg p-4 overflow-hidden flex flex-col items-center"
-              style={{
-                background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
-                boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
-                transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 10px 26px rgba(192,192,192,.4), 0 0 12px rgba(192,192,192,.4)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0px)';
-                e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
-              }}
-            >
-              <div className="flex items-center justify-center mb-3" style={{ aspectRatio: '1 / 1', width: '60%' }}>
-                <img 
-                  src={tigerLogo} 
-                  alt="Tiger Properties logo"
-                  style={{
-                    maxWidth: '100%',
-                    maxHeight: '100%',
-                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
-                  }}
-                />
-              </div>
-              <div className="font-semibold text-sm mb-2" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                Tiger Properties
-              </div>
-              <Link href="/projects?partner=Tiger Properties AE">
+              <Link href="/projects?partner=Iman Developers" className="mt-2">
                 <div 
-                  className="text-xs cursor-pointer transition-opacity hover:opacity-70"
+                  className="text-xs cursor-pointer transition-all hover:opacity-70"
                   style={{ 
-                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', 
+                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)', 
                     WebkitBackgroundClip: 'text', 
                     backgroundClip: 'text', 
                     WebkitTextFillColor: 'transparent',
                     fontSize: '10px',
-                    letterSpacing: '.1px'
+                    letterSpacing: '.1px',
+                    textShadow: '0 0 8px rgba(192,192,192,0.6)'
+                  }}
+                >
+                  View Collection
+                </div>
+              </Link>
+            </div>
+
+            {/* Marquis */}
+            <div className="flex flex-col items-center">
+              <div 
+                className="relative rounded-lg p-4 overflow-hidden flex flex-col justify-between items-center h-32 w-full"
+                style={{
+                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
+                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
+                  transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 10px 26px rgba(192,192,192,.4), 0 0 12px rgba(192,192,192,.4)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0px)';
+                  e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
+                }}
+              >
+                <div className="flex items-center justify-center flex-1" style={{ width: '90%' }}>
+                  <img 
+                    src={marquisLogo} 
+                    alt="Marquis logo"
+                    style={{
+                      maxWidth: '100%',
+                      maxHeight: '100%',
+                      filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
+                    }}
+                  />
+                </div>
+                <div className="font-semibold text-sm" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                  Marquis
+                </div>
+              </div>
+              <Link href="/projects?partner=Marquis" className="mt-2">
+                <div 
+                  className="text-xs cursor-pointer transition-all hover:opacity-70"
+                  style={{ 
+                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)', 
+                    WebkitBackgroundClip: 'text', 
+                    backgroundClip: 'text', 
+                    WebkitTextFillColor: 'transparent',
+                    fontSize: '10px',
+                    letterSpacing: '.1px',
+                    textShadow: '0 0 8px rgba(192,192,192,0.6)'
+                  }}
+                >
+                  View Collection
+                </div>
+              </Link>
+            </div>
+
+            {/* Rabdan */}
+            <div className="flex flex-col items-center">
+              <div 
+                className="relative rounded-lg p-4 overflow-hidden flex flex-col justify-between items-center h-32 w-full"
+                style={{
+                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
+                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
+                  transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 10px 26px rgba(192,192,192,.4), 0 0 12px rgba(192,192,192,.4)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0px)';
+                  e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
+                }}
+              >
+                <div className="flex items-center justify-center flex-1" style={{ width: '90%' }}>
+                  <img 
+                    src={rabdanLogo} 
+                    alt="Rabdan logo"
+                    style={{
+                      maxWidth: '100%',
+                      maxHeight: '100%',
+                      filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
+                    }}
+                  />
+                </div>
+                <div className="font-semibold text-sm" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                  Rabdan
+                </div>
+              </div>
+              <Link href="/projects?partner=Rabdan Developments" className="mt-2">
+                <div 
+                  className="text-xs cursor-pointer transition-all hover:opacity-70"
+                  style={{ 
+                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)', 
+                    WebkitBackgroundClip: 'text', 
+                    backgroundClip: 'text', 
+                    WebkitTextFillColor: 'transparent',
+                    fontSize: '10px',
+                    letterSpacing: '.1px',
+                    textShadow: '0 0 8px rgba(192,192,192,0.6)'
+                  }}
+                >
+                  View Collection
+                </div>
+              </Link>
+            </div>
+
+            {/* Tiger Properties */}
+            <div className="flex flex-col items-center">
+              <div 
+                className="relative rounded-lg p-4 overflow-hidden flex flex-col justify-between items-center h-32 w-full"
+                style={{
+                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
+                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
+                  transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 10px 26px rgba(192,192,192,.4), 0 0 12px rgba(192,192,192,.4)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0px)';
+                  e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
+                }}
+              >
+                <div className="flex items-center justify-center flex-1" style={{ width: '90%' }}>
+                  <img 
+                    src={tigerLogo} 
+                    alt="Tiger Properties logo"
+                    style={{
+                      maxWidth: '100%',
+                      maxHeight: '100%',
+                      filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
+                    }}
+                  />
+                </div>
+                <div className="font-semibold text-sm" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                  Tiger Properties
+                </div>
+              </div>
+              <Link href="/projects?partner=Tiger Properties AE" className="mt-2">
+                <div 
+                  className="text-xs cursor-pointer transition-all hover:opacity-70"
+                  style={{ 
+                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)', 
+                    WebkitBackgroundClip: 'text', 
+                    backgroundClip: 'text', 
+                    WebkitTextFillColor: 'transparent',
+                    fontSize: '10px',
+                    letterSpacing: '.1px',
+                    textShadow: '0 0 8px rgba(192,192,192,0.6)'
                   }}
                 >
                   View Collection
