@@ -352,7 +352,7 @@ export default function Home() {
               </div>
               <Link href="/projects?partner=Binghatti">
                 <button 
-                  className="border-none cursor-pointer font-medium text-white bg-transparent text-xs hover:text-gray-200 transition-colors duration-200"
+                  className="border-none cursor-pointer font-medium text-gray-300 bg-transparent text-xs hover:text-gray-100 transition-colors duration-200"
                   style={{
                     padding: '6px 12px',
                     letterSpacing: '.3px'
@@ -404,7 +404,7 @@ export default function Home() {
               </div>
               <Link href="/projects?partner=Danube Properties">
                 <button 
-                  className="border-none cursor-pointer font-medium text-white bg-transparent text-xs hover:text-gray-200 transition-colors duration-200"
+                  className="border-none cursor-pointer font-medium text-gray-300 bg-transparent text-xs hover:text-gray-100 transition-colors duration-200"
                   style={{
                     padding: '6px 12px',
                     letterSpacing: '.3px'
@@ -456,7 +456,7 @@ export default function Home() {
               </div>
               <Link href="/projects?partner=Ellington Properties">
                 <button 
-                  className="border-none cursor-pointer font-medium text-white bg-transparent text-xs hover:text-gray-200 transition-colors duration-200"
+                  className="border-none cursor-pointer font-medium text-gray-300 bg-transparent text-xs hover:text-gray-100 transition-colors duration-200"
                   style={{
                     padding: '6px 12px',
                     letterSpacing: '.3px'
@@ -516,7 +516,7 @@ export default function Home() {
               </div>
               <Link href="/projects?partner=Emaar">
                 <button 
-                  className="border-none cursor-pointer font-medium text-white bg-transparent text-xs hover:text-gray-200 transition-colors duration-200"
+                  className="border-none cursor-pointer font-medium text-gray-300 bg-transparent text-xs hover:text-gray-100 transition-colors duration-200"
                   style={{
                     padding: '6px 12px',
                     letterSpacing: '.3px'
@@ -568,7 +568,7 @@ export default function Home() {
               </div>
               <Link href="/projects?partner=Iman Developers">
                 <button 
-                  className="border-none cursor-pointer font-medium text-white bg-transparent text-xs hover:text-gray-200 transition-colors duration-200"
+                  className="border-none cursor-pointer font-medium text-gray-300 bg-transparent text-xs hover:text-gray-100 transition-colors duration-200"
                   style={{
                     padding: '6px 12px',
                     letterSpacing: '.3px'
@@ -620,7 +620,7 @@ export default function Home() {
               </div>
               <Link href="/projects?partner=Marquis">
                 <button 
-                  className="border-none cursor-pointer font-medium text-white bg-transparent text-xs hover:text-gray-200 transition-colors duration-200"
+                  className="border-none cursor-pointer font-medium text-gray-300 bg-transparent text-xs hover:text-gray-100 transition-colors duration-200"
                   style={{
                     padding: '6px 12px',
                     letterSpacing: '.3px'
@@ -672,7 +672,7 @@ export default function Home() {
               </div>
               <Link href="/projects?partner=Rabdan Developments">
                 <button 
-                  className="border-none cursor-pointer font-medium text-white bg-transparent text-xs hover:text-gray-200 transition-colors duration-200"
+                  className="border-none cursor-pointer font-medium text-gray-300 bg-transparent text-xs hover:text-gray-100 transition-colors duration-200"
                   style={{
                     padding: '6px 12px',
                     letterSpacing: '.3px'
@@ -724,7 +724,7 @@ export default function Home() {
               </div>
               <Link href="/projects?partner=Tiger Properties AE">
                 <button 
-                  className="border-none cursor-pointer font-medium text-white bg-transparent text-xs hover:text-gray-200 transition-colors duration-200"
+                  className="border-none cursor-pointer font-medium text-gray-300 bg-transparent text-xs hover:text-gray-100 transition-colors duration-200"
                   style={{
                     padding: '6px 12px',
                     letterSpacing: '.3px'
