@@ -218,59 +218,7 @@ export default function Home() {
         </div>
       </section>
 
-
-      {/* Our Services */}
-      <section className="py-8 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="text-center mb-8"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-lg md:text-xl font-bold text-black mb-2">
-              Our Services
-            </h2>
-            <p className="text-gray-600 text-sm max-w-lg mx-auto">
-              Complete property investment support from purchase to management
-            </p>
-          </motion.div>
-
-          {/* Service Category Cards */}
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {serviceCategories.map((category, index) => {
-                const IconComponent = category.icon;
-                return (
-                  <Link key={category.id} href="/services">
-                    <motion.div
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: index * 0.1 }}
-                      className="flex items-center space-x-4 p-6 rounded-lg transition-all duration-300 text-left w-full h-24 text-gray-600 hover:text-black cursor-pointer group bg-white hover:bg-gray-50"
-                      whileHover={{ scale: 1.02 }}
-                    >
-                      <IconComponent className="w-6 h-6 flex-shrink-0" />
-                      <div className="min-w-0">
-                        <div className="font-semibold text-base">{category.label}</div>
-                        <div className="text-sm opacity-75">
-                          {category.label === "Property Transactions" ? "Buy & Sell" :
-                           category.label === "Property Management" ? "Oversight" :
-                           category.label === "Mortgage Advisory" ? "Financing" :
-                           "Business Setup"}
-                        </div>
-                      </div>
-                      <ArrowLeft className="w-4 h-4 rotate-180 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                    </motion.div>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Partners */}
+      {/* Our Partners Collections */}
       <section 
         className="py-16 bg-gray-50"
       >
@@ -291,7 +239,7 @@ export default function Home() {
                   letterSpacing: '.3px'
                 }}
               >
-                Featured Developers
+                Our Partners Collections
               </h2>
               <p className="text-gray-600 text-sm">
                 Curated luxury projects from top UAE developers
@@ -336,11 +284,9 @@ export default function Home() {
                   }}
                 />
               </div>
-              {/* Partner name outside container */}
               <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', color: '#6b7280' }}>
                 Binghatti
               </div>
-              {/* View Collection below name */}
               <Link href="/projects?partner=Binghatti" className="mt-1">
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-70"
@@ -680,6 +626,58 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      {/* Our Services */}
+      <section className="py-8 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-8"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-lg md:text-xl font-bold text-black mb-2">
+              Our Services
+            </h2>
+            <p className="text-gray-600 text-sm max-w-lg mx-auto">
+              Complete property investment support from purchase to management
+            </p>
+          </motion.div>
+
+          {/* Service Category Cards */}
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              {serviceCategories.map((category, index) => {
+                const IconComponent = category.icon;
+                return (
+                  <Link key={category.id} href="/services">
+                    <motion.div
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      className="flex items-center space-x-4 p-6 rounded-lg transition-all duration-300 text-left w-full h-24 text-gray-600 hover:text-black cursor-pointer group bg-white hover:bg-gray-50"
+                      whileHover={{ scale: 1.02 }}
+                    >
+                      <IconComponent className="w-6 h-6 flex-shrink-0" />
+                      <div className="min-w-0">
+                        <div className="font-semibold text-base">{category.label}</div>
+                        <div className="text-sm opacity-75">
+                          {category.label === "Property Transactions" ? "Buy & Sell" :
+                           category.label === "Property Management" ? "Oversight" :
+                           category.label === "Mortgage Advisory" ? "Financing" :
+                           "Business Setup"}
+                        </div>
+                      </div>
+                      <ArrowLeft className="w-4 h-4 rotate-180 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
+                    </motion.div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
 
     </div>
   );
