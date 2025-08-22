@@ -313,7 +313,7 @@ export default function Home() {
             {/* Binghatti */}
             <div className="flex flex-col items-center">
               <div 
-                className="relative rounded-lg p-4 overflow-hidden flex flex-col justify-between items-center h-32 w-full"
+                className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
                   background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
                   boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
@@ -328,25 +328,22 @@ export default function Home() {
                   e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
                 }}
               >
-                {/* Logo */}
-                <div className="flex items-center justify-center flex-1" style={{ width: '90%' }}>
-                  <img 
-                    src={binghatiLogo} 
-                    alt="Binghatti logo"
-                    style={{
-                      maxWidth: '100%',
-                      maxHeight: '100%',
-                      filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
-                    }}
-                  />
-                </div>
-                {/* Name at bottom */}
-                <div className="font-semibold text-xs" style={{ letterSpacing: '.1px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                  Binghatti
-                </div>
+                <img 
+                  src={binghatiLogo} 
+                  alt="Binghatti logo"
+                  style={{
+                    maxWidth: '90%',
+                    maxHeight: '90%',
+                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
+                  }}
+                />
               </div>
-              {/* View Collection outside container */}
-              <Link href="/projects?partner=Binghatti" className="mt-2">
+              {/* Partner name outside container */}
+              <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                Binghatti
+              </div>
+              {/* View Collection below name */}
+              <Link href="/projects?partner=Binghatti" className="mt-1">
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-70"
                   style={{ 
@@ -367,7 +364,7 @@ export default function Home() {
             {/* Danube Properties */}
             <div className="flex flex-col items-center">
               <div 
-                className="relative rounded-lg p-4 overflow-hidden flex flex-col justify-between items-center h-32 w-full"
+                className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
                   background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
                   boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
@@ -382,22 +379,20 @@ export default function Home() {
                   e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
                 }}
               >
-                <div className="flex items-center justify-center flex-1" style={{ width: '90%' }}>
-                  <img 
-                    src={danubeLogo} 
-                    alt="Danube Properties logo"
-                    style={{
-                      maxWidth: '100%',
-                      maxHeight: '100%',
-                      filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
-                    }}
-                  />
-                </div>
-                <div className="font-semibold text-xs" style={{ letterSpacing: '.1px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                  Danube Properties
-                </div>
+                <img 
+                  src={danubeLogo} 
+                  alt="Danube Properties logo"
+                  style={{
+                    maxWidth: '90%',
+                    maxHeight: '90%',
+                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
+                  }}
+                />
               </div>
-              <Link href="/projects?partner=Danube Properties" className="mt-2">
+              <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                Danube Properties
+              </div>
+              <Link href="/projects?partner=Danube Properties" className="mt-1">
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-70"
                   style={{ 
@@ -418,7 +413,7 @@ export default function Home() {
             {/* Ellington Properties */}
             <div className="flex flex-col items-center">
               <div 
-                className="relative rounded-lg p-4 overflow-hidden flex flex-col justify-between items-center h-32 w-full"
+                className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
                   background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
                   boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
@@ -433,22 +428,20 @@ export default function Home() {
                   e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
                 }}
               >
-                <div className="flex items-center justify-center flex-1" style={{ width: '90%' }}>
-                  <img 
-                    src={ellingtonLogo} 
-                    alt="Ellington Properties logo"
-                    style={{
-                      maxWidth: '100%',
-                      maxHeight: '100%',
-                      filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
-                    }}
-                  />
-                </div>
-                <div className="font-semibold text-xs" style={{ letterSpacing: '.1px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                  Ellington Properties
-                </div>
+                <img 
+                  src={ellingtonLogo} 
+                  alt="Ellington Properties logo"
+                  style={{
+                    maxWidth: '90%',
+                    maxHeight: '90%',
+                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
+                  }}
+                />
               </div>
-              <Link href="/projects?partner=Ellington Properties" className="mt-2">
+              <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                Ellington Properties
+              </div>
+              <Link href="/projects?partner=Ellington Properties" className="mt-1">
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-70"
                   style={{ 
@@ -469,7 +462,7 @@ export default function Home() {
             {/* Emaar */}
             <div className="flex flex-col items-center">
               <div 
-                className="relative rounded-lg p-4 overflow-hidden flex flex-col justify-between items-center h-32 w-full"
+                className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
                   background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
                   boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
@@ -484,22 +477,20 @@ export default function Home() {
                   e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
                 }}
               >
-                <div className="flex items-center justify-center flex-1" style={{ width: '90%' }}>
-                  <img 
-                    src={emaarLogo} 
-                    alt="Emaar logo"
-                    style={{
-                      maxWidth: '100%',
-                      maxHeight: '100%',
-                      filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
-                    }}
-                  />
-                </div>
-                <div className="font-semibold text-xs" style={{ letterSpacing: '.1px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                  Emaar
-                </div>
+                <img 
+                  src={emaarLogo} 
+                  alt="Emaar logo"
+                  style={{
+                    maxWidth: '90%',
+                    maxHeight: '90%',
+                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
+                  }}
+                />
               </div>
-              <Link href="/projects?partner=Emaar" className="mt-2">
+              <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                Emaar
+              </div>
+              <Link href="/projects?partner=Emaar" className="mt-1">
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-70"
                   style={{ 
@@ -520,7 +511,7 @@ export default function Home() {
             {/* Iman Developers */}
             <div className="flex flex-col items-center">
               <div 
-                className="relative rounded-lg p-4 overflow-hidden flex flex-col justify-between items-center h-32 w-full"
+                className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
                   background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
                   boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
@@ -535,22 +526,20 @@ export default function Home() {
                   e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
                 }}
               >
-                <div className="flex items-center justify-center flex-1" style={{ width: '90%' }}>
-                  <img 
-                    src={imanLogo} 
-                    alt="IMAN Developers logo"
-                    style={{
-                      maxWidth: '100%',
-                      maxHeight: '100%',
-                      filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
-                    }}
-                  />
-                </div>
-                <div className="font-semibold text-xs" style={{ letterSpacing: '.1px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                  IMAN Developers
-                </div>
+                <img 
+                  src={imanLogo} 
+                  alt="IMAN Developers logo"
+                  style={{
+                    maxWidth: '90%',
+                    maxHeight: '90%',
+                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
+                  }}
+                />
               </div>
-              <Link href="/projects?partner=Iman Developers" className="mt-2">
+              <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                IMAN Developers
+              </div>
+              <Link href="/projects?partner=Iman Developers" className="mt-1">
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-70"
                   style={{ 
@@ -571,7 +560,7 @@ export default function Home() {
             {/* Marquis */}
             <div className="flex flex-col items-center">
               <div 
-                className="relative rounded-lg p-4 overflow-hidden flex flex-col justify-between items-center h-32 w-full"
+                className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
                   background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
                   boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
@@ -586,22 +575,20 @@ export default function Home() {
                   e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
                 }}
               >
-                <div className="flex items-center justify-center flex-1" style={{ width: '90%' }}>
-                  <img 
-                    src={marquisLogo} 
-                    alt="Marquis logo"
-                    style={{
-                      maxWidth: '100%',
-                      maxHeight: '100%',
-                      filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
-                    }}
-                  />
-                </div>
-                <div className="font-semibold text-xs" style={{ letterSpacing: '.1px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                  Marquis
-                </div>
+                <img 
+                  src={marquisLogo} 
+                  alt="Marquis logo"
+                  style={{
+                    maxWidth: '90%',
+                    maxHeight: '90%',
+                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
+                  }}
+                />
               </div>
-              <Link href="/projects?partner=Marquis" className="mt-2">
+              <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                Marquis
+              </div>
+              <Link href="/projects?partner=Marquis" className="mt-1">
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-70"
                   style={{ 
@@ -622,7 +609,7 @@ export default function Home() {
             {/* Rabdan */}
             <div className="flex flex-col items-center">
               <div 
-                className="relative rounded-lg p-4 overflow-hidden flex flex-col justify-between items-center h-32 w-full"
+                className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
                   background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
                   boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
@@ -637,22 +624,20 @@ export default function Home() {
                   e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
                 }}
               >
-                <div className="flex items-center justify-center flex-1" style={{ width: '90%' }}>
-                  <img 
-                    src={rabdanLogo} 
-                    alt="Rabdan logo"
-                    style={{
-                      maxWidth: '100%',
-                      maxHeight: '100%',
-                      filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
-                    }}
-                  />
-                </div>
-                <div className="font-semibold text-xs" style={{ letterSpacing: '.1px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                  Rabdan
-                </div>
+                <img 
+                  src={rabdanLogo} 
+                  alt="Rabdan logo"
+                  style={{
+                    maxWidth: '90%',
+                    maxHeight: '90%',
+                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
+                  }}
+                />
               </div>
-              <Link href="/projects?partner=Rabdan Developments" className="mt-2">
+              <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                Rabdan
+              </div>
+              <Link href="/projects?partner=Rabdan Developments" className="mt-1">
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-70"
                   style={{ 
@@ -673,7 +658,7 @@ export default function Home() {
             {/* Tiger Properties */}
             <div className="flex flex-col items-center">
               <div 
-                className="relative rounded-lg p-4 overflow-hidden flex flex-col justify-between items-center h-32 w-full"
+                className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
                   background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
                   boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
@@ -688,22 +673,20 @@ export default function Home() {
                   e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
                 }}
               >
-                <div className="flex items-center justify-center flex-1" style={{ width: '90%' }}>
-                  <img 
-                    src={tigerLogo} 
-                    alt="Tiger Properties logo"
-                    style={{
-                      maxWidth: '100%',
-                      maxHeight: '100%',
-                      filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
-                    }}
-                  />
-                </div>
-                <div className="font-semibold text-xs" style={{ letterSpacing: '.1px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                  Tiger Properties
-                </div>
+                <img 
+                  src={tigerLogo} 
+                  alt="Tiger Properties logo"
+                  style={{
+                    maxWidth: '90%',
+                    maxHeight: '90%',
+                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
+                  }}
+                />
               </div>
-              <Link href="/projects?partner=Tiger Properties AE" className="mt-2">
+              <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                Tiger Properties
+              </div>
+              <Link href="/projects?partner=Tiger Properties AE" className="mt-1">
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-70"
                   style={{ 
