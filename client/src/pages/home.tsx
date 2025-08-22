@@ -312,38 +312,29 @@ export default function Home() {
             
             {/* Binghatti */}
             <div 
-              className="relative rounded-lg p-4 overflow-hidden"
+              className="relative rounded-lg p-4 overflow-hidden flex flex-col items-center"
               style={{
-                background: '#1a1a1add',
-                boxShadow: '0 6px 20px rgba(0,0,0,.4)',
-                border: '1px solid rgba(255,255,255,.06)',
+                background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
+                boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
                 transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 10px 26px rgba(192,192,192,.4)';
+                e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 10px 26px rgba(192,192,192,.4), 0 0 12px rgba(192,192,192,.4)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0px)';
-                e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,.4)';
+                e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
               }}
             >
-              {/* Logo Box */}
-              <div 
-                className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
-                style={{
-                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
-                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
-                  aspectRatio: '1 / 1',
-
-                }}
-              >
+              {/* Logo directly on card */}
+              <div className="flex items-center justify-center mb-3" style={{ aspectRatio: '1 / 1', width: '60%' }}>
                 <img 
                   src={binghatiLogo} 
                   alt="Binghatti logo"
                   style={{
-                    maxWidth: '85%',
-                    maxHeight: '85%',
+                    maxWidth: '100%',
+                    maxHeight: '100%',
                     filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
                   }}
                 />
@@ -383,37 +374,28 @@ export default function Home() {
 
             {/* Danube Properties */}
             <div 
-              className="relative rounded-lg p-4 overflow-hidden"
+              className="relative rounded-lg p-4 overflow-hidden flex flex-col items-center"
               style={{
-                background: '#1a1a1add',
-                boxShadow: '0 6px 20px rgba(0,0,0,.4)',
-                border: '1px solid rgba(255,255,255,.06)',
+                background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
+                boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
                 transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 10px 26px rgba(192,192,192,.4)';
+                e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 10px 26px rgba(192,192,192,.4), 0 0 12px rgba(192,192,192,.4)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0px)';
-                e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,.4)';
+                e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
               }}
             >
-              <div 
-                className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
-                style={{
-                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
-                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
-                  aspectRatio: '1 / 1',
-
-                }}
-              >
+              <div className="flex items-center justify-center mb-3" style={{ aspectRatio: '1 / 1', width: '60%' }}>
                 <img 
                   src={danubeLogo} 
                   alt="Danube Properties logo"
                   style={{
-                    maxWidth: '85%',
-                    maxHeight: '85%',
+                    maxWidth: '100%',
+                    maxHeight: '100%',
                     filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
                   }}
                 />
@@ -453,37 +435,28 @@ export default function Home() {
 
             {/* Ellington Properties */}
             <div 
-              className="relative rounded-lg p-4 overflow-hidden"
+              className="relative rounded-lg p-4 overflow-hidden flex flex-col items-center"
               style={{
-                background: '#1a1a1add',
-                boxShadow: '0 6px 20px rgba(0,0,0,.4)',
-                border: '1px solid rgba(255,255,255,.06)',
+                background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
+                boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
                 transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 10px 26px rgba(192,192,192,.4)';
+                e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 10px 26px rgba(192,192,192,.4), 0 0 12px rgba(192,192,192,.4)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0px)';
-                e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,.4)';
+                e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
               }}
             >
-              <div 
-                className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
-                style={{
-                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
-                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
-                  aspectRatio: '1 / 1',
-
-                }}
-              >
+              <div className="flex items-center justify-center mb-3" style={{ aspectRatio: '1 / 1', width: '60%' }}>
                 <img 
                   src={ellingtonLogo} 
                   alt="Ellington Properties logo"
                   style={{
-                    maxWidth: '85%',
-                    maxHeight: '85%',
+                    maxWidth: '100%',
+                    maxHeight: '100%',
                     filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
                   }}
                 />
@@ -601,37 +574,28 @@ export default function Home() {
 
             {/* Iman Developers */}
             <div 
-              className="relative rounded-lg p-4 overflow-hidden"
+              className="relative rounded-lg p-4 overflow-hidden flex flex-col items-center"
               style={{
-                background: '#1a1a1add',
-                boxShadow: '0 6px 20px rgba(0,0,0,.4)',
-                border: '1px solid rgba(255,255,255,.06)',
+                background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
+                boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
                 transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 10px 26px rgba(192,192,192,.4)';
+                e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 10px 26px rgba(192,192,192,.4), 0 0 12px rgba(192,192,192,.4)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0px)';
-                e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,.4)';
+                e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
               }}
             >
-              <div 
-                className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
-                style={{
-                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
-                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
-                  aspectRatio: '1 / 1',
-
-                }}
-              >
+              <div className="flex items-center justify-center mb-3" style={{ aspectRatio: '1 / 1', width: '60%' }}>
                 <img 
                   src={imanLogo} 
                   alt="IMAN Developers logo"
                   style={{
-                    maxWidth: '85%',
-                    maxHeight: '85%',
+                    maxWidth: '100%',
+                    maxHeight: '100%',
                     filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
                   }}
                 />
@@ -671,37 +635,28 @@ export default function Home() {
 
             {/* Marquis */}
             <div 
-              className="relative rounded-lg p-4 overflow-hidden"
+              className="relative rounded-lg p-4 overflow-hidden flex flex-col items-center"
               style={{
-                background: '#1a1a1add',
-                boxShadow: '0 6px 20px rgba(0,0,0,.4)',
-                border: '1px solid rgba(255,255,255,.06)',
+                background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
+                boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
                 transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 10px 26px rgba(192,192,192,.4)';
+                e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 10px 26px rgba(192,192,192,.4), 0 0 12px rgba(192,192,192,.4)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0px)';
-                e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,.4)';
+                e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
               }}
             >
-              <div 
-                className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
-                style={{
-                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
-                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
-                  aspectRatio: '1 / 1',
-
-                }}
-              >
+              <div className="flex items-center justify-center mb-3" style={{ aspectRatio: '1 / 1', width: '60%' }}>
                 <img 
                   src={marquisLogo} 
                   alt="Marquis logo"
                   style={{
-                    maxWidth: '85%',
-                    maxHeight: '85%',
+                    maxWidth: '100%',
+                    maxHeight: '100%',
                     filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
                   }}
                 />
@@ -741,37 +696,28 @@ export default function Home() {
 
             {/* Rabdan */}
             <div 
-              className="relative rounded-lg p-4 overflow-hidden"
+              className="relative rounded-lg p-4 overflow-hidden flex flex-col items-center"
               style={{
-                background: '#1a1a1add',
-                boxShadow: '0 6px 20px rgba(0,0,0,.4)',
-                border: '1px solid rgba(255,255,255,.06)',
+                background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
+                boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
                 transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 10px 26px rgba(192,192,192,.4)';
+                e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 10px 26px rgba(192,192,192,.4), 0 0 12px rgba(192,192,192,.4)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0px)';
-                e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,.4)';
+                e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
               }}
             >
-              <div 
-                className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
-                style={{
-                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
-                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
-                  aspectRatio: '1 / 1',
-
-                }}
-              >
+              <div className="flex items-center justify-center mb-3" style={{ aspectRatio: '1 / 1', width: '60%' }}>
                 <img 
                   src={rabdanLogo} 
                   alt="Rabdan logo"
                   style={{
-                    maxWidth: '85%',
-                    maxHeight: '85%',
+                    maxWidth: '100%',
+                    maxHeight: '100%',
                     filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
                   }}
                 />
@@ -811,37 +757,28 @@ export default function Home() {
 
             {/* Tiger Properties */}
             <div 
-              className="relative rounded-lg p-4 overflow-hidden"
+              className="relative rounded-lg p-4 overflow-hidden flex flex-col items-center"
               style={{
-                background: '#1a1a1add',
-                boxShadow: '0 6px 20px rgba(0,0,0,.4)',
-                border: '1px solid rgba(255,255,255,.06)',
+                background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
+                boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)',
                 transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 10px 26px rgba(192,192,192,.4)';
+                e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 10px 26px rgba(192,192,192,.4), 0 0 12px rgba(192,192,192,.4)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0px)';
-                e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,.4)';
+                e.currentTarget.style.boxShadow = 'inset 0 1px 3px rgba(255,255,255,.2), 0 6px 20px rgba(0,0,0,.4), 0 0 8px rgba(192,192,192,.4)';
               }}
             >
-              <div 
-                className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
-                style={{
-                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
-                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
-                  aspectRatio: '1 / 1',
-
-                }}
-              >
+              <div className="flex items-center justify-center mb-3" style={{ aspectRatio: '1 / 1', width: '60%' }}>
                 <img 
                   src={tigerLogo} 
                   alt="Tiger Properties logo"
                   style={{
-                    maxWidth: '85%',
-                    maxHeight: '85%',
+                    maxWidth: '100%',
+                    maxHeight: '100%',
                     filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
                   }}
                 />
