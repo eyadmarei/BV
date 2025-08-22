@@ -234,11 +234,8 @@ export default function Home() {
             <h2 
               className="text-xl font-bold mb-2"
               style={{
-                background: 'linear-gradient(135deg, #d4af37, #f5e6a1, #b8860b, #f9f3e6)',
-                WebkitBackgroundClip: 'text',
-                backgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                textShadow: '0 0 12px rgba(212, 175, 55, 0.5)'
+                color: '#9ca3af',
+                textShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
               }}
             >
               Premium Collections from our Partner Network
