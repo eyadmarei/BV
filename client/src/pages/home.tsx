@@ -337,7 +337,7 @@ export default function Home() {
                 />
               </div>
               {/* Partner name outside container */}
-              <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+              <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', color: '#6b7280' }}>
                 Binghatti
               </div>
               {/* View Collection below name */}
@@ -388,7 +388,7 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+              <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', color: '#6b7280' }}>
                 Danube Properties
               </div>
               <Link href="/projects?partner=Danube Properties" className="mt-1">
@@ -438,7 +438,7 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+              <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', color: '#6b7280' }}>
                 Ellington Properties
               </div>
               <Link href="/projects?partner=Ellington Properties" className="mt-1">
@@ -488,7 +488,7 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+              <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', color: '#6b7280' }}>
                 Emaar
               </div>
               <Link href="/projects?partner=Emaar" className="mt-1">
@@ -538,7 +538,7 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+              <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', color: '#6b7280' }}>
                 IMAN Developers
               </div>
               <Link href="/projects?partner=Iman Developers" className="mt-1">
@@ -588,7 +588,7 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+              <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', color: '#6b7280' }}>
                 Marquis
               </div>
               <Link href="/projects?partner=Marquis" className="mt-1">
@@ -638,7 +638,7 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+              <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', color: '#6b7280' }}>
                 Rabdan
               </div>
               <Link href="/projects?partner=Rabdan Developments" className="mt-1">
@@ -688,7 +688,7 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+              <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', color: '#6b7280' }}>
                 Tiger Properties
               </div>
               <Link href="/projects?partner=Tiger Properties AE" className="mt-1">
