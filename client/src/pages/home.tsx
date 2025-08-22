@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
-import { Link } from "wouter";
 import { useState } from "react";
+import { Link } from "wouter";
 import PropertyCard from "@/components/property-card";
 import { 
   Home as HomeIcon, Settings, Calculator, Briefcase, ArrowLeft,
@@ -111,7 +111,7 @@ const serviceCategories = [
 ];
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState("property-transactions");
+  const [activeTab, setActiveTab] = useState("partners");
   
   const { data: properties, isLoading: propertiesLoading } = useQuery<Property[]>({
     queryKey: ["/api/properties"],
@@ -218,37 +218,46 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Our Partners Collections */}
-      <section 
-        className="py-16 bg-gray-50"
-      >
+      {/* Tabbed Section - Partners & Services */}
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Header Section */}
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 
-              className="text-xl font-bold mb-2"
-              style={{
-                color: '#9ca3af',
-                textShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
-              }}
-            >
-              Premium Collections from our Partner Network
-            </h2>
-          </motion.div>
+          {/* Tab Navigation */}
+          <div className="flex justify-center mb-8">
+            <div className="bg-white rounded-lg p-1 shadow-lg border border-gray-200">
+              <button 
+                onClick={() => setActiveTab('partners')}
+                className={`px-6 py-3 rounded-md font-semibold transition-all duration-300 ${
+                  activeTab === 'partners' 
+                    ? 'bg-gray-900 text-white shadow-md' 
+                    : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
+                }`}
+              >
+                Partner Collections
+              </button>
+              <button 
+                onClick={() => setActiveTab('services')}
+                className={`px-6 py-3 rounded-md font-semibold transition-all duration-300 ${
+                  activeTab === 'services' 
+                    ? 'bg-gray-900 text-white shadow-md' 
+                    : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
+                }`}
+              >
+                Our Services
+              </button>
+            </div>
+          </div>
+
+          {/* Tab Content */}
+          {activeTab === 'partners' && (
           
-          {/* Partner Cards Grid - Horizontal Layout */}
-          <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              {/* Partner Cards Grid - Horizontal Layout */}
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
             
             {/* Binghatti */}
             <div className="flex flex-col items-center">
@@ -618,64 +627,50 @@ export default function Home() {
               </Link>
             </div>
 
-          </motion.div>
-          
-        </div>
-      </section>
+              </div>
+            </motion.div>
+          )}
 
-      {/* Our Services */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Header Section */}
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 
-              className="text-xl font-bold mb-2"
-              style={{
-                color: '#9ca3af',
-                textShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
-              }}
+          {activeTab === 'services' && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
             >
-              Our Services
-            </h2>
-          </motion.div>
-
-          {/* Service Category Cards */}
-          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {serviceCategories.map((category, index) => {
-                const IconComponent = category.icon;
-                return (
-                  <Link key={category.id} href="/services">
-                    <motion.div
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: index * 0.1 }}
-                      className="flex items-center space-x-4 p-6 rounded-lg transition-all duration-300 text-left w-full h-24 text-gray-600 hover:text-black cursor-pointer group bg-white hover:bg-gray-50"
-                      whileHover={{ scale: 1.02 }}
-                    >
-                      <IconComponent className="w-6 h-6 flex-shrink-0" />
-                      <div className="min-w-0">
-                        <div className="font-semibold text-base">{category.label}</div>
-                        <div className="text-sm opacity-75">
-                          {category.label === "Property Transactions" ? "Buy & Sell" :
-                           category.label === "Property Management" ? "Oversight" :
-                           category.label === "Mortgage Advisory" ? "Financing" :
-                           "Business Setup"}
-                        </div>
-                      </div>
-                      <ArrowLeft className="w-4 h-4 rotate-180 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                    </motion.div>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
+              {/* Service Category Cards */}
+              <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                  {serviceCategories.map((category, index) => {
+                    const IconComponent = category.icon;
+                    return (
+                      <Link key={category.id} href="/services">
+                        <motion.div
+                          initial={{ opacity: 0, y: 30 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.6, delay: index * 0.1 }}
+                          className="flex items-center space-x-4 p-6 rounded-lg transition-all duration-300 text-left w-full h-24 text-gray-600 hover:text-black cursor-pointer group bg-white hover:bg-gray-50"
+                          whileHover={{ scale: 1.02 }}
+                        >
+                          <IconComponent className="w-6 h-6 flex-shrink-0" />
+                          <div className="min-w-0">
+                            <div className="font-semibold text-base">{category.label}</div>
+                            <div className="text-sm opacity-75">
+                              {category.label === "Property Transactions" ? "Buy & Sell" :
+                               category.label === "Property Management" ? "Oversight" :
+                               category.label === "Mortgage Advisory" ? "Financing" :
+                               "Business Setup"}
+                            </div>
+                          </div>
+                          <ArrowLeft className="w-4 h-4 rotate-180 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
+                        </motion.div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            </motion.div>
+          )}
+          
         </div>
       </section>
 
