@@ -335,7 +335,7 @@ export default function Home() {
                   background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
                   boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
                   aspectRatio: '1 / 1',
-                  border: '1px solid #c0c0c0'
+
                 }}
               >
                 <img 
@@ -348,7 +348,7 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="text-white font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
+              <div className="font-semibold text-sm mb-2" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                 Binghatti
               </div>
               <Link href="/projects?partner=Binghatti">
@@ -405,7 +405,7 @@ export default function Home() {
                   background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
                   boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
                   aspectRatio: '1 / 1',
-                  border: '1px solid #c0c0c0'
+
                 }}
               >
                 <img 
@@ -418,7 +418,7 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="text-white font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
+              <div className="font-semibold text-sm mb-2" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                 Danube Properties
               </div>
               <Link href="/projects?partner=Danube Properties">
@@ -475,7 +475,7 @@ export default function Home() {
                   background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
                   boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
                   aspectRatio: '1 / 1',
-                  border: '1px solid #c0c0c0'
+
                 }}
               >
                 <img 
@@ -488,7 +488,7 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="text-white font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
+              <div className="font-semibold text-sm mb-2" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                 Ellington Properties
               </div>
               <Link href="/projects?partner=Ellington Properties">
@@ -553,7 +553,7 @@ export default function Home() {
                   background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
                   boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
                   aspectRatio: '1 / 1',
-                  border: '1px solid #c0c0c0'
+
                 }}
               >
                 <img 
@@ -566,7 +566,7 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="text-white font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
+              <div className="font-semibold text-sm mb-2" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                 Emaar
               </div>
               <Link href="/projects?partner=Emaar">
@@ -623,7 +623,7 @@ export default function Home() {
                   background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
                   boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
                   aspectRatio: '1 / 1',
-                  border: '1px solid #c0c0c0'
+
                 }}
               >
                 <img 
@@ -636,7 +636,7 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="text-white font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
+              <div className="font-semibold text-sm mb-2" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                 IMAN Developers
               </div>
               <Link href="/projects?partner=Iman Developers">
@@ -693,7 +693,7 @@ export default function Home() {
                   background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
                   boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
                   aspectRatio: '1 / 1',
-                  border: '1px solid #c0c0c0'
+
                 }}
               >
                 <img 
@@ -706,7 +706,7 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="text-white font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
+              <div className="font-semibold text-sm mb-2" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                 Marquis
               </div>
               <Link href="/projects?partner=Marquis">
@@ -763,7 +763,7 @@ export default function Home() {
                   background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
                   boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
                   aspectRatio: '1 / 1',
-                  border: '1px solid #c0c0c0'
+
                 }}
               >
                 <img 
@@ -776,7 +776,7 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="text-white font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
+              <div className="font-semibold text-sm mb-2" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                 Rabdan
               </div>
               <Link href="/projects?partner=Rabdan Developments">
@@ -833,7 +833,7 @@ export default function Home() {
                   background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
                   boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
                   aspectRatio: '1 / 1',
-                  border: '1px solid #c0c0c0'
+
                 }}
               >
                 <img 
@@ -846,7 +846,7 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="text-white font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
+              <div className="font-semibold text-sm mb-2" style={{ letterSpacing: '.2px', background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', WebkitBackgroundClip: 'text', backgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                 Tiger Properties
               </div>
               <Link href="/projects?partner=Tiger Properties AE">
