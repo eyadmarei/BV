@@ -34,6 +34,7 @@ export function LocalImageUploader({ onImageSelected, children, className }: Loc
       const response = await fetch('/api/upload-image', {
         method: 'POST',
         body: formData,
+        credentials: 'include', // Include session cookies for authentication
       });
 
       if (!response.ok) {
