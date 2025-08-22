@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Developers Collection – Refined Grid</title>
+  <style>
+    :root{
+      --bg:#121212;          /* page background charcoal */
+      --card:#1a1a1add;      /* deep charcoal/marinate card */
+      --text:#f8f9fb;        /* primary text */
+      --muted:#a1a1a1;       /* muted text */
+      --silver-light:#f0f0f0; /* shiny silver highlight */
+      --silver-mid:#c0c0c0;   /* metallic silver */
+      --silver-dark:#7d7d7d;  /* deep silver */
+      --ring:#c0c0c0;        /* focus ring silver */
+      --shadow:0 6px 20px rgba(0,0,0,.4);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; color:var(--text);
+      background: radial-gradient(1000px 600px at 20% -10%, #1f1f1f 0%, transparent 60%),
+                  radial-gradient(800px 600px at 120% 10%, #0d0d0d 0%, transparent 60%),
+                  var(--bg);
+    }
+    .wrap{max-width:1200px; margin:64px auto; padding:0 20px}
+    .header{display:flex; align-items:end; justify-content:space-between; gap:16px; margin-bottom:22px}
+    .title{font-size:clamp(20px,2.5vw,28px); font-weight:700; letter-spacing:.3px}
+    .subtitle{color:var(--muted); font-size:14px}
+
+    /* Search + sort (optional) */
+    .toolbar{display:flex; gap:10px; flex-wrap:wrap}
+    .input{background:#1c1c1c; border:1px solid #2c2c2c; color:var(--text); padding:10px 12px; border-radius:12px; outline:none; width:240px}
+    .select{background:#1c1c1c; border:1px solid #2c2c2c; color:var(--text); padding:10px 12px; border-radius:12px; outline:none}
+
+    /* Grid */
+    .brand-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:22px; margin-top:18px}
+
+    /* Card */
+    .brand-card{position:relative; border-radius:var(--radius); padding:18px 18px 16px; isolation:isolate; overflow:hidden; background:var(--card); box-shadow:var(--shadow); outline:1px solid rgba(255,255,255,.06); transition:transform .18s ease, outline-color .18s ease, box-shadow .18s ease}
+    .brand-card:hover{transform:translateY(-4px); box-shadow:0 10px 26px rgba(192,192,192,.4)}
+    .brand-card:focus-within{outline-color:var(--ring); box-shadow:0 0 10px rgba(192,192,192,.6)}
+
+    /* Logo area metallic silver */
+    .logo-box{background:#0e0e0e; border-radius:14px; display:grid; place-items:center; aspect-ratio: 1.8 / 1; margin-bottom:14px; overflow:hidden;
+      border:1px solid var(--silver-mid);
+      box-shadow:inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4);
+      background:linear-gradient(160deg, #1c1c1c, #2a2a2a);
+    }
+    .logo-box img{max-width:72%; max-height:72%; filter:drop-shadow(0 1px 4px rgba(0,0,0,.45))}
+
+    .brand-name{font-weight:600; font-size:14px; color:#f1f5f9; letter-spacing:.2px}
+    .brand-loc{color:var(--muted); font-size:12px; margin-top:2px}
+
+    /* CTA Metallic Silver */
+    .cta{
+      margin-top:14px; width:100%; border:none; cursor:pointer; font-weight:600; letter-spacing:.2px; color:#000;
+      background:linear-gradient(145deg, var(--silver-light), var(--silver-mid) 40%, var(--silver-dark));
+      padding:10px 12px; border-radius:12px; transition:filter .25s ease, transform .06s ease; outline:2px solid transparent;
+      box-shadow:inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6);
+      background-size:200% 200%;
+      animation:shine 5s linear infinite;
+    }
+    .cta:hover{filter:brightness(1.15)}
+    .cta:active{transform:translateY(1px)}
+
+    @keyframes shine {
+      0% {background-position:0% 50%;}
+      50% {background-position:100% 50%;}
+      100% {background-position:0% 50%;}
+    }
+
+    /* Small helper ribbon */
+    .ribbon{position:absolute; top:10px; right:10px; font-size:10.5px; color:#000; background:linear-gradient(135deg, var(--silver-light), var(--silver-mid)); border:1px solid #2a2a2a; padding:4px 8px; border-radius:999px; opacity:.95; box-shadow:0 0 6px rgba(192,192,192,0.7)}
+
+    /* Accessibility */
+    .brand-card:focus-within .cta{outline-color:var(--ring)}
+
+    /* Responsive tune */
+    @media (max-width:520px){
+      .input{flex:1; min-width:0}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">
+      <div>
+        <div class="title">Featured Developers</div>
+        <div class="subtitle">Curated luxury projects from top UAE developers</div>
+      </div>
+      <div class="toolbar" aria-label="filters">
+        <input class="input" type="search" placeholder="Search developers…" id="q" />
+        <select class="select" id="sort">
+          <option value="az">A → Z</option>
+          <option value="new">Recently added</option>
+        </select>
+      </div>
+    </div>
+
+    <section class="brand-grid" id="grid" aria-live="polite">
+      <!-- Example card; swap logos/labels -->
+      <article class="brand-card" tabindex="0">
+        <div class="ribbon">Premium</div>
+        <div class="logo-box"><img src="https://dummyimage.com/320x120/0b0f16/ffffff&text=Binghatti" alt="Binghatti logo"/></div>
+        <div class="brand-name">Binghatti</div>
+        <div class="brand-loc">United Arab Emirates</div>
+        <button class="cta" aria-label="View Binghatti collection">View collection</button>
+      </article>
+
+      <article class="brand-card" tabindex="0">
+        <div class="logo-box"><img src="https://dummyimage.com/320x120/0b0f16/ffffff&text=Danube" alt="Danube Properties logo"/></div>
+        <div class="brand-name">Danube Properties</div>
+        <div class="brand-loc">United Arab Emirates</div>
+        <button class="cta" aria-label="View Danube collection">View collection</button>
+      </article>
+
+      <article class="brand-card" tabindex="0">
+        <div class="logo-box"><img src="https://dummyimage.com/320x120/0b0f16/ffffff&text=Ellington" alt="Ellington Properties logo"/></div>
+        <div class="brand-name">Ellington Properties</div>
+        <div class="brand-loc">United Arab Emirates</div>
+        <button class="cta" aria-label="View Ellington collection">View collection</button>
+      </article>
+
+      <article class="brand-card" tabindex="0">
+        <div class="logo-box"><img src="https://dummyimage.com/320x120/0b0f16/ffffff&text=Emaar" alt="Emaar logo"/></div>
+        <div class="brand-name">Emaar</div>
+        <div class="brand-loc">United Arab Emirates</div>
+        <button class="cta" aria-label="View Emaar collection">View collection</button>
+      </article>
+
+      <article class="brand-card" tabindex="0">
+        <div class="logo-box"><img src="https://dummyimage.com/320x120/0b0f16/ffffff&text=IMAN" alt="IMAN Developers logo"/></div>
+        <div class="brand-name">IMAN Developers</div>
+        <div class="brand-loc">United Arab Emirates</div>
+        <button class="cta" aria-label="View IMAN collection">View collection</button>
+      </article>
+
+      <article class="brand-card" tabindex="0">
+        <div class="logo-box"><img src="https://dummyimage.com/320x120/0b0f16/ffffff&text=Marquis" alt="Marquis logo"/></div>
+        <div class="brand-name">Marquis</div>
+        <div class="brand-loc">United Arab Emirates</div>
+        <button class="cta" aria-label="View Marquis collection">View collection</button>
+      </article>
+
+      <article class="brand-card" tabindex="0">
+        <div class="logo-box"><img src="https://dummyimage.com/320x120/0b0f16/ffffff&text=Rabdan" alt="Rabdan logo"/></div>
+        <div class="brand-name">Rabdan</div>
+        <div class="brand-loc">United Arab Emirates</div>
+        <button class="cta" aria-label="View Rabdan collection">View collection</button>
+      </article>
+
+      <article class="brand-card" tabindex="0">
+        <div class="logo-box"><img src="https://dummyimage.com/320x120/0b0f16/ffffff&text=Tiger" alt="Tiger Properties logo"/></div>
+        <div class="brand-name">Tiger Properties</div>
+        <div class="brand-loc">United Arab Emirates</div>
+        <button class="cta" aria-label="View Tiger collection">View collection</button>
+      </article>
+    </section>
+  </div>
+
+  <script>
+    // Optional: simple client-side search + sorting
+    const q = document.getElementById('q');
+    const sort = document.getElementById('sort');
+    const grid = document.getElementById('grid');
+
+    function cards(){ return [...grid.querySelectorAll('.brand-card')]; }
+
+    q?.addEventListener('input', ()=>{
+      const term = q.value.toLowerCase();
+      cards().forEach(c=>{
+        const text = c.querySelector('.brand-name').textContent.toLowerCase();
+        c.style.display = text.includes(term) ? '' : 'none';
+      });
+    });
+
+    sort?.addEventListener('change', ()=>{
+      const list = cards().sort((a,b)=>{
+        const A = a.querySelector('.brand-name').textContent.trim();
+        const B = b.querySelector('.brand-name').textContent.trim();
+        return sort.value === 'az' ? A.localeCompare(B) : 0; // placeholder for other options
+      });
+      list.forEach(el=>grid.appendChild(el));
+    });
+  </script>
+</body>
+</html>

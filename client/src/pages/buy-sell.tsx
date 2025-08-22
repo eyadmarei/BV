@@ -50,77 +50,21 @@ export default function BuySell() {
           </p>
         </motion.div>
 
-        {/* Compact BUY/SELL Services Row */}
+        {/* Simple BUY/SELL Header */}
         <motion.div
-          className="flex gap-6 justify-center mb-8"
+          className="flex gap-8 justify-center mb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          {/* BUY Services - Compact */}
-          <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm w-80">
-            <div className="flex items-center mb-3">
-              <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mr-3">
-                <svg className="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6M7 13l-1.5 6m0 0h9M7 19h9" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-black text-xl font-bold">BUY</h3>
-                <p className="text-gray-600 text-sm">Find Your Dream Property</p>
-              </div>
-            </div>
-            <div className="space-y-2 text-sm">
-              <div className="flex items-center text-black">
-                <div className="w-1.5 h-1.5 bg-black rounded-full mr-2"></div>
-                <span>Luxury Villas & Apartments</span>
-              </div>
-              <div className="flex items-center text-black">
-                <div className="w-1.5 h-1.5 bg-black rounded-full mr-2"></div>
-                <span>Legal Support & Documentation</span>
-              </div>
-              <div className="flex items-center text-black">
-                <div className="w-1.5 h-1.5 bg-black rounded-full mr-2"></div>
-                <span>Property Investment Guidance</span>
-              </div>
-              <div className="flex items-center text-black">
-                <div className="w-1.5 h-1.5 bg-black rounded-full mr-2"></div>
-                <span>Financing & Mortgage Support</span>
-              </div>
-            </div>
+          <div className="text-center">
+            <h3 className="text-xl font-bold text-black mb-1">BUY</h3>
+            <p className="text-sm text-gray-600">Find Your Dream Property</p>
           </div>
-
-          {/* SELL Services - Compact */}
-          <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm w-80">
-            <div className="flex items-center mb-3">
-              <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mr-3">
-                <svg className="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-black text-xl font-bold">SELL</h3>
-                <p className="text-gray-600 text-sm">Maximize Your Property Value</p>
-              </div>
-            </div>
-            <div className="space-y-2 text-sm">
-              <div className="flex items-center text-black">
-                <div className="w-1.5 h-1.5 bg-black rounded-full mr-2"></div>
-                <span>Market Analysis & Pricing</span>
-              </div>
-              <div className="flex items-center text-black">
-                <div className="w-1.5 h-1.5 bg-black rounded-full mr-2"></div>
-                <span>Professional Marketing</span>
-              </div>
-              <div className="flex items-center text-black">
-                <div className="w-1.5 h-1.5 bg-black rounded-full mr-2"></div>
-                <span>Property Staging & Photography</span>
-              </div>
-              <div className="flex items-center text-black">
-                <div className="w-1.5 h-1.5 bg-black rounded-full mr-2"></div>
-                <span>Negotiation & Closing Support</span>
-              </div>
-            </div>
+          <div className="w-px h-12 bg-gray-300"></div>
+          <div className="text-center">
+            <h3 className="text-xl font-bold text-black mb-1">SELL</h3>
+            <p className="text-sm text-gray-600">Maximize Your Property Value</p>
           </div>
         </motion.div>
 
@@ -140,7 +84,7 @@ export default function BuySell() {
             
             {/* Villas */}
             <div 
-              className={`cursor-pointer transition-all duration-200 rounded-lg px-6 py-3 flex items-center gap-3 border ${
+              className={`cursor-pointer transition-all duration-200 rounded-lg px-6 py-4 border ${
                 selectedType === 'villa' 
                   ? 'transform scale-105 border-gray-600' 
                   : 'hover:scale-102 border-gray-200'
@@ -155,22 +99,38 @@ export default function BuySell() {
                   : 'inset 2px 2px 4px rgba(0,0,0,0.1), inset -2px -2px 4px rgba(255,255,255,0.7), 0 2px 4px rgba(0,0,0,0.05)'
               }}
             >
-              <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
-                selectedType === 'villa' ? 'bg-white/20' : 'bg-black/10'
-              }`}>
-                <svg className={`w-5 h-5 ${selectedType === 'villa' ? 'text-white' : 'text-black'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                </svg>
+              <div className="flex items-center gap-3 mb-3">
+                <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
+                  selectedType === 'villa' ? 'bg-white/20' : 'bg-black/10'
+                }`}>
+                  <svg className={`w-5 h-5 ${selectedType === 'villa' ? 'text-white' : 'text-black'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className={`font-bold text-lg ${selectedType === 'villa' ? 'text-white' : 'text-black'}`}>Villas</h3>
+                  <p className={`text-xs ${selectedType === 'villa' ? 'text-white/80' : 'text-gray-600'}`}>Luxury estates</p>
+                </div>
               </div>
-              <div>
-                <h3 className={`font-bold text-lg ${selectedType === 'villa' ? 'text-white' : 'text-black'}`}>Villas</h3>
-                <p className={`text-xs ${selectedType === 'villa' ? 'text-white/80' : 'text-gray-600'}`}>Luxury estates</p>
+              <div className="space-y-1">
+                <div className={`flex items-center text-xs ${selectedType === 'villa' ? 'text-white/90' : 'text-gray-700'}`}>
+                  <div className={`w-1 h-1 rounded-full mr-2 ${selectedType === 'villa' ? 'bg-white/70' : 'bg-black'}`}></div>
+                  <span>Premium amenities & views</span>
+                </div>
+                <div className={`flex items-center text-xs ${selectedType === 'villa' ? 'text-white/90' : 'text-gray-700'}`}>
+                  <div className={`w-1 h-1 rounded-full mr-2 ${selectedType === 'villa' ? 'bg-white/70' : 'bg-black'}`}></div>
+                  <span>Legal support included</span>
+                </div>
+                <div className={`flex items-center text-xs ${selectedType === 'villa' ? 'text-white/90' : 'text-gray-700'}`}>
+                  <div className={`w-1 h-1 rounded-full mr-2 ${selectedType === 'villa' ? 'bg-white/70' : 'bg-black'}`}></div>
+                  <span>Investment guidance</span>
+                </div>
               </div>
             </div>
 
             {/* Townhouses */}
             <div 
-              className={`cursor-pointer transition-all duration-200 rounded-lg px-6 py-3 flex items-center gap-3 border ${
+              className={`cursor-pointer transition-all duration-200 rounded-lg px-6 py-4 border ${
                 selectedType === 'townhouse' 
                   ? 'transform scale-105 border-gray-600' 
                   : 'hover:scale-102 border-gray-200'
@@ -185,16 +145,32 @@ export default function BuySell() {
                   : 'inset 2px 2px 4px rgba(0,0,0,0.1), inset -2px -2px 4px rgba(255,255,255,0.7), 0 2px 4px rgba(0,0,0,0.05)'
               }}
             >
-              <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
-                selectedType === 'townhouse' ? 'bg-white/20' : 'bg-black/10'
-              }`}>
-                <svg className={`w-5 h-5 ${selectedType === 'townhouse' ? 'text-white' : 'text-black'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
+              <div className="flex items-center gap-3 mb-3">
+                <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
+                  selectedType === 'townhouse' ? 'bg-white/20' : 'bg-black/10'
+                }`}>
+                  <svg className={`w-5 h-5 ${selectedType === 'townhouse' ? 'text-white' : 'text-black'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className={`font-bold text-lg ${selectedType === 'townhouse' ? 'text-white' : 'text-black'}`}>Townhouses</h3>
+                  <p className={`text-xs ${selectedType === 'townhouse' ? 'text-white/80' : 'text-gray-600'}`}>Modern comfort</p>
+                </div>
               </div>
-              <div>
-                <h3 className={`font-bold text-lg ${selectedType === 'townhouse' ? 'text-white' : 'text-black'}`}>Townhouses</h3>
-                <p className={`text-xs ${selectedType === 'townhouse' ? 'text-white/80' : 'text-gray-600'}`}>Modern comfort</p>
+              <div className="space-y-1">
+                <div className={`flex items-center text-xs ${selectedType === 'townhouse' ? 'text-white/90' : 'text-gray-700'}`}>
+                  <div className={`w-1 h-1 rounded-full mr-2 ${selectedType === 'townhouse' ? 'bg-white/70' : 'bg-black'}`}></div>
+                  <span>Community living</span>
+                </div>
+                <div className={`flex items-center text-xs ${selectedType === 'townhouse' ? 'text-white/90' : 'text-gray-700'}`}>
+                  <div className={`w-1 h-1 rounded-full mr-2 ${selectedType === 'townhouse' ? 'bg-white/70' : 'bg-black'}`}></div>
+                  <span>Professional marketing</span>
+                </div>
+                <div className={`flex items-center text-xs ${selectedType === 'townhouse' ? 'text-white/90' : 'text-gray-700'}`}>
+                  <div className={`w-1 h-1 rounded-full mr-2 ${selectedType === 'townhouse' ? 'bg-white/70' : 'bg-black'}`}></div>
+                  <span>Market analysis</span>
+                </div>
               </div>
             </div>
 

@@ -270,134 +270,616 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Partners & Projects */}
-      <section className="py-16 bg-gray-950 relative overflow-hidden shadow-lg border-t border-b border-gray-800">
+      {/* Featured Partners - Dark Metallic Style */}
+      <section 
+        className="py-16 relative overflow-hidden"
+        style={{
+          background: `radial-gradient(1000px 600px at 20% -10%, #1f1f1f 0%, transparent 60%), radial-gradient(800px 600px at 120% 10%, #0d0d0d 0%, transparent 60%), #121212`
+        }}
+      >
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Inner beveled container */}
-          <div className="bg-gray-950 rounded-xl shadow-lg border border-gray-700 p-8">
-          
-            {/* Our Partners Title */}
+          {/* Header Section */}
           <motion.div
-            className="text-center mb-12"
+            className="flex items-end justify-between gap-4 mb-8"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-lg md:text-xl font-bold text-white mb-2">
-              Our Partners
-            </h2>
-            <p className="text-white/80 text-sm max-w-lg mx-auto">
-              Trusted partnerships with Dubai's leading developers and property companies
-            </p>
+            <div>
+              <h2 
+                className="font-bold text-white mb-1"
+                style={{
+                  fontSize: 'clamp(20px,2.5vw,28px)',
+                  letterSpacing: '.3px'
+                }}
+              >
+                Featured Developers
+              </h2>
+              <p className="text-gray-400 text-sm">
+                Curated luxury projects from top UAE developers
+              </p>
+            </div>
           </motion.div>
           
-          {/* Partner Logos Grid */}
+          {/* Partner Cards Grid - Horizontal Layout */}
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-8 mb-16"
+            className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
-              <img 
-                src={binghatiLogo} 
-                alt="Binghatti" 
-                className="h-16 w-auto object-contain mb-3"
-              />
+            
+            {/* Binghatti */}
+            <div 
+              className="relative rounded-lg p-4 overflow-hidden"
+              style={{
+                background: '#1a1a1add',
+                boxShadow: '0 6px 20px rgba(0,0,0,.4)',
+                border: '1px solid rgba(255,255,255,.06)',
+                transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '0 10px 26px rgba(192,192,192,.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0px)';
+                e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,.4)';
+              }}
+            >
+              {/* Logo Box */}
+              <div 
+                className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
+                style={{
+                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
+                  border: '1px solid #c0c0c0',
+                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
+                  aspectRatio: '1.8 / 1'
+                }}
+              >
+                <img 
+                  src={binghatiLogo} 
+                  alt="Binghatti logo"
+                  style={{
+                    maxWidth: '72%',
+                    maxHeight: '72%',
+                    filter: 'drop-shadow(0 1px 4px rgba(0,0,0,.45))'
+                  }}
+                />
+              </div>
+              <div className="text-white font-semibold text-sm mb-1" style={{ letterSpacing: '.2px' }}>
+                Binghatti
+              </div>
+              <div className="text-gray-400 text-xs mb-3">United Arab Emirates</div>
               <Link href="/projects?partner=Binghatti">
-                <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
-                  View Collection
+                <button 
+                  className="w-full border-none cursor-pointer font-semibold text-black rounded-lg transition-all duration-300 text-xs"
+                  style={{
+                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)',
+                    padding: '8px 10px',
+                    letterSpacing: '.2px',
+                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6)',
+                    backgroundSize: '200% 200%',
+                    animation: 'shine 5s linear infinite'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.filter = 'brightness(1.15)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.filter = 'brightness(1)';
+                  }}
+                  onMouseDown={(e) => {
+                    e.currentTarget.style.transform = 'translateY(1px)';
+                  }}
+                  onMouseUp={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0px)';
+                  }}
+                >
+                  View collection
                 </button>
               </Link>
             </div>
-            <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
-              <img 
-                src={danubeLogo} 
-                alt="Danube Properties" 
-                className="h-16 w-auto object-contain mb-3"
-              />
-              <Link href="/projects?partner=Danube Properties">
-                <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
-                  View Collection
-                </button>
-              </Link>
-            </div>
-            <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
-              <img 
-                src={ellingtonLogo} 
-                alt="Ellington Properties" 
-                className="h-16 w-auto object-contain mb-3"
-              />
-              <Link href="/projects?partner=Ellington Properties">
-                <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
-                  View Collection
-                </button>
-              </Link>
-            </div>
-            <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
-              <img 
-                src={emaarLogo} 
-                alt="Emaar" 
-                className="h-16 w-auto object-contain mb-3"
-              />
-              <Link href="/projects?partner=Emaar">
-                <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
-                  View Collection
-                </button>
-              </Link>
-            </div>
-            <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
-              <img 
-                src={imanLogo} 
-                alt="Iman Developers" 
-                className="h-16 w-auto object-contain mb-3"
-              />
-              <Link href="/projects?partner=Iman Developers">
-                <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
-                  View Collection
-                </button>
-              </Link>
-            </div>
-            <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
-              <img 
-                src={marquisLogo} 
-                alt="Marquis" 
-                className="h-16 w-auto object-contain mb-3"
-              />
-              <Link href="/projects?partner=Marquis">
-                <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
-                  View Collection
-                </button>
-              </Link>
-            </div>
-            <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
-              <img 
-                src={rabdanLogo} 
-                alt="Rabdan Developments" 
-                className="h-16 w-auto object-contain mb-3"
-              />
-              <Link href="/projects?partner=Rabdan Developments">
-                <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
-                  View Collection
-                </button>
-              </Link>
-            </div>
-            <div className="flex flex-col justify-center items-center bg-white/10 backdrop-blur-md rounded-xl p-4 hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20 shadow-lg">
-              <img 
-                src={tigerLogo} 
-                alt="Tiger Properties AE" 
-                className="h-16 w-auto object-contain mb-3"
-              />
-              <Link href="/projects?partner=Tiger Properties AE">
-                <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
-                  View Collection
-                </button>
-              </Link>
-            </div>
-          </motion.div>
 
-          </div>
+            {/* Danube Properties */}
+            <div 
+              className="relative rounded-lg p-4 overflow-hidden"
+              style={{
+                background: '#1a1a1add',
+                boxShadow: '0 6px 20px rgba(0,0,0,.4)',
+                border: '1px solid rgba(255,255,255,.06)',
+                transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '0 10px 26px rgba(192,192,192,.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0px)';
+                e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,.4)';
+              }}
+            >
+              <div 
+                className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
+                style={{
+                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
+                  border: '1px solid #c0c0c0',
+                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
+                  aspectRatio: '1.8 / 1'
+                }}
+              >
+                <img 
+                  src={danubeLogo} 
+                  alt="Danube Properties logo"
+                  style={{
+                    maxWidth: '72%',
+                    maxHeight: '72%',
+                    filter: 'drop-shadow(0 1px 4px rgba(0,0,0,.45))'
+                  }}
+                />
+              </div>
+              <div className="text-white font-semibold text-sm mb-1" style={{ letterSpacing: '.2px' }}>
+                Danube Properties
+              </div>
+              <div className="text-gray-400 text-xs mb-3">United Arab Emirates</div>
+              <Link href="/projects?partner=Danube Properties">
+                <button 
+                  className="w-full border-none cursor-pointer font-semibold text-black rounded-lg transition-all duration-300 text-xs"
+                  style={{
+                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)',
+                    padding: '8px 10px',
+                    letterSpacing: '.2px',
+                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6)',
+                    backgroundSize: '200% 200%',
+                    animation: 'shine 5s linear infinite'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.filter = 'brightness(1.15)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.filter = 'brightness(1)';
+                  }}
+                  onMouseDown={(e) => {
+                    e.currentTarget.style.transform = 'translateY(1px)';
+                  }}
+                  onMouseUp={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0px)';
+                  }}
+                >
+                  View collection
+                </button>
+              </Link>
+            </div>
+
+            {/* Ellington Properties */}
+            <div 
+              className="relative rounded-lg p-4 overflow-hidden"
+              style={{
+                background: '#1a1a1add',
+                boxShadow: '0 6px 20px rgba(0,0,0,.4)',
+                border: '1px solid rgba(255,255,255,.06)',
+                transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '0 10px 26px rgba(192,192,192,.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0px)';
+                e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,.4)';
+              }}
+            >
+              <div 
+                className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
+                style={{
+                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
+                  border: '1px solid #c0c0c0',
+                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
+                  aspectRatio: '1.8 / 1'
+                }}
+              >
+                <img 
+                  src={ellingtonLogo} 
+                  alt="Ellington Properties logo"
+                  style={{
+                    maxWidth: '72%',
+                    maxHeight: '72%',
+                    filter: 'drop-shadow(0 1px 4px rgba(0,0,0,.45))'
+                  }}
+                />
+              </div>
+              <div className="text-white font-semibold text-sm mb-1" style={{ letterSpacing: '.2px' }}>
+                Ellington Properties
+              </div>
+              <div className="text-gray-400 text-xs mb-3">United Arab Emirates</div>
+              <Link href="/projects?partner=Ellington Properties">
+                <button 
+                  className="w-full border-none cursor-pointer font-semibold text-black rounded-lg transition-all duration-300 text-xs"
+                  style={{
+                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)',
+                    padding: '8px 10px',
+                    letterSpacing: '.2px',
+                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6)',
+                    backgroundSize: '200% 200%',
+                    animation: 'shine 5s linear infinite'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.filter = 'brightness(1.15)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.filter = 'brightness(1)';
+                  }}
+                  onMouseDown={(e) => {
+                    e.currentTarget.style.transform = 'translateY(1px)';
+                  }}
+                  onMouseUp={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0px)';
+                  }}
+                >
+                  View collection
+                </button>
+              </Link>
+            </div>
+
+            {/* Emaar */}
+            <div 
+              className="relative rounded-lg p-4 overflow-hidden"
+              style={{
+                background: '#1a1a1add',
+                boxShadow: '0 6px 20px rgba(0,0,0,.4)',
+                border: '1px solid rgba(255,255,255,.06)',
+                transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '0 10px 26px rgba(192,192,192,.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0px)';
+                e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,.4)';
+              }}
+            >
+              <div className="absolute top-2 right-2 text-xs text-black rounded-full px-2 py-1 opacity-95"
+                   style={{
+                     background: 'linear-gradient(135deg, #f0f0f0, #c0c0c0)',
+                     border: '1px solid #2a2a2a',
+                     boxShadow: '0 0 6px rgba(192,192,192,0.7)'
+                   }}>
+                Premium
+              </div>
+              <div 
+                className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
+                style={{
+                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
+                  border: '1px solid #c0c0c0',
+                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
+                  aspectRatio: '1.8 / 1'
+                }}
+              >
+                <img 
+                  src={emaarLogo} 
+                  alt="Emaar logo"
+                  style={{
+                    maxWidth: '72%',
+                    maxHeight: '72%',
+                    filter: 'drop-shadow(0 1px 4px rgba(0,0,0,.45))'
+                  }}
+                />
+              </div>
+              <div className="text-white font-semibold text-sm mb-1" style={{ letterSpacing: '.2px' }}>
+                Emaar
+              </div>
+              <div className="text-gray-400 text-xs mb-3">United Arab Emirates</div>
+              <Link href="/projects?partner=Emaar">
+                <button 
+                  className="w-full border-none cursor-pointer font-semibold text-black rounded-lg transition-all duration-300 text-xs"
+                  style={{
+                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)',
+                    padding: '8px 10px',
+                    letterSpacing: '.2px',
+                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6)',
+                    backgroundSize: '200% 200%',
+                    animation: 'shine 5s linear infinite'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.filter = 'brightness(1.15)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.filter = 'brightness(1)';
+                  }}
+                  onMouseDown={(e) => {
+                    e.currentTarget.style.transform = 'translateY(1px)';
+                  }}
+                  onMouseUp={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0px)';
+                  }}
+                >
+                  View collection
+                </button>
+              </Link>
+            </div>
+
+            {/* Iman Developers */}
+            <div 
+              className="relative rounded-lg p-4 overflow-hidden"
+              style={{
+                background: '#1a1a1add',
+                boxShadow: '0 6px 20px rgba(0,0,0,.4)',
+                border: '1px solid rgba(255,255,255,.06)',
+                transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '0 10px 26px rgba(192,192,192,.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0px)';
+                e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,.4)';
+              }}
+            >
+              <div 
+                className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
+                style={{
+                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
+                  border: '1px solid #c0c0c0',
+                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
+                  aspectRatio: '1.8 / 1'
+                }}
+              >
+                <img 
+                  src={imanLogo} 
+                  alt="IMAN Developers logo"
+                  style={{
+                    maxWidth: '72%',
+                    maxHeight: '72%',
+                    filter: 'drop-shadow(0 1px 4px rgba(0,0,0,.45))'
+                  }}
+                />
+              </div>
+              <div className="text-white font-semibold text-sm mb-1" style={{ letterSpacing: '.2px' }}>
+                IMAN Developers
+              </div>
+              <div className="text-gray-400 text-xs mb-3">United Arab Emirates</div>
+              <Link href="/projects?partner=Iman Developers">
+                <button 
+                  className="w-full border-none cursor-pointer font-semibold text-black rounded-lg transition-all duration-300 text-xs"
+                  style={{
+                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)',
+                    padding: '8px 10px',
+                    letterSpacing: '.2px',
+                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6)',
+                    backgroundSize: '200% 200%',
+                    animation: 'shine 5s linear infinite'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.filter = 'brightness(1.15)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.filter = 'brightness(1)';
+                  }}
+                  onMouseDown={(e) => {
+                    e.currentTarget.style.transform = 'translateY(1px)';
+                  }}
+                  onMouseUp={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0px)';
+                  }}
+                >
+                  View collection
+                </button>
+              </Link>
+            </div>
+
+            {/* Marquis */}
+            <div 
+              className="relative rounded-lg p-4 overflow-hidden"
+              style={{
+                background: '#1a1a1add',
+                boxShadow: '0 6px 20px rgba(0,0,0,.4)',
+                border: '1px solid rgba(255,255,255,.06)',
+                transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '0 10px 26px rgba(192,192,192,.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0px)';
+                e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,.4)';
+              }}
+            >
+              <div 
+                className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
+                style={{
+                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
+                  border: '1px solid #c0c0c0',
+                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
+                  aspectRatio: '1.8 / 1'
+                }}
+              >
+                <img 
+                  src={marquisLogo} 
+                  alt="Marquis logo"
+                  style={{
+                    maxWidth: '72%',
+                    maxHeight: '72%',
+                    filter: 'drop-shadow(0 1px 4px rgba(0,0,0,.45))'
+                  }}
+                />
+              </div>
+              <div className="text-white font-semibold text-sm mb-1" style={{ letterSpacing: '.2px' }}>
+                Marquis
+              </div>
+              <div className="text-gray-400 text-xs mb-3">United Arab Emirates</div>
+              <Link href="/projects?partner=Marquis">
+                <button 
+                  className="w-full border-none cursor-pointer font-semibold text-black rounded-lg transition-all duration-300 text-xs"
+                  style={{
+                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)',
+                    padding: '8px 10px',
+                    letterSpacing: '.2px',
+                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6)',
+                    backgroundSize: '200% 200%',
+                    animation: 'shine 5s linear infinite'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.filter = 'brightness(1.15)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.filter = 'brightness(1)';
+                  }}
+                  onMouseDown={(e) => {
+                    e.currentTarget.style.transform = 'translateY(1px)';
+                  }}
+                  onMouseUp={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0px)';
+                  }}
+                >
+                  View collection
+                </button>
+              </Link>
+            </div>
+
+            {/* Rabdan */}
+            <div 
+              className="relative rounded-lg p-4 overflow-hidden"
+              style={{
+                background: '#1a1a1add',
+                boxShadow: '0 6px 20px rgba(0,0,0,.4)',
+                border: '1px solid rgba(255,255,255,.06)',
+                transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '0 10px 26px rgba(192,192,192,.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0px)';
+                e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,.4)';
+              }}
+            >
+              <div 
+                className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
+                style={{
+                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
+                  border: '1px solid #c0c0c0',
+                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
+                  aspectRatio: '1.8 / 1'
+                }}
+              >
+                <img 
+                  src={rabdanLogo} 
+                  alt="Rabdan logo"
+                  style={{
+                    maxWidth: '72%',
+                    maxHeight: '72%',
+                    filter: 'drop-shadow(0 1px 4px rgba(0,0,0,.45))'
+                  }}
+                />
+              </div>
+              <div className="text-white font-semibold text-sm mb-1" style={{ letterSpacing: '.2px' }}>
+                Rabdan
+              </div>
+              <div className="text-gray-400 text-xs mb-3">United Arab Emirates</div>
+              <Link href="/projects?partner=Rabdan Developments">
+                <button 
+                  className="w-full border-none cursor-pointer font-semibold text-black rounded-lg transition-all duration-300 text-xs"
+                  style={{
+                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)',
+                    padding: '8px 10px',
+                    letterSpacing: '.2px',
+                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6)',
+                    backgroundSize: '200% 200%',
+                    animation: 'shine 5s linear infinite'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.filter = 'brightness(1.15)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.filter = 'brightness(1)';
+                  }}
+                  onMouseDown={(e) => {
+                    e.currentTarget.style.transform = 'translateY(1px)';
+                  }}
+                  onMouseUp={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0px)';
+                  }}
+                >
+                  View collection
+                </button>
+              </Link>
+            </div>
+
+            {/* Tiger Properties */}
+            <div 
+              className="relative rounded-lg p-4 overflow-hidden"
+              style={{
+                background: '#1a1a1add',
+                boxShadow: '0 6px 20px rgba(0,0,0,.4)',
+                border: '1px solid rgba(255,255,255,.06)',
+                transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '0 10px 26px rgba(192,192,192,.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0px)';
+                e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,.4)';
+              }}
+            >
+              <div 
+                className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
+                style={{
+                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
+                  border: '1px solid #c0c0c0',
+                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
+                  aspectRatio: '1.8 / 1'
+                }}
+              >
+                <img 
+                  src={tigerLogo} 
+                  alt="Tiger Properties logo"
+                  style={{
+                    maxWidth: '72%',
+                    maxHeight: '72%',
+                    filter: 'drop-shadow(0 1px 4px rgba(0,0,0,.45))'
+                  }}
+                />
+              </div>
+              <div className="text-white font-semibold text-sm mb-1" style={{ letterSpacing: '.2px' }}>
+                Tiger Properties
+              </div>
+              <div className="text-gray-400 text-xs mb-3">United Arab Emirates</div>
+              <Link href="/projects?partner=Tiger Properties AE">
+                <button 
+                  className="w-full border-none cursor-pointer font-semibold text-black rounded-lg transition-all duration-300 text-xs"
+                  style={{
+                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)',
+                    padding: '8px 10px',
+                    letterSpacing: '.2px',
+                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6)',
+                    backgroundSize: '200% 200%',
+                    animation: 'shine 5s linear infinite'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.filter = 'brightness(1.15)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.filter = 'brightness(1)';
+                  }}
+                  onMouseDown={(e) => {
+                    e.currentTarget.style.transform = 'translateY(1px)';
+                  }}
+                  onMouseUp={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0px)';
+                  }}
+                >
+                  View collection
+                </button>
+              </Link>
+            </div>
+
+          </motion.div>
         </div>
       </section>
 
