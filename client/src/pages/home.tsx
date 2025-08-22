@@ -224,35 +224,12 @@ export default function Home() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Header Section */}
-          <motion.div
-            className="flex items-end justify-between gap-4 mb-8"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <div>
-              <h2 
-                className="font-bold text-gray-800 mb-1"
-                style={{
-                  fontSize: 'clamp(20px,2.5vw,28px)',
-                  letterSpacing: '.3px'
-                }}
-              >
-                Our Partners Collections
-              </h2>
-              <p className="text-gray-600 text-sm">
-                Curated luxury projects from top UAE developers
-              </p>
-            </div>
-          </motion.div>
-          
           {/* Partner Cards Grid - Horizontal Layout */}
           <motion.div
             className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.8 }}
           >
             
             {/* Binghatti */}
