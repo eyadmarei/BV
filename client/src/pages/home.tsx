@@ -237,18 +237,18 @@ export default function Home() {
               <div 
                 className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
-                  background: 'linear-gradient(160deg, #555555, #666666 30%, #444444 70%, #333333)',
-                  boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1), 0 6px 25px rgba(0,0,0,0.15), 0 0 15px rgba(192,192,192,0.6)',
+                  background: 'linear-gradient(160deg, #fefefe, #faf9f7 30%, #f5f4f2 70%, #f0efed)',
+                  boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.9), inset 0 -1px 3px rgba(0,0,0,0.05), 0 6px 25px rgba(0,0,0,0.08), 0 0 20px rgba(255,248,220,0.8)',
                   transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease',
                   border: '1px solid rgba(255,255,255,0.4)'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-4px)';
-                  e.currentTarget.style.boxShadow = 'inset 0 2px 8px rgba(255,255,255,0.9), inset 0 -1px 4px rgba(0,0,0,0.15), 0 12px 35px rgba(0,0,0,0.2), 0 0 25px rgba(192,192,192,0.8)';
+                  e.currentTarget.style.boxShadow = 'inset 0 2px 8px rgba(255,255,255,1), inset 0 -1px 4px rgba(0,0,0,0.08), 0 12px 35px rgba(0,0,0,0.12), 0 0 30px rgba(255,248,220,1)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0px)';
-                  e.currentTarget.style.boxShadow = 'inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1), 0 6px 25px rgba(0,0,0,0.15), 0 0 15px rgba(192,192,192,0.6)';
+                  e.currentTarget.style.boxShadow = 'inset 0 2px 6px rgba(255,255,255,0.9), inset 0 -1px 3px rgba(0,0,0,0.05), 0 6px 25px rgba(0,0,0,0.08), 0 0 20px rgba(255,248,220,0.8)';
                 }}
               >
                 <img 
@@ -283,18 +283,18 @@ export default function Home() {
               <div 
                 className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
-                  background: 'linear-gradient(160deg, #555555, #666666 30%, #444444 70%, #333333)',
-                  boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1), 0 6px 25px rgba(0,0,0,0.15), 0 0 15px rgba(192,192,192,0.6)',
+                  background: 'linear-gradient(160deg, #fefefe, #faf9f7 30%, #f5f4f2 70%, #f0efed)',
+                  boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.9), inset 0 -1px 3px rgba(0,0,0,0.05), 0 6px 25px rgba(0,0,0,0.08), 0 0 20px rgba(255,248,220,0.8)',
                   transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease',
                   border: '1px solid rgba(255,255,255,0.4)'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-4px)';
-                  e.currentTarget.style.boxShadow = 'inset 0 2px 8px rgba(255,255,255,0.9), inset 0 -1px 4px rgba(0,0,0,0.15), 0 12px 35px rgba(0,0,0,0.2), 0 0 25px rgba(192,192,192,0.8)';
+                  e.currentTarget.style.boxShadow = 'inset 0 2px 8px rgba(255,255,255,1), inset 0 -1px 4px rgba(0,0,0,0.08), 0 12px 35px rgba(0,0,0,0.12), 0 0 30px rgba(255,248,220,1)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0px)';
-                  e.currentTarget.style.boxShadow = 'inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1), 0 6px 25px rgba(0,0,0,0.15), 0 0 15px rgba(192,192,192,0.6)';
+                  e.currentTarget.style.boxShadow = 'inset 0 2px 6px rgba(255,255,255,0.9), inset 0 -1px 3px rgba(0,0,0,0.05), 0 6px 25px rgba(0,0,0,0.08), 0 0 20px rgba(255,248,220,0.8)';
                 }}
               >
                 <img 
@@ -329,18 +329,18 @@ export default function Home() {
               <div 
                 className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
-                  background: 'linear-gradient(160deg, #555555, #666666 30%, #444444 70%, #333333)',
-                  boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1), 0 6px 25px rgba(0,0,0,0.15), 0 0 15px rgba(192,192,192,0.6)',
+                  background: 'linear-gradient(160deg, #fefefe, #faf9f7 30%, #f5f4f2 70%, #f0efed)',
+                  boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.9), inset 0 -1px 3px rgba(0,0,0,0.05), 0 6px 25px rgba(0,0,0,0.08), 0 0 20px rgba(255,248,220,0.8)',
                   transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease',
                   border: '1px solid rgba(255,255,255,0.4)'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-4px)';
-                  e.currentTarget.style.boxShadow = 'inset 0 2px 8px rgba(255,255,255,0.9), inset 0 -1px 4px rgba(0,0,0,0.15), 0 12px 35px rgba(0,0,0,0.2), 0 0 25px rgba(192,192,192,0.8)';
+                  e.currentTarget.style.boxShadow = 'inset 0 2px 8px rgba(255,255,255,1), inset 0 -1px 4px rgba(0,0,0,0.08), 0 12px 35px rgba(0,0,0,0.12), 0 0 30px rgba(255,248,220,1)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0px)';
-                  e.currentTarget.style.boxShadow = 'inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1), 0 6px 25px rgba(0,0,0,0.15), 0 0 15px rgba(192,192,192,0.6)';
+                  e.currentTarget.style.boxShadow = 'inset 0 2px 6px rgba(255,255,255,0.9), inset 0 -1px 3px rgba(0,0,0,0.05), 0 6px 25px rgba(0,0,0,0.08), 0 0 20px rgba(255,248,220,0.8)';
                 }}
               >
                 <img 
@@ -375,18 +375,18 @@ export default function Home() {
               <div 
                 className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
-                  background: 'linear-gradient(160deg, #555555, #666666 30%, #444444 70%, #333333)',
-                  boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1), 0 6px 25px rgba(0,0,0,0.15), 0 0 15px rgba(192,192,192,0.6)',
+                  background: 'linear-gradient(160deg, #fefefe, #faf9f7 30%, #f5f4f2 70%, #f0efed)',
+                  boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.9), inset 0 -1px 3px rgba(0,0,0,0.05), 0 6px 25px rgba(0,0,0,0.08), 0 0 20px rgba(255,248,220,0.8)',
                   transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease',
                   border: '1px solid rgba(255,255,255,0.4)'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-4px)';
-                  e.currentTarget.style.boxShadow = 'inset 0 2px 8px rgba(255,255,255,0.9), inset 0 -1px 4px rgba(0,0,0,0.15), 0 12px 35px rgba(0,0,0,0.2), 0 0 25px rgba(192,192,192,0.8)';
+                  e.currentTarget.style.boxShadow = 'inset 0 2px 8px rgba(255,255,255,1), inset 0 -1px 4px rgba(0,0,0,0.08), 0 12px 35px rgba(0,0,0,0.12), 0 0 30px rgba(255,248,220,1)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0px)';
-                  e.currentTarget.style.boxShadow = 'inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1), 0 6px 25px rgba(0,0,0,0.15), 0 0 15px rgba(192,192,192,0.6)';
+                  e.currentTarget.style.boxShadow = 'inset 0 2px 6px rgba(255,255,255,0.9), inset 0 -1px 3px rgba(0,0,0,0.05), 0 6px 25px rgba(0,0,0,0.08), 0 0 20px rgba(255,248,220,0.8)';
                 }}
               >
                 <img 
@@ -421,18 +421,18 @@ export default function Home() {
               <div 
                 className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
-                  background: 'linear-gradient(160deg, #555555, #666666 30%, #444444 70%, #333333)',
-                  boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1), 0 6px 25px rgba(0,0,0,0.15), 0 0 15px rgba(192,192,192,0.6)',
+                  background: 'linear-gradient(160deg, #fefefe, #faf9f7 30%, #f5f4f2 70%, #f0efed)',
+                  boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.9), inset 0 -1px 3px rgba(0,0,0,0.05), 0 6px 25px rgba(0,0,0,0.08), 0 0 20px rgba(255,248,220,0.8)',
                   transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease',
                   border: '1px solid rgba(255,255,255,0.4)'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-4px)';
-                  e.currentTarget.style.boxShadow = 'inset 0 2px 8px rgba(255,255,255,0.9), inset 0 -1px 4px rgba(0,0,0,0.15), 0 12px 35px rgba(0,0,0,0.2), 0 0 25px rgba(192,192,192,0.8)';
+                  e.currentTarget.style.boxShadow = 'inset 0 2px 8px rgba(255,255,255,1), inset 0 -1px 4px rgba(0,0,0,0.08), 0 12px 35px rgba(0,0,0,0.12), 0 0 30px rgba(255,248,220,1)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0px)';
-                  e.currentTarget.style.boxShadow = 'inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1), 0 6px 25px rgba(0,0,0,0.15), 0 0 15px rgba(192,192,192,0.6)';
+                  e.currentTarget.style.boxShadow = 'inset 0 2px 6px rgba(255,255,255,0.9), inset 0 -1px 3px rgba(0,0,0,0.05), 0 6px 25px rgba(0,0,0,0.08), 0 0 20px rgba(255,248,220,0.8)';
                 }}
               >
                 <img 
@@ -467,18 +467,18 @@ export default function Home() {
               <div 
                 className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
-                  background: 'linear-gradient(160deg, #555555, #666666 30%, #444444 70%, #333333)',
-                  boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1), 0 6px 25px rgba(0,0,0,0.15), 0 0 15px rgba(192,192,192,0.6)',
+                  background: 'linear-gradient(160deg, #fefefe, #faf9f7 30%, #f5f4f2 70%, #f0efed)',
+                  boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.9), inset 0 -1px 3px rgba(0,0,0,0.05), 0 6px 25px rgba(0,0,0,0.08), 0 0 20px rgba(255,248,220,0.8)',
                   transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease',
                   border: '1px solid rgba(255,255,255,0.4)'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-4px)';
-                  e.currentTarget.style.boxShadow = 'inset 0 2px 8px rgba(255,255,255,0.9), inset 0 -1px 4px rgba(0,0,0,0.15), 0 12px 35px rgba(0,0,0,0.2), 0 0 25px rgba(192,192,192,0.8)';
+                  e.currentTarget.style.boxShadow = 'inset 0 2px 8px rgba(255,255,255,1), inset 0 -1px 4px rgba(0,0,0,0.08), 0 12px 35px rgba(0,0,0,0.12), 0 0 30px rgba(255,248,220,1)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0px)';
-                  e.currentTarget.style.boxShadow = 'inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1), 0 6px 25px rgba(0,0,0,0.15), 0 0 15px rgba(192,192,192,0.6)';
+                  e.currentTarget.style.boxShadow = 'inset 0 2px 6px rgba(255,255,255,0.9), inset 0 -1px 3px rgba(0,0,0,0.05), 0 6px 25px rgba(0,0,0,0.08), 0 0 20px rgba(255,248,220,0.8)';
                 }}
               >
                 <img 
@@ -513,18 +513,18 @@ export default function Home() {
               <div 
                 className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
-                  background: 'linear-gradient(160deg, #555555, #666666 30%, #444444 70%, #333333)',
-                  boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1), 0 6px 25px rgba(0,0,0,0.15), 0 0 15px rgba(192,192,192,0.6)',
+                  background: 'linear-gradient(160deg, #fefefe, #faf9f7 30%, #f5f4f2 70%, #f0efed)',
+                  boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.9), inset 0 -1px 3px rgba(0,0,0,0.05), 0 6px 25px rgba(0,0,0,0.08), 0 0 20px rgba(255,248,220,0.8)',
                   transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease',
                   border: '1px solid rgba(255,255,255,0.4)'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-4px)';
-                  e.currentTarget.style.boxShadow = 'inset 0 2px 8px rgba(255,255,255,0.9), inset 0 -1px 4px rgba(0,0,0,0.15), 0 12px 35px rgba(0,0,0,0.2), 0 0 25px rgba(192,192,192,0.8)';
+                  e.currentTarget.style.boxShadow = 'inset 0 2px 8px rgba(255,255,255,1), inset 0 -1px 4px rgba(0,0,0,0.08), 0 12px 35px rgba(0,0,0,0.12), 0 0 30px rgba(255,248,220,1)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0px)';
-                  e.currentTarget.style.boxShadow = 'inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1), 0 6px 25px rgba(0,0,0,0.15), 0 0 15px rgba(192,192,192,0.6)';
+                  e.currentTarget.style.boxShadow = 'inset 0 2px 6px rgba(255,255,255,0.9), inset 0 -1px 3px rgba(0,0,0,0.05), 0 6px 25px rgba(0,0,0,0.08), 0 0 20px rgba(255,248,220,0.8)';
                 }}
               >
                 <img 
@@ -559,18 +559,18 @@ export default function Home() {
               <div 
                 className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
-                  background: 'linear-gradient(160deg, #555555, #666666 30%, #444444 70%, #333333)',
-                  boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1), 0 6px 25px rgba(0,0,0,0.15), 0 0 15px rgba(192,192,192,0.6)',
+                  background: 'linear-gradient(160deg, #fefefe, #faf9f7 30%, #f5f4f2 70%, #f0efed)',
+                  boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.9), inset 0 -1px 3px rgba(0,0,0,0.05), 0 6px 25px rgba(0,0,0,0.08), 0 0 20px rgba(255,248,220,0.8)',
                   transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease',
                   border: '1px solid rgba(255,255,255,0.4)'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-4px)';
-                  e.currentTarget.style.boxShadow = 'inset 0 2px 8px rgba(255,255,255,0.9), inset 0 -1px 4px rgba(0,0,0,0.15), 0 12px 35px rgba(0,0,0,0.2), 0 0 25px rgba(192,192,192,0.8)';
+                  e.currentTarget.style.boxShadow = 'inset 0 2px 8px rgba(255,255,255,1), inset 0 -1px 4px rgba(0,0,0,0.08), 0 12px 35px rgba(0,0,0,0.12), 0 0 30px rgba(255,248,220,1)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0px)';
-                  e.currentTarget.style.boxShadow = 'inset 0 2px 6px rgba(255,255,255,0.8), inset 0 -1px 3px rgba(0,0,0,0.1), 0 6px 25px rgba(0,0,0,0.15), 0 0 15px rgba(192,192,192,0.6)';
+                  e.currentTarget.style.boxShadow = 'inset 0 2px 6px rgba(255,255,255,0.9), inset 0 -1px 3px rgba(0,0,0,0.05), 0 6px 25px rgba(0,0,0,0.08), 0 0 20px rgba(255,248,220,0.8)';
                 }}
               >
                 <img 
