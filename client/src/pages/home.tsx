@@ -285,7 +285,7 @@ export default function Home() {
           >
             <div>
               <h2 
-                className="font-bold text-white mb-1"
+                className="font-bold text-gray-800 mb-1"
                 style={{
                   fontSize: 'clamp(20px,2.5vw,28px)',
                   letterSpacing: '.3px'
@@ -293,7 +293,7 @@ export default function Home() {
               >
                 Featured Developers
               </h2>
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-600 text-sm">
                 Curated luxury projects from top UAE developers
               </p>
             </div>
