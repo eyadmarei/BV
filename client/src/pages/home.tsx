@@ -332,8 +332,8 @@ export default function Home() {
               <div 
                 className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(160deg, #e8e8e8, #f0f0f0, #d8d8d8)',
-                  boxShadow: 'inset 0 2px 4px rgba(255,255,255,.3), inset 0 -2px 4px rgba(0,0,0,.1)',
+                  background: 'linear-gradient(160deg, #2a2a2a, #1a1a1a, #333333)',
+                  boxShadow: 'inset 0 1px 2px rgba(255,255,255,.1), inset 0 -1px 2px rgba(0,0,0,.3)',
                   aspectRatio: '1 / 1'
                 }}
               >
@@ -343,7 +343,7 @@ export default function Home() {
                   style={{
                     maxWidth: '85%',
                     maxHeight: '85%',
-                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.3))'
+                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
                   }}
                 />
               </div>
@@ -352,29 +352,22 @@ export default function Home() {
               </div>
               <Link href="/projects?partner=Binghatti">
                 <button 
-                  className="w-full border-none cursor-pointer font-semibold text-black rounded-lg transition-all duration-300 text-xs"
+                  className="border-none cursor-pointer font-medium text-black rounded transition-all duration-200 text-xs"
                   style={{
-                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)',
-                    padding: '8px 10px',
-                    letterSpacing: '.2px',
-                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6)',
-                    backgroundSize: '200% 200%',
-                    animation: 'shine 5s linear infinite'
+                    background: 'linear-gradient(145deg, #e0e0e0, #c0c0c0)',
+                    padding: '6px 12px',
+                    letterSpacing: '.3px',
+                    boxShadow: '0 2px 4px rgba(0,0,0,.2)',
+                    borderRadius: '6px'
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1.15)';
+                    e.currentTarget.style.background = 'linear-gradient(145deg, #f0f0f0, #d0d0d0)';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1)';
-                  }}
-                  onMouseDown={(e) => {
-                    e.currentTarget.style.transform = 'translateY(1px)';
-                  }}
-                  onMouseUp={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0px)';
+                    e.currentTarget.style.background = 'linear-gradient(145deg, #e0e0e0, #c0c0c0)';
                   }}
                 >
-                  View collection
+                  View Collection
                 </button>
               </Link>
             </div>
@@ -400,8 +393,8 @@ export default function Home() {
               <div 
                 className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(160deg, #e8e8e8, #f0f0f0, #d8d8d8)',
-                  boxShadow: 'inset 0 2px 4px rgba(255,255,255,.3), inset 0 -2px 4px rgba(0,0,0,.1)',
+                  background: 'linear-gradient(160deg, #2a2a2a, #1a1a1a, #333333)',
+                  boxShadow: 'inset 0 1px 2px rgba(255,255,255,.1), inset 0 -1px 2px rgba(0,0,0,.3)',
                   aspectRatio: '1 / 1'
                 }}
               >
@@ -411,7 +404,7 @@ export default function Home() {
                   style={{
                     maxWidth: '85%',
                     maxHeight: '85%',
-                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.3))'
+                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
                   }}
                 />
               </div>
@@ -420,29 +413,22 @@ export default function Home() {
               </div>
               <Link href="/projects?partner=Danube Properties">
                 <button 
-                  className="w-full border-none cursor-pointer font-semibold text-black rounded-lg transition-all duration-300 text-xs"
+                  className="border-none cursor-pointer font-medium text-black rounded transition-all duration-200 text-xs"
                   style={{
-                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)',
-                    padding: '8px 10px',
-                    letterSpacing: '.2px',
-                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6)',
-                    backgroundSize: '200% 200%',
-                    animation: 'shine 5s linear infinite'
+                    background: 'linear-gradient(145deg, #e0e0e0, #c0c0c0)',
+                    padding: '6px 12px',
+                    letterSpacing: '.3px',
+                    boxShadow: '0 2px 4px rgba(0,0,0,.2)',
+                    borderRadius: '6px'
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1.15)';
+                    e.currentTarget.style.background = 'linear-gradient(145deg, #f0f0f0, #d0d0d0)';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1)';
-                  }}
-                  onMouseDown={(e) => {
-                    e.currentTarget.style.transform = 'translateY(1px)';
-                  }}
-                  onMouseUp={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0px)';
+                    e.currentTarget.style.background = 'linear-gradient(145deg, #e0e0e0, #c0c0c0)';
                   }}
                 >
-                  View collection
+                  View Collection
                 </button>
               </Link>
             </div>
@@ -468,8 +454,8 @@ export default function Home() {
               <div 
                 className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(160deg, #e8e8e8, #f0f0f0, #d8d8d8)',
-                  boxShadow: 'inset 0 2px 4px rgba(255,255,255,.3), inset 0 -2px 4px rgba(0,0,0,.1)',
+                  background: 'linear-gradient(160deg, #2a2a2a, #1a1a1a, #333333)',
+                  boxShadow: 'inset 0 1px 2px rgba(255,255,255,.1), inset 0 -1px 2px rgba(0,0,0,.3)',
                   aspectRatio: '1 / 1'
                 }}
               >
@@ -479,7 +465,7 @@ export default function Home() {
                   style={{
                     maxWidth: '85%',
                     maxHeight: '85%',
-                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.3))'
+                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
                   }}
                 />
               </div>
@@ -488,29 +474,22 @@ export default function Home() {
               </div>
               <Link href="/projects?partner=Ellington Properties">
                 <button 
-                  className="w-full border-none cursor-pointer font-semibold text-black rounded-lg transition-all duration-300 text-xs"
+                  className="border-none cursor-pointer font-medium text-black rounded transition-all duration-200 text-xs"
                   style={{
-                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)',
-                    padding: '8px 10px',
-                    letterSpacing: '.2px',
-                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6)',
-                    backgroundSize: '200% 200%',
-                    animation: 'shine 5s linear infinite'
+                    background: 'linear-gradient(145deg, #e0e0e0, #c0c0c0)',
+                    padding: '6px 12px',
+                    letterSpacing: '.3px',
+                    boxShadow: '0 2px 4px rgba(0,0,0,.2)',
+                    borderRadius: '6px'
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1.15)';
+                    e.currentTarget.style.background = 'linear-gradient(145deg, #f0f0f0, #d0d0d0)';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1)';
-                  }}
-                  onMouseDown={(e) => {
-                    e.currentTarget.style.transform = 'translateY(1px)';
-                  }}
-                  onMouseUp={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0px)';
+                    e.currentTarget.style.background = 'linear-gradient(145deg, #e0e0e0, #c0c0c0)';
                   }}
                 >
-                  View collection
+                  View Collection
                 </button>
               </Link>
             </div>
@@ -544,8 +523,8 @@ export default function Home() {
               <div 
                 className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(160deg, #e8e8e8, #f0f0f0, #d8d8d8)',
-                  boxShadow: 'inset 0 2px 4px rgba(255,255,255,.3), inset 0 -2px 4px rgba(0,0,0,.1)',
+                  background: 'linear-gradient(160deg, #2a2a2a, #1a1a1a, #333333)',
+                  boxShadow: 'inset 0 1px 2px rgba(255,255,255,.1), inset 0 -1px 2px rgba(0,0,0,.3)',
                   aspectRatio: '1 / 1'
                 }}
               >
@@ -555,7 +534,7 @@ export default function Home() {
                   style={{
                     maxWidth: '85%',
                     maxHeight: '85%',
-                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.3))'
+                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
                   }}
                 />
               </div>
@@ -564,29 +543,22 @@ export default function Home() {
               </div>
               <Link href="/projects?partner=Emaar">
                 <button 
-                  className="w-full border-none cursor-pointer font-semibold text-black rounded-lg transition-all duration-300 text-xs"
+                  className="border-none cursor-pointer font-medium text-black rounded transition-all duration-200 text-xs"
                   style={{
-                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)',
-                    padding: '8px 10px',
-                    letterSpacing: '.2px',
-                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6)',
-                    backgroundSize: '200% 200%',
-                    animation: 'shine 5s linear infinite'
+                    background: 'linear-gradient(145deg, #e0e0e0, #c0c0c0)',
+                    padding: '6px 12px',
+                    letterSpacing: '.3px',
+                    boxShadow: '0 2px 4px rgba(0,0,0,.2)',
+                    borderRadius: '6px'
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1.15)';
+                    e.currentTarget.style.background = 'linear-gradient(145deg, #f0f0f0, #d0d0d0)';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1)';
-                  }}
-                  onMouseDown={(e) => {
-                    e.currentTarget.style.transform = 'translateY(1px)';
-                  }}
-                  onMouseUp={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0px)';
+                    e.currentTarget.style.background = 'linear-gradient(145deg, #e0e0e0, #c0c0c0)';
                   }}
                 >
-                  View collection
+                  View Collection
                 </button>
               </Link>
             </div>
@@ -612,8 +584,8 @@ export default function Home() {
               <div 
                 className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(160deg, #e8e8e8, #f0f0f0, #d8d8d8)',
-                  boxShadow: 'inset 0 2px 4px rgba(255,255,255,.3), inset 0 -2px 4px rgba(0,0,0,.1)',
+                  background: 'linear-gradient(160deg, #2a2a2a, #1a1a1a, #333333)',
+                  boxShadow: 'inset 0 1px 2px rgba(255,255,255,.1), inset 0 -1px 2px rgba(0,0,0,.3)',
                   aspectRatio: '1 / 1'
                 }}
               >
@@ -623,7 +595,7 @@ export default function Home() {
                   style={{
                     maxWidth: '85%',
                     maxHeight: '85%',
-                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.3))'
+                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
                   }}
                 />
               </div>
@@ -632,29 +604,22 @@ export default function Home() {
               </div>
               <Link href="/projects?partner=Iman Developers">
                 <button 
-                  className="w-full border-none cursor-pointer font-semibold text-black rounded-lg transition-all duration-300 text-xs"
+                  className="border-none cursor-pointer font-medium text-black rounded transition-all duration-200 text-xs"
                   style={{
-                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)',
-                    padding: '8px 10px',
-                    letterSpacing: '.2px',
-                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6)',
-                    backgroundSize: '200% 200%',
-                    animation: 'shine 5s linear infinite'
+                    background: 'linear-gradient(145deg, #e0e0e0, #c0c0c0)',
+                    padding: '6px 12px',
+                    letterSpacing: '.3px',
+                    boxShadow: '0 2px 4px rgba(0,0,0,.2)',
+                    borderRadius: '6px'
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1.15)';
+                    e.currentTarget.style.background = 'linear-gradient(145deg, #f0f0f0, #d0d0d0)';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1)';
-                  }}
-                  onMouseDown={(e) => {
-                    e.currentTarget.style.transform = 'translateY(1px)';
-                  }}
-                  onMouseUp={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0px)';
+                    e.currentTarget.style.background = 'linear-gradient(145deg, #e0e0e0, #c0c0c0)';
                   }}
                 >
-                  View collection
+                  View Collection
                 </button>
               </Link>
             </div>
@@ -680,8 +645,8 @@ export default function Home() {
               <div 
                 className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(160deg, #e8e8e8, #f0f0f0, #d8d8d8)',
-                  boxShadow: 'inset 0 2px 4px rgba(255,255,255,.3), inset 0 -2px 4px rgba(0,0,0,.1)',
+                  background: 'linear-gradient(160deg, #2a2a2a, #1a1a1a, #333333)',
+                  boxShadow: 'inset 0 1px 2px rgba(255,255,255,.1), inset 0 -1px 2px rgba(0,0,0,.3)',
                   aspectRatio: '1 / 1'
                 }}
               >
@@ -691,7 +656,7 @@ export default function Home() {
                   style={{
                     maxWidth: '85%',
                     maxHeight: '85%',
-                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.3))'
+                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
                   }}
                 />
               </div>
@@ -700,29 +665,22 @@ export default function Home() {
               </div>
               <Link href="/projects?partner=Marquis">
                 <button 
-                  className="w-full border-none cursor-pointer font-semibold text-black rounded-lg transition-all duration-300 text-xs"
+                  className="border-none cursor-pointer font-medium text-black rounded transition-all duration-200 text-xs"
                   style={{
-                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)',
-                    padding: '8px 10px',
-                    letterSpacing: '.2px',
-                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6)',
-                    backgroundSize: '200% 200%',
-                    animation: 'shine 5s linear infinite'
+                    background: 'linear-gradient(145deg, #e0e0e0, #c0c0c0)',
+                    padding: '6px 12px',
+                    letterSpacing: '.3px',
+                    boxShadow: '0 2px 4px rgba(0,0,0,.2)',
+                    borderRadius: '6px'
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1.15)';
+                    e.currentTarget.style.background = 'linear-gradient(145deg, #f0f0f0, #d0d0d0)';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1)';
-                  }}
-                  onMouseDown={(e) => {
-                    e.currentTarget.style.transform = 'translateY(1px)';
-                  }}
-                  onMouseUp={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0px)';
+                    e.currentTarget.style.background = 'linear-gradient(145deg, #e0e0e0, #c0c0c0)';
                   }}
                 >
-                  View collection
+                  View Collection
                 </button>
               </Link>
             </div>
@@ -748,8 +706,8 @@ export default function Home() {
               <div 
                 className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(160deg, #e8e8e8, #f0f0f0, #d8d8d8)',
-                  boxShadow: 'inset 0 2px 4px rgba(255,255,255,.3), inset 0 -2px 4px rgba(0,0,0,.1)',
+                  background: 'linear-gradient(160deg, #2a2a2a, #1a1a1a, #333333)',
+                  boxShadow: 'inset 0 1px 2px rgba(255,255,255,.1), inset 0 -1px 2px rgba(0,0,0,.3)',
                   aspectRatio: '1 / 1'
                 }}
               >
@@ -759,7 +717,7 @@ export default function Home() {
                   style={{
                     maxWidth: '85%',
                     maxHeight: '85%',
-                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.3))'
+                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
                   }}
                 />
               </div>
@@ -768,29 +726,22 @@ export default function Home() {
               </div>
               <Link href="/projects?partner=Rabdan Developments">
                 <button 
-                  className="w-full border-none cursor-pointer font-semibold text-black rounded-lg transition-all duration-300 text-xs"
+                  className="border-none cursor-pointer font-medium text-black rounded transition-all duration-200 text-xs"
                   style={{
-                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)',
-                    padding: '8px 10px',
-                    letterSpacing: '.2px',
-                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6)',
-                    backgroundSize: '200% 200%',
-                    animation: 'shine 5s linear infinite'
+                    background: 'linear-gradient(145deg, #e0e0e0, #c0c0c0)',
+                    padding: '6px 12px',
+                    letterSpacing: '.3px',
+                    boxShadow: '0 2px 4px rgba(0,0,0,.2)',
+                    borderRadius: '6px'
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1.15)';
+                    e.currentTarget.style.background = 'linear-gradient(145deg, #f0f0f0, #d0d0d0)';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1)';
-                  }}
-                  onMouseDown={(e) => {
-                    e.currentTarget.style.transform = 'translateY(1px)';
-                  }}
-                  onMouseUp={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0px)';
+                    e.currentTarget.style.background = 'linear-gradient(145deg, #e0e0e0, #c0c0c0)';
                   }}
                 >
-                  View collection
+                  View Collection
                 </button>
               </Link>
             </div>
@@ -816,8 +767,8 @@ export default function Home() {
               <div 
                 className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(160deg, #e8e8e8, #f0f0f0, #d8d8d8)',
-                  boxShadow: 'inset 0 2px 4px rgba(255,255,255,.3), inset 0 -2px 4px rgba(0,0,0,.1)',
+                  background: 'linear-gradient(160deg, #2a2a2a, #1a1a1a, #333333)',
+                  boxShadow: 'inset 0 1px 2px rgba(255,255,255,.1), inset 0 -1px 2px rgba(0,0,0,.3)',
                   aspectRatio: '1 / 1'
                 }}
               >
@@ -827,7 +778,7 @@ export default function Home() {
                   style={{
                     maxWidth: '85%',
                     maxHeight: '85%',
-                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.3))'
+                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
                   }}
                 />
               </div>
@@ -836,29 +787,22 @@ export default function Home() {
               </div>
               <Link href="/projects?partner=Tiger Properties AE">
                 <button 
-                  className="w-full border-none cursor-pointer font-semibold text-black rounded-lg transition-all duration-300 text-xs"
+                  className="border-none cursor-pointer font-medium text-black rounded transition-all duration-200 text-xs"
                   style={{
-                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)',
-                    padding: '8px 10px',
-                    letterSpacing: '.2px',
-                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6)',
-                    backgroundSize: '200% 200%',
-                    animation: 'shine 5s linear infinite'
+                    background: 'linear-gradient(145deg, #e0e0e0, #c0c0c0)',
+                    padding: '6px 12px',
+                    letterSpacing: '.3px',
+                    boxShadow: '0 2px 4px rgba(0,0,0,.2)',
+                    borderRadius: '6px'
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1.15)';
+                    e.currentTarget.style.background = 'linear-gradient(145deg, #f0f0f0, #d0d0d0)';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1)';
-                  }}
-                  onMouseDown={(e) => {
-                    e.currentTarget.style.transform = 'translateY(1px)';
-                  }}
-                  onMouseUp={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0px)';
+                    e.currentTarget.style.background = 'linear-gradient(145deg, #e0e0e0, #c0c0c0)';
                   }}
                 >
-                  View collection
+                  View Collection
                 </button>
               </Link>
             </div>
