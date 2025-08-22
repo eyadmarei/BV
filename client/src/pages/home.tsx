@@ -270,8 +270,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Partners */}
-      <section className="py-16 relative bg-white">
+      {/* Featured Partners - Dark Metallic Silver */}
+      <section 
+        className="py-16 relative overflow-hidden"
+        style={{
+          background: `radial-gradient(1000px 600px at 20% -10%, #1f1f1f 0%, transparent 60%), radial-gradient(800px 600px at 120% 10%, #0d0d0d 0%, transparent 60%), #121212`
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Header Section */}
@@ -283,7 +288,7 @@ export default function Home() {
           >
             <div>
               <h2 
-                className="font-bold text-gray-800 mb-1"
+                className="font-bold text-white mb-1"
                 style={{
                   fontSize: 'clamp(20px,2.5vw,28px)',
                   letterSpacing: '.3px'
@@ -291,7 +296,7 @@ export default function Home() {
               >
                 Featured Developers
               </h2>
-              <p className="text-gray-700 text-sm">
+              <p className="text-gray-400 text-sm">
                 Curated luxury projects from top UAE developers
               </p>
             </div>
@@ -327,10 +332,10 @@ export default function Home() {
               <div 
                 className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(160deg, #e5e5e5, #c5c5c5, #d5d5d5)',
-                  boxShadow: 'inset 0 2px 4px rgba(255,255,255,.8), inset 0 -2px 4px rgba(0,0,0,.2), 0 0 8px rgba(192,192,192,.4)',
+                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
+                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
                   aspectRatio: '1 / 1',
-                  border: '1px solid rgba(192,192,192,.3)'
+                  border: '1px solid #c0c0c0'
                 }}
               >
                 <img 
@@ -343,15 +348,32 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="text-gray-800 font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
+              <div className="text-white font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
                 Binghatti
               </div>
               <Link href="/projects?partner=Binghatti">
                 <button 
-                  className="border-none cursor-pointer font-medium text-gray-600 bg-transparent text-xs hover:text-gray-800 transition-colors duration-200"
+                  className="border-none cursor-pointer font-semibold text-black text-xs transition-all duration-200"
                   style={{
-                    padding: '6px 12px',
-                    letterSpacing: '.3px'
+                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)',
+                    padding: '10px 12px',
+                    letterSpacing: '.2px',
+                    borderRadius: '12px',
+                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6)',
+                    backgroundSize: '200% 200%',
+                    animation: 'shine 5s linear infinite'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.filter = 'brightness(1.15)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.filter = 'brightness(1)';
+                  }}
+                  onMouseDown={(e) => {
+                    e.currentTarget.style.transform = 'translateY(1px)';
+                  }}
+                  onMouseUp={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0px)';
                   }}
                 >
                   View Collection
@@ -380,10 +402,10 @@ export default function Home() {
               <div 
                 className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(160deg, #e5e5e5, #c5c5c5, #d5d5d5)',
-                  boxShadow: 'inset 0 2px 4px rgba(255,255,255,.8), inset 0 -2px 4px rgba(0,0,0,.2), 0 0 8px rgba(192,192,192,.4)',
+                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
+                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
                   aspectRatio: '1 / 1',
-                  border: '1px solid rgba(192,192,192,.3)'
+                  border: '1px solid #c0c0c0'
                 }}
               >
                 <img 
@@ -396,15 +418,32 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="text-gray-800 font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
+              <div className="text-white font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
                 Danube Properties
               </div>
               <Link href="/projects?partner=Danube Properties">
                 <button 
-                  className="border-none cursor-pointer font-medium text-gray-600 bg-transparent text-xs hover:text-gray-800 transition-colors duration-200"
+                  className="border-none cursor-pointer font-semibold text-black text-xs transition-all duration-200"
                   style={{
-                    padding: '6px 12px',
-                    letterSpacing: '.3px'
+                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)',
+                    padding: '10px 12px',
+                    letterSpacing: '.2px',
+                    borderRadius: '12px',
+                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6)',
+                    backgroundSize: '200% 200%',
+                    animation: 'shine 5s linear infinite'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.filter = 'brightness(1.15)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.filter = 'brightness(1)';
+                  }}
+                  onMouseDown={(e) => {
+                    e.currentTarget.style.transform = 'translateY(1px)';
+                  }}
+                  onMouseUp={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0px)';
                   }}
                 >
                   View Collection
@@ -433,10 +472,10 @@ export default function Home() {
               <div 
                 className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(160deg, #e5e5e5, #c5c5c5, #d5d5d5)',
-                  boxShadow: 'inset 0 2px 4px rgba(255,255,255,.8), inset 0 -2px 4px rgba(0,0,0,.2), 0 0 8px rgba(192,192,192,.4)',
+                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
+                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
                   aspectRatio: '1 / 1',
-                  border: '1px solid rgba(192,192,192,.3)'
+                  border: '1px solid #c0c0c0'
                 }}
               >
                 <img 
@@ -449,15 +488,32 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="text-gray-800 font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
+              <div className="text-white font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
                 Ellington Properties
               </div>
               <Link href="/projects?partner=Ellington Properties">
                 <button 
-                  className="border-none cursor-pointer font-medium text-gray-600 bg-transparent text-xs hover:text-gray-800 transition-colors duration-200"
+                  className="border-none cursor-pointer font-semibold text-black text-xs transition-all duration-200"
                   style={{
-                    padding: '6px 12px',
-                    letterSpacing: '.3px'
+                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)',
+                    padding: '10px 12px',
+                    letterSpacing: '.2px',
+                    borderRadius: '12px',
+                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6)',
+                    backgroundSize: '200% 200%',
+                    animation: 'shine 5s linear infinite'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.filter = 'brightness(1.15)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.filter = 'brightness(1)';
+                  }}
+                  onMouseDown={(e) => {
+                    e.currentTarget.style.transform = 'translateY(1px)';
+                  }}
+                  onMouseUp={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0px)';
                   }}
                 >
                   View Collection
@@ -494,10 +550,10 @@ export default function Home() {
               <div 
                 className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(160deg, #e5e5e5, #c5c5c5, #d5d5d5)',
-                  boxShadow: 'inset 0 2px 4px rgba(255,255,255,.8), inset 0 -2px 4px rgba(0,0,0,.2), 0 0 8px rgba(192,192,192,.4)',
+                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
+                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
                   aspectRatio: '1 / 1',
-                  border: '1px solid rgba(192,192,192,.3)'
+                  border: '1px solid #c0c0c0'
                 }}
               >
                 <img 
@@ -510,15 +566,32 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="text-gray-800 font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
+              <div className="text-white font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
                 Emaar
               </div>
               <Link href="/projects?partner=Emaar">
                 <button 
-                  className="border-none cursor-pointer font-medium text-gray-600 bg-transparent text-xs hover:text-gray-800 transition-colors duration-200"
+                  className="border-none cursor-pointer font-semibold text-black text-xs transition-all duration-200"
                   style={{
-                    padding: '6px 12px',
-                    letterSpacing: '.3px'
+                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)',
+                    padding: '10px 12px',
+                    letterSpacing: '.2px',
+                    borderRadius: '12px',
+                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6)',
+                    backgroundSize: '200% 200%',
+                    animation: 'shine 5s linear infinite'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.filter = 'brightness(1.15)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.filter = 'brightness(1)';
+                  }}
+                  onMouseDown={(e) => {
+                    e.currentTarget.style.transform = 'translateY(1px)';
+                  }}
+                  onMouseUp={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0px)';
                   }}
                 >
                   View Collection
@@ -547,10 +620,10 @@ export default function Home() {
               <div 
                 className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(160deg, #e5e5e5, #c5c5c5, #d5d5d5)',
-                  boxShadow: 'inset 0 2px 4px rgba(255,255,255,.8), inset 0 -2px 4px rgba(0,0,0,.2), 0 0 8px rgba(192,192,192,.4)',
+                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
+                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
                   aspectRatio: '1 / 1',
-                  border: '1px solid rgba(192,192,192,.3)'
+                  border: '1px solid #c0c0c0'
                 }}
               >
                 <img 
@@ -563,15 +636,32 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="text-gray-800 font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
+              <div className="text-white font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
                 IMAN Developers
               </div>
               <Link href="/projects?partner=Iman Developers">
                 <button 
-                  className="border-none cursor-pointer font-medium text-gray-600 bg-transparent text-xs hover:text-gray-800 transition-colors duration-200"
+                  className="border-none cursor-pointer font-semibold text-black text-xs transition-all duration-200"
                   style={{
-                    padding: '6px 12px',
-                    letterSpacing: '.3px'
+                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)',
+                    padding: '10px 12px',
+                    letterSpacing: '.2px',
+                    borderRadius: '12px',
+                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6)',
+                    backgroundSize: '200% 200%',
+                    animation: 'shine 5s linear infinite'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.filter = 'brightness(1.15)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.filter = 'brightness(1)';
+                  }}
+                  onMouseDown={(e) => {
+                    e.currentTarget.style.transform = 'translateY(1px)';
+                  }}
+                  onMouseUp={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0px)';
                   }}
                 >
                   View Collection
@@ -600,10 +690,10 @@ export default function Home() {
               <div 
                 className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(160deg, #e5e5e5, #c5c5c5, #d5d5d5)',
-                  boxShadow: 'inset 0 2px 4px rgba(255,255,255,.8), inset 0 -2px 4px rgba(0,0,0,.2), 0 0 8px rgba(192,192,192,.4)',
+                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
+                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
                   aspectRatio: '1 / 1',
-                  border: '1px solid rgba(192,192,192,.3)'
+                  border: '1px solid #c0c0c0'
                 }}
               >
                 <img 
@@ -616,15 +706,32 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="text-gray-800 font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
+              <div className="text-white font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
                 Marquis
               </div>
               <Link href="/projects?partner=Marquis">
                 <button 
-                  className="border-none cursor-pointer font-medium text-gray-600 bg-transparent text-xs hover:text-gray-800 transition-colors duration-200"
+                  className="border-none cursor-pointer font-semibold text-black text-xs transition-all duration-200"
                   style={{
-                    padding: '6px 12px',
-                    letterSpacing: '.3px'
+                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)',
+                    padding: '10px 12px',
+                    letterSpacing: '.2px',
+                    borderRadius: '12px',
+                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6)',
+                    backgroundSize: '200% 200%',
+                    animation: 'shine 5s linear infinite'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.filter = 'brightness(1.15)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.filter = 'brightness(1)';
+                  }}
+                  onMouseDown={(e) => {
+                    e.currentTarget.style.transform = 'translateY(1px)';
+                  }}
+                  onMouseUp={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0px)';
                   }}
                 >
                   View Collection
@@ -653,10 +760,10 @@ export default function Home() {
               <div 
                 className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(160deg, #e5e5e5, #c5c5c5, #d5d5d5)',
-                  boxShadow: 'inset 0 2px 4px rgba(255,255,255,.8), inset 0 -2px 4px rgba(0,0,0,.2), 0 0 8px rgba(192,192,192,.4)',
+                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
+                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
                   aspectRatio: '1 / 1',
-                  border: '1px solid rgba(192,192,192,.3)'
+                  border: '1px solid #c0c0c0'
                 }}
               >
                 <img 
@@ -669,15 +776,32 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="text-gray-800 font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
+              <div className="text-white font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
                 Rabdan
               </div>
               <Link href="/projects?partner=Rabdan Developments">
                 <button 
-                  className="border-none cursor-pointer font-medium text-gray-600 bg-transparent text-xs hover:text-gray-800 transition-colors duration-200"
+                  className="border-none cursor-pointer font-semibold text-black text-xs transition-all duration-200"
                   style={{
-                    padding: '6px 12px',
-                    letterSpacing: '.3px'
+                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)',
+                    padding: '10px 12px',
+                    letterSpacing: '.2px',
+                    borderRadius: '12px',
+                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6)',
+                    backgroundSize: '200% 200%',
+                    animation: 'shine 5s linear infinite'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.filter = 'brightness(1.15)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.filter = 'brightness(1)';
+                  }}
+                  onMouseDown={(e) => {
+                    e.currentTarget.style.transform = 'translateY(1px)';
+                  }}
+                  onMouseUp={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0px)';
                   }}
                 >
                   View Collection
@@ -706,10 +830,10 @@ export default function Home() {
               <div 
                 className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(160deg, #e5e5e5, #c5c5c5, #d5d5d5)',
-                  boxShadow: 'inset 0 2px 4px rgba(255,255,255,.8), inset 0 -2px 4px rgba(0,0,0,.2), 0 0 8px rgba(192,192,192,.4)',
+                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
+                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
                   aspectRatio: '1 / 1',
-                  border: '1px solid rgba(192,192,192,.3)'
+                  border: '1px solid #c0c0c0'
                 }}
               >
                 <img 
@@ -722,15 +846,32 @@ export default function Home() {
                   }}
                 />
               </div>
-              <div className="text-gray-800 font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
+              <div className="text-white font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
                 Tiger Properties
               </div>
               <Link href="/projects?partner=Tiger Properties AE">
                 <button 
-                  className="border-none cursor-pointer font-medium text-gray-600 bg-transparent text-xs hover:text-gray-800 transition-colors duration-200"
+                  className="border-none cursor-pointer font-semibold text-black text-xs transition-all duration-200"
                   style={{
-                    padding: '6px 12px',
-                    letterSpacing: '.3px'
+                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)',
+                    padding: '10px 12px',
+                    letterSpacing: '.2px',
+                    borderRadius: '12px',
+                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6)',
+                    backgroundSize: '200% 200%',
+                    animation: 'shine 5s linear infinite'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.filter = 'brightness(1.15)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.filter = 'brightness(1)';
+                  }}
+                  onMouseDown={(e) => {
+                    e.currentTarget.style.transform = 'translateY(1px)';
+                  }}
+                  onMouseUp={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0px)';
                   }}
                 >
                   View Collection
