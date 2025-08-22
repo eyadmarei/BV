@@ -332,26 +332,24 @@ export default function Home() {
               <div 
                 className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
-                  border: '1px solid #c0c0c0',
-                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
-                  aspectRatio: '1.8 / 1'
+                  background: 'linear-gradient(160deg, #e8e8e8, #f0f0f0, #d8d8d8)',
+                  boxShadow: 'inset 0 2px 4px rgba(255,255,255,.3), inset 0 -2px 4px rgba(0,0,0,.1)',
+                  aspectRatio: '1 / 1'
                 }}
               >
                 <img 
                   src={binghatiLogo} 
                   alt="Binghatti logo"
                   style={{
-                    maxWidth: '72%',
-                    maxHeight: '72%',
-                    filter: 'drop-shadow(0 1px 4px rgba(0,0,0,.45))'
+                    maxWidth: '85%',
+                    maxHeight: '85%',
+                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.3))'
                   }}
                 />
               </div>
-              <div className="text-white font-semibold text-sm mb-1" style={{ letterSpacing: '.2px' }}>
+              <div className="text-white font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
                 Binghatti
               </div>
-              <div className="text-gray-400 text-xs mb-3">United Arab Emirates</div>
               <Link href="/projects?partner=Binghatti">
                 <button 
                   className="w-full border-none cursor-pointer font-semibold text-black rounded-lg transition-all duration-300 text-xs"
@@ -402,26 +400,24 @@ export default function Home() {
               <div 
                 className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
-                  border: '1px solid #c0c0c0',
-                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
-                  aspectRatio: '1.8 / 1'
+                  background: 'linear-gradient(160deg, #e8e8e8, #f0f0f0, #d8d8d8)',
+                  boxShadow: 'inset 0 2px 4px rgba(255,255,255,.3), inset 0 -2px 4px rgba(0,0,0,.1)',
+                  aspectRatio: '1 / 1'
                 }}
               >
                 <img 
                   src={danubeLogo} 
                   alt="Danube Properties logo"
                   style={{
-                    maxWidth: '72%',
-                    maxHeight: '72%',
-                    filter: 'drop-shadow(0 1px 4px rgba(0,0,0,.45))'
+                    maxWidth: '85%',
+                    maxHeight: '85%',
+                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.3))'
                   }}
                 />
               </div>
-              <div className="text-white font-semibold text-sm mb-1" style={{ letterSpacing: '.2px' }}>
+              <div className="text-white font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
                 Danube Properties
               </div>
-              <div className="text-gray-400 text-xs mb-3">United Arab Emirates</div>
               <Link href="/projects?partner=Danube Properties">
                 <button 
                   className="w-full border-none cursor-pointer font-semibold text-black rounded-lg transition-all duration-300 text-xs"
@@ -472,26 +468,24 @@ export default function Home() {
               <div 
                 className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
-                  border: '1px solid #c0c0c0',
-                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
-                  aspectRatio: '1.8 / 1'
+                  background: 'linear-gradient(160deg, #e8e8e8, #f0f0f0, #d8d8d8)',
+                  boxShadow: 'inset 0 2px 4px rgba(255,255,255,.3), inset 0 -2px 4px rgba(0,0,0,.1)',
+                  aspectRatio: '1 / 1'
                 }}
               >
                 <img 
                   src={ellingtonLogo} 
                   alt="Ellington Properties logo"
                   style={{
-                    maxWidth: '72%',
-                    maxHeight: '72%',
-                    filter: 'drop-shadow(0 1px 4px rgba(0,0,0,.45))'
+                    maxWidth: '85%',
+                    maxHeight: '85%',
+                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.3))'
                   }}
                 />
               </div>
-              <div className="text-white font-semibold text-sm mb-1" style={{ letterSpacing: '.2px' }}>
+              <div className="text-white font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
                 Ellington Properties
               </div>
-              <div className="text-gray-400 text-xs mb-3">United Arab Emirates</div>
               <Link href="/projects?partner=Ellington Properties">
                 <button 
                   className="w-full border-none cursor-pointer font-semibold text-black rounded-lg transition-all duration-300 text-xs"
@@ -550,26 +544,24 @@ export default function Home() {
               <div 
                 className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
-                  border: '1px solid #c0c0c0',
-                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
-                  aspectRatio: '1.8 / 1'
+                  background: 'linear-gradient(160deg, #e8e8e8, #f0f0f0, #d8d8d8)',
+                  boxShadow: 'inset 0 2px 4px rgba(255,255,255,.3), inset 0 -2px 4px rgba(0,0,0,.1)',
+                  aspectRatio: '1 / 1'
                 }}
               >
                 <img 
                   src={emaarLogo} 
                   alt="Emaar logo"
                   style={{
-                    maxWidth: '72%',
-                    maxHeight: '72%',
-                    filter: 'drop-shadow(0 1px 4px rgba(0,0,0,.45))'
+                    maxWidth: '85%',
+                    maxHeight: '85%',
+                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.3))'
                   }}
                 />
               </div>
-              <div className="text-white font-semibold text-sm mb-1" style={{ letterSpacing: '.2px' }}>
+              <div className="text-white font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
                 Emaar
               </div>
-              <div className="text-gray-400 text-xs mb-3">United Arab Emirates</div>
               <Link href="/projects?partner=Emaar">
                 <button 
                   className="w-full border-none cursor-pointer font-semibold text-black rounded-lg transition-all duration-300 text-xs"
@@ -620,26 +612,24 @@ export default function Home() {
               <div 
                 className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
-                  border: '1px solid #c0c0c0',
-                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
-                  aspectRatio: '1.8 / 1'
+                  background: 'linear-gradient(160deg, #e8e8e8, #f0f0f0, #d8d8d8)',
+                  boxShadow: 'inset 0 2px 4px rgba(255,255,255,.3), inset 0 -2px 4px rgba(0,0,0,.1)',
+                  aspectRatio: '1 / 1'
                 }}
               >
                 <img 
                   src={imanLogo} 
                   alt="IMAN Developers logo"
                   style={{
-                    maxWidth: '72%',
-                    maxHeight: '72%',
-                    filter: 'drop-shadow(0 1px 4px rgba(0,0,0,.45))'
+                    maxWidth: '85%',
+                    maxHeight: '85%',
+                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.3))'
                   }}
                 />
               </div>
-              <div className="text-white font-semibold text-sm mb-1" style={{ letterSpacing: '.2px' }}>
+              <div className="text-white font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
                 IMAN Developers
               </div>
-              <div className="text-gray-400 text-xs mb-3">United Arab Emirates</div>
               <Link href="/projects?partner=Iman Developers">
                 <button 
                   className="w-full border-none cursor-pointer font-semibold text-black rounded-lg transition-all duration-300 text-xs"
@@ -690,26 +680,24 @@ export default function Home() {
               <div 
                 className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
-                  border: '1px solid #c0c0c0',
-                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
-                  aspectRatio: '1.8 / 1'
+                  background: 'linear-gradient(160deg, #e8e8e8, #f0f0f0, #d8d8d8)',
+                  boxShadow: 'inset 0 2px 4px rgba(255,255,255,.3), inset 0 -2px 4px rgba(0,0,0,.1)',
+                  aspectRatio: '1 / 1'
                 }}
               >
                 <img 
                   src={marquisLogo} 
                   alt="Marquis logo"
                   style={{
-                    maxWidth: '72%',
-                    maxHeight: '72%',
-                    filter: 'drop-shadow(0 1px 4px rgba(0,0,0,.45))'
+                    maxWidth: '85%',
+                    maxHeight: '85%',
+                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.3))'
                   }}
                 />
               </div>
-              <div className="text-white font-semibold text-sm mb-1" style={{ letterSpacing: '.2px' }}>
+              <div className="text-white font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
                 Marquis
               </div>
-              <div className="text-gray-400 text-xs mb-3">United Arab Emirates</div>
               <Link href="/projects?partner=Marquis">
                 <button 
                   className="w-full border-none cursor-pointer font-semibold text-black rounded-lg transition-all duration-300 text-xs"
@@ -760,26 +748,24 @@ export default function Home() {
               <div 
                 className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
-                  border: '1px solid #c0c0c0',
-                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
-                  aspectRatio: '1.8 / 1'
+                  background: 'linear-gradient(160deg, #e8e8e8, #f0f0f0, #d8d8d8)',
+                  boxShadow: 'inset 0 2px 4px rgba(255,255,255,.3), inset 0 -2px 4px rgba(0,0,0,.1)',
+                  aspectRatio: '1 / 1'
                 }}
               >
                 <img 
                   src={rabdanLogo} 
                   alt="Rabdan logo"
                   style={{
-                    maxWidth: '72%',
-                    maxHeight: '72%',
-                    filter: 'drop-shadow(0 1px 4px rgba(0,0,0,.45))'
+                    maxWidth: '85%',
+                    maxHeight: '85%',
+                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.3))'
                   }}
                 />
               </div>
-              <div className="text-white font-semibold text-sm mb-1" style={{ letterSpacing: '.2px' }}>
+              <div className="text-white font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
                 Rabdan
               </div>
-              <div className="text-gray-400 text-xs mb-3">United Arab Emirates</div>
               <Link href="/projects?partner=Rabdan Developments">
                 <button 
                   className="w-full border-none cursor-pointer font-semibold text-black rounded-lg transition-all duration-300 text-xs"
@@ -830,26 +816,24 @@ export default function Home() {
               <div 
                 className="rounded-lg flex items-center justify-center mb-3 overflow-hidden"
                 style={{
-                  background: 'linear-gradient(160deg, #1c1c1c, #2a2a2a)',
-                  border: '1px solid #c0c0c0',
-                  boxShadow: 'inset 0 1px 3px rgba(255,255,255,.2), 0 0 8px rgba(192,192,192,.4)',
-                  aspectRatio: '1.8 / 1'
+                  background: 'linear-gradient(160deg, #e8e8e8, #f0f0f0, #d8d8d8)',
+                  boxShadow: 'inset 0 2px 4px rgba(255,255,255,.3), inset 0 -2px 4px rgba(0,0,0,.1)',
+                  aspectRatio: '1 / 1'
                 }}
               >
                 <img 
                   src={tigerLogo} 
                   alt="Tiger Properties logo"
                   style={{
-                    maxWidth: '72%',
-                    maxHeight: '72%',
-                    filter: 'drop-shadow(0 1px 4px rgba(0,0,0,.45))'
+                    maxWidth: '85%',
+                    maxHeight: '85%',
+                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.3))'
                   }}
                 />
               </div>
-              <div className="text-white font-semibold text-sm mb-1" style={{ letterSpacing: '.2px' }}>
+              <div className="text-white font-semibold text-sm mb-2" style={{ letterSpacing: '.2px' }}>
                 Tiger Properties
               </div>
-              <div className="text-gray-400 text-xs mb-3">United Arab Emirates</div>
               <Link href="/projects?partner=Tiger Properties AE">
                 <button 
                   className="w-full border-none cursor-pointer font-semibold text-black rounded-lg transition-all duration-300 text-xs"
