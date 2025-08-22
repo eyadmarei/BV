@@ -234,7 +234,7 @@ export default function Home() {
             <h2 
               className="text-xl font-bold mb-2"
               style={{
-                color: '#9ca3af',
+                color: '#000000',
                 textShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
               }}
             >
@@ -634,7 +634,13 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-xl font-bold mb-2 text-gray-800">
+            <h2 
+              className="text-xl font-bold mb-2"
+              style={{
+                color: '#000000',
+                textShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
+              }}
+            >
               Our Services
             </h2>
           </motion.div>
