@@ -270,12 +270,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Partners - Dark Metallic Silver */}
+      {/* Featured Partners */}
       <section 
-        className="py-16 relative overflow-hidden"
-        style={{
-          background: `radial-gradient(1000px 600px at 20% -10%, #1f1f1f 0%, transparent 60%), radial-gradient(800px 600px at 120% 10%, #0d0d0d 0%, transparent 60%), #121212`
-        }}
+        className="py-16 bg-gray-50"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
