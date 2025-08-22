@@ -343,32 +343,19 @@ export default function Home() {
                 Binghatti
               </div>
               <Link href="/projects?partner=Binghatti">
-                <button 
-                  className="border-none cursor-pointer font-semibold text-black text-xs transition-all duration-200"
-                  style={{
-                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)',
-                    padding: '10px 12px',
-                    letterSpacing: '.2px',
-                    borderRadius: '12px',
-                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6)',
-                    backgroundSize: '200% 200%',
-                    animation: 'shine 5s linear infinite'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1.15)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1)';
-                  }}
-                  onMouseDown={(e) => {
-                    e.currentTarget.style.transform = 'translateY(1px)';
-                  }}
-                  onMouseUp={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0px)';
+                <div 
+                  className="text-xs cursor-pointer transition-opacity hover:opacity-70"
+                  style={{ 
+                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', 
+                    WebkitBackgroundClip: 'text', 
+                    backgroundClip: 'text', 
+                    WebkitTextFillColor: 'transparent',
+                    fontSize: '10px',
+                    letterSpacing: '.1px'
                   }}
                 >
                   View Collection
-                </button>
+                </div>
               </Link>
             </div>
 
@@ -404,32 +391,19 @@ export default function Home() {
                 Danube Properties
               </div>
               <Link href="/projects?partner=Danube Properties">
-                <button 
-                  className="border-none cursor-pointer font-semibold text-black text-xs transition-all duration-200"
-                  style={{
-                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)',
-                    padding: '10px 12px',
-                    letterSpacing: '.2px',
-                    borderRadius: '12px',
-                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6)',
-                    backgroundSize: '200% 200%',
-                    animation: 'shine 5s linear infinite'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1.15)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1)';
-                  }}
-                  onMouseDown={(e) => {
-                    e.currentTarget.style.transform = 'translateY(1px)';
-                  }}
-                  onMouseUp={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0px)';
+                <div 
+                  className="text-xs cursor-pointer transition-opacity hover:opacity-70"
+                  style={{ 
+                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', 
+                    WebkitBackgroundClip: 'text', 
+                    backgroundClip: 'text', 
+                    WebkitTextFillColor: 'transparent',
+                    fontSize: '10px',
+                    letterSpacing: '.1px'
                   }}
                 >
                   View Collection
-                </button>
+                </div>
               </Link>
             </div>
 
@@ -465,32 +439,19 @@ export default function Home() {
                 Ellington Properties
               </div>
               <Link href="/projects?partner=Ellington Properties">
-                <button 
-                  className="border-none cursor-pointer font-semibold text-black text-xs transition-all duration-200"
-                  style={{
-                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)',
-                    padding: '10px 12px',
-                    letterSpacing: '.2px',
-                    borderRadius: '12px',
-                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6)',
-                    backgroundSize: '200% 200%',
-                    animation: 'shine 5s linear infinite'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1.15)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1)';
-                  }}
-                  onMouseDown={(e) => {
-                    e.currentTarget.style.transform = 'translateY(1px)';
-                  }}
-                  onMouseUp={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0px)';
+                <div 
+                  className="text-xs cursor-pointer transition-opacity hover:opacity-70"
+                  style={{ 
+                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', 
+                    WebkitBackgroundClip: 'text', 
+                    backgroundClip: 'text', 
+                    WebkitTextFillColor: 'transparent',
+                    fontSize: '10px',
+                    letterSpacing: '.1px'
                   }}
                 >
                   View Collection
-                </button>
+                </div>
               </Link>
             </div>
 
@@ -543,32 +504,19 @@ export default function Home() {
                 Emaar
               </div>
               <Link href="/projects?partner=Emaar">
-                <button 
-                  className="border-none cursor-pointer font-semibold text-black text-xs transition-all duration-200"
-                  style={{
-                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)',
-                    padding: '10px 12px',
-                    letterSpacing: '.2px',
-                    borderRadius: '12px',
-                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6)',
-                    backgroundSize: '200% 200%',
-                    animation: 'shine 5s linear infinite'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1.15)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1)';
-                  }}
-                  onMouseDown={(e) => {
-                    e.currentTarget.style.transform = 'translateY(1px)';
-                  }}
-                  onMouseUp={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0px)';
+                <div 
+                  className="text-xs cursor-pointer transition-opacity hover:opacity-70"
+                  style={{ 
+                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', 
+                    WebkitBackgroundClip: 'text', 
+                    backgroundClip: 'text', 
+                    WebkitTextFillColor: 'transparent',
+                    fontSize: '10px',
+                    letterSpacing: '.1px'
                   }}
                 >
                   View Collection
-                </button>
+                </div>
               </Link>
             </div>
 
@@ -604,32 +552,19 @@ export default function Home() {
                 IMAN Developers
               </div>
               <Link href="/projects?partner=Iman Developers">
-                <button 
-                  className="border-none cursor-pointer font-semibold text-black text-xs transition-all duration-200"
-                  style={{
-                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)',
-                    padding: '10px 12px',
-                    letterSpacing: '.2px',
-                    borderRadius: '12px',
-                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6)',
-                    backgroundSize: '200% 200%',
-                    animation: 'shine 5s linear infinite'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1.15)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1)';
-                  }}
-                  onMouseDown={(e) => {
-                    e.currentTarget.style.transform = 'translateY(1px)';
-                  }}
-                  onMouseUp={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0px)';
+                <div 
+                  className="text-xs cursor-pointer transition-opacity hover:opacity-70"
+                  style={{ 
+                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', 
+                    WebkitBackgroundClip: 'text', 
+                    backgroundClip: 'text', 
+                    WebkitTextFillColor: 'transparent',
+                    fontSize: '10px',
+                    letterSpacing: '.1px'
                   }}
                 >
                   View Collection
-                </button>
+                </div>
               </Link>
             </div>
 
@@ -665,32 +600,19 @@ export default function Home() {
                 Marquis
               </div>
               <Link href="/projects?partner=Marquis">
-                <button 
-                  className="border-none cursor-pointer font-semibold text-black text-xs transition-all duration-200"
-                  style={{
-                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)',
-                    padding: '10px 12px',
-                    letterSpacing: '.2px',
-                    borderRadius: '12px',
-                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6)',
-                    backgroundSize: '200% 200%',
-                    animation: 'shine 5s linear infinite'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1.15)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1)';
-                  }}
-                  onMouseDown={(e) => {
-                    e.currentTarget.style.transform = 'translateY(1px)';
-                  }}
-                  onMouseUp={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0px)';
+                <div 
+                  className="text-xs cursor-pointer transition-opacity hover:opacity-70"
+                  style={{ 
+                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', 
+                    WebkitBackgroundClip: 'text', 
+                    backgroundClip: 'text', 
+                    WebkitTextFillColor: 'transparent',
+                    fontSize: '10px',
+                    letterSpacing: '.1px'
                   }}
                 >
                   View Collection
-                </button>
+                </div>
               </Link>
             </div>
 
@@ -726,32 +648,19 @@ export default function Home() {
                 Rabdan
               </div>
               <Link href="/projects?partner=Rabdan Developments">
-                <button 
-                  className="border-none cursor-pointer font-semibold text-black text-xs transition-all duration-200"
-                  style={{
-                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)',
-                    padding: '10px 12px',
-                    letterSpacing: '.2px',
-                    borderRadius: '12px',
-                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6)',
-                    backgroundSize: '200% 200%',
-                    animation: 'shine 5s linear infinite'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1.15)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1)';
-                  }}
-                  onMouseDown={(e) => {
-                    e.currentTarget.style.transform = 'translateY(1px)';
-                  }}
-                  onMouseUp={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0px)';
+                <div 
+                  className="text-xs cursor-pointer transition-opacity hover:opacity-70"
+                  style={{ 
+                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', 
+                    WebkitBackgroundClip: 'text', 
+                    backgroundClip: 'text', 
+                    WebkitTextFillColor: 'transparent',
+                    fontSize: '10px',
+                    letterSpacing: '.1px'
                   }}
                 >
                   View Collection
-                </button>
+                </div>
               </Link>
             </div>
 
@@ -787,32 +696,19 @@ export default function Home() {
                 Tiger Properties
               </div>
               <Link href="/projects?partner=Tiger Properties AE">
-                <button 
-                  className="border-none cursor-pointer font-semibold text-black text-xs transition-all duration-200"
-                  style={{
-                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)',
-                    padding: '10px 12px',
-                    letterSpacing: '.2px',
-                    borderRadius: '12px',
-                    boxShadow: 'inset 0 1px 2px rgba(255,255,255,.4), 0 2px 6px rgba(0,0,0,.5), 0 0 12px rgba(192,192,192,0.6)',
-                    backgroundSize: '200% 200%',
-                    animation: 'shine 5s linear infinite'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1.15)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.filter = 'brightness(1)';
-                  }}
-                  onMouseDown={(e) => {
-                    e.currentTarget.style.transform = 'translateY(1px)';
-                  }}
-                  onMouseUp={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0px)';
+                <div 
+                  className="text-xs cursor-pointer transition-opacity hover:opacity-70"
+                  style={{ 
+                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0)', 
+                    WebkitBackgroundClip: 'text', 
+                    backgroundClip: 'text', 
+                    WebkitTextFillColor: 'transparent',
+                    fontSize: '10px',
+                    letterSpacing: '.1px'
                   }}
                 >
                   View Collection
-                </button>
+                </div>
               </Link>
             </div>
 
