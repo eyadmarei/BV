@@ -231,7 +231,16 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-xl font-bold mb-2 text-gray-800">
+            <h2 
+              className="text-xl font-bold mb-2"
+              style={{
+                background: 'linear-gradient(135deg, #4a4a4a, #6b6b6b, #333333)',
+                WebkitBackgroundClip: 'text',
+                backgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                textShadow: '0 0 8px rgba(74, 74, 74, 0.4)'
+              }}
+            >
               Premium Collections from our Partner Network
             </h2>
           </motion.div>
