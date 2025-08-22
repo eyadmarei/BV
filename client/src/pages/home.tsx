@@ -352,19 +352,10 @@ export default function Home() {
               </div>
               <Link href="/projects?partner=Binghatti">
                 <button 
-                  className="border-none cursor-pointer font-medium text-black rounded transition-all duration-200 text-xs"
+                  className="border-none cursor-pointer font-medium text-white bg-transparent text-xs hover:text-gray-200 transition-colors duration-200"
                   style={{
-                    background: 'linear-gradient(145deg, #e0e0e0, #c0c0c0)',
                     padding: '6px 12px',
-                    letterSpacing: '.3px',
-                    boxShadow: '0 2px 4px rgba(0,0,0,.2)',
-                    borderRadius: '6px'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'linear-gradient(145deg, #f0f0f0, #d0d0d0)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'linear-gradient(145deg, #e0e0e0, #c0c0c0)';
+                    letterSpacing: '.3px'
                   }}
                 >
                   View Collection
@@ -413,19 +404,10 @@ export default function Home() {
               </div>
               <Link href="/projects?partner=Danube Properties">
                 <button 
-                  className="border-none cursor-pointer font-medium text-black rounded transition-all duration-200 text-xs"
+                  className="border-none cursor-pointer font-medium text-white bg-transparent text-xs hover:text-gray-200 transition-colors duration-200"
                   style={{
-                    background: 'linear-gradient(145deg, #e0e0e0, #c0c0c0)',
                     padding: '6px 12px',
-                    letterSpacing: '.3px',
-                    boxShadow: '0 2px 4px rgba(0,0,0,.2)',
-                    borderRadius: '6px'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'linear-gradient(145deg, #f0f0f0, #d0d0d0)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'linear-gradient(145deg, #e0e0e0, #c0c0c0)';
+                    letterSpacing: '.3px'
                   }}
                 >
                   View Collection
@@ -474,19 +456,10 @@ export default function Home() {
               </div>
               <Link href="/projects?partner=Ellington Properties">
                 <button 
-                  className="border-none cursor-pointer font-medium text-black rounded transition-all duration-200 text-xs"
+                  className="border-none cursor-pointer font-medium text-white bg-transparent text-xs hover:text-gray-200 transition-colors duration-200"
                   style={{
-                    background: 'linear-gradient(145deg, #e0e0e0, #c0c0c0)',
                     padding: '6px 12px',
-                    letterSpacing: '.3px',
-                    boxShadow: '0 2px 4px rgba(0,0,0,.2)',
-                    borderRadius: '6px'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'linear-gradient(145deg, #f0f0f0, #d0d0d0)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'linear-gradient(145deg, #e0e0e0, #c0c0c0)';
+                    letterSpacing: '.3px'
                   }}
                 >
                   View Collection
@@ -543,19 +516,10 @@ export default function Home() {
               </div>
               <Link href="/projects?partner=Emaar">
                 <button 
-                  className="border-none cursor-pointer font-medium text-black rounded transition-all duration-200 text-xs"
+                  className="border-none cursor-pointer font-medium text-white bg-transparent text-xs hover:text-gray-200 transition-colors duration-200"
                   style={{
-                    background: 'linear-gradient(145deg, #e0e0e0, #c0c0c0)',
                     padding: '6px 12px',
-                    letterSpacing: '.3px',
-                    boxShadow: '0 2px 4px rgba(0,0,0,.2)',
-                    borderRadius: '6px'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'linear-gradient(145deg, #f0f0f0, #d0d0d0)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'linear-gradient(145deg, #e0e0e0, #c0c0c0)';
+                    letterSpacing: '.3px'
                   }}
                 >
                   View Collection
@@ -604,19 +568,10 @@ export default function Home() {
               </div>
               <Link href="/projects?partner=Iman Developers">
                 <button 
-                  className="border-none cursor-pointer font-medium text-black rounded transition-all duration-200 text-xs"
+                  className="border-none cursor-pointer font-medium text-white bg-transparent text-xs hover:text-gray-200 transition-colors duration-200"
                   style={{
-                    background: 'linear-gradient(145deg, #e0e0e0, #c0c0c0)',
                     padding: '6px 12px',
-                    letterSpacing: '.3px',
-                    boxShadow: '0 2px 4px rgba(0,0,0,.2)',
-                    borderRadius: '6px'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'linear-gradient(145deg, #f0f0f0, #d0d0d0)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'linear-gradient(145deg, #e0e0e0, #c0c0c0)';
+                    letterSpacing: '.3px'
                   }}
                 >
                   View Collection
@@ -665,19 +620,10 @@ export default function Home() {
               </div>
               <Link href="/projects?partner=Marquis">
                 <button 
-                  className="border-none cursor-pointer font-medium text-black rounded transition-all duration-200 text-xs"
+                  className="border-none cursor-pointer font-medium text-white bg-transparent text-xs hover:text-gray-200 transition-colors duration-200"
                   style={{
-                    background: 'linear-gradient(145deg, #e0e0e0, #c0c0c0)',
                     padding: '6px 12px',
-                    letterSpacing: '.3px',
-                    boxShadow: '0 2px 4px rgba(0,0,0,.2)',
-                    borderRadius: '6px'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'linear-gradient(145deg, #f0f0f0, #d0d0d0)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'linear-gradient(145deg, #e0e0e0, #c0c0c0)';
+                    letterSpacing: '.3px'
                   }}
                 >
                   View Collection
@@ -726,19 +672,10 @@ export default function Home() {
               </div>
               <Link href="/projects?partner=Rabdan Developments">
                 <button 
-                  className="border-none cursor-pointer font-medium text-black rounded transition-all duration-200 text-xs"
+                  className="border-none cursor-pointer font-medium text-white bg-transparent text-xs hover:text-gray-200 transition-colors duration-200"
                   style={{
-                    background: 'linear-gradient(145deg, #e0e0e0, #c0c0c0)',
                     padding: '6px 12px',
-                    letterSpacing: '.3px',
-                    boxShadow: '0 2px 4px rgba(0,0,0,.2)',
-                    borderRadius: '6px'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'linear-gradient(145deg, #f0f0f0, #d0d0d0)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'linear-gradient(145deg, #e0e0e0, #c0c0c0)';
+                    letterSpacing: '.3px'
                   }}
                 >
                   View Collection
@@ -787,19 +724,10 @@ export default function Home() {
               </div>
               <Link href="/projects?partner=Tiger Properties AE">
                 <button 
-                  className="border-none cursor-pointer font-medium text-black rounded transition-all duration-200 text-xs"
+                  className="border-none cursor-pointer font-medium text-white bg-transparent text-xs hover:text-gray-200 transition-colors duration-200"
                   style={{
-                    background: 'linear-gradient(145deg, #e0e0e0, #c0c0c0)',
                     padding: '6px 12px',
-                    letterSpacing: '.3px',
-                    boxShadow: '0 2px 4px rgba(0,0,0,.2)',
-                    borderRadius: '6px'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'linear-gradient(145deg, #f0f0f0, #d0d0d0)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'linear-gradient(145deg, #e0e0e0, #c0c0c0)';
+                    letterSpacing: '.3px'
                   }}
                 >
                   View Collection
