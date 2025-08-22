@@ -234,7 +234,7 @@ export default function Home() {
             <h2 
               className="text-xl font-bold mb-2"
               style={{
-                color: '#000000',
+                color: '#9ca3af',
                 textShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
               }}
             >
@@ -624,7 +624,7 @@ export default function Home() {
       </section>
 
       {/* Our Services */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Header Section */}
@@ -637,7 +637,7 @@ export default function Home() {
             <h2 
               className="text-xl font-bold mb-2"
               style={{
-                color: '#000000',
+                color: '#9ca3af',
                 textShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
               }}
             >
