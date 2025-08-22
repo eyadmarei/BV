@@ -224,6 +224,30 @@ export default function Home() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
+          {/* Header Section */}
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 
+              className="text-2xl font-bold mb-2"
+              style={{
+                background: 'linear-gradient(135deg, #d4af37, #ffd700, #b8860b)',
+                WebkitBackgroundClip: 'text',
+                backgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                textShadow: '0 0 10px rgba(212, 175, 55, 0.3)'
+              }}
+            >
+              Premium Collections from our Partner Network
+            </h2>
+            <p className="text-sm text-gray-600 max-w-2xl mx-auto">
+              Collaborating with Dubai's most prestigious developers to bring you exclusive access to luxury properties and investment opportunities
+            </p>
+          </motion.div>
+          
           {/* Partner Cards Grid - Horizontal Layout */}
           <motion.div
             className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6"
@@ -602,20 +626,6 @@ export default function Home() {
 
           </motion.div>
           
-          {/* Bottom Content */}
-          <motion.div
-            className="text-center mt-12"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <h3 className="text-lg font-semibold text-gray-800 mb-2">
-              Premium Partner Network
-            </h3>
-            <p className="text-sm text-gray-600 max-w-2xl mx-auto">
-              Collaborating with Dubai's most prestigious developers to bring you exclusive access to luxury properties and investment opportunities
-            </p>
-          </motion.div>
         </div>
       </section>
 
