@@ -274,7 +274,7 @@ export default function Home() {
       <section 
         className="py-16 relative overflow-hidden"
         style={{
-          background: `radial-gradient(1000px 600px at 20% -10%, #1f1f1f 0%, transparent 60%), radial-gradient(800px 600px at 120% 10%, #0d0d0d 0%, transparent 60%), #121212`
+          background: 'linear-gradient(135deg, #f8f8f8 0%, #e8e8e8 50%, #dcdcdc 100%)'
         }}
       >
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -288,7 +288,7 @@ export default function Home() {
           >
             <div>
               <h2 
-                className="font-bold text-white mb-1"
+                className="font-bold text-gray-700 mb-1"
                 style={{
                   fontSize: 'clamp(20px,2.5vw,28px)',
                   letterSpacing: '.3px'
@@ -296,7 +296,7 @@ export default function Home() {
               >
                 Featured Developers
               </h2>
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-600 text-sm">
                 Curated luxury projects from top UAE developers
               </p>
             </div>
