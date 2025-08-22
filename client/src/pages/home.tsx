@@ -345,13 +345,9 @@ export default function Home() {
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-70"
                   style={{ 
-                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)', 
-                    WebkitBackgroundClip: 'text', 
-                    backgroundClip: 'text', 
-                    WebkitTextFillColor: 'transparent',
+                    color: '#4b5563',
                     fontSize: '10px',
-                    letterSpacing: '.1px',
-                    textShadow: '0 0 8px rgba(192,192,192,0.6)'
+                    letterSpacing: '.1px'
                   }}
                 >
                   View Collection
@@ -395,13 +391,9 @@ export default function Home() {
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-70"
                   style={{ 
-                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)', 
-                    WebkitBackgroundClip: 'text', 
-                    backgroundClip: 'text', 
-                    WebkitTextFillColor: 'transparent',
+                    color: '#4b5563',
                     fontSize: '10px',
-                    letterSpacing: '.1px',
-                    textShadow: '0 0 8px rgba(192,192,192,0.6)'
+                    letterSpacing: '.1px'
                   }}
                 >
                   View Collection
@@ -445,13 +437,9 @@ export default function Home() {
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-70"
                   style={{ 
-                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)', 
-                    WebkitBackgroundClip: 'text', 
-                    backgroundClip: 'text', 
-                    WebkitTextFillColor: 'transparent',
+                    color: '#4b5563',
                     fontSize: '10px',
-                    letterSpacing: '.1px',
-                    textShadow: '0 0 8px rgba(192,192,192,0.6)'
+                    letterSpacing: '.1px'
                   }}
                 >
                   View Collection
@@ -495,13 +483,9 @@ export default function Home() {
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-70"
                   style={{ 
-                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)', 
-                    WebkitBackgroundClip: 'text', 
-                    backgroundClip: 'text', 
-                    WebkitTextFillColor: 'transparent',
+                    color: '#4b5563',
                     fontSize: '10px',
-                    letterSpacing: '.1px',
-                    textShadow: '0 0 8px rgba(192,192,192,0.6)'
+                    letterSpacing: '.1px'
                   }}
                 >
                   View Collection
@@ -545,13 +529,9 @@ export default function Home() {
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-70"
                   style={{ 
-                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)', 
-                    WebkitBackgroundClip: 'text', 
-                    backgroundClip: 'text', 
-                    WebkitTextFillColor: 'transparent',
+                    color: '#4b5563',
                     fontSize: '10px',
-                    letterSpacing: '.1px',
-                    textShadow: '0 0 8px rgba(192,192,192,0.6)'
+                    letterSpacing: '.1px'
                   }}
                 >
                   View Collection
@@ -595,13 +575,9 @@ export default function Home() {
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-70"
                   style={{ 
-                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)', 
-                    WebkitBackgroundClip: 'text', 
-                    backgroundClip: 'text', 
-                    WebkitTextFillColor: 'transparent',
+                    color: '#4b5563',
                     fontSize: '10px',
-                    letterSpacing: '.1px',
-                    textShadow: '0 0 8px rgba(192,192,192,0.6)'
+                    letterSpacing: '.1px'
                   }}
                 >
                   View Collection
@@ -645,13 +621,9 @@ export default function Home() {
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-70"
                   style={{ 
-                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)', 
-                    WebkitBackgroundClip: 'text', 
-                    backgroundClip: 'text', 
-                    WebkitTextFillColor: 'transparent',
+                    color: '#4b5563',
                     fontSize: '10px',
-                    letterSpacing: '.1px',
-                    textShadow: '0 0 8px rgba(192,192,192,0.6)'
+                    letterSpacing: '.1px'
                   }}
                 >
                   View Collection
@@ -695,13 +667,9 @@ export default function Home() {
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-70"
                   style={{ 
-                    background: 'linear-gradient(145deg, #f0f0f0, #c0c0c0 40%, #7d7d7d)', 
-                    WebkitBackgroundClip: 'text', 
-                    backgroundClip: 'text', 
-                    WebkitTextFillColor: 'transparent',
+                    color: '#4b5563',
                     fontSize: '10px',
-                    letterSpacing: '.1px',
-                    textShadow: '0 0 8px rgba(192,192,192,0.6)'
+                    letterSpacing: '.1px'
                   }}
                 >
                   View Collection
