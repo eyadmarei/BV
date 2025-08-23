@@ -225,14 +225,14 @@ export default function Home() {
           {/* Compact Charcoal Black Radio Slider */}
           <div className="flex justify-center mb-8">
             <div className="relative bg-gradient-to-b from-gray-800 via-gray-900 to-gray-800 rounded-full p-0.5 shadow-xl border border-gray-700/60">
-              {/* Sliding Charcoal Radio Button */}
+              {/* Sliding Silver Highlight Button */}
               <div 
                 className={`absolute top-0.5 h-[calc(100%-4px)] rounded-full shadow-lg transition-all duration-400 ease-out ${
                   activeTab === 'partners' ? 'left-0.5 w-[calc(50%-2px)]' : 'left-[calc(50%+1px)] w-[calc(50%-2px)]'
                 }`}
                 style={{
-                  background: 'linear-gradient(135deg, #374151 0%, #1f2937 25%, #111827 50%, #1f2937 75%, #374151 100%)',
-                  boxShadow: '0 3px 12px rgba(0,0,0,0.4), inset 0 1px 2px rgba(255,255,255,0.1)'
+                  background: 'linear-gradient(135deg, #e5e7eb 0%, #d1d5db 15%, #9ca3af 30%, #6b7280 50%, #9ca3af 70%, #d1d5db 85%, #e5e7eb 100%)',
+                  boxShadow: '0 4px 16px rgba(0,0,0,0.5), inset 0 1px 3px rgba(255,255,255,0.9), inset 0 -1px 2px rgba(0,0,0,0.2)'
                 }}
               />
               
