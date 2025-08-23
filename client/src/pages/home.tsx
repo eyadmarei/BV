@@ -291,10 +291,10 @@ export default function Home() {
             <div className="flex justify-end mb-4">
               <button
                 onClick={() => setPartnerStyle(partnerStyle === 'fancy' ? 'black' : 'fancy')}
-                className="opacity-20 hover:opacity-40 transition-opacity p-1"
+                className="opacity-40 hover:opacity-70 transition-opacity p-1"
                 title="Toggle style"
               >
-                <Eye className="w-3 h-3 text-gray-500" />
+                <Eye className="w-4 h-4 text-gray-400" />
               </button>
             </div>
           )}
