@@ -226,9 +226,11 @@ export default function Home() {
                     </svg>
                     <h4 className="text-white text-sm font-bold">Villas</h4>
                     <p className="text-white/80 text-xs mb-3">Luxury Living</p>
-                    <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
-                      View Collection
-                    </button>
+                    <Link href="/buy-sell?type=villa">
+                      <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
+                        View Collection
+                      </button>
+                    </Link>
                   </div>
                 </div>
 
@@ -240,9 +242,11 @@ export default function Home() {
                     </svg>
                     <h4 className="text-white text-sm font-bold">Townhouses</h4>
                     <p className="text-white/80 text-xs mb-3">Modern Style</p>
-                    <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
-                      View Collection
-                    </button>
+                    <Link href="/buy-sell?type=townhouse">
+                      <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
+                        View Collection
+                      </button>
+                    </Link>
                   </div>
                 </div>
 
@@ -254,9 +258,11 @@ export default function Home() {
                     </svg>
                     <h4 className="text-white text-sm font-bold">Apartments</h4>
                     <p className="text-white/80 text-xs mb-3">City Views</p>
-                    <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
-                      View Collection
-                    </button>
+                    <Link href="/buy-sell?type=apartment">
+                      <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
+                        View Collection
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </motion.div>
