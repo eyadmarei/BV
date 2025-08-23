@@ -746,10 +746,10 @@ export default function Home() {
                 <div className="py-16 bg-black rounded-lg">
                   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-12">
-                      <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                      <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
                         Explore Our Premium Partners
                       </h2>
-                      <p className="text-xl text-white/80 mb-8">
+                      <p className="text-lg text-white/80 mb-8">
                         Discover luxury developments from Dubai's most trusted developers
                       </p>
                       
@@ -793,7 +793,7 @@ export default function Home() {
                           initial={{ opacity: 0, y: 30 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.6, delay: index * 0.1 }}
-                          className="bg-white/20 backdrop-blur-sm rounded-lg p-6 border border-white/10 shadow-lg w-56 hover:bg-white/25 transition-all duration-300"
+                          className="bg-white/20 backdrop-blur-sm rounded-lg p-6 border border-white/10 shadow-lg w-54 hover:bg-white/25 transition-all duration-300"
                           whileHover={{ scale: 1.05, y: -5 }}
                         >
                           <div className="text-center">
