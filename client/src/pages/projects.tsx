@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from 'wouter';
+import { useLocation, Link } from 'wouter';
 import { motion } from 'framer-motion';
 import { useQuery } from '@tanstack/react-query';
 import { Search } from 'lucide-react';
@@ -242,7 +242,7 @@ export default function Projects() {
                       {property.description || 'Modern property development with premium amenities and excellent location.'}
                     </p>
                     
-                    <div className="flex items-center justify-between pt-3 border-t border-gray-100">
+                    <div className="pt-3 border-t border-gray-100 space-y-3">
                       <div className="flex items-center gap-4 text-xs text-gray-500">
                         <span className="flex items-center gap-1">
                           📍 {property.location || 'Dubai'}
@@ -253,23 +253,16 @@ export default function Projects() {
                           </span>
                         )}
                       </div>
-                      {property.brochureUrl ? (
-                        <a 
-                          href={property.brochureUrl} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors inline-block"
-                        >
-                          Download Brochure
-                        </a>
-                      ) : (
-                        <button 
-                          className="bg-gray-400 text-white px-3 py-1 rounded-full text-xs font-medium cursor-not-allowed"
-                          disabled
-                        >
-                          No Brochure
+                      <div className="flex gap-2">
+                        <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors flex-1">
+                          View Details
                         </button>
-                      )}
+                        <Link href="/contact">
+                          <button className="bg-white border border-black text-black px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-50 transition-colors flex-1">
+                            Contact Us
+                          </button>
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
