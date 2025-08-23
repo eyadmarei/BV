@@ -886,50 +886,67 @@ export default function Home() {
       </section>
 
       {/* Property Market Updates - Featured Stories */}
-      <section className="py-16 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Property Market Updates
+      <section className="py-12 bg-black">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+              Market Stories
             </h2>
-            <p className="text-xl text-white/80 mb-8">
-              Featured Stories & Market Insights
+            <p className="text-white/70">
+              Latest insights from Dubai's property market
             </p>
           </div>
 
-          {/* Featured Stories Grid */}
+          {/* Compact Stories Feed */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            className="space-y-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
           >
             {featuredStories.map((story, index) => (
               <motion.div
                 key={story.id}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white/10 backdrop-blur-sm rounded-lg overflow-hidden border border-white/20 shadow-lg hover:bg-white/15 transition-all duration-300"
-                whileHover={{ scale: 1.02, y: -5 }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-4 hover:bg-white/10 transition-all duration-300 group cursor-pointer"
               >
-                <div className="h-48 overflow-hidden">
-                  <img 
-                    src={story.imageUrl} 
-                    alt={story.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-white text-lg font-bold mb-3 line-clamp-2">{story.title}</h3>
-                  <p className="text-white/80 text-sm mb-4 line-clamp-3">{story.content}</p>
-                  <div className="flex justify-between items-center">
-                    <span className="text-white/60 text-xs">
-                      {story.publishedAt ? new Date(story.publishedAt).toLocaleDateString() : 'No date'}
-                    </span>
-                    <button className="bg-white text-black px-4 py-2 rounded-full text-xs font-medium hover:bg-gray-200 transition-colors">
-                      Read More
-                    </button>
+                <div className="flex items-start gap-4">
+                  {/* Story Image Thumbnail */}
+                  <div className="flex-shrink-0">
+                    <div className="w-16 h-16 rounded-lg overflow-hidden bg-white/10">
+                      <img 
+                        src={story.imageUrl} 
+                        alt={story.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  </div>
+                  
+                  {/* Story Content */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-start justify-between gap-2">
+                      <h3 className="text-white font-semibold text-sm md:text-base line-clamp-2 group-hover:text-white/90 transition-colors">
+                        {story.title}
+                      </h3>
+                      <span className="text-white/50 text-xs whitespace-nowrap">
+                        {story.publishedAt ? new Date(story.publishedAt).toLocaleDateString() : 'Recent'}
+                      </span>
+                    </div>
+                    <p className="text-white/70 text-xs md:text-sm mt-1 line-clamp-2">
+                      {story.content}
+                    </p>
+                    
+                    {/* Story Tags/Category */}
+                    <div className="flex items-center justify-between mt-2">
+                      <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-white/10 text-white/80">
+                        📊 Market Update
+                      </span>
+                      <button className="text-white/60 hover:text-white text-xs flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                        Read more →
+                      </button>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -938,9 +955,13 @@ export default function Home() {
 
           {/* No Stories Message */}
           {featuredStories.length === 0 && (
-            <div className="text-center py-12">
-              <p className="text-white/60 text-lg">
-                No featured stories available at the moment.
+            <div className="text-center py-8 bg-white/5 rounded-lg border border-white/10">
+              <div className="text-white/40 text-4xl mb-2">📰</div>
+              <p className="text-white/60">
+                No market stories available yet
+              </p>
+              <p className="text-white/40 text-sm mt-1">
+                Check back soon for the latest property market updates
               </p>
             </div>
           )}

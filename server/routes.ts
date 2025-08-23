@@ -14,8 +14,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Setup authentication
   await setupAuth(app);
 
-  // Seed database if empty
-  await seedDatabase();
+  // Seed database if empty (only once on startup)
+  try {
+    await seedDatabase();
+  } catch (error) {
+    console.log("Database seeding skipped or failed:", error);
+  }
 
   // Object storage service
   const objectStorageService = new ObjectStorageService();
