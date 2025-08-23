@@ -224,17 +224,17 @@ export default function Home() {
           
           {/* Compact Charcoal Black Radio Slider */}
           <div className="flex justify-center mb-8">
-            <div className="relative bg-gradient-to-b from-gray-800 via-gray-900 to-gray-800 rounded-full p-1 shadow-xl border border-gray-700/60 backdrop-blur-sm">
+            <div className="relative bg-gradient-to-b from-gray-800 via-gray-900 to-gray-800 rounded-full p-0.5 shadow-lg border border-gray-700/40 backdrop-blur-sm">
               {/* Sliding Silver Highlight Button */}
               <div 
-                className={`absolute top-1 h-[calc(100%-8px)] rounded-full shadow-xl transition-all duration-400 ease-out backdrop-blur-md ${
-                  activeTab === 'partners' ? 'left-1 w-[calc(50%-4px)]' : 'left-[calc(50%+2px)] w-[calc(50%-4px)]'
+                className={`absolute top-0.5 h-[calc(100%-4px)] rounded-full shadow-md transition-all duration-400 ease-out ${
+                  activeTab === 'partners' ? 'left-0.5 w-[calc(50%-2px)]' : 'left-[calc(50%+1px)] w-[calc(50%-2px)]'
                 }`}
                 style={{
-                  background: 'rgba(255, 255, 255, 0.9)',
-                  backdropFilter: 'blur(10px)',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  boxShadow: '0 8px 32px rgba(0,0,0,0.3), inset 0 2px 4px rgba(255,255,255,0.8), 0 2px 8px rgba(255,255,255,0.1)'
+                  background: 'rgba(255, 255, 255, 0.95)',
+                  backdropFilter: 'blur(8px)',
+                  border: '0.5px solid rgba(255, 255, 255, 0.3)',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.2), inset 0 1px 2px rgba(255,255,255,0.9)'
                 }}
               />
               
@@ -242,7 +242,7 @@ export default function Home() {
               <div className="relative flex">
                 <button 
                   onClick={() => setActiveTab('partners')}
-                  className={`relative px-6 py-3 text-sm font-semibold transition-all duration-300 rounded-full ${
+                  className={`relative px-8 py-2 text-sm font-medium transition-all duration-300 rounded-full ${
                     activeTab === 'partners' 
                       ? 'text-black' 
                       : 'text-gray-400 hover:text-gray-300 opacity-70'
@@ -252,7 +252,7 @@ export default function Home() {
                 </button>
                 <button 
                   onClick={() => setActiveTab('services')}
-                  className={`relative px-6 py-3 text-sm font-semibold transition-all duration-300 rounded-full ${
+                  className={`relative px-8 py-2 text-sm font-medium transition-all duration-300 rounded-full ${
                     activeTab === 'services' 
                       ? 'text-black' 
                       : 'text-gray-400 hover:text-gray-300 opacity-70'
