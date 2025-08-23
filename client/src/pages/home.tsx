@@ -224,17 +224,17 @@ export default function Home() {
           
           {/* Compact Charcoal Black Radio Slider */}
           <div className="flex justify-center mb-8">
-            <div className="relative bg-gradient-to-b from-gray-800 via-gray-900 to-gray-800 rounded-full p-0.5 shadow-lg border border-gray-700/40 backdrop-blur-sm">
+            <div className="relative bg-gradient-to-b from-gray-50 via-white to-gray-50 rounded-full p-0.5 shadow-lg border border-gray-200/60 backdrop-blur-sm">
               {/* Sliding Silver Highlight Button */}
               <div 
                 className={`absolute top-0.5 h-[calc(100%-4px)] rounded-full shadow-md transition-all duration-400 ease-out ${
                   activeTab === 'partners' ? 'left-0.5 w-[calc(50%-2px)]' : 'left-[calc(50%+1px)] w-[calc(50%-2px)]'
                 }`}
                 style={{
-                  background: 'linear-gradient(135deg, #fefefe 0%, #f8f8f8 25%, #f0f0f0 50%, #f8f8f8 75%, #fefefe 100%)',
+                  background: 'linear-gradient(135deg, #374151 0%, #1f2937 25%, #111827 50%, #1f2937 75%, #374151 100%)',
                   backdropFilter: 'blur(8px)',
-                  border: '0.5px solid rgba(0, 0, 0, 0.1)',
-                  boxShadow: '0 4px 12px rgba(0,0,0,0.2), inset 0 1px 2px rgba(255,255,255,0.9)'
+                  border: '0.5px solid rgba(255, 255, 255, 0.1)',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.4), inset 0 1px 2px rgba(255,255,255,0.1)'
                 }}
               />
               
@@ -244,8 +244,8 @@ export default function Home() {
                   onClick={() => setActiveTab('partners')}
                   className={`relative px-8 py-2 text-sm font-medium transition-all duration-300 rounded-full ${
                     activeTab === 'partners' 
-                      ? 'text-black' 
-                      : 'text-gray-400 hover:text-gray-300 opacity-70'
+                      ? 'text-white' 
+                      : 'text-gray-600 hover:text-gray-500 opacity-70'
                   }`}
                 >
                   Partner Collections
@@ -254,8 +254,8 @@ export default function Home() {
                   onClick={() => setActiveTab('services')}
                   className={`relative px-8 py-2 text-sm font-medium transition-all duration-300 rounded-full ${
                     activeTab === 'services' 
-                      ? 'text-black' 
-                      : 'text-gray-400 hover:text-gray-300 opacity-70'
+                      ? 'text-white' 
+                      : 'text-gray-600 hover:text-gray-500 opacity-70'
                   }`}
                 >
                   Our Services
