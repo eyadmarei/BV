@@ -162,59 +162,6 @@ export default function Projects() {
         </div>
       </section>
 
-      {/* Partner Details Section */}
-      {selectedPartner !== 'All Partners' && (
-        <section className="py-8 bg-gray-50 border-b border-gray-200">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              className="bg-white rounded-xl p-8 shadow-lg"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="flex items-center mb-6">
-                <div className="h-16 w-16 bg-gray-100 rounded-full flex items-center justify-center mr-6">
-                  {partners.find(p => p.name === selectedPartner)?.logo ? (
-                    <img 
-                      src={partners.find(p => p.name === selectedPartner)?.logo || ''} 
-                      alt={selectedPartner}
-                      className="h-12 w-auto object-contain"
-                    />
-                  ) : (
-                    <span className="text-gray-600 font-bold text-xl">{selectedPartner.charAt(0)}</span>
-                  )}
-                </div>
-                <div>
-                  <h2 className="text-3xl font-bold text-black mb-2">{selectedPartner}</h2>
-                  <p className="text-gray-600 text-lg">
-                    {partners.find(p => p.name === selectedPartner)?.description}
-                  </p>
-                </div>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="text-center p-4 bg-gray-50 rounded-lg">
-                  <div className="text-2xl font-bold text-black">
-                    {partners.find(p => p.name === selectedPartner)?.established || 'N/A'}
-                  </div>
-                  <div className="text-gray-600 text-sm font-medium">Established</div>
-                </div>
-                <div className="text-center p-4 bg-gray-50 rounded-lg">
-                  <div className="text-2xl font-bold text-black">
-                    {partners.find(p => p.name === selectedPartner)?.totalProperties || 0}+
-                  </div>
-                  <div className="text-gray-600 text-sm font-medium">Total Projects</div>
-                </div>
-                <div className="text-center p-4 bg-gray-50 rounded-lg">
-                  <div className="text-2xl font-bold text-black">
-                    {filteredProperties.length}
-                  </div>
-                  <div className="text-gray-600 text-sm font-medium">Available Properties</div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-      )}
 
       {/* Properties Grid */}
       <section className="py-12 bg-white">
