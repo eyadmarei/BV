@@ -306,19 +306,19 @@ export default function BuySell() {
                             <div className="flex justify-between items-center">
                               <span className="text-xs text-gray-600 font-medium">{property.partner}</span>
                             </div>
-                            <div className="flex gap-2">
+                            <div className="flex gap-1.5">
                               <a 
                                 href="/contact"
-                                className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors flex-1 text-center"
+                                className="bg-black text-white px-2.5 py-1 rounded-full text-[11px] font-medium hover:bg-gray-800 transition-colors flex-1 text-center"
                               >
-                                Contact Us
+                                Book Consultation
                               </a>
                               {property.brochureUrl && (
                                 <a 
                                   href={property.brochureUrl} 
                                   target="_blank" 
                                   rel="noopener noreferrer"
-                                  className="bg-white border border-black text-black px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-50 transition-colors flex-1 text-center"
+                                  className="bg-white border border-black text-black px-2.5 py-1 rounded-full text-[11px] font-medium hover:bg-gray-50 transition-colors flex-1 text-center"
                                 >
                                   Download Brochure
                                 </a>
