@@ -760,10 +760,15 @@ export default function Home() {
               {/* Descriptive Text */}
               <div className="text-center mt-8">
                 <p 
-                  className="text-sm"
+                  className="text-sm font-bold"
                   style={{
-                    color: '#000000',
-                    letterSpacing: '0.5px'
+                    background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 25%, #FF8C00 50%, #DAA520 75%, #B8860B 100%)',
+                    backgroundClip: 'text',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    textShadow: '2px 2px 4px rgba(218, 165, 32, 0.3), 0 0 10px rgba(255, 215, 0, 0.2)',
+                    letterSpacing: '0.5px',
+                    filter: 'drop-shadow(1px 1px 2px rgba(184, 134, 11, 0.4))'
                   }}
                 >
                   Dubai Featured Property Projects from our Premium Property partners
