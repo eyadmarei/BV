@@ -1,15 +1,15 @@
 import { useState } from "react";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent } from "@/components/ui/card";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
-import type { InsertInquiry } from "@shared/schema";
+import type { InsertInquiry, ContactContent } from "@shared/schema";
 
 export default function Contact() {
   const { toast } = useToast();
@@ -20,6 +20,11 @@ export default function Contact() {
     phone: "",
     service: "",
     message: "",
+  });
+
+  // Fetch contact content
+  const { data: contactContent } = useQuery<ContactContent>({
+    queryKey: ['/api/contact-content'],
   });
 
   const createInquiry = useMutation({
@@ -75,10 +80,11 @@ export default function Contact() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Ready to Get Started?</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              {contactContent?.title || "Ready to Get Started?"}
+            </h1>
             <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-              Contact our expert team today to discuss your property and business service needs. 
-              We're here to provide personalized solutions for your success.
+              {contactContent?.description || "Contact our expert team today to discuss your property and business service needs. We're here to provide personalized solutions for your success."}
             </p>
             
             <div className="space-y-6">
@@ -88,7 +94,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-white font-semibold">Phone</p>
-                  <p className="text-gray-300">+1 (555) 123-4567</p>
+                  <p className="text-gray-300">{contactContent?.phone || "+1 (555) 123-4567"}</p>
                 </div>
               </div>
               
@@ -98,7 +104,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-white font-semibold">Email</p>
-                  <p className="text-gray-300">info@prestigeproperties.com</p>
+                  <p className="text-gray-300">{contactContent?.email || "info@prestigeproperties.com"}</p>
                 </div>
               </div>
               
@@ -108,9 +114,21 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-white font-semibold">Address</p>
-                  <p className="text-gray-300">123 Luxury Lane, Beverly Hills, CA 90210</p>
+                  <p className="text-gray-300">{contactContent?.address || "123 Luxury Lane, Beverly Hills, CA 90210"}</p>
                 </div>
               </div>
+              
+              {contactContent?.officeHours && (
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-gold/20 rounded-lg flex items-center justify-center">
+                    <Clock className="w-6 h-6 gold" />
+                  </div>
+                  <div>
+                    <p className="text-white font-semibold">Office Hours</p>
+                    <p className="text-gray-300">{contactContent.officeHours}</p>
+                  </div>
+                </div>
+              )}
             </div>
           </motion.div>
           
