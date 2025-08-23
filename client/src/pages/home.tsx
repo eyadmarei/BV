@@ -647,6 +647,13 @@ export default function Home() {
             </div>
 
               </div>
+              
+              {/* Descriptive Text */}
+              <div className="text-center mt-8">
+                <p className="text-gray-600 text-sm">
+                  View Collections from our premium property partners
+                </p>
+              </div>
             </motion.div>
           )}
 
