@@ -6,7 +6,7 @@ import PropertyCard from "@/components/property-card";
 import { 
   Home as HomeIcon, Settings, Calculator, Briefcase, ArrowLeft,
   MapPin, Users, FileText, DollarSign, Shield, Wrench, 
-  Clipboard, Phone, CreditCard, Building2, Globe, Award, Search
+  Clipboard, Phone, CreditCard, Building2, Globe, Award, Search, Eye
 } from "lucide-react";
 import type { Property, Service } from "@shared/schema";
 import heroVideo from "@assets/WhatsApp Video 2025-07-06 at 03.15.52_6b085703_1751757407515.mp4";
@@ -288,29 +288,14 @@ export default function Home() {
 
           {/* Style Toggle for Partners */}
           {activeTab === 'partners' && (
-            <div className="flex justify-center mb-4">
-              <div className="flex items-center space-x-2 bg-white rounded-lg p-1 shadow-sm border border-gray-200">
-                <button
-                  onClick={() => setPartnerStyle('fancy')}
-                  className={`px-3 py-1 text-xs rounded-md transition-all ${
-                    partnerStyle === 'fancy' 
-                      ? 'bg-black text-white' 
-                      : 'text-gray-600 hover:text-gray-800'
-                  }`}
-                >
-                  Fancy Cards
-                </button>
-                <button
-                  onClick={() => setPartnerStyle('black')}
-                  className={`px-3 py-1 text-xs rounded-md transition-all ${
-                    partnerStyle === 'black' 
-                      ? 'bg-black text-white' 
-                      : 'text-gray-600 hover:text-gray-800'
-                  }`}
-                >
-                  Black Style
-                </button>
-              </div>
+            <div className="flex justify-end mb-4">
+              <button
+                onClick={() => setPartnerStyle(partnerStyle === 'fancy' ? 'black' : 'fancy')}
+                className="opacity-20 hover:opacity-40 transition-opacity p-1"
+                title="Toggle style"
+              >
+                <Eye className="w-3 h-3 text-gray-500" />
+              </button>
             </div>
           )}
 
@@ -743,7 +728,7 @@ export default function Home() {
               </div>
                 </div>
               ) : (
-                <div className="py-16 bg-gray-600 rounded-lg">
+                <div className="py-16 bg-gray-700 rounded-lg">
                   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-8">
                       <h2 className="text-lg md:text-xl font-bold text-white mb-2">
