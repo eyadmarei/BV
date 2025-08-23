@@ -123,6 +123,7 @@ const serviceCategories = [
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("partners");
+  const [partnerStyle, setPartnerStyle] = useState('fancy'); // 'fancy' or 'black'
   const [partnerFilter, setPartnerFilter] = useState("");
   
   const { data: properties, isLoading: propertiesLoading } = useQuery<Property[]>({
@@ -285,6 +286,34 @@ export default function Home() {
             </div>
           </div>
 
+          {/* Style Toggle for Partners */}
+          {activeTab === 'partners' && (
+            <div className="flex justify-center mb-4">
+              <div className="flex items-center space-x-2 bg-white rounded-lg p-1 shadow-sm border border-gray-200">
+                <button
+                  onClick={() => setPartnerStyle('fancy')}
+                  className={`px-3 py-1 text-xs rounded-md transition-all ${
+                    partnerStyle === 'fancy' 
+                      ? 'bg-black text-white' 
+                      : 'text-gray-600 hover:text-gray-800'
+                  }`}
+                >
+                  Fancy Cards
+                </button>
+                <button
+                  onClick={() => setPartnerStyle('black')}
+                  className={`px-3 py-1 text-xs rounded-md transition-all ${
+                    partnerStyle === 'black' 
+                      ? 'bg-black text-white' 
+                      : 'text-gray-600 hover:text-gray-800'
+                  }`}
+                >
+                  Black Style
+                </button>
+              </div>
+            </div>
+          )}
+
           {/* Tab Content */}
           {activeTab === 'partners' && (
           
@@ -293,6 +322,8 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
+              {partnerStyle === 'fancy' ? (
+                <div>
               {/* Partner Cards Grid - Horizontal Layout */}
               <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
             
@@ -710,6 +741,66 @@ export default function Home() {
                   Dubai Featured Property Projects from our Premium Property partners
                 </p>
               </div>
+                </div>
+              ) : (
+                <div>
+                  {/* Black Style Partner Cards */}
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    {/* Using data from the black section but simplified */}
+                    <div className="flex flex-col items-center group">
+                      <div className="relative bg-gray-800 rounded-lg p-8 overflow-hidden flex items-center justify-center h-40 w-full transform transition-all duration-300 group-hover:scale-105">
+                        <img src={binghatiLogo} alt="Binghatti" className="max-w-[80%] max-h-[80%] filter brightness-0 invert" />
+                      </div>
+                      <h3 className="text-lg font-bold text-gray-900 mt-4">Binghatti</h3>
+                      <p className="text-sm text-gray-600 mb-4">Luxury Developments</p>
+                      <Link href="/projects?partner=Binghatti">
+                        <button className="bg-black text-white px-6 py-2 rounded-full text-sm hover:bg-gray-800 transition-colors">
+                          View Collection
+                        </button>
+                      </Link>
+                    </div>
+
+                    <div className="flex flex-col items-center group">
+                      <div className="relative bg-gray-800 rounded-lg p-8 overflow-hidden flex items-center justify-center h-40 w-full transform transition-all duration-300 group-hover:scale-105">
+                        <img src={danubeLogo} alt="Danube Properties" className="max-w-[80%] max-h-[80%] filter brightness-0 invert" />
+                      </div>
+                      <h3 className="text-lg font-bold text-gray-900 mt-4">Danube Properties</h3>
+                      <p className="text-sm text-gray-600 mb-4">Premium Locations</p>
+                      <Link href="/projects?partner=Danube Properties">
+                        <button className="bg-black text-white px-6 py-2 rounded-full text-sm hover:bg-gray-800 transition-colors">
+                          View Collection
+                        </button>
+                      </Link>
+                    </div>
+
+                    <div className="flex flex-col items-center group">
+                      <div className="relative bg-gray-800 rounded-lg p-8 overflow-hidden flex items-center justify-center h-40 w-full transform transition-all duration-300 group-hover:scale-105">
+                        <img src={ellingtonLogo} alt="Ellington Properties" className="max-w-[80%] max-h-[80%] filter brightness-0 invert" />
+                      </div>
+                      <h3 className="text-lg font-bold text-gray-900 mt-4">Ellington Properties</h3>
+                      <p className="text-sm text-gray-600 mb-4">Modern Design</p>
+                      <Link href="/projects?partner=Ellington Properties">
+                        <button className="bg-black text-white px-6 py-2 rounded-full text-sm hover:bg-gray-800 transition-colors">
+                          View Collection
+                        </button>
+                      </Link>
+                    </div>
+
+                    <div className="flex flex-col items-center group">
+                      <div className="relative bg-gray-800 rounded-lg p-8 overflow-hidden flex items-center justify-center h-40 w-full transform transition-all duration-300 group-hover:scale-105">
+                        <img src={emaarLogo} alt="Emaar" className="max-w-[80%] max-h-[80%] filter brightness-0 invert" />
+                      </div>
+                      <h3 className="text-lg font-bold text-gray-900 mt-4">Emaar</h3>
+                      <p className="text-sm text-gray-600 mb-4">Iconic Projects</p>
+                      <Link href="/projects?partner=Emaar">
+                        <button className="bg-black text-white px-6 py-2 rounded-full text-sm hover:bg-gray-800 transition-colors">
+                          View Collection
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              )}
             </motion.div>
           )}
 

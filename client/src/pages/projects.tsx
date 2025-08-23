@@ -38,14 +38,9 @@ export default function Projects() {
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const partnerParam = urlParams.get('partner');
-    console.log('URL search:', window.location.search);
-    console.log('Partner param from URL:', partnerParam);
-    console.log('Available partners:', partners.map(p => p.name));
     if (partnerParam) {
       const decodedPartner = decodeURIComponent(partnerParam);
-      console.log('Decoded partner:', decodedPartner);
       setSelectedPartner(decodedPartner);
-      console.log('Set selected partner to:', decodedPartner);
     }
   }, []);
 
@@ -63,13 +58,9 @@ export default function Projects() {
   const filteredProperties = (properties as any[]).filter((property: any) => {
     const typeMatch = selectedType === 'All' || property.type === selectedType.toLowerCase();
     const partnerMatch = selectedPartner === 'All Partners' || property.partner === selectedPartner;
-    console.log(`Property: ${property.title}, Partner: ${property.partner}, Selected: ${selectedPartner}, Match: ${partnerMatch}`);
     return typeMatch && partnerMatch;
   });
 
-  console.log('Current selected partner:', selectedPartner);
-  console.log('Total properties:', Array.isArray(properties) ? properties.length : 0);
-  console.log('Filtered properties:', filteredProperties.length);
 
   return (
     <div className="min-h-screen bg-white">
