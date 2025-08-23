@@ -314,13 +314,13 @@ export default function Home() {
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-90 px-3 py-1 rounded-full"
                   style={{ 
-                    background: '#374151',
-                    color: '#c0c0c0',
+                    background: '#ffffff',
+                    color: '#000000',
                     fontSize: '10px',
                     letterSpacing: '.1px',
-                    fontWeight: '500',
-                    textShadow: '0 0 8px rgba(192,192,192,0.5), 0 0 12px rgba(255,255,255,0.3)',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.1)'
+                    fontWeight: '400',
+                    border: '1px solid #e5e7eb',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
                   }}
                 >
                   View Collection
@@ -364,13 +364,13 @@ export default function Home() {
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-90 px-3 py-1 rounded-full"
                   style={{ 
-                    background: '#374151',
-                    color: '#c0c0c0',
+                    background: '#ffffff',
+                    color: '#000000',
                     fontSize: '10px',
                     letterSpacing: '.1px',
-                    fontWeight: '500',
-                    textShadow: '0 0 8px rgba(192,192,192,0.5), 0 0 12px rgba(255,255,255,0.3)',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.1)'
+                    fontWeight: '400',
+                    border: '1px solid #e5e7eb',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
                   }}
                 >
                   View Collection
@@ -414,13 +414,13 @@ export default function Home() {
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-90 px-3 py-1 rounded-full"
                   style={{ 
-                    background: '#374151',
-                    color: '#c0c0c0',
+                    background: '#ffffff',
+                    color: '#000000',
                     fontSize: '10px',
                     letterSpacing: '.1px',
-                    fontWeight: '500',
-                    textShadow: '0 0 8px rgba(192,192,192,0.5), 0 0 12px rgba(255,255,255,0.3)',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.1)'
+                    fontWeight: '400',
+                    border: '1px solid #e5e7eb',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
                   }}
                 >
                   View Collection
@@ -464,13 +464,13 @@ export default function Home() {
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-90 px-3 py-1 rounded-full"
                   style={{ 
-                    background: '#374151',
-                    color: '#c0c0c0',
+                    background: '#ffffff',
+                    color: '#000000',
                     fontSize: '10px',
                     letterSpacing: '.1px',
-                    fontWeight: '500',
-                    textShadow: '0 0 8px rgba(192,192,192,0.5), 0 0 12px rgba(255,255,255,0.3)',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.1)'
+                    fontWeight: '400',
+                    border: '1px solid #e5e7eb',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
                   }}
                 >
                   View Collection
@@ -514,13 +514,13 @@ export default function Home() {
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-90 px-3 py-1 rounded-full"
                   style={{ 
-                    background: '#374151',
-                    color: '#c0c0c0',
+                    background: '#ffffff',
+                    color: '#000000',
                     fontSize: '10px',
                     letterSpacing: '.1px',
-                    fontWeight: '500',
-                    textShadow: '0 0 8px rgba(192,192,192,0.5), 0 0 12px rgba(255,255,255,0.3)',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.1)'
+                    fontWeight: '400',
+                    border: '1px solid #e5e7eb',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
                   }}
                 >
                   View Collection
@@ -564,13 +564,13 @@ export default function Home() {
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-90 px-3 py-1 rounded-full"
                   style={{ 
-                    background: '#374151',
-                    color: '#c0c0c0',
+                    background: '#ffffff',
+                    color: '#000000',
                     fontSize: '10px',
                     letterSpacing: '.1px',
-                    fontWeight: '500',
-                    textShadow: '0 0 8px rgba(192,192,192,0.5), 0 0 12px rgba(255,255,255,0.3)',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.1)'
+                    fontWeight: '400',
+                    border: '1px solid #e5e7eb',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
                   }}
                 >
                   View Collection
@@ -614,13 +614,13 @@ export default function Home() {
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-90 px-3 py-1 rounded-full"
                   style={{ 
-                    background: '#374151',
-                    color: '#c0c0c0',
+                    background: '#ffffff',
+                    color: '#000000',
                     fontSize: '10px',
                     letterSpacing: '.1px',
-                    fontWeight: '500',
-                    textShadow: '0 0 8px rgba(192,192,192,0.5), 0 0 12px rgba(255,255,255,0.3)',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.1)'
+                    fontWeight: '400',
+                    border: '1px solid #e5e7eb',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
                   }}
                 >
                   View Collection
@@ -664,13 +664,13 @@ export default function Home() {
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-90 px-3 py-1 rounded-full"
                   style={{ 
-                    background: '#374151',
-                    color: '#c0c0c0',
+                    background: '#ffffff',
+                    color: '#000000',
                     fontSize: '10px',
                     letterSpacing: '.1px',
-                    fontWeight: '500',
-                    textShadow: '0 0 8px rgba(192,192,192,0.5), 0 0 12px rgba(255,255,255,0.3)',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.1)'
+                    fontWeight: '400',
+                    border: '1px solid #e5e7eb',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
                   }}
                 >
                   View Collection
