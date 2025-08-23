@@ -13,7 +13,6 @@ export default function Navigation() {
     { href: "/buy-sell", label: "Buy & Sell" },
     { href: "/services", label: "Services" },
     { href: "/about", label: "About" },
-    { href: "/contact", label: "Contact" },
   ];
 
   return (
@@ -47,11 +46,6 @@ export default function Navigation() {
                 </span>
               </Link>
             ))}
-            <Link href="/contact">
-              <Button className="bg-black text-white hover:bg-charcoal">
-                Book Consultation
-              </Button>
-            </Link>
           </div>
           
           {/* Mobile Menu Button */}
@@ -80,14 +74,6 @@ export default function Navigation() {
                   </span>
                 </Link>
               ))}
-              <Link href="/contact">
-                <Button 
-                  className="bg-black text-white hover:bg-charcoal mx-3"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Book Consultation
-                </Button>
-              </Link>
             </div>
           </div>
         )}
