@@ -304,9 +304,23 @@ export default function BuySell() {
                           
                           <div className="flex justify-between items-center">
                             <span className="text-xs text-gray-600 font-medium">{property.partner}</span>
-                            <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
-                              View Details
-                            </button>
+                            {property.brochureUrl ? (
+                              <a 
+                                href={property.brochureUrl} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors inline-block"
+                              >
+                                Download Brochure
+                              </a>
+                            ) : (
+                              <button 
+                                className="bg-gray-400 text-white px-3 py-1 rounded-full text-xs font-medium cursor-not-allowed"
+                                disabled
+                              >
+                                No Brochure
+                              </button>
+                            )}
                           </div>
                         </div>
                       </div>

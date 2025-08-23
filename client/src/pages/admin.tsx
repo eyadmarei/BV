@@ -44,7 +44,8 @@ export default function AdminPanel() {
     bedrooms: undefined,
     bathrooms: undefined,
     area: undefined,
-    featured: false
+    featured: false,
+    brochureUrl: ''
   });
 
   // Fetch properties for admin
@@ -120,7 +121,8 @@ export default function AdminPanel() {
       bedrooms: undefined,
       bathrooms: undefined,
       area: undefined,
-      featured: false
+      featured: false,
+      brochureUrl: ''
     });
   };
 
@@ -137,7 +139,8 @@ export default function AdminPanel() {
       bedrooms: property.bedrooms || undefined,
       bathrooms: property.bathrooms || undefined,
       area: property.area || undefined,
-      featured: property.featured || false
+      featured: property.featured || false,
+      brochureUrl: property.brochureUrl || ''
     });
     setIsEditing(true);
   };
@@ -739,6 +742,18 @@ export default function AdminPanel() {
                 </div>
 
                 <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Brochure URL</label>
+                  <input
+                    type="url"
+                    value={formData.brochureUrl || ''}
+                    onChange={(e) => setFormData(prev => ({ ...prev, brochureUrl: e.target.value }))}
+                    className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+                    placeholder="e.g., https://example.com/brochure.pdf"
+                  />
+                  <p className="text-xs text-gray-500 mt-1">URL to download property brochure or voucher</p>
+                </div>
+
+                <div>
                   <label className="flex items-center">
                     <input
                       type="checkbox"
@@ -891,6 +906,18 @@ export default function AdminPanel() {
                   >
                     📁 Upload New Image
                   </LocalImageUploader>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">Brochure URL</label>
+                  <input
+                    type="url"
+                    value={formData.brochureUrl || ''}
+                    onChange={(e) => setFormData(prev => ({ ...prev, brochureUrl: e.target.value }))}
+                    className="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2"
+                    placeholder="e.g., https://example.com/brochure.pdf"
+                  />
+                  <p className="text-xs text-gray-500 mt-1">URL to download property brochure or voucher</p>
                 </div>
 
                 <div>

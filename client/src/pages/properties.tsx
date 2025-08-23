@@ -147,9 +147,27 @@ export default function Properties() {
                       </div>
                     )}
                     
-                    <Button className="w-full bg-black text-white hover:bg-charcoal font-semibold">
-                      View Details
-                    </Button>
+                    {property.brochureUrl ? (
+                      <Button 
+                        asChild 
+                        className="w-full bg-black text-white hover:bg-charcoal font-semibold"
+                      >
+                        <a 
+                          href={property.brochureUrl} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                        >
+                          Download Brochure
+                        </a>
+                      </Button>
+                    ) : (
+                      <Button 
+                        className="w-full bg-gray-400 text-white cursor-not-allowed font-semibold" 
+                        disabled
+                      >
+                        No Brochure
+                      </Button>
+                    )}
                   </CardContent>
                 </Card>
               </motion.div>

@@ -16,6 +16,7 @@ export const properties = pgTable("properties", {
   bathrooms: integer("bathrooms"),
   area: integer("area"), // in sq ft
   featured: boolean("featured").default(false),
+  brochureUrl: text("brochure_url"), // URL to download brochure/voucher
 });
 
 export const services = pgTable("services", {
