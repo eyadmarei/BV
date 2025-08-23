@@ -105,7 +105,7 @@ export default function Projects() {
             {filteredPartners.map((partner) => (
               <motion.button
                 key={partner.name}
-                className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 text-sm font-medium ${
+                className={`px-4 py-2 rounded-full transition-all duration-300 text-sm font-medium ${
                   selectedPartner === partner.name
                     ? 'bg-black text-white shadow-lg'
                     : 'bg-gray-50 hover:bg-gray-100 text-black border border-gray-200'
@@ -114,18 +114,7 @@ export default function Projects() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {partner.logo ? (
-                  <img 
-                    src={partner.logo} 
-                    alt={partner.name}
-                    className="h-6 w-6 object-contain"
-                  />
-                ) : (
-                  <div className="h-6 w-6 bg-gray-300 rounded-full flex items-center justify-center">
-                    <span className="text-xs font-bold">ALL</span>
-                  </div>
-                )}
-                <span>{partner.name}</span>
+                {partner.name}
               </motion.button>
             ))}
           </div>
