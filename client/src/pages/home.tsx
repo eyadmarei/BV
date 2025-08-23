@@ -231,8 +231,8 @@ export default function Home() {
                   activeTab === 'partners' ? 'left-0.5 w-[calc(50%-2px)]' : 'left-[calc(50%+1px)] w-[calc(50%-2px)]'
                 }`}
                 style={{
-                  background: '#c0c0c0',
-                  boxShadow: '0 4px 16px rgba(0,0,0,0.5), inset 0 1px 3px rgba(255,255,255,0.9), inset 0 -1px 2px rgba(0,0,0,0.2)'
+                  background: 'linear-gradient(145deg, #f0f0f0 0%, #d0d0d0 20%, #c0c0c0 40%, #b0b0b0 60%, #c0c0c0 80%, #e0e0e0 100%)',
+                  boxShadow: '0 4px 16px rgba(0,0,0,0.5), inset 0 2px 4px rgba(255,255,255,0.95), inset 0 -2px 3px rgba(0,0,0,0.15)'
                 }}
               />
               
@@ -242,8 +242,8 @@ export default function Home() {
                   onClick={() => setActiveTab('partners')}
                   className={`relative px-4 py-2 text-xs font-semibold transition-all duration-300 rounded-full ${
                     activeTab === 'partners' 
-                      ? 'text-white' 
-                      : 'text-gray-400 hover:text-gray-300'
+                      ? 'text-black' 
+                      : 'text-gray-500 hover:text-gray-400 opacity-70'
                   }`}
                 >
                   Partner Collections
@@ -252,8 +252,8 @@ export default function Home() {
                   onClick={() => setActiveTab('services')}
                   className={`relative px-4 py-2 text-xs font-semibold transition-all duration-300 rounded-full ${
                     activeTab === 'services' 
-                      ? 'text-white' 
-                      : 'text-gray-400 hover:text-gray-300'
+                      ? 'text-black' 
+                      : 'text-gray-500 hover:text-gray-400 opacity-70'
                   }`}
                 >
                   Our Services
