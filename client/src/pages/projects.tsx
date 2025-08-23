@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import { useQuery } from '@tanstack/react-query';
+import { Search } from 'lucide-react';
 
 // Import partner logos
 import binghatiLogo from '@assets/binghate_1754074726263.png';
@@ -31,6 +32,7 @@ export default function Projects() {
   const [location] = useLocation();
   const [selectedPartner, setSelectedPartner] = useState('All Partners');
   const [selectedType, setSelectedType] = useState('All');
+  const [partnerSearch, setPartnerSearch] = useState('');
 
   // Get partner filter from URL query params
   useEffect(() => {
@@ -44,6 +46,12 @@ export default function Projects() {
   const { data: properties = [], isLoading } = useQuery({
     queryKey: ['/api/properties']
   });
+
+  // Filter partners based on search term
+  const filteredPartners = partners.filter(partner => 
+    partner.name.toLowerCase().includes(partnerSearch.toLowerCase()) ||
+    partner.description.toLowerCase().includes(partnerSearch.toLowerCase())
+  );
 
   // Filter properties based on selected partner and type
   const filteredProperties = (properties as any[]).filter((property: any) => {
@@ -76,15 +84,31 @@ export default function Projects() {
       {/* Partner Filter */}
       <section className="py-8 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-xl font-semibold text-black mb-6">Filter by Partner</h2>
-          <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-9 gap-4">
-            {partners.map((partner) => (
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+            <h2 className="text-xl font-semibold text-black mb-4 md:mb-0">Filter by Partner</h2>
+            
+            {/* Search Input */}
+            <div className="relative max-w-sm">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+              <input
+                type="text"
+                placeholder="Search partners..."
+                value={partnerSearch}
+                onChange={(e) => setPartnerSearch(e.target.value)}
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-black transition-all"
+              />
+            </div>
+          </div>
+          
+          {/* Simple Partner Cards */}
+          <div className="flex flex-wrap gap-3">
+            {filteredPartners.map((partner) => (
               <motion.button
                 key={partner.name}
-                className={`flex flex-col items-center p-4 rounded-xl transition-all duration-300 ${
+                className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 text-sm font-medium ${
                   selectedPartner === partner.name
                     ? 'bg-black text-white shadow-lg'
-                    : 'bg-gray-50 hover:bg-gray-100 text-black'
+                    : 'bg-gray-50 hover:bg-gray-100 text-black border border-gray-200'
                 }`}
                 onClick={() => setSelectedPartner(partner.name)}
                 whileHover={{ scale: 1.05 }}
@@ -94,17 +118,36 @@ export default function Projects() {
                   <img 
                     src={partner.logo} 
                     alt={partner.name}
-                    className="h-12 w-auto object-contain mb-2"
+                    className="h-6 w-6 object-contain"
                   />
                 ) : (
-                  <div className="h-12 w-12 bg-gray-300 rounded-full flex items-center justify-center mb-2">
+                  <div className="h-6 w-6 bg-gray-300 rounded-full flex items-center justify-center">
                     <span className="text-xs font-bold">ALL</span>
                   </div>
                 )}
-                <span className="text-xs font-medium text-center">{partner.name}</span>
+                <span>{partner.name}</span>
               </motion.button>
             ))}
           </div>
+          
+          {/* No Results Message */}
+          {filteredPartners.length === 0 && partnerSearch && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="text-center py-8"
+            >
+              <p className="text-gray-500 text-sm">
+                No partners found matching "{partnerSearch}"
+              </p>
+              <button
+                onClick={() => setPartnerSearch("")}
+                className="mt-2 text-black underline hover:text-gray-700 transition-colors text-sm"
+              >
+                Clear search
+              </button>
+            </motion.div>
+          )}
         </div>
       </section>
 
