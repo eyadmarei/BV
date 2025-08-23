@@ -231,10 +231,10 @@ export default function Home() {
                   activeTab === 'partners' ? 'left-0.5 w-[calc(50%-2px)]' : 'left-[calc(50%+1px)] w-[calc(50%-2px)]'
                 }`}
                 style={{
-                  background: 'rgba(255, 255, 255, 0.95)',
+                  background: 'linear-gradient(135deg, #374151 0%, #1f2937 25%, #111827 50%, #1f2937 75%, #374151 100%)',
                   backdropFilter: 'blur(8px)',
-                  border: '0.5px solid rgba(255, 255, 255, 0.3)',
-                  boxShadow: '0 4px 12px rgba(0,0,0,0.2), inset 0 1px 2px rgba(255,255,255,0.9)'
+                  border: '0.5px solid rgba(255, 255, 255, 0.1)',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.4), inset 0 1px 2px rgba(255,255,255,0.1)'
                 }}
               />
               
@@ -244,7 +244,7 @@ export default function Home() {
                   onClick={() => setActiveTab('partners')}
                   className={`relative px-8 py-2 text-sm font-medium transition-all duration-300 rounded-full ${
                     activeTab === 'partners' 
-                      ? 'text-black' 
+                      ? 'text-white' 
                       : 'text-gray-400 hover:text-gray-300 opacity-70'
                   }`}
                 >
@@ -254,7 +254,7 @@ export default function Home() {
                   onClick={() => setActiveTab('services')}
                   className={`relative px-8 py-2 text-sm font-medium transition-all duration-300 rounded-full ${
                     activeTab === 'services' 
-                      ? 'text-black' 
+                      ? 'text-white' 
                       : 'text-gray-400 hover:text-gray-300 opacity-70'
                   }`}
                 >
