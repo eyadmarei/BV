@@ -231,7 +231,7 @@ export default function Home() {
                   activeTab === 'partners' ? 'left-0.5 w-[calc(50%-2px)]' : 'left-[calc(50%+1px)] w-[calc(50%-2px)]'
                 }`}
                 style={{
-                  background: 'linear-gradient(135deg, #e5e7eb 0%, #d1d5db 15%, #9ca3af 30%, #6b7280 50%, #9ca3af 70%, #d1d5db 85%, #e5e7eb 100%)',
+                  background: '#c0c0c0',
                   boxShadow: '0 4px 16px rgba(0,0,0,0.5), inset 0 1px 3px rgba(255,255,255,0.9), inset 0 -1px 2px rgba(0,0,0,0.2)'
                 }}
               />
