@@ -743,122 +743,109 @@ export default function Home() {
               </div>
                 </div>
               ) : (
-                <div>
-                  {/* Black Style - Exact Clone from Attached Image */}
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    
-                    {/* Binghatti */}
-                    <div className="bg-gray-800 rounded-lg p-6 flex flex-col items-center transform transition-all duration-300 hover:scale-105">
-                      <div className="bg-black rounded-lg p-4 mb-4 w-full h-20 flex items-center justify-center">
-                        <img src={binghatiLogo} alt="Binghatti" className="max-w-[70%] max-h-[70%] filter brightness-0 invert" />
+                <div className="py-16 bg-black rounded-lg">
+                  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-12">
+                      <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                        Explore Our Premium Partners
+                      </h2>
+                      <p className="text-xl text-white/80 mb-8">
+                        Discover luxury developments from Dubai's most trusted developers
+                      </p>
+                      
+                      {/* Search Filter */}
+                      <div className="max-w-md mx-auto mb-8">
+                        <div className="relative">
+                          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/60 w-5 h-5" />
+                          <input
+                            type="text"
+                            placeholder="Search partners or development type..."
+                            value={partnerFilter}
+                            onChange={(e) => setPartnerFilter(e.target.value)}
+                            className="w-full pl-10 pr-4 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all"
+                          />
+                        </div>
                       </div>
-                      <h3 className="text-white font-bold text-sm mb-1">Binghatti</h3>
-                      <p className="text-gray-300 text-xs mb-4 text-center">Luxury Developments</p>
-                      <Link href="/projects?partner=Binghatti">
-                        <button className="bg-black text-white px-4 py-2 rounded-md text-xs hover:bg-gray-900 transition-colors w-full">
-                          View Collection
-                        </button>
-                      </Link>
                     </div>
 
-                    {/* Danube Properties */}
-                    <div className="bg-gray-800 rounded-lg p-6 flex flex-col items-center transform transition-all duration-300 hover:scale-105">
-                      <div className="bg-black rounded-lg p-4 mb-4 w-full h-20 flex items-center justify-center">
-                        <img src={danubeLogo} alt="Danube Properties" className="max-w-[70%] max-h-[70%] filter brightness-0 invert" />
-                      </div>
-                      <h3 className="text-white font-bold text-sm mb-1">Danube Properties</h3>
-                      <p className="text-gray-300 text-xs mb-4 text-center">Premium Locations</p>
-                      <Link href="/projects?partner=Danube Properties">
-                        <button className="bg-black text-white px-4 py-2 rounded-md text-xs hover:bg-gray-900 transition-colors w-full">
-                          View Collection
-                        </button>
-                      </Link>
-                    </div>
+                    {/* Partner Cards Grid - Landing Page Style */}
+                    <motion.div
+                      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      {[
+                        { name: 'Binghatti', logo: binghatiLogo, description: 'Innovative architectural designs with distinctive lifestyle developments' },
+                        { name: 'Danube Properties', logo: danubeLogo, description: 'Affordable luxury properties with modern amenities and prime locations' },
+                        { name: 'Ellington Properties', logo: ellingtonLogo, description: 'Contemporary design-focused developments in premium Dubai locations' },
+                        { name: 'Emaar', logo: emaarLogo, description: 'World-class developments including Dubai Mall, Burj Khalifa and luxury communities' },
+                        { name: 'Iman Developers', logo: imanLogo, description: 'Quality residential and commercial developments with modern infrastructure' },
+                        { name: 'Marquis', logo: marquisLogo, description: 'Luxury residential projects with premium finishes and exclusive amenities' },
+                        { name: 'Rabdan', logo: rabdanLogo, description: 'Sustainable and innovative property developments in key Dubai areas' },
+                        { name: 'Tiger Properties AE', logo: tigerLogo, description: 'Premium villa communities and luxury residential developments' }
+                      ].filter(partner => 
+                        partner.name.toLowerCase().includes(partnerFilter.toLowerCase()) ||
+                        partner.description.toLowerCase().includes(partnerFilter.toLowerCase())
+                      ).map((partner, index) => (
+                        <motion.div
+                          key={partner.name}
+                          initial={{ opacity: 0, y: 30 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.6, delay: index * 0.1 }}
+                          className="bg-white/20 backdrop-blur-sm rounded-lg p-6 border border-white/10 shadow-lg w-56 hover:bg-white/25 transition-all duration-300"
+                          whileHover={{ scale: 1.05, y: -5 }}
+                        >
+                          <div className="text-center">
+                            <div className="flex items-center justify-center h-20 mb-4">
+                              <img 
+                                src={partner.logo} 
+                                alt={`${partner.name} logo`}
+                                className="max-h-full max-w-full object-contain filter drop-shadow-md"
+                              />
+                            </div>
+                            <h4 className="text-white text-sm font-bold mb-2">{partner.name}</h4>
+                            <p className="text-white/80 text-xs mb-4">{partner.description}</p>
+                            <Link href={`/projects?partner=${encodeURIComponent(partner.name)}`}>
+                              <button className="bg-black text-white px-4 py-2 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors w-full">
+                                View Collection
+                              </button>
+                            </Link>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </motion.div>
 
-                    {/* Ellington Properties */}
-                    <div className="bg-gray-800 rounded-lg p-6 flex flex-col items-center transform transition-all duration-300 hover:scale-105">
-                      <div className="bg-black rounded-lg p-4 mb-4 w-full h-20 flex items-center justify-center">
-                        <img src={ellingtonLogo} alt="Ellington Properties" className="max-w-[70%] max-h-[70%] filter brightness-0 invert" />
-                      </div>
-                      <h3 className="text-white font-bold text-sm mb-1">Ellington Properties</h3>
-                      <p className="text-gray-300 text-xs mb-4 text-center">Modern Design</p>
-                      <Link href="/projects?partner=Ellington Properties">
-                        <button className="bg-black text-white px-4 py-2 rounded-md text-xs hover:bg-gray-900 transition-colors w-full">
-                          View Collection
+                    {/* No Results Message */}
+                    {[
+                      { name: 'Binghatti', logo: binghatiLogo, description: 'Innovative architectural designs with distinctive lifestyle developments' },
+                      { name: 'Danube Properties', logo: danubeLogo, description: 'Affordable luxury properties with modern amenities and prime locations' },
+                      { name: 'Ellington Properties', logo: ellingtonLogo, description: 'Contemporary design-focused developments in premium Dubai locations' },
+                      { name: 'Emaar', logo: emaarLogo, description: 'World-class developments including Dubai Mall, Burj Khalifa and luxury communities' },
+                      { name: 'Iman Developers', logo: imanLogo, description: 'Quality residential and commercial developments with modern infrastructure' },
+                      { name: 'Marquis', logo: marquisLogo, description: 'Luxury residential projects with premium finishes and exclusive amenities' },
+                      { name: 'Rabdan', logo: rabdanLogo, description: 'Sustainable and innovative property developments in key Dubai areas' },
+                      { name: 'Tiger Properties AE', logo: tigerLogo, description: 'Premium villa communities and luxury residential developments' }
+                    ].filter(partner => 
+                      partner.name.toLowerCase().includes(partnerFilter.toLowerCase()) ||
+                      partner.description.toLowerCase().includes(partnerFilter.toLowerCase())
+                    ).length === 0 && partnerFilter && (
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        className="text-center py-12"
+                      >
+                        <p className="text-white/60 text-lg">
+                          No partners found matching "{partnerFilter}"
+                        </p>
+                        <button
+                          onClick={() => setPartnerFilter("")}
+                          className="mt-4 text-white underline hover:text-white/80 transition-colors"
+                        >
+                          Clear search
                         </button>
-                      </Link>
-                    </div>
-
-                    {/* Emaar */}
-                    <div className="bg-gray-800 rounded-lg p-6 flex flex-col items-center transform transition-all duration-300 hover:scale-105">
-                      <div className="bg-black rounded-lg p-4 mb-4 w-full h-20 flex items-center justify-center">
-                        <img src={emaarLogo} alt="Emaar" className="max-w-[70%] max-h-[70%] filter brightness-0 invert" />
-                      </div>
-                      <h3 className="text-white font-bold text-sm mb-1">Emaar</h3>
-                      <p className="text-gray-300 text-xs mb-4 text-center">Iconic Projects</p>
-                      <Link href="/projects?partner=Emaar">
-                        <button className="bg-black text-white px-4 py-2 rounded-md text-xs hover:bg-gray-900 transition-colors w-full">
-                          View Collection
-                        </button>
-                      </Link>
-                    </div>
-
-                    {/* Iman Developers */}
-                    <div className="bg-gray-800 rounded-lg p-6 flex flex-col items-center transform transition-all duration-300 hover:scale-105">
-                      <div className="bg-black rounded-lg p-4 mb-4 w-full h-20 flex items-center justify-center">
-                        <img src={imanLogo} alt="Iman Developers" className="max-w-[70%] max-h-[70%] filter brightness-0 invert" />
-                      </div>
-                      <h3 className="text-white font-bold text-sm mb-1">IMAN Developers</h3>
-                      <p className="text-gray-300 text-xs mb-4 text-center">Quality Developments</p>
-                      <Link href="/projects?partner=Iman Developers">
-                        <button className="bg-black text-white px-4 py-2 rounded-md text-xs hover:bg-gray-900 transition-colors w-full">
-                          View Collection
-                        </button>
-                      </Link>
-                    </div>
-
-                    {/* Marquis */}
-                    <div className="bg-gray-800 rounded-lg p-6 flex flex-col items-center transform transition-all duration-300 hover:scale-105">
-                      <div className="bg-black rounded-lg p-4 mb-4 w-full h-20 flex items-center justify-center">
-                        <img src={marquisLogo} alt="Marquis" className="max-w-[70%] max-h-[70%] filter brightness-0 invert" />
-                      </div>
-                      <h3 className="text-white font-bold text-sm mb-1">Marquis</h3>
-                      <p className="text-gray-300 text-xs mb-4 text-center">Luxury Projects</p>
-                      <Link href="/projects?partner=Marquis">
-                        <button className="bg-black text-white px-4 py-2 rounded-md text-xs hover:bg-gray-900 transition-colors w-full">
-                          View Collection
-                        </button>
-                      </Link>
-                    </div>
-
-                    {/* Rabdan */}
-                    <div className="bg-gray-800 rounded-lg p-6 flex flex-col items-center transform transition-all duration-300 hover:scale-105">
-                      <div className="bg-black rounded-lg p-4 mb-4 w-full h-20 flex items-center justify-center">
-                        <img src={rabdanLogo} alt="Rabdan" className="max-w-[70%] max-h-[70%] filter brightness-0 invert" />
-                      </div>
-                      <h3 className="text-white font-bold text-sm mb-1">Rabdan</h3>
-                      <p className="text-gray-300 text-xs mb-4 text-center">Sustainable Developments</p>
-                      <Link href="/projects?partner=Rabdan Developments">
-                        <button className="bg-black text-white px-4 py-2 rounded-md text-xs hover:bg-gray-900 transition-colors w-full">
-                          View Collection
-                        </button>
-                      </Link>
-                    </div>
-
-                    {/* Tiger Properties */}
-                    <div className="bg-gray-800 rounded-lg p-6 flex flex-col items-center transform transition-all duration-300 hover:scale-105">
-                      <div className="bg-black rounded-lg p-4 mb-4 w-full h-20 flex items-center justify-center">
-                        <img src={tigerLogo} alt="Tiger Properties" className="max-w-[70%] max-h-[70%] filter brightness-0 invert" />
-                      </div>
-                      <h3 className="text-white font-bold text-sm mb-1">Tiger Properties</h3>
-                      <p className="text-gray-300 text-xs mb-4 text-center">Premium Villas</p>
-                      <Link href="/projects?partner=Tiger Properties AE">
-                        <button className="bg-black text-white px-4 py-2 rounded-md text-xs hover:bg-gray-900 transition-colors w-full">
-                          View Collection
-                        </button>
-                      </Link>
-                    </div>
-
+                      </motion.div>
+                    )}
                   </div>
                 </div>
               )}
