@@ -1,4 +1,4 @@
-import { properties, services, inquiries, users, featuredStories, type Property, type Service, type Inquiry, type User, type UpsertUser, type InsertProperty, type InsertService, type InsertInquiry, type FeaturedStory, type InsertFeaturedStory } from "@shared/schema";
+import { properties, services, inquiries, users, featuredStories, contactContent, type Property, type Service, type Inquiry, type User, type UpsertUser, type InsertProperty, type InsertService, type InsertInquiry, type FeaturedStory, type InsertFeaturedStory, type ContactContent, type InsertContactContent } from "@shared/schema";
 import { db } from "./db";
 import { eq } from "drizzle-orm";
 
@@ -31,6 +31,11 @@ export interface IStorage {
   createFeaturedStory(story: InsertFeaturedStory): Promise<FeaturedStory>;
   updateFeaturedStory(id: number, story: Partial<InsertFeaturedStory>): Promise<FeaturedStory | undefined>;
   deleteFeaturedStory(id: number): Promise<boolean>;
+  
+  // Contact Content
+  getContactContent(): Promise<ContactContent | undefined>;
+  createContactContent(content: InsertContactContent): Promise<ContactContent>;
+  updateContactContent(id: number, content: Partial<InsertContactContent>): Promise<ContactContent | undefined>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -156,6 +161,29 @@ export class DatabaseStorage implements IStorage {
   async deleteFeaturedStory(id: number): Promise<boolean> {
     const result = await db.delete(featuredStories).where(eq(featuredStories.id, id));
     return result.rowCount !== null && result.rowCount > 0;
+  }
+
+  // Contact Content
+  async getContactContent(): Promise<ContactContent | undefined> {
+    const [content] = await db.select().from(contactContent);
+    return content;
+  }
+
+  async createContactContent(insertContent: InsertContactContent): Promise<ContactContent> {
+    const [content] = await db
+      .insert(contactContent)
+      .values(insertContent)
+      .returning();
+    return content;
+  }
+
+  async updateContactContent(id: number, updateData: Partial<InsertContactContent>): Promise<ContactContent | undefined> {
+    const [content] = await db
+      .update(contactContent)
+      .set({ ...updateData, updatedAt: new Date() })
+      .where(eq(contactContent.id, id))
+      .returning();
+    return content;
   }
 }
 

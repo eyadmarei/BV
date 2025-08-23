@@ -4,7 +4,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { LocalImageUploader } from '../components/LocalImageUploader';
 import { useAuth } from '../hooks/useAuth';
 import { apiRequest } from '../lib/queryClient';
-import type { Property, InsertProperty, FeaturedStory, InsertFeaturedStory } from '@shared/schema';
+import type { Property, InsertProperty, FeaturedStory, InsertFeaturedStory, ContactContent, InsertContactContent } from '@shared/schema';
 
 // Helper function to handle image URLs (now local images)
 const convertImageUrl = (url: string): string => {
@@ -16,7 +16,7 @@ const convertImageUrl = (url: string): string => {
 
 export default function AdminPanel() {
   const { user, isLoading: authLoading, isAuthenticated, isAdmin } = useAuth();
-  const [activeTab, setActiveTab] = useState<'partners' | 'projects' | 'units' | 'stories'>('partners');
+  const [activeTab, setActiveTab] = useState<'partners' | 'projects' | 'units' | 'stories' | 'contact'>('partners');
   const [selectedProperty, setSelectedProperty] = useState<Property | null>(null);
   const [isEditing, setIsEditing] = useState(false);
   const [showAddProjectForm, setShowAddProjectForm] = useState(false);
@@ -60,6 +60,17 @@ export default function AdminPanel() {
     publishedAt: new Date()
   });
 
+  // Contact content form state
+  const [contactFormData, setContactFormData] = useState<Partial<InsertContactContent>>({
+    title: '',
+    subtitle: '',
+    description: '',
+    phone: '',
+    email: '',
+    address: '',
+    officeHours: ''
+  });
+
   // Fetch properties for admin
   const { data: properties = [], isLoading, refetch } = useQuery<Property[]>({
     queryKey: ['/api/admin/properties'],
@@ -69,6 +80,12 @@ export default function AdminPanel() {
   // Fetch featured stories for admin
   const { data: featuredStories = [], isLoading: isLoadingStories, refetch: refetchStories } = useQuery<FeaturedStory[]>({
     queryKey: ['/api/featured-stories'],
+    enabled: isAuthenticated && isAdmin,
+  });
+
+  // Fetch contact content for admin
+  const { data: contactContent, isLoading: isLoadingContact, refetch: refetchContact } = useQuery<ContactContent>({
+    queryKey: ['/api/contact-content'],
     enabled: isAuthenticated && isAdmin,
   });
 
@@ -173,6 +190,46 @@ export default function AdminPanel() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/featured-stories'] });
       setSelectedStory(null);
+    },
+  });
+
+  // Contact content mutations
+  const createContactMutation = useMutation({
+    mutationFn: async (data: InsertContactContent) => {
+      const response = await fetch('/api/admin/contact-content', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) throw new Error('Failed to create contact content');
+      return response.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['/api/contact-content'] });
+      setContactFormData({
+        title: '',
+        subtitle: '',
+        description: '',
+        phone: '',
+        email: '',
+        address: '',
+        officeHours: ''
+      });
+    },
+  });
+
+  const updateContactMutation = useMutation({
+    mutationFn: async ({ id, data }: { id: number; data: Partial<InsertContactContent> }) => {
+      const response = await fetch(`/api/admin/contact-content/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) throw new Error('Failed to update contact content');
+      return response.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['/api/contact-content'] });
     },
   });
 
@@ -368,6 +425,16 @@ export default function AdminPanel() {
                 }`}
               >
                 📰 Stories ({featuredStories.length})
+              </button>
+              <button
+                onClick={() => setActiveTab('contact')}
+                className={`py-4 px-1 border-b-2 font-medium text-sm ${
+                  activeTab === 'contact'
+                    ? 'border-black text-black'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
+              >
+                📞 Contact Content
               </button>
             </nav>
           </div>

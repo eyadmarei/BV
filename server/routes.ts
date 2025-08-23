@@ -4,7 +4,7 @@ import { storage } from "./storage";
 import { ObjectStorageService, ObjectNotFoundError, objectStorageClient } from "./objectStorage";
 import { setupAuth, isAuthenticated, isAdmin } from "./replitAuth";
 import { seedDatabase } from "./seedDatabase";
-import { insertPropertySchema, insertServiceSchema, insertInquirySchema, insertFeaturedStorySchema } from "@shared/schema";
+import { insertPropertySchema, insertServiceSchema, insertInquirySchema, insertFeaturedStorySchema, insertContactContentSchema } from "@shared/schema";
 import { z } from "zod";
 import multer from "multer";
 import path from "path";
@@ -312,6 +312,62 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       console.error('Error updating property image:', error);
       res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+
+  // Contact Content routes
+  app.get('/api/contact-content', async (req, res) => {
+    try {
+      const content = await storage.getContactContent();
+      if (!content) {
+        // Return default content if none exists
+        const defaultContent = {
+          title: "Ready to Get Started?",
+          subtitle: "Contact our expert team today",
+          description: "Contact our expert team today to discuss your property and business service needs. We're here to provide personalized solutions for your success.",
+          phone: "+971 XXX-XXXX",
+          email: "info@bestviewproperties.com",
+          address: "Dubai, United Arab Emirates",
+          officeHours: "Mon-Fri: 9AM-6PM, Sat: 10AM-4PM"
+        };
+        return res.json(defaultContent);
+      }
+      res.json(content);
+    } catch (error) {
+      console.error('Error fetching contact content:', error);
+      res.status(500).json({ message: 'Failed to fetch contact content' });
+    }
+  });
+
+  app.post('/api/admin/contact-content', isAuthenticated, isAdmin, async (req, res) => {
+    try {
+      const validatedData = insertContactContentSchema.parse(req.body);
+      const content = await storage.createContactContent(validatedData);
+      res.json(content);
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ message: "Invalid contact content data", errors: error.errors });
+      }
+      console.error('Error creating contact content:', error);
+      res.status(500).json({ message: 'Failed to create contact content' });
+    }
+  });
+
+  app.put('/api/admin/contact-content/:id', isAuthenticated, isAdmin, async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const validatedData = insertContactContentSchema.partial().parse(req.body);
+      const content = await storage.updateContactContent(id, validatedData);
+      if (!content) {
+        return res.status(404).json({ message: 'Contact content not found' });
+      }
+      res.json(content);
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ message: "Invalid contact content data", errors: error.errors });
+      }
+      console.error('Error updating contact content:', error);
+      res.status(500).json({ message: 'Failed to update contact content' });
     }
   });
 

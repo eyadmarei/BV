@@ -49,6 +49,18 @@ export const featuredStories = pgTable("featured_stories", {
   createdAt: timestamp("created_at").defaultNow(),
 });
 
+export const contactContent = pgTable("contact_content", {
+  id: serial("id").primaryKey(),
+  title: text("title").notNull(),
+  subtitle: text("subtitle").notNull(),
+  description: text("description").notNull(),
+  phone: text("phone").notNull(),
+  email: text("email").notNull(),
+  address: text("address").notNull(),
+  officeHours: text("office_hours").notNull(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
 // Session storage table for Replit Auth
 export const sessions = pgTable(
   "sessions",
@@ -93,6 +105,11 @@ export const insertFeaturedStorySchema = createInsertSchema(featuredStories).omi
   createdAt: true,
 });
 
+export const insertContactContentSchema = createInsertSchema(contactContent).omit({
+  id: true,
+  updatedAt: true,
+});
+
 export const insertUserSchema = createInsertSchema(users).pick({
   email: true,
   firstName: true,
@@ -109,3 +126,5 @@ export type Inquiry = typeof inquiries.$inferSelect;
 export type InsertInquiry = z.infer<typeof insertInquirySchema>;
 export type FeaturedStory = typeof featuredStories.$inferSelect;
 export type InsertFeaturedStory = z.infer<typeof insertFeaturedStorySchema>;
+export type ContactContent = typeof contactContent.$inferSelect;
+export type InsertContactContent = z.infer<typeof insertContactContentSchema>;
