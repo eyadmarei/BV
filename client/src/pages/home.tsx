@@ -272,14 +272,46 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Elegant Black Header Section */}
+      <section className="py-12 bg-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 
+              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-wide"
+              style={{
+                background: 'linear-gradient(135deg, #FFFFFF 0%, #F8F8F8 25%, #E8E8E8 50%, #F8F8F8 75%, #FFFFFF 100%)',
+                backgroundClip: 'text',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                textShadow: '2px 2px 4px rgba(255, 255, 255, 0.1), 0 0 20px rgba(255, 255, 255, 0.05)',
+                letterSpacing: '1px',
+                filter: 'drop-shadow(1px 1px 3px rgba(255, 255, 255, 0.1))'
+              }}
+            >
+              Dubai Featured Property Projects
+            </h2>
+            <p 
+              className="text-xl md:text-2xl mt-4 font-light tracking-wide"
+              style={{
+                color: '#E5E5E5',
+                textShadow: '1px 1px 2px rgba(0, 0, 0, 0.3)',
+                letterSpacing: '0.5px'
+              }}
+            >
+              from our Premium Property Partners
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Tabbed Section - Partners & Services */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Creamy Toggle Slider */}
+          {/* Transparent Toggle Slider */}
           <div className="flex justify-center mb-8">
-            <div className="relative bg-gradient-to-b from-amber-50 via-orange-50 to-amber-50 rounded-full p-0.5 shadow-lg border border-amber-200/60 backdrop-blur-sm">
-              {/* Sliding Creamy Highlight Button */}
+            <div className="relative bg-white/20 backdrop-blur-sm rounded-full p-0.5 shadow-lg border border-white/30">
+              {/* Sliding Transparent Highlight Button */}
               <div 
                 className={`absolute top-0.5 h-[calc(100%-4px)] rounded-full shadow-md transition-all duration-400 ease-out ${
                   activeTab === 'partners' 
@@ -289,10 +321,10 @@ export default function Home() {
                     : 'left-[calc(66.66%+1px)] w-[calc(33.33%-2px)]'
                 }`}
                 style={{
-                  background: 'linear-gradient(135deg, #FDF2E9 0%, #F7E6C8 25%, #F3D5A1 50%, #F7E6C8 75%, #FDF2E9 100%)',
+                  background: 'rgba(255, 255, 255, 0.8)',
                   backdropFilter: 'blur(8px)',
-                  border: '0.5px solid rgba(168, 85, 247, 0.1)',
-                  boxShadow: '0 4px 12px rgba(168, 85, 247, 0.2), inset 0 1px 2px rgba(255,255,255,0.4)'
+                  border: '0.5px solid rgba(255, 255, 255, 0.3)',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.1), inset 0 1px 2px rgba(255,255,255,0.4)'
                 }}
               />
               
@@ -303,7 +335,7 @@ export default function Home() {
                   className={`relative px-6 py-2 text-sm font-medium transition-all duration-300 rounded-full ${
                     activeTab === 'partners' 
                       ? 'text-black' 
-                      : 'text-gray-700 hover:text-gray-800 opacity-70'
+                      : 'text-black/70 hover:text-black opacity-70'
                   }`}
                 >
                   Premium Partners
@@ -313,7 +345,7 @@ export default function Home() {
                   className={`relative px-6 py-2 text-sm font-medium transition-all duration-300 rounded-full ${
                     activeTab === 'services' 
                       ? 'text-black' 
-                      : 'text-gray-700 hover:text-gray-800 opacity-70'
+                      : 'text-black/70 hover:text-black opacity-70'
                   }`}
                 >
                   Our Services
@@ -323,15 +355,15 @@ export default function Home() {
                   className={`relative px-6 py-2 text-sm font-medium transition-all duration-300 rounded-full ${
                     activeTab === 'market-updates' 
                       ? 'text-black' 
-                      : 'text-gray-700 hover:text-gray-800 opacity-70'
+                      : 'text-black/70 hover:text-black opacity-70'
                   }`}
                 >
                   Property Market Updates
                 </button>
               </div>
               
-              {/* Creamy Shine Overlay */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-amber-100/30 to-transparent opacity-40 pointer-events-none" />
+              {/* Transparent Shine Overlay */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-40 pointer-events-none" />
             </div>
           </div>
 
@@ -771,23 +803,6 @@ export default function Home() {
 
               </div>
               
-              {/* Descriptive Text */}
-              <div className="text-center mt-8">
-                <p 
-                  className="text-sm font-bold"
-                  style={{
-                    background: 'linear-gradient(135deg, #FFD700 0%, #FFA500 25%, #FF8C00 50%, #DAA520 75%, #B8860B 100%)',
-                    backgroundClip: 'text',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    textShadow: '2px 2px 4px rgba(218, 165, 32, 0.3), 0 0 10px rgba(255, 215, 0, 0.2)',
-                    letterSpacing: '0.5px',
-                    filter: 'drop-shadow(1px 1px 2px rgba(184, 134, 11, 0.4))'
-                  }}
-                >
-                  Dubai Featured Property Projects from our Premium Property partners
-                </p>
-              </div>
                 </div>
               ) : (
                 <div className="py-16 bg-gray-700 rounded-lg">
