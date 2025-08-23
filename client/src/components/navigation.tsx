@@ -46,6 +46,11 @@ export default function Navigation() {
                 </span>
               </Link>
             ))}
+            <Link href="/contact">
+              <Button className="bg-black text-white hover:bg-charcoal">
+                Book Consultation
+              </Button>
+            </Link>
           </div>
           
           {/* Mobile Menu Button */}
@@ -74,6 +79,14 @@ export default function Navigation() {
                   </span>
                 </Link>
               ))}
+              <Link href="/contact">
+                <Button 
+                  className="bg-black text-white hover:bg-charcoal mx-3"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Book Consultation
+                </Button>
+              </Link>
             </div>
           </div>
         )}
