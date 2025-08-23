@@ -99,7 +99,7 @@ export class DatabaseStorage implements IStorage {
 
   // Inquiries
   async getInquiries(): Promise<Inquiry[]> {
-    return await db.select().from(inquiries);
+    return await db.select().from(inquiries).orderBy(inquiries.createdAt);
   }
 
   async createInquiry(insertInquiry: InsertInquiry): Promise<Inquiry> {

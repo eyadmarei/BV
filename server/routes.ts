@@ -93,6 +93,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Admin route to get all inquiries (contact messages)
+  app.get("/api/admin/inquiries", /* isAdmin, */ async (req, res) => {
+    try {
+      const inquiries = await storage.getInquiries();
+      res.json(inquiries);
+    } catch (error) {
+      console.error("Error fetching inquiries:", error);
+      res.status(500).json({ message: "Failed to fetch inquiries" });
+    }
+  });
+
   app.get("/api/inquiries", async (req, res) => {
     try {
       const inquiries = await storage.getInquiries();

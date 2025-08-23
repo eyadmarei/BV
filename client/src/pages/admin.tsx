@@ -4,7 +4,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { LocalImageUploader } from '../components/LocalImageUploader';
 import { useAuth } from '../hooks/useAuth';
 import { apiRequest } from '../lib/queryClient';
-import type { Property, InsertProperty, FeaturedStory, InsertFeaturedStory, ContactContent, InsertContactContent } from '@shared/schema';
+import type { Property, InsertProperty, FeaturedStory, InsertFeaturedStory, ContactContent, InsertContactContent, Inquiry } from '@shared/schema';
 
 // Helper function to handle image URLs (now local images)
 const convertImageUrl = (url: string): string => {
@@ -16,7 +16,7 @@ const convertImageUrl = (url: string): string => {
 
 export default function AdminPanel() {
   const { user, isLoading: authLoading, isAuthenticated, isAdmin } = useAuth();
-  const [activeTab, setActiveTab] = useState<'partners' | 'projects' | 'units' | 'stories' | 'contact'>('partners');
+  const [activeTab, setActiveTab] = useState<'partners' | 'projects' | 'units' | 'stories' | 'contact' | 'inbox'>('partners');
   const [selectedProperty, setSelectedProperty] = useState<Property | null>(null);
   const [isEditing, setIsEditing] = useState(false);
   const [showAddProjectForm, setShowAddProjectForm] = useState(false);
@@ -86,6 +86,12 @@ export default function AdminPanel() {
   // Fetch contact content for admin
   const { data: contactContent, isLoading: isLoadingContact, refetch: refetchContact } = useQuery<ContactContent>({
     queryKey: ['/api/contact-content'],
+    enabled: isAuthenticated && isAdmin,
+  });
+
+  // Fetch inquiries (contact messages)
+  const { data: inquiries = [], isLoading: isLoadingInquiries } = useQuery<Inquiry[]>({
+    queryKey: ['/api/admin/inquiries'],
     enabled: isAuthenticated && isAdmin,
   });
 
@@ -435,6 +441,16 @@ export default function AdminPanel() {
                 }`}
               >
                 📞 Contact Content
+              </button>
+              <button
+                onClick={() => setActiveTab('inbox')}
+                className={`py-4 px-1 border-b-2 font-medium text-sm ${
+                  activeTab === 'inbox'
+                    ? 'border-black text-black'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
+              >
+                📬 Inbox ({inquiries.length})
               </button>
             </nav>
           </div>
@@ -1306,7 +1322,7 @@ export default function AdminPanel() {
                 
                 <form onSubmit={(e) => {
                   e.preventDefault();
-                  if (contactContent) {
+                  if (contactContent?.id) {
                     updateContactMutation.mutate({
                       id: contactContent.id,
                       data: contactFormData
@@ -1463,6 +1479,74 @@ export default function AdminPanel() {
             )}
           </div>
         )}
+
+        {/* Inbox Tab */}
+        {activeTab === 'inbox' && (
+          <div>
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-xl font-bold text-gray-900">Contact Messages Inbox</h2>
+              <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">
+                {inquiries.length} messages
+              </span>
+            </div>
+
+            {isLoadingInquiries ? (
+              <div className="bg-white rounded-lg shadow-md p-6">
+                <div className="text-center py-8">
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-black mx-auto mb-4"></div>
+                  <p className="text-gray-600">Loading messages...</p>
+                </div>
+              </div>
+            ) : inquiries.length === 0 ? (
+              <div className="bg-white rounded-lg shadow-md p-6">
+                <div className="text-center py-8">
+                  <div className="text-6xl mb-4">📭</div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">No messages yet</h3>
+                  <p className="text-gray-600">Contact form submissions from users will appear here.</p>
+                </div>
+              </div>
+            ) : (
+              <div className="space-y-4">
+                {inquiries.map((inquiry) => (
+                  <div key={inquiry.id} className="bg-white rounded-lg shadow-md p-6">
+                    <div className="flex justify-between items-start mb-4">
+                      <div>
+                        <h3 className="text-lg font-semibold text-gray-900">
+                          {inquiry.firstName} {inquiry.lastName}
+                        </h3>
+                        <p className="text-sm text-gray-500">{inquiry.email}</p>
+                        {inquiry.phone && (
+                          <p className="text-sm text-gray-500">{inquiry.phone}</p>
+                        )}
+                      </div>
+                      <div className="text-right">
+                        {inquiry.service && (
+                          <span className="bg-black text-white px-2 py-1 rounded text-xs">
+                            {inquiry.service}
+                          </span>
+                        )}
+                        <p className="text-xs text-gray-400 mt-1">
+                          {new Date(inquiry.createdAt || '').toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric',
+                            hour: '2-digit',
+                            minute: '2-digit'
+                          })}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="border-t pt-4">
+                      <h4 className="text-sm font-medium text-gray-700 mb-2">Message:</h4>
+                      <p className="text-gray-900 whitespace-pre-wrap">{inquiry.message}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+
       </div>
     </div>
   );
