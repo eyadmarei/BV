@@ -309,7 +309,7 @@ export default function BuySell() {
                             <div className="flex gap-1.5">
                               <a 
                                 href="/contact"
-                                className="bg-black text-white px-2.5 py-1 rounded-full text-[11px] font-medium hover:bg-gray-800 transition-colors flex-1 text-center"
+                                className="bg-black text-white px-2.5 py-1 rounded-full text-[11px] font-medium hover:bg-gray-800 transition-colors text-center"
                               >
                                 Book Consultation
                               </a>
@@ -318,7 +318,7 @@ export default function BuySell() {
                                   href={property.brochureUrl} 
                                   target="_blank" 
                                   rel="noopener noreferrer"
-                                  className="bg-white border border-black text-black px-2.5 py-1 rounded-full text-[11px] font-medium hover:bg-gray-50 transition-colors flex-1 text-center"
+                                  className="bg-white border border-black text-black px-2.5 py-1 rounded-full text-[11px] font-medium hover:bg-gray-50 transition-colors text-center"
                                 >
                                   Download Brochure
                                 </a>
