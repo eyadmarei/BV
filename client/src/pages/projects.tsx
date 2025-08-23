@@ -36,13 +36,18 @@ export default function Projects() {
 
   // Get partner filter from URL query params
   useEffect(() => {
-    const params = new URLSearchParams(location.split('?')[1] || '');
+    console.log('Full location:', location);
+    const queryString = location.includes('?') ? location.split('?')[1] : '';
+    console.log('Query string:', queryString);
+    const params = new URLSearchParams(queryString);
     const partnerParam = params.get('partner');
     console.log('URL partner param:', partnerParam);
     console.log('Available partners:', partners.map(p => p.name));
     if (partnerParam) {
-      setSelectedPartner(partnerParam);
-      console.log('Set selected partner to:', partnerParam);
+      const decodedPartner = decodeURIComponent(partnerParam);
+      console.log('Decoded partner:', decodedPartner);
+      setSelectedPartner(decodedPartner);
+      console.log('Set selected partner to:', decodedPartner);
     }
   }, [location]);
 
@@ -60,8 +65,13 @@ export default function Projects() {
   const filteredProperties = (properties as any[]).filter((property: any) => {
     const typeMatch = selectedType === 'All' || property.type === selectedType.toLowerCase();
     const partnerMatch = selectedPartner === 'All Partners' || property.partner === selectedPartner;
+    console.log(`Property: ${property.title}, Partner: ${property.partner}, Selected: ${selectedPartner}, Match: ${partnerMatch}`);
     return typeMatch && partnerMatch;
   });
+
+  console.log('Current selected partner:', selectedPartner);
+  console.log('Total properties:', Array.isArray(properties) ? properties.length : 0);
+  console.log('Filtered properties:', filteredProperties.length);
 
   return (
     <div className="min-h-screen bg-white">
