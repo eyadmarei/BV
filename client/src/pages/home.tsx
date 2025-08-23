@@ -682,7 +682,14 @@ export default function Home() {
               
               {/* Descriptive Text */}
               <div className="text-center mt-8">
-                <p className="text-gray-600 text-sm">
+                <p 
+                  className="text-sm font-bold"
+                  style={{
+                    color: '#c0c0c0',
+                    textShadow: '0 0 10px rgba(192,192,192,0.6), 0 0 15px rgba(255,255,255,0.4), 0 1px 3px rgba(0,0,0,0.3)',
+                    letterSpacing: '0.5px'
+                  }}
+                >
                   Dubai Featured Property Projects from our Premium Property partners
                 </p>
               </div>
