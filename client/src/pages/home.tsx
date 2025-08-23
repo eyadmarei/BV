@@ -743,13 +743,13 @@ export default function Home() {
               </div>
                 </div>
               ) : (
-                <div className="py-16 bg-black rounded-lg">
+                <div className="py-16 bg-gray-800 rounded-lg">
                   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12">
-                      <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                    <div className="text-center mb-8">
+                      <h2 className="text-lg md:text-xl font-bold text-white mb-2">
                         Explore Our Premium Partners
                       </h2>
-                      <p className="text-lg text-white/80 mb-8">
+                      <p className="text-sm text-white/80 mb-6">
                         Discover luxury developments from Dubai's most trusted developers
                       </p>
                       
@@ -793,21 +793,21 @@ export default function Home() {
                           initial={{ opacity: 0, y: 30 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.6, delay: index * 0.1 }}
-                          className="bg-white/20 backdrop-blur-sm rounded-lg p-6 border border-white/10 shadow-lg w-54 hover:bg-white/25 transition-all duration-300"
+                          className="bg-white/20 backdrop-blur-sm rounded-lg p-4 border border-white/10 shadow-lg w-48 hover:bg-white/25 transition-all duration-300"
                           whileHover={{ scale: 1.05, y: -5 }}
                         >
                           <div className="text-center">
-                            <div className="flex items-center justify-center h-20 mb-4">
+                            <div className="flex items-center justify-center h-16 mb-3">
                               <img 
                                 src={partner.logo} 
                                 alt={`${partner.name} logo`}
                                 className="max-h-full max-w-full object-contain filter drop-shadow-md"
                               />
                             </div>
-                            <h4 className="text-white text-sm font-bold mb-2">{partner.name}</h4>
-                            <p className="text-white/80 text-xs mb-4">{partner.description}</p>
+                            <h4 className="text-white text-xs font-bold mb-1">{partner.name}</h4>
+                            <p className="text-white/80 text-[10px] mb-3">{partner.description}</p>
                             <Link href={`/projects?partner=${encodeURIComponent(partner.name)}`}>
-                              <button className="bg-black text-white px-4 py-2 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors w-full">
+                              <button className="bg-black text-white px-3 py-1.5 rounded-full text-[10px] font-medium hover:bg-gray-800 transition-colors w-full">
                                 View Collection
                               </button>
                             </Link>
