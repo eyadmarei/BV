@@ -176,7 +176,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
         id: "test-user",
         email: "admin@test.com", 
         firstName: "Admin",
-        lastName: "User"
+        lastName: "User",
+        isAdmin: true
       };
       res.json(mockUser);
     } catch (error) {
