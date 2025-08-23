@@ -148,17 +148,28 @@ export default function Properties() {
                     )}
                     
                     <div className="flex gap-3">
-                      <Button className="flex-1 bg-black text-white hover:bg-charcoal font-semibold">
-                        View Details
-                      </Button>
                       <Button 
                         asChild 
-                        className="flex-1 bg-white border border-black text-black hover:bg-gray-50 font-semibold"
+                        className="flex-1 bg-black text-white hover:bg-charcoal font-semibold"
                       >
                         <Link href="/contact">
                           Contact Us
                         </Link>
                       </Button>
+                      {property.brochureUrl && (
+                        <Button 
+                          asChild 
+                          className="flex-1 bg-white border border-black text-black hover:bg-gray-50 font-semibold"
+                        >
+                          <a 
+                            href={property.brochureUrl} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                          >
+                            Download Brochure
+                          </a>
+                        </Button>
+                      )}
                     </div>
                   </CardContent>
                 </Card>

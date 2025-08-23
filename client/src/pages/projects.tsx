@@ -254,14 +254,21 @@ export default function Projects() {
                         )}
                       </div>
                       <div className="flex gap-2">
-                        <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors flex-1">
-                          View Details
-                        </button>
                         <Link href="/contact">
-                          <button className="bg-white border border-black text-black px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-50 transition-colors flex-1">
+                          <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors flex-1">
                             Contact Us
                           </button>
                         </Link>
+                        {property.brochureUrl && (
+                          <a 
+                            href={property.brochureUrl} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="bg-white border border-black text-black px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-50 transition-colors flex-1 text-center"
+                          >
+                            Download Brochure
+                          </a>
+                        )}
                       </div>
                     </div>
                   </div>
