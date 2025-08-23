@@ -925,7 +925,7 @@ export default function Home() {
                   <p className="text-white/80 text-sm mb-4 line-clamp-3">{story.content}</p>
                   <div className="flex justify-between items-center">
                     <span className="text-white/60 text-xs">
-                      {new Date(story.publishedAt).toLocaleDateString()}
+                      {story.publishedAt ? new Date(story.publishedAt).toLocaleDateString() : 'No date'}
                     </span>
                     <button className="bg-white text-black px-4 py-2 rounded-full text-xs font-medium hover:bg-gray-200 transition-colors">
                       Read More
