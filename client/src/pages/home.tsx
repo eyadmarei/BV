@@ -272,38 +272,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Elegant Black Header Section */}
-      <section className="py-12 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 
-              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-wide"
-              style={{
-                background: 'linear-gradient(135deg, #FFFFFF 0%, #F8F8F8 25%, #E8E8E8 50%, #F8F8F8 75%, #FFFFFF 100%)',
-                backgroundClip: 'text',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                textShadow: '2px 2px 4px rgba(255, 255, 255, 0.1), 0 0 20px rgba(255, 255, 255, 0.05)',
-                letterSpacing: '1px',
-                filter: 'drop-shadow(1px 1px 3px rgba(255, 255, 255, 0.1))'
-              }}
-            >
-              Dubai Featured Property Projects
-            </h2>
-            <p 
-              className="text-xl md:text-2xl mt-4 font-light tracking-wide"
-              style={{
-                color: '#E5E5E5',
-                textShadow: '1px 1px 2px rgba(0, 0, 0, 0.3)',
-                letterSpacing: '0.5px'
-              }}
-            >
-              from our Premium Property Partners
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Tabbed Section - Partners & Services */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -803,6 +771,20 @@ export default function Home() {
 
               </div>
               
+              {/* Elegant Text Below Partners */}
+              <div className="text-center mt-8">
+                <p 
+                  className="text-lg md:text-xl font-light tracking-wide"
+                  style={{
+                    color: '#374151',
+                    fontFamily: 'Georgia, serif',
+                    letterSpacing: '0.5px',
+                    lineHeight: '1.6'
+                  }}
+                >
+                  Dubai Featured Property Projects from our Premium Property Partners
+                </p>
+              </div>
                 </div>
               ) : (
                 <div className="py-16 bg-gray-700 rounded-lg">
