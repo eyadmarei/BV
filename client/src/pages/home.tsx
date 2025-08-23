@@ -222,17 +222,17 @@ export default function Home() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Compact Silver Radio Slider */}
+          {/* Compact Charcoal Black Radio Slider */}
           <div className="flex justify-center mb-8">
-            <div className="relative bg-gradient-to-b from-gray-200 via-gray-100 to-gray-200 rounded-full p-0.5 shadow-lg border border-gray-300/60">
-              {/* Sliding Silver Radio Button */}
+            <div className="relative bg-gradient-to-b from-gray-800 via-gray-900 to-gray-800 rounded-full p-0.5 shadow-xl border border-gray-700/60">
+              {/* Sliding Charcoal Radio Button */}
               <div 
-                className={`absolute top-0.5 h-[calc(100%-4px)] rounded-full shadow-md transition-all duration-400 ease-out ${
+                className={`absolute top-0.5 h-[calc(100%-4px)] rounded-full shadow-lg transition-all duration-400 ease-out ${
                   activeTab === 'partners' ? 'left-0.5 w-[calc(50%-2px)]' : 'left-[calc(50%+1px)] w-[calc(50%-2px)]'
                 }`}
                 style={{
-                  background: 'linear-gradient(135deg, #e5e7eb 0%, #d1d5db 25%, #9ca3af 50%, #d1d5db 75%, #e5e7eb 100%)',
-                  boxShadow: '0 2px 8px rgba(0,0,0,0.15), inset 0 1px 2px rgba(255,255,255,0.8)'
+                  background: 'linear-gradient(135deg, #374151 0%, #1f2937 25%, #111827 50%, #1f2937 75%, #374151 100%)',
+                  boxShadow: '0 3px 12px rgba(0,0,0,0.4), inset 0 1px 2px rgba(255,255,255,0.1)'
                 }}
               />
               
@@ -242,8 +242,8 @@ export default function Home() {
                   onClick={() => setActiveTab('partners')}
                   className={`relative px-4 py-2 text-xs font-semibold transition-all duration-300 rounded-full ${
                     activeTab === 'partners' 
-                      ? 'text-gray-700' 
-                      : 'text-gray-500 hover:text-gray-600'
+                      ? 'text-white' 
+                      : 'text-gray-400 hover:text-gray-300'
                   }`}
                 >
                   Partner Collections
@@ -252,16 +252,16 @@ export default function Home() {
                   onClick={() => setActiveTab('services')}
                   className={`relative px-4 py-2 text-xs font-semibold transition-all duration-300 rounded-full ${
                     activeTab === 'services' 
-                      ? 'text-gray-700' 
-                      : 'text-gray-500 hover:text-gray-600'
+                      ? 'text-white' 
+                      : 'text-gray-400 hover:text-gray-300'
                   }`}
                 >
                   Our Services
                 </button>
               </div>
               
-              {/* Silver Shine Overlay */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-60 pointer-events-none" />
+              {/* Charcoal Shine Overlay */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-40 pointer-events-none" />
             </div>
           </div>
 
