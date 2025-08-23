@@ -48,6 +48,7 @@ export default function PropertyCard({ property, delay = 0, onViewCollection }: 
         <img 
           src={property.imageUrl} 
           alt={property.title}
+          loading="lazy"
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>

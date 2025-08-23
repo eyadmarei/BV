@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "wouter";
 import PropertyCard from "@/components/property-card";
 import { 
@@ -126,18 +126,33 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState("partners");
   const [partnerStyle, setPartnerStyle] = useState('fancy'); // 'fancy' or 'black'
   const [partnerFilter, setPartnerFilter] = useState("");
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
   
+  // Prioritize properties first (most important for LCP)
   const { data: properties, isLoading: propertiesLoading } = useQuery<Property[]>({
     queryKey: ["/api/properties"],
   });
 
+  // Defer services loading slightly
   const { data: services, isLoading: servicesLoading } = useQuery<Service[]>({
     queryKey: ["/api/services"],
+    staleTime: 5 * 60 * 1000, // Cache for 5 minutes
   });
 
+  // Defer stories loading (least critical for initial render)
   const { data: featuredStories = [], isLoading: isLoadingStories } = useQuery<FeaturedStory[]>({
     queryKey: ['/api/featured-stories'],
+    staleTime: 10 * 60 * 1000, // Cache for 10 minutes
   });
+
+  // Load video after critical content
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setVideoLoaded(true);
+    }, 1000); // Delay video loading by 1 second
+    return () => clearTimeout(timer);
+  }, []);
 
   const featuredProperties = properties?.filter(p => p.featured) || [];
   const activeCategory = serviceCategories.find(cat => cat.id === activeTab);
@@ -152,20 +167,29 @@ export default function Home() {
     <div className="min-h-screen">
       {/* Hero Video Section */}
       <section className="relative h-screen overflow-hidden bg-black">
-        {/* Background Video */}
-        <video 
-          className="absolute top-5 left-0 w-full h-[calc(100%-1.25rem)] object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          onError={(e) => console.error('Video error:', e)}
-          onLoadStart={() => console.log('Video loading started')}
-          onCanPlay={() => console.log('Video can play')}
-        >
-          <source src="/hero-video.mp4" type="video/mp4" />
-          <source src={heroVideo} type="video/mp4" />
-        </video>
+        {/* Background Video - Lazy Loaded */}
+        {videoLoaded && (
+          <video 
+            ref={videoRef}
+            className="absolute top-5 left-0 w-full h-[calc(100%-1.25rem)] object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            onError={(e) => console.error('Video error:', e)}
+            onLoadStart={() => console.log('Video loading started')}
+            onCanPlay={() => console.log('Video can play')}
+          >
+            <source src="/hero-video.mp4" type="video/mp4" />
+            <source src={heroVideo} type="video/mp4" />
+          </video>
+        )}
+        
+        {/* Fallback background while video loads */}
+        {!videoLoaded && (
+          <div className="absolute top-5 left-0 w-full h-[calc(100%-1.25rem)] bg-gradient-to-r from-black via-gray-900 to-black"></div>
+        )}
         
         {/* Dark Overlay */}
         <div className="absolute top-0 left-0 w-full h-full bg-black/40"></div>
@@ -339,6 +363,7 @@ export default function Home() {
                 <img 
                   src={binghatiLogo} 
                   alt="Binghatti logo"
+                  loading="lazy"
                   style={{
                     maxWidth: '90%',
                     maxHeight: '90%',
@@ -389,6 +414,7 @@ export default function Home() {
                 <img 
                   src={danubeLogo} 
                   alt="Danube Properties logo"
+                  loading="lazy"
                   style={{
                     maxWidth: '90%',
                     maxHeight: '90%',
@@ -439,6 +465,7 @@ export default function Home() {
                 <img 
                   src={ellingtonLogo} 
                   alt="Ellington Properties logo"
+                  loading="lazy"
                   style={{
                     maxWidth: '90%',
                     maxHeight: '90%',
@@ -489,6 +516,7 @@ export default function Home() {
                 <img 
                   src={emaarLogo} 
                   alt="Emaar logo"
+                  loading="lazy"
                   style={{
                     maxWidth: '90%',
                     maxHeight: '90%',
@@ -539,6 +567,7 @@ export default function Home() {
                 <img 
                   src={imanLogo} 
                   alt="IMAN Developers logo"
+                  loading="lazy"
                   style={{
                     maxWidth: '90%',
                     maxHeight: '90%',
@@ -589,6 +618,7 @@ export default function Home() {
                 <img 
                   src={marquisLogo} 
                   alt="Marquis logo"
+                  loading="lazy"
                   style={{
                     maxWidth: '90%',
                     maxHeight: '90%',
@@ -639,6 +669,7 @@ export default function Home() {
                 <img 
                   src={rabdanLogo} 
                   alt="Rabdan logo"
+                  loading="lazy"
                   style={{
                     maxWidth: '90%',
                     maxHeight: '90%',
@@ -689,6 +720,7 @@ export default function Home() {
                 <img 
                   src={tigerLogo} 
                   alt="Tiger Properties logo"
+                  loading="lazy"
                   style={{
                     maxWidth: '90%',
                     maxHeight: '90%',
@@ -791,6 +823,7 @@ export default function Home() {
                               <img 
                                 src={partner.logo} 
                                 alt={`${partner.name} logo`}
+                                loading="lazy"
                                 className="max-h-full max-w-full object-contain filter drop-shadow-md"
                               />
                             </div>
