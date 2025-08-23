@@ -1173,7 +1173,7 @@ export default function AdminPanel() {
                     </div>
                     <p className="text-gray-600 text-sm mb-4 line-clamp-3">{story.content}</p>
                     <div className="text-xs text-gray-500 mb-4">
-                      Published: {new Date(story.publishedAt).toLocaleDateString()}
+                      Published: {story.publishedAt ? new Date(story.publishedAt).toLocaleDateString() : 'Not published'}
                     </div>
                     <div className="flex gap-2">
                       <button
@@ -1281,6 +1281,184 @@ export default function AdminPanel() {
                     </button>
                   </div>
                 </form>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Contact Content Tab */}
+        {activeTab === 'contact' && (
+          <div>
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-xl font-bold text-gray-900">Manage Contact Content</h2>
+            </div>
+
+            {isLoadingContact ? (
+              <div className="bg-white rounded-lg shadow-md p-6">
+                <div className="text-center py-8">
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-black mx-auto mb-4"></div>
+                  <p className="text-gray-600">Loading contact content...</p>
+                </div>
+              </div>
+            ) : (
+              <div className="bg-white rounded-lg shadow-md p-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Contact Information</h3>
+                
+                <form onSubmit={(e) => {
+                  e.preventDefault();
+                  if (contactContent) {
+                    updateContactMutation.mutate({
+                      id: contactContent.id,
+                      data: contactFormData
+                    });
+                  } else {
+                    createContactMutation.mutate(contactFormData as InsertContactContent);
+                  }
+                }} className="space-y-4">
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>
+                      <input
+                        type="text"
+                        value={contactFormData.title || contactContent?.title || ''}
+                        onChange={(e) => setContactFormData(prev => ({ ...prev, title: e.target.value }))}
+                        className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+                        placeholder="Ready to Get Started?"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Subtitle</label>
+                      <input
+                        type="text"
+                        value={contactFormData.subtitle || contactContent?.subtitle || ''}
+                        onChange={(e) => setContactFormData(prev => ({ ...prev, subtitle: e.target.value }))}
+                        className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+                        placeholder="Contact our expert team today"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                    <textarea
+                      value={contactFormData.description || contactContent?.description || ''}
+                      onChange={(e) => setContactFormData(prev => ({ ...prev, description: e.target.value }))}
+                      rows={3}
+                      className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+                      placeholder="Contact our expert team today to discuss your property and business service needs..."
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                      <input
+                        type="text"
+                        value={contactFormData.phone || contactContent?.phone || ''}
+                        onChange={(e) => setContactFormData(prev => ({ ...prev, phone: e.target.value }))}
+                        className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+                        placeholder="+971 XXX-XXXX"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                      <input
+                        type="email"
+                        value={contactFormData.email || contactContent?.email || ''}
+                        onChange={(e) => setContactFormData(prev => ({ ...prev, email: e.target.value }))}
+                        className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+                        placeholder="info@bestviewproperties.com"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Address</label>
+                      <input
+                        type="text"
+                        value={contactFormData.address || contactContent?.address || ''}
+                        onChange={(e) => setContactFormData(prev => ({ ...prev, address: e.target.value }))}
+                        className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+                        placeholder="Dubai, United Arab Emirates"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Office Hours</label>
+                      <input
+                        type="text"
+                        value={contactFormData.officeHours || contactContent?.officeHours || ''}
+                        onChange={(e) => setContactFormData(prev => ({ ...prev, officeHours: e.target.value }))}
+                        className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+                        placeholder="Mon-Fri: 9AM-6PM, Sat: 10AM-4PM"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex justify-end gap-4 pt-4 border-t">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setContactFormData({
+                          title: '',
+                          subtitle: '',
+                          description: '',
+                          phone: '',
+                          email: '',
+                          address: '',
+                          officeHours: ''
+                        });
+                      }}
+                      className="px-4 py-2 text-gray-600 border border-gray-300 rounded-md hover:bg-gray-50"
+                    >
+                      Reset
+                    </button>
+                    <button
+                      type="submit"
+                      disabled={createContactMutation.isPending || updateContactMutation.isPending}
+                      className="px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 disabled:opacity-50"
+                    >
+                      {contactContent 
+                        ? (updateContactMutation.isPending ? 'Updating...' : 'Update Contact Info')
+                        : (createContactMutation.isPending ? 'Creating...' : 'Create Contact Info')
+                      }
+                    </button>
+                  </div>
+                </form>
+
+                {/* Preview Section */}
+                <div className="mt-8 pt-6 border-t">
+                  <h4 className="text-md font-medium text-gray-900 mb-4">Preview</h4>
+                  <div className="bg-gray-50 rounded-lg p-6">
+                    <h5 className="text-lg font-semibold text-gray-900 mb-2">
+                      {contactFormData.title || contactContent?.title || 'Ready to Get Started?'}
+                    </h5>
+                    <p className="text-gray-600 mb-4">
+                      {contactFormData.subtitle || contactContent?.subtitle || 'Contact our expert team today'}
+                    </p>
+                    <p className="text-sm text-gray-600 mb-4">
+                      {contactFormData.description || contactContent?.description || 'Contact our expert team today to discuss your property and business service needs...'}
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                      <div>
+                        <strong>📞 Phone:</strong> {contactFormData.phone || contactContent?.phone || '+971 XXX-XXXX'}
+                      </div>
+                      <div>
+                        <strong>✉️ Email:</strong> {contactFormData.email || contactContent?.email || 'info@bestviewproperties.com'}
+                      </div>
+                      <div>
+                        <strong>📍 Address:</strong> {contactFormData.address || contactContent?.address || 'Dubai, United Arab Emirates'}
+                      </div>
+                      <div>
+                        <strong>🕒 Hours:</strong> {contactFormData.officeHours || contactContent?.officeHours || 'Mon-Fri: 9AM-6PM, Sat: 10AM-4PM'}
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             )}
           </div>

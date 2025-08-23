@@ -543,6 +543,36 @@ export class MemStorage implements IStorage {
   async deleteFeaturedStory(id: number): Promise<boolean> {
     return this.featuredStories.delete(id);
   }
+
+  // Contact Content - Memory Storage implementation
+  private contactContentData: ContactContent | undefined;
+  
+  async getContactContent(): Promise<ContactContent | undefined> {
+    return this.contactContentData;
+  }
+
+  async createContactContent(insertContent: InsertContactContent): Promise<ContactContent> {
+    const id = 1;
+    const content: ContactContent = {
+      id,
+      ...insertContent,
+      updatedAt: new Date(),
+    };
+    this.contactContentData = content;
+    return content;
+  }
+
+  async updateContactContent(id: number, updateData: Partial<InsertContactContent>): Promise<ContactContent | undefined> {
+    if (!this.contactContentData) return undefined;
+    
+    const updated: ContactContent = {
+      ...this.contactContentData,
+      ...updateData,
+      updatedAt: new Date(),
+    };
+    this.contactContentData = updated;
+    return updated;
+  }
 }
 
 export const storage = new DatabaseStorage();
