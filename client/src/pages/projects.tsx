@@ -183,17 +183,17 @@ export default function Projects() {
               ))}
             </div>
           ) : filteredProperties.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredProperties.map((property: any, index: number) => (
                 <motion.div
                   key={property.id}
-                  className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="bg-white rounded-xl overflow-hidden border border-gray-200 hover:border-gray-300 transition-all duration-300"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  whileHover={{ y: -5 }}
+                  whileHover={{ y: -2 }}
                 >
-                  <div className="h-48 bg-gray-200 relative overflow-hidden">
+                  <div className="h-48 bg-gray-100 relative overflow-hidden">
                     {property.imageUrl ? (
                       <img 
                         src={property.imageUrl} 
@@ -201,31 +201,59 @@ export default function Projects() {
                         className="w-full h-full object-cover"
                       />
                     ) : (
-                      <div className="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center">
-                        <span className="text-gray-600 font-semibold">Property Image</span>
+                      <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                        <div className="text-center">
+                          <div className="text-3xl mb-2">
+                            {property.type === 'villa' ? '🏡' : 
+                             property.type === 'townhouse' ? '🏘️' : 
+                             property.type === 'apartment' ? '🏢' : '🏠'}
+                          </div>
+                          <span className="text-gray-600 text-sm font-medium">
+                            {property.type?.charAt(0).toUpperCase() + property.type?.slice(1)} Image
+                          </span>
+                        </div>
                       </div>
                     )}
-                    <div className="absolute top-4 left-4">
-                      <span className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium capitalize">
-                        {property.type}
+                    <div className="absolute top-3 left-3">
+                      <span className="bg-black text-white px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide">
+                        {property.type || 'Property'}
                       </span>
                     </div>
-                  </div>
-                  <div className="p-6">
-                    <div className="flex items-center justify-between mb-2">
-                      <h4 className="text-xl font-bold text-black">{property.title}</h4>
-                      {property.partner && (
-                        <span className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">
-                          {property.partner}
+                    {property.featured && (
+                      <div className="absolute top-3 right-3">
+                        <span className="bg-yellow-500 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                          ⭐ Featured
                         </span>
+                      </div>
+                    )}
+                  </div>
+                  <div className="p-5">
+                    <div className="mb-3">
+                      <h4 className="text-lg font-bold text-black mb-1 line-clamp-1">{property.title || 'Property Title'}</h4>
+                      {property.partner && (
+                        <div className="text-xs text-gray-500 font-medium">
+                          by {property.partner}
+                        </div>
                       )}
                     </div>
-                    <p className="text-gray-600 mb-6 line-clamp-3">{property.description}</p>
+                    <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                      {property.description || 'Modern property development with premium amenities and excellent location.'}
+                    </p>
                     
-                    <div>
-                      {property.featured && (
-                        <div className="text-sm text-yellow-600 font-medium">⭐ Featured</div>
-                      )}
+                    <div className="flex items-center justify-between pt-3 border-t border-gray-100">
+                      <div className="flex items-center gap-4 text-xs text-gray-500">
+                        <span className="flex items-center gap-1">
+                          📍 {property.location || 'Dubai'}
+                        </span>
+                        {property.price && (
+                          <span className="flex items-center gap-1">
+                            💰 {property.price}
+                          </span>
+                        )}
+                      </div>
+                      <button className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors">
+                        View Details
+                      </button>
                     </div>
                   </div>
                 </motion.div>
