@@ -222,29 +222,52 @@ export default function Home() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Tab Navigation */}
+          {/* Elegant Silver Tab Navigation with Sliding Bullet */}
           <div className="flex justify-center mb-8">
-            <div className="bg-white rounded-lg p-1 shadow-lg border border-gray-200">
-              <button 
-                onClick={() => setActiveTab('partners')}
-                className={`px-6 py-3 rounded-md font-semibold transition-all duration-300 ${
-                  activeTab === 'partners' 
-                    ? 'bg-gray-900 text-white shadow-md' 
-                    : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
+            <div className="relative bg-gradient-to-r from-gray-100 via-gray-50 to-gray-100 rounded-xl p-1 shadow-2xl border border-gray-200/50 backdrop-blur-sm">
+              {/* Sliding Silver Bullet */}
+              <div 
+                className={`absolute top-1 h-[calc(100%-8px)] bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 rounded-lg shadow-xl transition-all duration-500 ease-out border border-gray-600/20 ${
+                  activeTab === 'partners' ? 'left-1 w-[calc(50%-4px)]' : 'left-[calc(50%+2px)] w-[calc(50%-4px)]'
                 }`}
-              >
-                Partner Collections
-              </button>
-              <button 
-                onClick={() => setActiveTab('services')}
-                className={`px-6 py-3 rounded-md font-semibold transition-all duration-300 ${
-                  activeTab === 'services' 
-                    ? 'bg-gray-900 text-white shadow-md' 
-                    : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
-                }`}
-              >
-                Our Services
-              </button>
+                style={{
+                  background: 'linear-gradient(145deg, #374151 0%, #1f2937 50%, #374151 100%)',
+                  boxShadow: '0 4px 20px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.1)'
+                }}
+              />
+              
+              {/* Tab Buttons */}
+              <div className="relative flex">
+                <button 
+                  onClick={() => setActiveTab('partners')}
+                  className={`relative px-8 py-4 font-bold text-sm tracking-wide transition-all duration-300 rounded-lg ${
+                    activeTab === 'partners' 
+                      ? 'text-white drop-shadow-sm' 
+                      : 'text-gray-600 hover:text-gray-800'
+                  }`}
+                  style={{
+                    textShadow: activeTab === 'partners' ? '0 1px 2px rgba(0,0,0,0.5)' : 'none'
+                  }}
+                >
+                  Partner Collections
+                </button>
+                <button 
+                  onClick={() => setActiveTab('services')}
+                  className={`relative px-8 py-4 font-bold text-sm tracking-wide transition-all duration-300 rounded-lg ${
+                    activeTab === 'services' 
+                      ? 'text-white drop-shadow-sm' 
+                      : 'text-gray-600 hover:text-gray-800'
+                  }`}
+                  style={{
+                    textShadow: activeTab === 'services' ? '0 1px 2px rgba(0,0,0,0.5)' : 'none'
+                  }}
+                >
+                  Our Services
+                </button>
+              </div>
+              
+              {/* Silver Shine Effect */}
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-50 pointer-events-none" />
             </div>
           </div>
 
