@@ -36,12 +36,10 @@ export default function Projects() {
 
   // Get partner filter from URL query params
   useEffect(() => {
-    console.log('Full location:', location);
-    const queryString = location.includes('?') ? location.split('?')[1] : '';
-    console.log('Query string:', queryString);
-    const params = new URLSearchParams(queryString);
-    const partnerParam = params.get('partner');
-    console.log('URL partner param:', partnerParam);
+    const urlParams = new URLSearchParams(window.location.search);
+    const partnerParam = urlParams.get('partner');
+    console.log('URL search:', window.location.search);
+    console.log('Partner param from URL:', partnerParam);
     console.log('Available partners:', partners.map(p => p.name));
     if (partnerParam) {
       const decodedPartner = decodeURIComponent(partnerParam);
@@ -49,7 +47,7 @@ export default function Projects() {
       setSelectedPartner(decodedPartner);
       console.log('Set selected partner to:', decodedPartner);
     }
-  }, [location]);
+  }, []);
 
   const { data: properties = [], isLoading } = useQuery({
     queryKey: ['/api/properties']
