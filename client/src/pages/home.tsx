@@ -314,7 +314,7 @@ export default function Home() {
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-90 px-3 py-1 rounded-full"
                   style={{ 
-                    background: '#000000',
+                    background: '#374151',
                     color: '#c0c0c0',
                     fontSize: '10px',
                     letterSpacing: '.1px',
@@ -364,7 +364,7 @@ export default function Home() {
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-90 px-3 py-1 rounded-full"
                   style={{ 
-                    background: '#000000',
+                    background: '#374151',
                     color: '#c0c0c0',
                     fontSize: '10px',
                     letterSpacing: '.1px',
@@ -414,7 +414,7 @@ export default function Home() {
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-90 px-3 py-1 rounded-full"
                   style={{ 
-                    background: '#000000',
+                    background: '#374151',
                     color: '#c0c0c0',
                     fontSize: '10px',
                     letterSpacing: '.1px',
@@ -464,7 +464,7 @@ export default function Home() {
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-90 px-3 py-1 rounded-full"
                   style={{ 
-                    background: '#000000',
+                    background: '#374151',
                     color: '#c0c0c0',
                     fontSize: '10px',
                     letterSpacing: '.1px',
@@ -514,7 +514,7 @@ export default function Home() {
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-90 px-3 py-1 rounded-full"
                   style={{ 
-                    background: '#000000',
+                    background: '#374151',
                     color: '#c0c0c0',
                     fontSize: '10px',
                     letterSpacing: '.1px',
@@ -564,7 +564,7 @@ export default function Home() {
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-90 px-3 py-1 rounded-full"
                   style={{ 
-                    background: '#000000',
+                    background: '#374151',
                     color: '#c0c0c0',
                     fontSize: '10px',
                     letterSpacing: '.1px',
@@ -614,7 +614,7 @@ export default function Home() {
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-90 px-3 py-1 rounded-full"
                   style={{ 
-                    background: '#000000',
+                    background: '#374151',
                     color: '#c0c0c0',
                     fontSize: '10px',
                     letterSpacing: '.1px',
@@ -664,7 +664,7 @@ export default function Home() {
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-90 px-3 py-1 rounded-full"
                   style={{ 
-                    background: '#000000',
+                    background: '#374151',
                     color: '#c0c0c0',
                     fontSize: '10px',
                     letterSpacing: '.1px',
@@ -683,10 +683,9 @@ export default function Home() {
               {/* Descriptive Text */}
               <div className="text-center mt-8">
                 <p 
-                  className="text-sm font-bold"
+                  className="text-sm"
                   style={{
-                    color: '#374151',
-                    textShadow: '0 1px 2px rgba(0,0,0,0.2)',
+                    color: '#000000',
                     letterSpacing: '0.5px'
                   }}
                 >
