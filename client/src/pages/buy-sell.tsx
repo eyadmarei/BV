@@ -97,6 +97,117 @@ export default function BuySell() {
           </div>
         </motion.div>
 
+        {/* Property Type Filter Cards */}
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
+          <div className="flex justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl">
+              
+              {/* Villas */}
+              <div 
+                className={`cursor-pointer transition-all duration-300 rounded-xl p-8 border-2 text-center ${
+                  selectedType === 'villa' 
+                    ? 'transform scale-105 border-black shadow-xl' 
+                    : 'hover:scale-102 border-gray-300 hover:border-gray-400 shadow-lg hover:shadow-xl'
+                }`}
+                onClick={() => setSelectedType(selectedType === 'villa' ? 'all' : 'villa')}
+                style={{
+                  background: selectedType === 'villa' 
+                    ? 'linear-gradient(145deg, #000000, #333333)' 
+                    : 'linear-gradient(145deg, #ffffff, #f8f9fa)',
+                  minHeight: '160px'
+                }}
+              >
+                <div className={`w-12 h-12 rounded-xl mx-auto mb-4 flex items-center justify-center ${
+                  selectedType === 'villa' ? 'bg-white/20' : 'bg-black/10'
+                }`}>
+                  <svg className={`w-7 h-7 ${selectedType === 'villa' ? 'text-white' : 'text-black'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                  </svg>
+                </div>
+                <h3 className={`font-bold text-xl mb-2 ${selectedType === 'villa' ? 'text-white' : 'text-black'}`}>Villas</h3>
+                <p className={`text-sm mb-4 ${selectedType === 'villa' ? 'text-white/80' : 'text-gray-600'}`}>Luxury estates with premium amenities</p>
+                <div className={`text-xs px-3 py-1 rounded-full inline-block ${
+                  selectedType === 'villa' 
+                    ? 'bg-white/20 text-white' 
+                    : 'bg-black/10 text-gray-700'
+                }`}>
+                  {selectedType === 'villa' ? 'Selected' : 'Click to filter'}
+                </div>
+              </div>
+
+              {/* Townhouses */}
+              <div 
+                className={`cursor-pointer transition-all duration-300 rounded-xl p-8 border-2 text-center ${
+                  selectedType === 'townhouse' 
+                    ? 'transform scale-105 border-black shadow-xl' 
+                    : 'hover:scale-102 border-gray-300 hover:border-gray-400 shadow-lg hover:shadow-xl'
+                }`}
+                onClick={() => setSelectedType(selectedType === 'townhouse' ? 'all' : 'townhouse')}
+                style={{
+                  background: selectedType === 'townhouse' 
+                    ? 'linear-gradient(145deg, #000000, #333333)' 
+                    : 'linear-gradient(145deg, #ffffff, #f8f9fa)',
+                  minHeight: '160px'
+                }}
+              >
+                <div className={`w-12 h-12 rounded-xl mx-auto mb-4 flex items-center justify-center ${
+                  selectedType === 'townhouse' ? 'bg-white/20' : 'bg-black/10'
+                }`}>
+                  <svg className={`w-7 h-7 ${selectedType === 'townhouse' ? 'text-white' : 'text-black'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <h3 className={`font-bold text-xl mb-2 ${selectedType === 'townhouse' ? 'text-white' : 'text-black'}`}>Townhouses</h3>
+                <p className={`text-sm mb-4 ${selectedType === 'townhouse' ? 'text-white/80' : 'text-gray-600'}`}>Modern comfort in communities</p>
+                <div className={`text-xs px-3 py-1 rounded-full inline-block ${
+                  selectedType === 'townhouse' 
+                    ? 'bg-white/20 text-white' 
+                    : 'bg-black/10 text-gray-700'
+                }`}>
+                  {selectedType === 'townhouse' ? 'Selected' : 'Click to filter'}
+                </div>
+              </div>
+
+              {/* Apartments */}
+              <div 
+                className={`cursor-pointer transition-all duration-300 rounded-xl p-8 border-2 text-center ${
+                  selectedType === 'apartment' 
+                    ? 'transform scale-105 border-black shadow-xl' 
+                    : 'hover:scale-102 border-gray-300 hover:border-gray-400 shadow-lg hover:shadow-xl'
+                }`}
+                onClick={() => setSelectedType(selectedType === 'apartment' ? 'all' : 'apartment')}
+                style={{
+                  background: selectedType === 'apartment' 
+                    ? 'linear-gradient(145deg, #000000, #333333)' 
+                    : 'linear-gradient(145deg, #ffffff, #f8f9fa)',
+                  minHeight: '160px'
+                }}
+              >
+                <div className={`w-12 h-12 rounded-xl mx-auto mb-4 flex items-center justify-center ${
+                  selectedType === 'apartment' ? 'bg-white/20' : 'bg-black/10'
+                }`}>
+                  <svg className={`w-7 h-7 ${selectedType === 'apartment' ? 'text-white' : 'text-black'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
+                  </svg>
+                </div>
+                <h3 className={`font-bold text-xl mb-2 ${selectedType === 'apartment' ? 'text-white' : 'text-black'}`}>Apartments</h3>
+                <p className={`text-sm mb-4 ${selectedType === 'apartment' ? 'text-white/80' : 'text-gray-600'}`}>Urban living with city views</p>
+                <div className={`text-xs px-3 py-1 rounded-full inline-block ${
+                  selectedType === 'apartment' 
+                    ? 'bg-white/20 text-white' 
+                    : 'bg-black/10 text-gray-700'
+                }`}>
+                  {selectedType === 'apartment' ? 'Selected' : 'Click to filter'}
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
 
         {/* Partner Filter */}
         <motion.div
