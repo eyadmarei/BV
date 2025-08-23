@@ -276,19 +276,23 @@ export default function Home() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Compact Charcoal Black Radio Slider */}
+          {/* Creamy Toggle Slider */}
           <div className="flex justify-center mb-8">
-            <div className="relative bg-gradient-to-b from-gray-50 via-white to-gray-50 rounded-full p-0.5 shadow-lg border border-gray-200/60 backdrop-blur-sm">
-              {/* Sliding Silver Highlight Button */}
+            <div className="relative bg-gradient-to-b from-amber-50 via-orange-50 to-amber-50 rounded-full p-0.5 shadow-lg border border-amber-200/60 backdrop-blur-sm">
+              {/* Sliding Creamy Highlight Button */}
               <div 
                 className={`absolute top-0.5 h-[calc(100%-4px)] rounded-full shadow-md transition-all duration-400 ease-out ${
-                  activeTab === 'partners' ? 'left-0.5 w-[calc(50%-2px)]' : 'left-[calc(50%+1px)] w-[calc(50%-2px)]'
+                  activeTab === 'partners' 
+                    ? 'left-0.5 w-[calc(33.33%-2px)]' 
+                    : activeTab === 'services' 
+                    ? 'left-[calc(33.33%+1px)] w-[calc(33.33%-2px)]' 
+                    : 'left-[calc(66.66%+1px)] w-[calc(33.33%-2px)]'
                 }`}
                 style={{
-                  background: 'linear-gradient(135deg, #374151 0%, #1f2937 25%, #111827 50%, #1f2937 75%, #374151 100%)',
+                  background: 'linear-gradient(135deg, #FDF2E9 0%, #F7E6C8 25%, #F3D5A1 50%, #F7E6C8 75%, #FDF2E9 100%)',
                   backdropFilter: 'blur(8px)',
-                  border: '0.5px solid rgba(255, 255, 255, 0.1)',
-                  boxShadow: '0 4px 12px rgba(0,0,0,0.4), inset 0 1px 2px rgba(255,255,255,0.1)'
+                  border: '0.5px solid rgba(168, 85, 247, 0.1)',
+                  boxShadow: '0 4px 12px rgba(168, 85, 247, 0.2), inset 0 1px 2px rgba(255,255,255,0.4)'
                 }}
               />
               
@@ -296,28 +300,38 @@ export default function Home() {
               <div className="relative flex">
                 <button 
                   onClick={() => setActiveTab('partners')}
-                  className={`relative px-8 py-2 text-sm font-medium transition-all duration-300 rounded-full ${
+                  className={`relative px-6 py-2 text-sm font-medium transition-all duration-300 rounded-full ${
                     activeTab === 'partners' 
-                      ? 'text-white' 
-                      : 'text-gray-600 hover:text-gray-500 opacity-70'
+                      ? 'text-black' 
+                      : 'text-gray-700 hover:text-gray-800 opacity-70'
                   }`}
                 >
                   Premium Partners
                 </button>
                 <button 
                   onClick={() => setActiveTab('services')}
-                  className={`relative px-8 py-2 text-sm font-medium transition-all duration-300 rounded-full ${
+                  className={`relative px-6 py-2 text-sm font-medium transition-all duration-300 rounded-full ${
                     activeTab === 'services' 
-                      ? 'text-white' 
-                      : 'text-gray-600 hover:text-gray-500 opacity-70'
+                      ? 'text-black' 
+                      : 'text-gray-700 hover:text-gray-800 opacity-70'
                   }`}
                 >
                   Our Services
                 </button>
+                <button 
+                  onClick={() => setActiveTab('market-updates')}
+                  className={`relative px-6 py-2 text-sm font-medium transition-all duration-300 rounded-full ${
+                    activeTab === 'market-updates' 
+                      ? 'text-black' 
+                      : 'text-gray-700 hover:text-gray-800 opacity-70'
+                  }`}
+                >
+                  Property Market Updates
+                </button>
               </div>
               
-              {/* Charcoal Shine Overlay */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-40 pointer-events-none" />
+              {/* Creamy Shine Overlay */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-amber-100/30 to-transparent opacity-40 pointer-events-none" />
             </div>
           </div>
 
@@ -921,6 +935,86 @@ export default function Home() {
                       </Link>
                     );
                   })}
+                </div>
+              </div>
+            </motion.div>
+          )}
+
+          {/* Property Market Updates Tab Content */}
+          {activeTab === 'market-updates' && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              {/* Market Updates Content */}
+              <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+                <div className="text-center mb-6">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Property Market Updates</h3>
+                  <p className="text-gray-600">Latest insights and trends from Dubai's real estate market</p>
+                </div>
+                
+                {/* Featured Stories Grid */}
+                <div className="space-y-4">
+                  {featuredStories.length > 0 ? (
+                    featuredStories.map((story, index) => (
+                      <motion.div
+                        key={story.id}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        className="bg-gray-50 border border-gray-200 rounded-lg p-4 hover:bg-gray-100 transition-all duration-300 group cursor-pointer"
+                      >
+                        <div className="flex items-start gap-4">
+                          {/* Story Image Thumbnail */}
+                          <div className="flex-shrink-0">
+                            <div className="w-16 h-16 rounded-lg overflow-hidden bg-gray-200">
+                              <img 
+                                src={story.imageUrl} 
+                                alt={story.title}
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                              />
+                            </div>
+                          </div>
+                          
+                          {/* Story Content */}
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-start justify-between gap-2">
+                              <h4 className="text-gray-900 font-semibold text-sm md:text-base line-clamp-2 group-hover:text-gray-700 transition-colors">
+                                {story.title}
+                              </h4>
+                              <span className="text-gray-500 text-xs whitespace-nowrap">
+                                {story.publishedAt ? new Date(story.publishedAt).toLocaleDateString() : 'Recent'}
+                              </span>
+                            </div>
+                            <p className="text-gray-600 text-xs md:text-sm mt-1 line-clamp-2">
+                              {story.content}
+                            </p>
+                            
+                            {/* Story Tags/Category */}
+                            <div className="flex items-center justify-between mt-2">
+                              <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-blue-100 text-blue-800">
+                                📊 Market Update
+                              </span>
+                              <button className="text-gray-500 hover:text-gray-700 text-xs flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                                Read more →
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))
+                  ) : (
+                    <div className="text-center py-8 bg-gray-50 rounded-lg border border-gray-200">
+                      <div className="text-gray-400 text-4xl mb-2">📰</div>
+                      <p className="text-gray-600">
+                        No market updates available yet
+                      </p>
+                      <p className="text-gray-500 text-sm mt-1">
+                        Check back soon for the latest property market insights
+                      </p>
+                    </div>
+                  )}
                 </div>
               </div>
             </motion.div>
