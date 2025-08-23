@@ -10,7 +10,6 @@ export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { href: "/properties", label: "Properties" },
     { href: "/buy-sell", label: "Buy & Sell" },
     { href: "/services", label: "Services" },
     { href: "/about", label: "About" },

@@ -30,6 +30,30 @@ const partners = [
   { name: "Tiger Properties AE", logo: tigerLogo, description: "Investment Focus" }
 ];
 
+const propertyTypes = [
+  { 
+    name: "Villas", 
+    description: "Luxury Living",
+    icon: "🏡",
+    type: "villa",
+    count: "120+ Properties"
+  },
+  { 
+    name: "Apartments", 
+    description: "City Views",
+    icon: "🏢",
+    type: "apartment", 
+    count: "250+ Properties"
+  },
+  { 
+    name: "Other", 
+    description: "Unique Options",
+    icon: "🏗️",
+    type: "other",
+    count: "80+ Properties"
+  }
+];
+
 const serviceCategories = [
   {
     id: "property-transactions",
@@ -122,8 +146,9 @@ const serviceCategories = [
 ];
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState("partners");
+  const [activeTab, setActiveTab] = useState("property-types");
   const [partnerStyle, setPartnerStyle] = useState('fancy'); // 'fancy' or 'black'
+  const [propertyTypeStyle, setPropertyTypeStyle] = useState('fancy'); // 'fancy' or 'black'
   const [partnerFilter, setPartnerFilter] = useState("");
   
   const { data: properties, isLoading: propertiesLoading } = useQuery<Property[]>({
@@ -247,7 +272,8 @@ export default function Home() {
               {/* Sliding Silver Highlight Button */}
               <div 
                 className={`absolute top-0.5 h-[calc(100%-4px)] rounded-full shadow-md transition-all duration-400 ease-out ${
-                  activeTab === 'partners' ? 'left-0.5 w-[calc(50%-2px)]' : 'left-[calc(50%+1px)] w-[calc(50%-2px)]'
+                  activeTab === 'property-types' ? 'left-0.5 w-[calc(33.33%-2px)]' : 
+                  activeTab === 'partners' ? 'left-[calc(33.33%+1px)] w-[calc(33.33%-2px)]' : 'left-[calc(66.66%+1px)] w-[calc(33.33%-2px)]'
                 }`}
                 style={{
                   background: 'linear-gradient(135deg, #374151 0%, #1f2937 25%, #111827 50%, #1f2937 75%, #374151 100%)',
@@ -260,8 +286,18 @@ export default function Home() {
               {/* Radio Buttons */}
               <div className="relative flex">
                 <button 
+                  onClick={() => setActiveTab('property-types')}
+                  className={`relative px-6 py-2 text-sm font-medium transition-all duration-300 rounded-full ${
+                    activeTab === 'property-types' 
+                      ? 'text-white' 
+                      : 'text-gray-600 hover:text-gray-500 opacity-70'
+                  }`}
+                >
+                  Property Types
+                </button>
+                <button 
                   onClick={() => setActiveTab('partners')}
-                  className={`relative px-8 py-2 text-sm font-medium transition-all duration-300 rounded-full ${
+                  className={`relative px-6 py-2 text-sm font-medium transition-all duration-300 rounded-full ${
                     activeTab === 'partners' 
                       ? 'text-white' 
                       : 'text-gray-600 hover:text-gray-500 opacity-70'
@@ -271,7 +307,7 @@ export default function Home() {
                 </button>
                 <button 
                   onClick={() => setActiveTab('services')}
-                  className={`relative px-8 py-2 text-sm font-medium transition-all duration-300 rounded-full ${
+                  className={`relative px-6 py-2 text-sm font-medium transition-all duration-300 rounded-full ${
                     activeTab === 'services' 
                       ? 'text-white' 
                       : 'text-gray-600 hover:text-gray-500 opacity-70'
@@ -285,6 +321,19 @@ export default function Home() {
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-40 pointer-events-none" />
             </div>
           </div>
+
+          {/* Style Toggle for Property Types */}
+          {activeTab === 'property-types' && (
+            <div className="flex justify-end mb-4">
+              <button
+                onClick={() => setPropertyTypeStyle(propertyTypeStyle === 'fancy' ? 'black' : 'fancy')}
+                className="opacity-20 hover:opacity-40 transition-opacity p-1"
+                title="Toggle style"
+              >
+                <Eye className="w-3 h-3 text-gray-500" />
+              </button>
+            </div>
+          )}
 
           {/* Style Toggle for Partners */}
           {activeTab === 'partners' && (
@@ -300,6 +349,90 @@ export default function Home() {
           )}
 
           {/* Tab Content */}
+          {/* Property Types Content */}
+          {activeTab === 'property-types' && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              {propertyTypeStyle === 'fancy' ? (
+                <div>
+                  {/* Property Type Cards Grid - Horizontal Layout */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    {propertyTypes.map((propertyType) => (
+                      <div key={propertyType.name} className="flex flex-col items-center">
+                        <div 
+                          className="relative rounded-lg p-6 overflow-hidden flex flex-col items-center justify-center h-40 w-full"
+                          style={{
+                            background: 'linear-gradient(160deg, #fefefe, #faf9f7 30%, #f5f4f2 70%, #f0efed)',
+                            boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.9), inset 0 -1px 3px rgba(0,0,0,0.05), 0 6px 25px rgba(0,0,0,0.08), 0 0 20px rgba(255,248,220,0.8)',
+                            transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease',
+                            border: '1px solid rgba(255,255,255,0.4)'
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.transform = 'translateY(-4px)';
+                            e.currentTarget.style.boxShadow = 'inset 0 2px 8px rgba(255,255,255,1), inset 0 -1px 4px rgba(0,0,0,0.08), 0 12px 35px rgba(0,0,0,0.12), 0 0 30px rgba(255,248,220,1)';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.transform = 'translateY(0px)';
+                            e.currentTarget.style.boxShadow = 'inset 0 2px 6px rgba(255,255,255,0.9), inset 0 -1px 3px rgba(0,0,0,0.05), 0 6px 25px rgba(0,0,0,0.08), 0 0 20px rgba(255,248,220,0.8)';
+                          }}
+                        >
+                          <div className="text-4xl mb-3">{propertyType.icon}</div>
+                          <h3 className="text-xl font-bold text-gray-800 mb-1">{propertyType.name}</h3>
+                          <p className="text-sm text-gray-600 mb-2">{propertyType.description}</p>
+                          <span className="text-xs text-gray-500">{propertyType.count}</span>
+                        </div>
+                        <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', color: '#6b7280' }}>
+                          {propertyType.name}
+                        </div>
+                        <Link href={`/buy-sell?type=${propertyType.type}`} className="mt-1">
+                          <div 
+                            className="text-xs cursor-pointer transition-all hover:opacity-90 px-3 py-1 rounded-full"
+                            style={{ 
+                              background: '#ffffff',
+                              color: '#000000',
+                              fontSize: '10px',
+                              letterSpacing: '.1px',
+                              fontWeight: '400',
+                              border: '1px solid #e5e7eb',
+                              boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+                            }}
+                          >
+                            View Collection
+                          </div>
+                        </Link>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 bg-gray-700 rounded-lg p-6">
+                  {propertyTypes.map((propertyType) => (
+                    <div 
+                      key={propertyType.name}
+                      className="bg-black/50 backdrop-blur-sm rounded-lg p-6 border border-gray-600 hover:border-gray-500 transition-all hover:bg-black/60"
+                    >
+                      <div className="text-center">
+                        <div className="text-3xl mb-3">{propertyType.icon}</div>
+                        <h3 className="text-white font-bold text-lg mb-2">{propertyType.name}</h3>
+                        <p className="text-gray-300 text-sm mb-2">{propertyType.description}</p>
+                        <span className="text-gray-400 text-xs mb-4 block">{propertyType.count}</span>
+                        <Link href={`/buy-sell?type=${propertyType.type}`}>
+                          <button className="bg-white text-black px-4 py-2 rounded-full text-xs font-medium hover:bg-gray-200 transition-colors">
+                            View Collection
+                          </button>
+                        </Link>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </motion.div>
+          )}
+
           {activeTab === 'partners' && (
           
             <motion.div
