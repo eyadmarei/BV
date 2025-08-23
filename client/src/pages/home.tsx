@@ -312,11 +312,15 @@ export default function Home() {
               </div>
               <Link href="/projects?partner=Binghatti" className="mt-1">
                 <div 
-                  className="text-xs cursor-pointer transition-all hover:opacity-70"
+                  className="text-xs cursor-pointer transition-all hover:opacity-90 px-3 py-1 rounded-full"
                   style={{ 
-                    color: '#4b5563',
+                    background: '#000000',
+                    color: '#c0c0c0',
                     fontSize: '10px',
-                    letterSpacing: '.1px'
+                    letterSpacing: '.1px',
+                    fontWeight: '500',
+                    textShadow: '0 0 8px rgba(192,192,192,0.5), 0 0 12px rgba(255,255,255,0.3)',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.1)'
                   }}
                 >
                   View Collection
@@ -358,11 +362,15 @@ export default function Home() {
               </div>
               <Link href="/projects?partner=Danube Properties" className="mt-1">
                 <div 
-                  className="text-xs cursor-pointer transition-all hover:opacity-70"
+                  className="text-xs cursor-pointer transition-all hover:opacity-90 px-3 py-1 rounded-full"
                   style={{ 
-                    color: '#4b5563',
+                    background: '#000000',
+                    color: '#c0c0c0',
                     fontSize: '10px',
-                    letterSpacing: '.1px'
+                    letterSpacing: '.1px',
+                    fontWeight: '500',
+                    textShadow: '0 0 8px rgba(192,192,192,0.5), 0 0 12px rgba(255,255,255,0.3)',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.1)'
                   }}
                 >
                   View Collection
@@ -404,11 +412,15 @@ export default function Home() {
               </div>
               <Link href="/projects?partner=Ellington Properties" className="mt-1">
                 <div 
-                  className="text-xs cursor-pointer transition-all hover:opacity-70"
+                  className="text-xs cursor-pointer transition-all hover:opacity-90 px-3 py-1 rounded-full"
                   style={{ 
-                    color: '#4b5563',
+                    background: '#000000',
+                    color: '#c0c0c0',
                     fontSize: '10px',
-                    letterSpacing: '.1px'
+                    letterSpacing: '.1px',
+                    fontWeight: '500',
+                    textShadow: '0 0 8px rgba(192,192,192,0.5), 0 0 12px rgba(255,255,255,0.3)',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.1)'
                   }}
                 >
                   View Collection
@@ -450,11 +462,15 @@ export default function Home() {
               </div>
               <Link href="/projects?partner=Emaar" className="mt-1">
                 <div 
-                  className="text-xs cursor-pointer transition-all hover:opacity-70"
+                  className="text-xs cursor-pointer transition-all hover:opacity-90 px-3 py-1 rounded-full"
                   style={{ 
-                    color: '#4b5563',
+                    background: '#000000',
+                    color: '#c0c0c0',
                     fontSize: '10px',
-                    letterSpacing: '.1px'
+                    letterSpacing: '.1px',
+                    fontWeight: '500',
+                    textShadow: '0 0 8px rgba(192,192,192,0.5), 0 0 12px rgba(255,255,255,0.3)',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.1)'
                   }}
                 >
                   View Collection
@@ -496,11 +512,15 @@ export default function Home() {
               </div>
               <Link href="/projects?partner=Iman Developers" className="mt-1">
                 <div 
-                  className="text-xs cursor-pointer transition-all hover:opacity-70"
+                  className="text-xs cursor-pointer transition-all hover:opacity-90 px-3 py-1 rounded-full"
                   style={{ 
-                    color: '#4b5563',
+                    background: '#000000',
+                    color: '#c0c0c0',
                     fontSize: '10px',
-                    letterSpacing: '.1px'
+                    letterSpacing: '.1px',
+                    fontWeight: '500',
+                    textShadow: '0 0 8px rgba(192,192,192,0.5), 0 0 12px rgba(255,255,255,0.3)',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.1)'
                   }}
                 >
                   View Collection
@@ -542,11 +562,15 @@ export default function Home() {
               </div>
               <Link href="/projects?partner=Marquis" className="mt-1">
                 <div 
-                  className="text-xs cursor-pointer transition-all hover:opacity-70"
+                  className="text-xs cursor-pointer transition-all hover:opacity-90 px-3 py-1 rounded-full"
                   style={{ 
-                    color: '#4b5563',
+                    background: '#000000',
+                    color: '#c0c0c0',
                     fontSize: '10px',
-                    letterSpacing: '.1px'
+                    letterSpacing: '.1px',
+                    fontWeight: '500',
+                    textShadow: '0 0 8px rgba(192,192,192,0.5), 0 0 12px rgba(255,255,255,0.3)',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.1)'
                   }}
                 >
                   View Collection
@@ -588,11 +612,15 @@ export default function Home() {
               </div>
               <Link href="/projects?partner=Rabdan Developments" className="mt-1">
                 <div 
-                  className="text-xs cursor-pointer transition-all hover:opacity-70"
+                  className="text-xs cursor-pointer transition-all hover:opacity-90 px-3 py-1 rounded-full"
                   style={{ 
-                    color: '#4b5563',
+                    background: '#000000',
+                    color: '#c0c0c0',
                     fontSize: '10px',
-                    letterSpacing: '.1px'
+                    letterSpacing: '.1px',
+                    fontWeight: '500',
+                    textShadow: '0 0 8px rgba(192,192,192,0.5), 0 0 12px rgba(255,255,255,0.3)',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.1)'
                   }}
                 >
                   View Collection
@@ -634,11 +662,15 @@ export default function Home() {
               </div>
               <Link href="/projects?partner=Tiger Properties AE" className="mt-1">
                 <div 
-                  className="text-xs cursor-pointer transition-all hover:opacity-70"
+                  className="text-xs cursor-pointer transition-all hover:opacity-90 px-3 py-1 rounded-full"
                   style={{ 
-                    color: '#4b5563',
+                    background: '#000000',
+                    color: '#c0c0c0',
                     fontSize: '10px',
-                    letterSpacing: '.1px'
+                    letterSpacing: '.1px',
+                    fontWeight: '500',
+                    textShadow: '0 0 8px rgba(192,192,192,0.5), 0 0 12px rgba(255,255,255,0.3)',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.3), inset 0 1px 2px rgba(255,255,255,0.1)'
                   }}
                 >
                   View Collection
