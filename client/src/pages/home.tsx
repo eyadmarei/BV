@@ -248,7 +248,7 @@ export default function Home() {
                       : 'text-gray-600 hover:text-gray-500 opacity-70'
                   }`}
                 >
-                  Partner Collections
+                  Premium Property Partners
                 </button>
                 <button 
                   onClick={() => setActiveTab('services')}
