@@ -950,67 +950,84 @@ export default function Home() {
                   <p className="text-gray-600">Latest insights and trends from Dubai's real estate market</p>
                 </div>
                 
-                {/* Featured Stories Grid */}
-                <div className="space-y-4">
-                  {featuredStories.length > 0 ? (
-                    featuredStories.map((story, index) => (
-                      <motion.div
-                        key={story.id}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="bg-gray-50 border border-gray-200 rounded-lg p-4 hover:bg-gray-100 transition-all duration-300 group cursor-pointer"
-                      >
-                        <div className="flex items-start gap-4">
-                          {/* Story Image Thumbnail */}
-                          <div className="flex-shrink-0">
-                            <div className="w-16 h-16 rounded-lg overflow-hidden bg-gray-200">
-                              <img 
-                                src={story.imageUrl} 
-                                alt={story.title}
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                              />
-                            </div>
-                          </div>
-                          
-                          {/* Story Content */}
-                          <div className="flex-1 min-w-0">
-                            <div className="flex items-start justify-between gap-2">
-                              <h4 className="text-gray-900 font-semibold text-sm md:text-base line-clamp-2 group-hover:text-gray-700 transition-colors">
-                                {story.title}
-                              </h4>
-                              <span className="text-gray-500 text-xs whitespace-nowrap">
-                                {story.publishedAt ? new Date(story.publishedAt).toLocaleDateString() : 'Recent'}
-                              </span>
-                            </div>
-                            <p className="text-gray-600 text-xs md:text-sm mt-1 line-clamp-2">
-                              {story.content}
-                            </p>
-                            
-                            {/* Story Tags/Category */}
-                            <div className="flex items-center justify-between mt-2">
-                              <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-blue-100 text-blue-800">
-                                📊 Market Update
-                              </span>
-                              <button className="text-gray-500 hover:text-gray-700 text-xs flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                                Read more →
-                              </button>
-                            </div>
+                {/* News Stories Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {[
+                    {
+                      id: 1,
+                      title: "Dubai Property Market Hits Record High",
+                      summary: "Q4 2024 shows unprecedented growth in luxury property segment",
+                      icon: "📈",
+                      category: "Market Trends"
+                    },
+                    {
+                      id: 2,
+                      title: "New Development Projects Announced",
+                      summary: "Major developers unveil ambitious projects for 2025",
+                      icon: "🏗️",
+                      category: "Development News"
+                    },
+                    {
+                      id: 3,
+                      title: "Investment Opportunities in Downtown",
+                      summary: "Prime locations showing strong ROI potential",
+                      icon: "💰",
+                      category: "Investment"
+                    },
+                    {
+                      id: 4,
+                      title: "Expo Area Real Estate Boom",
+                      summary: "Post-Expo developments attract international buyers",
+                      icon: "🌍",
+                      category: "International"
+                    },
+                    {
+                      id: 5,
+                      title: "Sustainability in Real Estate",
+                      summary: "Green building initiatives gain momentum",
+                      icon: "🌱",
+                      category: "Sustainability"
+                    },
+                    {
+                      id: 6,
+                      title: "Tech-Enabled Property Solutions",
+                      summary: "Digital transformation in property management",
+                      icon: "💻",
+                      category: "Technology"
+                    }
+                  ].map((story, index) => (
+                    <motion.a
+                      key={story.id}
+                      href="#news-section"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      className="bg-gray-50 border border-gray-200 rounded-lg p-4 hover:bg-gray-100 transition-all duration-300 group cursor-pointer block"
+                      whileHover={{ scale: 1.02 }}
+                    >
+                      <div className="flex items-start gap-3">
+                        {/* Story Icon */}
+                        <div className="flex-shrink-0">
+                          <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center text-2xl">
+                            {story.icon}
                           </div>
                         </div>
-                      </motion.div>
-                    ))
-                  ) : (
-                    <div className="text-center py-8 bg-gray-50 rounded-lg border border-gray-200">
-                      <div className="text-gray-400 text-4xl mb-2">📰</div>
-                      <p className="text-gray-600">
-                        No market updates available yet
-                      </p>
-                      <p className="text-gray-500 text-sm mt-1">
-                        Check back soon for the latest property market insights
-                      </p>
-                    </div>
-                  )}
+                          
+                        {/* Story Content */}
+                        <div className="flex-1 min-w-0">
+                          <h4 className="font-semibold text-gray-900 text-sm mb-1 group-hover:text-blue-600 transition-colors">
+                            {story.title}
+                          </h4>
+                          <p className="text-gray-600 text-xs mb-2">
+                            {story.summary}
+                          </p>
+                          <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-blue-50 text-blue-700">
+                            {story.category}
+                          </span>
+                        </div>
+                      </div>
+                    </motion.a>
+                  ))}
                 </div>
               </div>
             </motion.div>
@@ -1020,7 +1037,7 @@ export default function Home() {
       </section>
 
       {/* Property Market Updates - Featured Stories */}
-      <section className="py-12 bg-black">
+      <section id="news-section" className="py-12 bg-black">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
