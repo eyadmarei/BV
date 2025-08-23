@@ -729,10 +729,8 @@ export default function Home() {
                 </div>
               ) : (
               <div className="py-16 rounded-lg" style={{ backgroundColor: "#212121" }}>
-                <div className="text-center">
-                  <p className="text-white text-lg">Black style partner view coming soon</p>
-                </div>
-              </div>
+
+               
               )}
             </motion.div>
           )}
