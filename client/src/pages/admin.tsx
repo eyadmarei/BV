@@ -4,7 +4,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { LocalImageUploader } from '../components/LocalImageUploader';
 import { useAuth } from '../hooks/useAuth';
 import { apiRequest } from '../lib/queryClient';
-import type { Property, InsertProperty } from '@shared/schema';
+import type { Property, InsertProperty, FeaturedStory, InsertFeaturedStory } from '@shared/schema';
 
 // Helper function to handle image URLs (now local images)
 const convertImageUrl = (url: string): string => {
@@ -16,11 +16,14 @@ const convertImageUrl = (url: string): string => {
 
 export default function AdminPanel() {
   const { user, isLoading: authLoading, isAuthenticated, isAdmin } = useAuth();
-  const [activeTab, setActiveTab] = useState<'partners' | 'projects' | 'units'>('partners');
+  const [activeTab, setActiveTab] = useState<'partners' | 'projects' | 'units' | 'stories'>('partners');
   const [selectedProperty, setSelectedProperty] = useState<Property | null>(null);
   const [isEditing, setIsEditing] = useState(false);
   const [showAddProjectForm, setShowAddProjectForm] = useState(false);
   const [selectedPartnerForProject, setSelectedPartnerForProject] = useState<string>('');
+  const [showAddStoryForm, setShowAddStoryForm] = useState(false);
+  const [selectedStory, setSelectedStory] = useState<FeaturedStory | null>(null);
+  const [isEditingStory, setIsEditingStory] = useState(false);
   const queryClient = useQueryClient();
 
   // Available partners from database
@@ -48,9 +51,24 @@ export default function AdminPanel() {
     brochureUrl: ''
   });
 
+  // Featured story form state
+  const [storyFormData, setStoryFormData] = useState<Partial<InsertFeaturedStory>>({
+    title: '',
+    content: '',
+    imageUrl: '',
+    featured: false,
+    publishedAt: new Date()
+  });
+
   // Fetch properties for admin
   const { data: properties = [], isLoading, refetch } = useQuery<Property[]>({
     queryKey: ['/api/admin/properties'],
+    enabled: isAuthenticated && isAdmin,
+  });
+
+  // Fetch featured stories for admin
+  const { data: featuredStories = [], isLoading: isLoadingStories, refetch: refetchStories } = useQuery<FeaturedStory[]>({
+    queryKey: ['/api/featured-stories'],
     enabled: isAuthenticated && isAdmin,
   });
 
@@ -109,6 +127,55 @@ export default function AdminPanel() {
     },
   });
 
+  // Featured stories mutations
+  const createStoryMutation = useMutation({
+    mutationFn: async (data: InsertFeaturedStory) => {
+      const response = await fetch('/api/featured-stories', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) throw new Error('Failed to create featured story');
+      return response.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['/api/featured-stories'] });
+      setShowAddStoryForm(false);
+      resetStoryForm();
+    },
+  });
+
+  const updateStoryMutation = useMutation({
+    mutationFn: async ({ id, data }: { id: number; data: Partial<InsertFeaturedStory> }) => {
+      const response = await fetch(`/api/featured-stories/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) throw new Error('Failed to update featured story');
+      return response.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['/api/featured-stories'] });
+      setIsEditingStory(false);
+      setSelectedStory(null);
+    },
+  });
+
+  const deleteStoryMutation = useMutation({
+    mutationFn: async (id: number) => {
+      const response = await fetch(`/api/featured-stories/${id}`, {
+        method: 'DELETE',
+      });
+      if (!response.ok) throw new Error('Failed to delete featured story');
+      return response.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['/api/featured-stories'] });
+      setSelectedStory(null);
+    },
+  });
+
   const resetForm = () => {
     setFormData({
       title: '',
@@ -123,6 +190,16 @@ export default function AdminPanel() {
       area: undefined,
       featured: false,
       brochureUrl: ''
+    });
+  };
+
+  const resetStoryForm = () => {
+    setStoryFormData({
+      title: '',
+      content: '',
+      imageUrl: '',
+      featured: false,
+      publishedAt: new Date()
     });
   };
 
@@ -159,6 +236,27 @@ export default function AdminPanel() {
     setSelectedPartnerForProject(partner);
     setFormData(prev => ({ ...prev, partner }));
     setShowAddProjectForm(true);
+  };
+
+  const handleEditStory = (story: FeaturedStory) => {
+    setSelectedStory(story);
+    setStoryFormData({
+      title: story.title,
+      content: story.content,
+      imageUrl: story.imageUrl,
+      featured: story.featured || false,
+      publishedAt: story.publishedAt
+    });
+    setIsEditingStory(true);
+  };
+
+  const handleStorySubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (isEditingStory && selectedStory) {
+      updateStoryMutation.mutate({ id: selectedStory.id, data: storyFormData as InsertFeaturedStory });
+    } else {
+      createStoryMutation.mutate(storyFormData as InsertFeaturedStory);
+    }
   };
 
   // Redirect to login if not authenticated
@@ -260,6 +358,16 @@ export default function AdminPanel() {
                 }`}
               >
                 🏠 Units ({(properties as Property[]).reduce((sum, p) => sum + (p.bedrooms || 1), 0)})
+              </button>
+              <button
+                onClick={() => setActiveTab('stories')}
+                className={`py-4 px-1 border-b-2 font-medium text-sm ${
+                  activeTab === 'stories'
+                    ? 'border-black text-black'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
+              >
+                📰 Stories ({featuredStories.length})
               </button>
             </nav>
           </div>
@@ -954,6 +1062,160 @@ export default function AdminPanel() {
                 </div>
               </form>
             </div>
+          </div>
+        )}
+
+        {/* Stories Tab */}
+        {activeTab === 'stories' && (
+          <div>
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-xl font-bold text-gray-900">Featured Stories Management</h2>
+              <button
+                onClick={() => setShowAddStoryForm(true)}
+                className="bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800"
+              >
+                Add Story
+              </button>
+            </div>
+
+            {/* Stories List */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+              {featuredStories.map((story) => (
+                <motion.div
+                  key={story.id}
+                  className="bg-white rounded-lg shadow-md overflow-hidden"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {story.imageUrl && (
+                    <img
+                      src={convertImageUrl(story.imageUrl)}
+                      alt={story.title}
+                      className="w-full h-48 object-cover"
+                    />
+                  )}
+                  <div className="p-6">
+                    <div className="flex justify-between items-start mb-2">
+                      <h3 className="text-lg font-semibold text-gray-900 line-clamp-2">{story.title}</h3>
+                      {story.featured && (
+                        <span className="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full ml-2">
+                          Featured
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-gray-600 text-sm mb-4 line-clamp-3">{story.content}</p>
+                    <div className="text-xs text-gray-500 mb-4">
+                      Published: {new Date(story.publishedAt).toLocaleDateString()}
+                    </div>
+                    <div className="flex gap-2">
+                      <button
+                        onClick={() => handleEditStory(story)}
+                        className="flex-1 bg-gray-100 text-gray-700 px-3 py-2 rounded-md text-sm hover:bg-gray-200"
+                      >
+                        Edit
+                      </button>
+                      <button
+                        onClick={() => deleteStoryMutation.mutate(story.id)}
+                        className="bg-red-100 text-red-700 px-3 py-2 rounded-md text-sm hover:bg-red-200"
+                        disabled={deleteStoryMutation.isPending}
+                      >
+                        {deleteStoryMutation.isPending ? 'Deleting...' : 'Delete'}
+                      </button>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Add/Edit Story Form */}
+            {(showAddStoryForm || isEditingStory) && (
+              <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                  {isEditingStory ? 'Edit Story' : 'Add New Story'}
+                </h3>
+                <form onSubmit={handleStorySubmit} className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700">Title</label>
+                    <input
+                      type="text"
+                      value={storyFormData.title || ''}
+                      onChange={(e) => setStoryFormData(prev => ({ ...prev, title: e.target.value }))}
+                      className="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700">Content</label>
+                    <textarea
+                      value={storyFormData.content || ''}
+                      onChange={(e) => setStoryFormData(prev => ({ ...prev, content: e.target.value }))}
+                      className="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2"
+                      rows={6}
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Story Image</label>
+                    <LocalImageUploader
+                      onImageSelected={(imageUrl) => setStoryFormData(prev => ({ ...prev, imageUrl }))}
+                      className="w-full"
+                    >
+                      📁 Upload Story Image
+                    </LocalImageUploader>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700">Published Date</label>
+                    <input
+                      type="date"
+                      value={storyFormData.publishedAt ? new Date(storyFormData.publishedAt).toISOString().split('T')[0] : ''}
+                      onChange={(e) => setStoryFormData(prev => ({ ...prev, publishedAt: new Date(e.target.value) }))}
+                      className="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="flex items-center">
+                      <input
+                        type="checkbox"
+                        checked={storyFormData.featured || false}
+                        onChange={(e) => setStoryFormData(prev => ({ ...prev, featured: e.target.checked }))}
+                        className="mr-2"
+                      />
+                      <span className="text-sm text-gray-700">Featured Story</span>
+                    </label>
+                  </div>
+
+                  <div className="flex justify-end gap-4 pt-4">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setIsEditingStory(false);
+                        setShowAddStoryForm(false);
+                        setSelectedStory(null);
+                        resetStoryForm();
+                      }}
+                      className="px-4 py-2 text-gray-600 border border-gray-300 rounded-md hover:bg-gray-50"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="submit"
+                      disabled={createStoryMutation.isPending || updateStoryMutation.isPending}
+                      className="px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 disabled:opacity-50"
+                    >
+                      {isEditingStory 
+                        ? (updateStoryMutation.isPending ? 'Updating...' : 'Update Story')
+                        : (createStoryMutation.isPending ? 'Creating...' : 'Create Story')
+                      }
+                    </button>
+                  </div>
+                </form>
+              </div>
+            )}
           </div>
         )}
       </div>

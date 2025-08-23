@@ -8,7 +8,7 @@ import {
   MapPin, Users, FileText, DollarSign, Shield, Wrench, 
   Clipboard, Phone, CreditCard, Building2, Globe, Award, Search, Eye
 } from "lucide-react";
-import type { Property, Service } from "@shared/schema";
+import type { Property, Service, FeaturedStory } from "@shared/schema";
 import heroVideo from "@assets/WhatsApp Video 2025-07-06 at 03.15.52_6b085703_1751757407515.mp4";
 import binghatiLogo from "@assets/binghate_1754074726263.png";
 import danubeLogo from "@assets/danube_1754074726264.png";
@@ -133,6 +133,10 @@ export default function Home() {
 
   const { data: services, isLoading: servicesLoading } = useQuery<Service[]>({
     queryKey: ["/api/services"],
+  });
+
+  const { data: featuredStories = [], isLoading: isLoadingStories } = useQuery<FeaturedStory[]>({
+    queryKey: ['/api/featured-stories'],
   });
 
   const featuredProperties = properties?.filter(p => p.featured) || [];
@@ -881,85 +885,64 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Partner Showcase Section - Landing Page Style */}
+      {/* Property Market Updates - Featured Stories */}
       <section className="py-16 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Explore Our Premium Partners
+              Property Market Updates
             </h2>
             <p className="text-xl text-white/80 mb-8">
-              Discover luxury developments from Dubai's most trusted developers
+              Featured Stories & Market Insights
             </p>
-            
-            {/* Search Filter */}
-            <div className="max-w-md mx-auto mb-8">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/60 w-5 h-5" />
-                <input
-                  type="text"
-                  placeholder="Search partners or development type..."
-                  value={partnerFilter}
-                  onChange={(e) => setPartnerFilter(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all"
-                />
-              </div>
-            </div>
           </div>
 
-          {/* Partner Cards Grid - Landing Page Style */}
+          {/* Featured Stories Grid */}
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            {filteredPartners.map((partner, index) => (
+            {featuredStories.map((story, index) => (
               <motion.div
-                key={partner.name}
+                key={story.id}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white/20 backdrop-blur-sm rounded-lg p-6 border border-white/10 shadow-lg w-56 hover:bg-white/25 transition-all duration-300"
-                whileHover={{ scale: 1.05, y: -5 }}
+                className="bg-white/10 backdrop-blur-sm rounded-lg overflow-hidden border border-white/20 shadow-lg hover:bg-white/15 transition-all duration-300"
+                whileHover={{ scale: 1.02, y: -5 }}
               >
-                <div className="text-center">
-                  <div className="flex items-center justify-center h-20 mb-4">
-                    <img 
-                      src={partner.logo} 
-                      alt={`${partner.name} logo`}
-                      className="max-h-full max-w-full object-contain filter drop-shadow-md"
-                    />
-                  </div>
-                  <h4 className="text-white text-sm font-bold mb-2">{partner.name}</h4>
-                  <p className="text-white/80 text-xs mb-4">{partner.description}</p>
-                  <Link href={`/projects?partner=${encodeURIComponent(partner.name)}`}>
-                    <button className="bg-black text-white px-4 py-2 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors w-full">
-                      View Collection
+                <div className="h-48 overflow-hidden">
+                  <img 
+                    src={story.imageUrl} 
+                    alt={story.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-white text-lg font-bold mb-3 line-clamp-2">{story.title}</h3>
+                  <p className="text-white/80 text-sm mb-4 line-clamp-3">{story.content}</p>
+                  <div className="flex justify-between items-center">
+                    <span className="text-white/60 text-xs">
+                      {new Date(story.publishedAt).toLocaleDateString()}
+                    </span>
+                    <button className="bg-white text-black px-4 py-2 rounded-full text-xs font-medium hover:bg-gray-200 transition-colors">
+                      Read More
                     </button>
-                  </Link>
+                  </div>
                 </div>
               </motion.div>
             ))}
           </motion.div>
 
-          {/* No Results Message */}
-          {filteredPartners.length === 0 && partnerFilter && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="text-center py-12"
-            >
+          {/* No Stories Message */}
+          {featuredStories.length === 0 && (
+            <div className="text-center py-12">
               <p className="text-white/60 text-lg">
-                No partners found matching "{partnerFilter}"
+                No featured stories available at the moment.
               </p>
-              <button
-                onClick={() => setPartnerFilter("")}
-                className="mt-4 text-white underline hover:text-white/80 transition-colors"
-              >
-                Clear search
-              </button>
-            </motion.div>
+            </div>
           )}
         </div>
       </section>

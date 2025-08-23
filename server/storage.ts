@@ -1,4 +1,4 @@
-import { properties, services, inquiries, users, type Property, type Service, type Inquiry, type User, type UpsertUser, type InsertProperty, type InsertService, type InsertInquiry } from "@shared/schema";
+import { properties, services, inquiries, users, featuredStories, type Property, type Service, type Inquiry, type User, type UpsertUser, type InsertProperty, type InsertService, type InsertInquiry, type FeaturedStory, type InsertFeaturedStory } from "@shared/schema";
 import { db } from "./db";
 import { eq } from "drizzle-orm";
 
@@ -24,6 +24,13 @@ export interface IStorage {
   // Users (for Replit Auth)
   getUser(id: string): Promise<User | undefined>;
   upsertUser(user: UpsertUser): Promise<User>;
+  
+  // Featured Stories
+  getFeaturedStories(): Promise<FeaturedStory[]>;
+  getFeaturedStory(id: number): Promise<FeaturedStory | undefined>;
+  createFeaturedStory(story: InsertFeaturedStory): Promise<FeaturedStory>;
+  updateFeaturedStory(id: number, story: Partial<InsertFeaturedStory>): Promise<FeaturedStory | undefined>;
+  deleteFeaturedStory(id: number): Promise<boolean>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -118,6 +125,38 @@ export class DatabaseStorage implements IStorage {
       .returning();
     return user;
   }
+
+  // Featured Stories
+  async getFeaturedStories(): Promise<FeaturedStory[]> {
+    return await db.select().from(featuredStories);
+  }
+
+  async getFeaturedStory(id: number): Promise<FeaturedStory | undefined> {
+    const [story] = await db.select().from(featuredStories).where(eq(featuredStories.id, id));
+    return story;
+  }
+
+  async createFeaturedStory(insertStory: InsertFeaturedStory): Promise<FeaturedStory> {
+    const [story] = await db
+      .insert(featuredStories)
+      .values(insertStory)
+      .returning();
+    return story;
+  }
+
+  async updateFeaturedStory(id: number, updateData: Partial<InsertFeaturedStory>): Promise<FeaturedStory | undefined> {
+    const [story] = await db
+      .update(featuredStories)
+      .set(updateData)
+      .where(eq(featuredStories.id, id))
+      .returning();
+    return story;
+  }
+
+  async deleteFeaturedStory(id: number): Promise<boolean> {
+    const result = await db.delete(featuredStories).where(eq(featuredStories.id, id));
+    return result.rowCount !== null && result.rowCount > 0;
+  }
 }
 
 export class MemStorage implements IStorage {
@@ -125,20 +164,24 @@ export class MemStorage implements IStorage {
   private services: Map<number, Service>;
   private inquiries: Map<number, Inquiry>;
   private users: Map<number, User>;
+  private featuredStories: Map<number, FeaturedStory>;
   private currentPropertyId: number;
   private currentServiceId: number;
   private currentInquiryId: number;
   private currentUserId: number;
+  private currentFeaturedStoryId: number;
 
   constructor() {
     this.properties = new Map();
     this.services = new Map();
     this.inquiries = new Map();
     this.users = new Map();
+    this.featuredStories = new Map();
     this.currentPropertyId = 1;
     this.currentServiceId = 1;
     this.currentInquiryId = 1;
     this.currentUserId = 1;
+    this.currentFeaturedStoryId = 1;
     
     // Initialize with sample data
     this.initializeData();
@@ -342,7 +385,8 @@ export class MemStorage implements IStorage {
       bedrooms: insertProperty.bedrooms ?? null,
       bathrooms: insertProperty.bathrooms ?? null,
       area: insertProperty.area ?? null,
-      featured: insertProperty.featured ?? null
+      featured: insertProperty.featured ?? null,
+      brochureUrl: insertProperty.brochureUrl ?? null
     };
     this.properties.set(id, property);
     return property;
@@ -432,6 +476,44 @@ export class MemStorage implements IStorage {
 
   async deleteProperty(id: number): Promise<boolean> {
     return this.properties.delete(id);
+  }
+
+  // Featured Stories - Memory Storage implementation
+  async getFeaturedStories(): Promise<FeaturedStory[]> {
+    return Array.from(this.featuredStories.values());
+  }
+
+  async getFeaturedStory(id: number): Promise<FeaturedStory | undefined> {
+    return this.featuredStories.get(id);
+  }
+
+  async createFeaturedStory(insertStory: InsertFeaturedStory): Promise<FeaturedStory> {
+    const id = this.currentFeaturedStoryId++;
+    const story: FeaturedStory = {
+      id,
+      ...insertStory,
+      featured: insertStory.featured ?? null,
+      createdAt: new Date(),
+      publishedAt: insertStory.publishedAt || new Date(),
+    };
+    this.featuredStories.set(id, story);
+    return story;
+  }
+
+  async updateFeaturedStory(id: number, updateData: Partial<InsertFeaturedStory>): Promise<FeaturedStory | undefined> {
+    const existing = this.featuredStories.get(id);
+    if (!existing) return undefined;
+
+    const updated: FeaturedStory = {
+      ...existing,
+      ...updateData,
+    };
+    this.featuredStories.set(id, updated);
+    return updated;
+  }
+
+  async deleteFeaturedStory(id: number): Promise<boolean> {
+    return this.featuredStories.delete(id);
   }
 }
 

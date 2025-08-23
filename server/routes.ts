@@ -4,7 +4,7 @@ import { storage } from "./storage";
 import { ObjectStorageService, ObjectNotFoundError, objectStorageClient } from "./objectStorage";
 import { setupAuth, isAuthenticated, isAdmin } from "./replitAuth";
 import { seedDatabase } from "./seedDatabase";
-import { insertPropertySchema, insertServiceSchema, insertInquirySchema } from "@shared/schema";
+import { insertPropertySchema, insertServiceSchema, insertInquirySchema, insertFeaturedStorySchema } from "@shared/schema";
 import { z } from "zod";
 import multer from "multer";
 import path from "path";
@@ -95,6 +95,72 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.json(inquiries);
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch inquiries" });
+    }
+  });
+
+  // Featured Stories routes
+  app.get("/api/featured-stories", async (req, res) => {
+    try {
+      const stories = await storage.getFeaturedStories();
+      res.json(stories);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch featured stories" });
+    }
+  });
+
+  app.get("/api/featured-stories/:id", async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const story = await storage.getFeaturedStory(id);
+      if (!story) {
+        return res.status(404).json({ message: "Featured story not found" });
+      }
+      res.json(story);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch featured story" });
+    }
+  });
+
+  app.post("/api/featured-stories", isAuthenticated, isAdmin, async (req, res) => {
+    try {
+      const validatedData = insertFeaturedStorySchema.parse(req.body);
+      const story = await storage.createFeaturedStory(validatedData);
+      res.status(201).json(story);
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ message: "Invalid data", errors: error.errors });
+      }
+      res.status(500).json({ message: "Failed to create featured story" });
+    }
+  });
+
+  app.put("/api/featured-stories/:id", isAuthenticated, isAdmin, async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const validatedData = insertFeaturedStorySchema.parse(req.body);
+      const story = await storage.updateFeaturedStory(id, validatedData);
+      if (!story) {
+        return res.status(404).json({ message: "Featured story not found" });
+      }
+      res.json(story);
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ message: "Invalid data", errors: error.errors });
+      }
+      res.status(500).json({ message: "Failed to update featured story" });
+    }
+  });
+
+  app.delete("/api/featured-stories/:id", isAuthenticated, isAdmin, async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const success = await storage.deleteFeaturedStory(id);
+      if (!success) {
+        return res.status(404).json({ message: "Featured story not found" });
+      }
+      res.status(204).send();
+    } catch (error) {
+      res.status(500).json({ message: "Failed to delete featured story" });
     }
   });
 
