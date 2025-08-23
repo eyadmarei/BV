@@ -291,9 +291,7 @@ export default function Home() {
                 style={{
                   background: 'rgba(255, 255, 255, 0.8)',
                   backdropFilter: 'blur(8px)',
-                  border: '1.5px solid',
-                  borderImage: 'linear-gradient(135deg, #2D3748 0%, #4A5568 25%, #1A202C 50%, #4A5568 75%, #2D3748 100%) 1',
-                  boxShadow: '0 4px 12px rgba(0,0,0,0.1), inset 0 1px 2px rgba(255,255,255,0.4), 0 0 8px rgba(45, 55, 72, 0.3)'
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.1), inset 0 1px 2px rgba(255,255,255,0.4)'
                 }}
               />
               
