@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
+import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -13,6 +14,7 @@ import type { InsertInquiry, ContactContent } from "@shared/schema";
 
 export default function Contact() {
   const { toast } = useToast();
+  const [, setLocation] = useLocation();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -37,14 +39,26 @@ export default function Contact() {
         title: "Message sent successfully!",
         description: "We'll get back to you within 24 hours.",
       });
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        service: "",
-        message: "",
-      });
+      
+      // Redirect to buy-sell page with filters based on service selection
+      if (formData.service === "properties") {
+        setLocation("/buy-sell");
+      } else if (formData.service === "villa") {
+        setLocation("/buy-sell?type=villa");
+      } else if (formData.service === "townhouse") {
+        setLocation("/buy-sell?type=townhouse");
+      } else if (formData.service === "apartment") {
+        setLocation("/buy-sell?type=apartment");
+      } else {
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          service: "",
+          message: "",
+        });
+      }
     },
     onError: () => {
       toast({
@@ -206,6 +220,9 @@ export default function Contact() {
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="properties">Property Investment</SelectItem>
+                        <SelectItem value="villa">Villa Investment</SelectItem>
+                        <SelectItem value="townhouse">Townhouse Investment</SelectItem>
+                        <SelectItem value="apartment">Apartment Investment</SelectItem>
                         <SelectItem value="company">Company Establishment</SelectItem>
                         <SelectItem value="visa">Visa Services</SelectItem>
                         <SelectItem value="banking">Banking Solutions</SelectItem>

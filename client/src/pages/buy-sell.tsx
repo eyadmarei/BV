@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "wouter";
@@ -29,6 +29,21 @@ export default function BuySell() {
   const [selectedType, setSelectedType] = useState<string>('all');
   const [partnerStyle, setPartnerStyle] = useState('fancy'); // 'fancy' or 'black'
   const [partnerFilter, setPartnerFilter] = useState("");
+
+  // Read URL parameters and set filters on page load
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const typeParam = urlParams.get('type');
+    const partnerParam = urlParams.get('partner');
+    
+    if (typeParam && ['villa', 'townhouse', 'apartment'].includes(typeParam)) {
+      setSelectedType(typeParam);
+    }
+    
+    if (partnerParam) {
+      setSelectedPartner(partnerParam);
+    }
+  }, []);
 
   // Fetch properties from database
   const { data: properties = [], isLoading } = useQuery<Property[]>({
