@@ -728,9 +728,9 @@ export default function Home() {
               </div>
                 </div>
               ) : (
-              <div className="py-16 rounded-lg" style={{ backgroundColor: "#212121" }}>
-
-               
+                <div className="py-16 rounded-lg" style={{ backgroundColor: "#212121" }}>
+                  {/* Black style content can be added here */}
+                </div>
               )}
             </motion.div>
           )}
