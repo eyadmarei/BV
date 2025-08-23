@@ -22,7 +22,7 @@ const partners = [
   { name: 'Emaar', logo: emaarLogo, description: 'World-class developments including Dubai Mall, Burj Khalifa and luxury communities', established: '1997', totalProperties: 45 },
   { name: 'Iman Developers', logo: imanLogo, description: 'Quality residential and commercial developments with modern infrastructure', established: '2010', totalProperties: 8 },
   { name: 'Marquis', logo: marquisLogo, description: 'Luxury residential projects with premium finishes and exclusive amenities', established: '2015', totalProperties: 6 },
-  { name: 'Rabdan Developments', logo: rabdanLogo, description: 'Sustainable and innovative property developments in key Dubai areas', established: '2016', totalProperties: 10 },
+  { name: 'Rabdan', logo: rabdanLogo, description: 'Sustainable and innovative property developments in key Dubai areas', established: '2016', totalProperties: 10 },
   { name: 'Tiger Properties AE', logo: tigerLogo, description: 'Premium villa communities and luxury residential developments', established: '2012', totalProperties: 15 },
 ];
 
@@ -38,8 +38,11 @@ export default function Projects() {
   useEffect(() => {
     const params = new URLSearchParams(location.split('?')[1] || '');
     const partnerParam = params.get('partner');
+    console.log('URL partner param:', partnerParam);
+    console.log('Available partners:', partners.map(p => p.name));
     if (partnerParam) {
       setSelectedPartner(partnerParam);
+      console.log('Set selected partner to:', partnerParam);
     }
   }, [location]);
 
