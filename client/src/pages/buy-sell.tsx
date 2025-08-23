@@ -302,25 +302,28 @@ export default function BuySell() {
                             )}
                           </div>
                           
-                          <div className="flex justify-between items-center">
-                            <span className="text-xs text-gray-600 font-medium">{property.partner}</span>
-                            {property.brochureUrl ? (
+                          <div className="space-y-3">
+                            <div className="flex justify-between items-center">
+                              <span className="text-xs text-gray-600 font-medium">{property.partner}</span>
+                            </div>
+                            <div className="flex gap-2">
                               <a 
-                                href={property.brochureUrl} 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors inline-block"
+                                href="/contact"
+                                className="bg-black text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors flex-1 text-center"
                               >
-                                Download Brochure
+                                Contact Us
                               </a>
-                            ) : (
-                              <button 
-                                className="bg-gray-400 text-white px-3 py-1 rounded-full text-xs font-medium cursor-not-allowed"
-                                disabled
-                              >
-                                No Brochure
-                              </button>
-                            )}
+                              {property.brochureUrl && (
+                                <a 
+                                  href={property.brochureUrl} 
+                                  target="_blank" 
+                                  rel="noopener noreferrer"
+                                  className="bg-white border border-black text-black px-3 py-1 rounded-full text-xs font-medium hover:bg-gray-50 transition-colors flex-1 text-center"
+                                >
+                                  Download Brochure
+                                </a>
+                              )}
+                            </div>
                           </div>
                         </div>
                       </div>
