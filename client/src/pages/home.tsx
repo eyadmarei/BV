@@ -6,7 +6,7 @@ import PropertyCard from "@/components/property-card";
 import { 
   Home as HomeIcon, Settings, Calculator, Briefcase, ArrowLeft,
   MapPin, Users, FileText, DollarSign, Shield, Wrench, 
-  Clipboard, Phone, CreditCard, Building2, Globe, Award
+  Clipboard, Phone, CreditCard, Building2, Globe, Award, Search
 } from "lucide-react";
 import type { Property, Service } from "@shared/schema";
 import heroVideo from "@assets/WhatsApp Video 2025-07-06 at 03.15.52_6b085703_1751757407515.mp4";
@@ -18,6 +18,17 @@ import imanLogo from "@assets/iman_1754074726267.png";
 import marquisLogo from "@assets/mareques_1754074726267.png";
 import rabdanLogo from "@assets/Rabdan_1754074726268.png";
 import tigerLogo from "@assets/tiger_1754074726270.png";
+
+const partners = [
+  { name: "Binghatti", logo: binghatiLogo, description: "Luxury Developments" },
+  { name: "Danube Properties", logo: danubeLogo, description: "Premium Locations" },
+  { name: "Ellington Properties", logo: ellingtonLogo, description: "Modern Design" },
+  { name: "Emaar", logo: emaarLogo, description: "Iconic Projects" },
+  { name: "Iman Developers", logo: imanLogo, description: "Quality Living" },
+  { name: "Marquis", logo: marquisLogo, description: "Elite Properties" },
+  { name: "Rabdan", logo: rabdanLogo, description: "Contemporary Style" },
+  { name: "Tiger Properties AE", logo: tigerLogo, description: "Investment Focus" }
+];
 
 const serviceCategories = [
   {
@@ -112,6 +123,7 @@ const serviceCategories = [
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("partners");
+  const [partnerFilter, setPartnerFilter] = useState("");
   
   const { data: properties, isLoading: propertiesLoading } = useQuery<Property[]>({
     queryKey: ["/api/properties"],
@@ -123,6 +135,12 @@ export default function Home() {
 
   const featuredProperties = properties?.filter(p => p.featured) || [];
   const activeCategory = serviceCategories.find(cat => cat.id === activeTab);
+  
+  // Filter partners based on search term
+  const filteredPartners = partners.filter(partner => 
+    partner.name.toLowerCase().includes(partnerFilter.toLowerCase()) ||
+    partner.description.toLowerCase().includes(partnerFilter.toLowerCase())
+  );
 
   return (
     <div className="min-h-screen">
@@ -738,6 +756,88 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Partner Showcase Section - Landing Page Style */}
+      <section className="py-16 bg-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Explore Our Premium Partners
+            </h2>
+            <p className="text-xl text-white/80 mb-8">
+              Discover luxury developments from Dubai's most trusted developers
+            </p>
+            
+            {/* Search Filter */}
+            <div className="max-w-md mx-auto mb-8">
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/60 w-5 h-5" />
+                <input
+                  type="text"
+                  placeholder="Search partners or development type..."
+                  value={partnerFilter}
+                  onChange={(e) => setPartnerFilter(e.target.value)}
+                  className="w-full pl-10 pr-4 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 transition-all"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Partner Cards Grid - Landing Page Style */}
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            {filteredPartners.map((partner, index) => (
+              <motion.div
+                key={partner.name}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="bg-white/20 backdrop-blur-sm rounded-lg p-6 border border-white/10 shadow-lg w-56 hover:bg-white/25 transition-all duration-300"
+                whileHover={{ scale: 1.05, y: -5 }}
+              >
+                <div className="text-center">
+                  <div className="flex items-center justify-center h-20 mb-4">
+                    <img 
+                      src={partner.logo} 
+                      alt={`${partner.name} logo`}
+                      className="max-h-full max-w-full object-contain filter drop-shadow-md"
+                    />
+                  </div>
+                  <h4 className="text-white text-sm font-bold mb-2">{partner.name}</h4>
+                  <p className="text-white/80 text-xs mb-4">{partner.description}</p>
+                  <Link href={`/projects?partner=${encodeURIComponent(partner.name)}`}>
+                    <button className="bg-black text-white px-4 py-2 rounded-full text-xs font-medium hover:bg-gray-800 transition-colors w-full">
+                      View Collection
+                    </button>
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* No Results Message */}
+          {filteredPartners.length === 0 && partnerFilter && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="text-center py-12"
+            >
+              <p className="text-white/60 text-lg">
+                No partners found matching "{partnerFilter}"
+              </p>
+              <button
+                onClick={() => setPartnerFilter("")}
+                className="mt-4 text-white underline hover:text-white/80 transition-colors"
+              >
+                Clear search
+              </button>
+            </motion.div>
+          )}
+        </div>
+      </section>
 
     </div>
   );
