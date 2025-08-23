@@ -744,60 +744,121 @@ export default function Home() {
                 </div>
               ) : (
                 <div>
-                  {/* Black Style Partner Cards */}
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                    {/* Using data from the black section but simplified */}
-                    <div className="flex flex-col items-center group">
-                      <div className="relative bg-gray-800 rounded-lg p-8 overflow-hidden flex items-center justify-center h-40 w-full transform transition-all duration-300 group-hover:scale-105">
-                        <img src={binghatiLogo} alt="Binghatti" className="max-w-[80%] max-h-[80%] filter brightness-0 invert" />
+                  {/* Black Style - Exact Clone from Attached Image */}
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    
+                    {/* Binghatti */}
+                    <div className="bg-gray-800 rounded-lg p-6 flex flex-col items-center transform transition-all duration-300 hover:scale-105">
+                      <div className="bg-black rounded-lg p-4 mb-4 w-full h-20 flex items-center justify-center">
+                        <img src={binghatiLogo} alt="Binghatti" className="max-w-[70%] max-h-[70%] filter brightness-0 invert" />
                       </div>
-                      <h3 className="text-lg font-bold text-gray-900 mt-4">Binghatti</h3>
-                      <p className="text-sm text-gray-600 mb-4">Luxury Developments</p>
+                      <h3 className="text-white font-bold text-sm mb-1">Binghatti</h3>
+                      <p className="text-gray-300 text-xs mb-4 text-center">Luxury Developments</p>
                       <Link href="/projects?partner=Binghatti">
-                        <button className="bg-black text-white px-6 py-2 rounded-full text-sm hover:bg-gray-800 transition-colors">
+                        <button className="bg-black text-white px-4 py-2 rounded-md text-xs hover:bg-gray-900 transition-colors w-full">
                           View Collection
                         </button>
                       </Link>
                     </div>
 
-                    <div className="flex flex-col items-center group">
-                      <div className="relative bg-gray-800 rounded-lg p-8 overflow-hidden flex items-center justify-center h-40 w-full transform transition-all duration-300 group-hover:scale-105">
-                        <img src={danubeLogo} alt="Danube Properties" className="max-w-[80%] max-h-[80%] filter brightness-0 invert" />
+                    {/* Danube Properties */}
+                    <div className="bg-gray-800 rounded-lg p-6 flex flex-col items-center transform transition-all duration-300 hover:scale-105">
+                      <div className="bg-black rounded-lg p-4 mb-4 w-full h-20 flex items-center justify-center">
+                        <img src={danubeLogo} alt="Danube Properties" className="max-w-[70%] max-h-[70%] filter brightness-0 invert" />
                       </div>
-                      <h3 className="text-lg font-bold text-gray-900 mt-4">Danube Properties</h3>
-                      <p className="text-sm text-gray-600 mb-4">Premium Locations</p>
+                      <h3 className="text-white font-bold text-sm mb-1">Danube Properties</h3>
+                      <p className="text-gray-300 text-xs mb-4 text-center">Premium Locations</p>
                       <Link href="/projects?partner=Danube Properties">
-                        <button className="bg-black text-white px-6 py-2 rounded-full text-sm hover:bg-gray-800 transition-colors">
+                        <button className="bg-black text-white px-4 py-2 rounded-md text-xs hover:bg-gray-900 transition-colors w-full">
                           View Collection
                         </button>
                       </Link>
                     </div>
 
-                    <div className="flex flex-col items-center group">
-                      <div className="relative bg-gray-800 rounded-lg p-8 overflow-hidden flex items-center justify-center h-40 w-full transform transition-all duration-300 group-hover:scale-105">
-                        <img src={ellingtonLogo} alt="Ellington Properties" className="max-w-[80%] max-h-[80%] filter brightness-0 invert" />
+                    {/* Ellington Properties */}
+                    <div className="bg-gray-800 rounded-lg p-6 flex flex-col items-center transform transition-all duration-300 hover:scale-105">
+                      <div className="bg-black rounded-lg p-4 mb-4 w-full h-20 flex items-center justify-center">
+                        <img src={ellingtonLogo} alt="Ellington Properties" className="max-w-[70%] max-h-[70%] filter brightness-0 invert" />
                       </div>
-                      <h3 className="text-lg font-bold text-gray-900 mt-4">Ellington Properties</h3>
-                      <p className="text-sm text-gray-600 mb-4">Modern Design</p>
+                      <h3 className="text-white font-bold text-sm mb-1">Ellington Properties</h3>
+                      <p className="text-gray-300 text-xs mb-4 text-center">Modern Design</p>
                       <Link href="/projects?partner=Ellington Properties">
-                        <button className="bg-black text-white px-6 py-2 rounded-full text-sm hover:bg-gray-800 transition-colors">
+                        <button className="bg-black text-white px-4 py-2 rounded-md text-xs hover:bg-gray-900 transition-colors w-full">
                           View Collection
                         </button>
                       </Link>
                     </div>
 
-                    <div className="flex flex-col items-center group">
-                      <div className="relative bg-gray-800 rounded-lg p-8 overflow-hidden flex items-center justify-center h-40 w-full transform transition-all duration-300 group-hover:scale-105">
-                        <img src={emaarLogo} alt="Emaar" className="max-w-[80%] max-h-[80%] filter brightness-0 invert" />
+                    {/* Emaar */}
+                    <div className="bg-gray-800 rounded-lg p-6 flex flex-col items-center transform transition-all duration-300 hover:scale-105">
+                      <div className="bg-black rounded-lg p-4 mb-4 w-full h-20 flex items-center justify-center">
+                        <img src={emaarLogo} alt="Emaar" className="max-w-[70%] max-h-[70%] filter brightness-0 invert" />
                       </div>
-                      <h3 className="text-lg font-bold text-gray-900 mt-4">Emaar</h3>
-                      <p className="text-sm text-gray-600 mb-4">Iconic Projects</p>
+                      <h3 className="text-white font-bold text-sm mb-1">Emaar</h3>
+                      <p className="text-gray-300 text-xs mb-4 text-center">Iconic Projects</p>
                       <Link href="/projects?partner=Emaar">
-                        <button className="bg-black text-white px-6 py-2 rounded-full text-sm hover:bg-gray-800 transition-colors">
+                        <button className="bg-black text-white px-4 py-2 rounded-md text-xs hover:bg-gray-900 transition-colors w-full">
                           View Collection
                         </button>
                       </Link>
                     </div>
+
+                    {/* Iman Developers */}
+                    <div className="bg-gray-800 rounded-lg p-6 flex flex-col items-center transform transition-all duration-300 hover:scale-105">
+                      <div className="bg-black rounded-lg p-4 mb-4 w-full h-20 flex items-center justify-center">
+                        <img src={imanLogo} alt="Iman Developers" className="max-w-[70%] max-h-[70%] filter brightness-0 invert" />
+                      </div>
+                      <h3 className="text-white font-bold text-sm mb-1">IMAN Developers</h3>
+                      <p className="text-gray-300 text-xs mb-4 text-center">Quality Developments</p>
+                      <Link href="/projects?partner=Iman Developers">
+                        <button className="bg-black text-white px-4 py-2 rounded-md text-xs hover:bg-gray-900 transition-colors w-full">
+                          View Collection
+                        </button>
+                      </Link>
+                    </div>
+
+                    {/* Marquis */}
+                    <div className="bg-gray-800 rounded-lg p-6 flex flex-col items-center transform transition-all duration-300 hover:scale-105">
+                      <div className="bg-black rounded-lg p-4 mb-4 w-full h-20 flex items-center justify-center">
+                        <img src={marquisLogo} alt="Marquis" className="max-w-[70%] max-h-[70%] filter brightness-0 invert" />
+                      </div>
+                      <h3 className="text-white font-bold text-sm mb-1">Marquis</h3>
+                      <p className="text-gray-300 text-xs mb-4 text-center">Luxury Projects</p>
+                      <Link href="/projects?partner=Marquis">
+                        <button className="bg-black text-white px-4 py-2 rounded-md text-xs hover:bg-gray-900 transition-colors w-full">
+                          View Collection
+                        </button>
+                      </Link>
+                    </div>
+
+                    {/* Rabdan */}
+                    <div className="bg-gray-800 rounded-lg p-6 flex flex-col items-center transform transition-all duration-300 hover:scale-105">
+                      <div className="bg-black rounded-lg p-4 mb-4 w-full h-20 flex items-center justify-center">
+                        <img src={rabdanLogo} alt="Rabdan" className="max-w-[70%] max-h-[70%] filter brightness-0 invert" />
+                      </div>
+                      <h3 className="text-white font-bold text-sm mb-1">Rabdan</h3>
+                      <p className="text-gray-300 text-xs mb-4 text-center">Sustainable Developments</p>
+                      <Link href="/projects?partner=Rabdan Developments">
+                        <button className="bg-black text-white px-4 py-2 rounded-md text-xs hover:bg-gray-900 transition-colors w-full">
+                          View Collection
+                        </button>
+                      </Link>
+                    </div>
+
+                    {/* Tiger Properties */}
+                    <div className="bg-gray-800 rounded-lg p-6 flex flex-col items-center transform transition-all duration-300 hover:scale-105">
+                      <div className="bg-black rounded-lg p-4 mb-4 w-full h-20 flex items-center justify-center">
+                        <img src={tigerLogo} alt="Tiger Properties" className="max-w-[70%] max-h-[70%] filter brightness-0 invert" />
+                      </div>
+                      <h3 className="text-white font-bold text-sm mb-1">Tiger Properties</h3>
+                      <p className="text-gray-300 text-xs mb-4 text-center">Premium Villas</p>
+                      <Link href="/projects?partner=Tiger Properties AE">
+                        <button className="bg-black text-white px-4 py-2 rounded-md text-xs hover:bg-gray-900 transition-colors w-full">
+                          View Collection
+                        </button>
+                      </Link>
+                    </div>
+
                   </div>
                 </div>
               )}
