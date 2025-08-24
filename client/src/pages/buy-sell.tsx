@@ -81,15 +81,19 @@ export default function BuySell() {
         
         {/* Page Header */}
         <motion.div
-          className="text-center mb-6"
+          className="text-center mb-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-3xl md:text-4xl font-bold text-black mb-4">
-            Buy & Sell Properties
-          </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <div className="flex items-center justify-center gap-4 mb-2">
+            <h1 className="text-xl md:text-2xl font-bold text-black">
+              Buy & Sell Properties
+            </h1>
+            <span className="text-gray-400 text-xl">•</span>
+            <span className="text-sm text-gray-600 font-medium">Dubai Real Estate</span>
+          </div>
+          <p className="text-sm text-gray-600 max-w-xl mx-auto">
             Discover luxury properties in Dubai or maximize your investment value
           </p>
         </motion.div>
