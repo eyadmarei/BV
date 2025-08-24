@@ -1036,7 +1036,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Property Market Updates - Featured Stories */}
+      {/* Property Market Updates - Featured Stories - HIDDEN FOR NOW */}
+      {/*
       <section id="news-section" className="py-12 bg-black">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
@@ -1048,7 +1049,6 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Compact Stories Feed */}
           <motion.div
             className="space-y-4"
             initial={{ opacity: 0 }}
@@ -1064,7 +1064,6 @@ export default function Home() {
                 className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-4 hover:bg-white/10 transition-all duration-300 group cursor-pointer"
               >
                 <div className="flex items-start gap-4">
-                  {/* Story Image Thumbnail */}
                   <div className="flex-shrink-0">
                     <div className="w-16 h-16 rounded-lg overflow-hidden bg-white/10">
                       <img 
@@ -1075,7 +1074,6 @@ export default function Home() {
                     </div>
                   </div>
                   
-                  {/* Story Content */}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-start justify-between gap-2">
                       <h3 className="text-white font-semibold text-sm md:text-base line-clamp-2 group-hover:text-white/90 transition-colors">
@@ -1089,7 +1087,6 @@ export default function Home() {
                       {story.content}
                     </p>
                     
-                    {/* Story Tags/Category */}
                     <div className="flex items-center justify-between mt-2">
                       <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-white/10 text-white/80">
                         📊 Market Update
@@ -1104,7 +1101,6 @@ export default function Home() {
             ))}
           </motion.div>
 
-          {/* No Stories Message */}
           {featuredStories.length === 0 && (
             <div className="text-center py-8 bg-white/5 rounded-lg border border-white/10">
               <div className="text-white/40 text-4xl mb-2">📰</div>
@@ -1118,6 +1114,7 @@ export default function Home() {
           )}
         </div>
       </section>
+      */}
 
     </div>
   );
