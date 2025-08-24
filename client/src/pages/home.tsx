@@ -279,7 +279,7 @@ export default function Home() {
           {/* Transparent Toggle Slider */}
           <div className="flex justify-center mb-8">
             <div className="relative bg-white/20 backdrop-blur-sm rounded-full p-0.5 shadow-lg border border-white/30">
-              {/* Sliding Transparent Highlight Button */}
+              {/* Sliding Highlight Button - Black for Market Updates */}
               <div 
                 className={`absolute top-0.5 h-[calc(100%-4px)] rounded-full shadow-md transition-all duration-400 ease-out ${
                   activeTab === 'partners' 
@@ -289,7 +289,7 @@ export default function Home() {
                     : 'left-[calc(66.66%+1px)] w-[calc(33.33%-2px)]'
                 }`}
                 style={{
-                  background: 'rgba(255, 255, 255, 0.8)',
+                  background: activeTab === 'market-updates' ? 'rgba(0, 0, 0, 0.9)' : 'rgba(255, 255, 255, 0.8)',
                   backdropFilter: 'blur(8px)',
                   boxShadow: '0 4px 12px rgba(0,0,0,0.1), inset 0 1px 2px rgba(255,255,255,0.4)'
                 }}
@@ -319,13 +319,13 @@ export default function Home() {
                 </button>
                 <button 
                   onClick={() => setActiveTab('market-updates')}
-                  className={`relative px-6 py-2 text-sm font-medium transition-all duration-300 rounded-full ${
+                  className={`relative px-6 py-2 text-sm font-medium transition-all duration-300 rounded-full flex items-center gap-2 ${
                     activeTab === 'market-updates' 
-                      ? 'text-black' 
+                      ? 'text-white' 
                       : 'text-black/70 hover:text-black opacity-70'
                   }`}
                 >
-                  Property Market Updates
+                  📈 Property Market Updates
                 </button>
               </div>
               
