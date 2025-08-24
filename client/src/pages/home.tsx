@@ -283,10 +283,10 @@ export default function Home() {
               <div 
                 className={`absolute top-0.5 h-[calc(100%-4px)] rounded-full shadow-md transition-all duration-400 ease-out ${
                   activeTab === 'partners' 
-                    ? 'left-0.5 w-[calc(33.33%-2px)]' 
+                    ? 'left-0.5 w-[calc(28%-2px)]' 
                     : activeTab === 'services' 
-                    ? 'left-[calc(33.33%+1px)] w-[calc(33.33%-2px)]' 
-                    : 'left-[calc(66.66%+1px)] w-[calc(33.33%-2px)]'
+                    ? 'left-[calc(28%+1px)] w-[calc(30%-2px)]' 
+                    : 'left-[calc(58%+1px)] w-[calc(42%-2px)]'
                 }`}
                 style={{
                   background: 'rgba(0, 0, 0, 0.9)',
