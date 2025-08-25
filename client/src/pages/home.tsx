@@ -446,11 +446,9 @@ export default function Home() {
                 className="relative"
               >
                 <CarouselContent className="-ml-1">
-                  {partners.map((partner, index) => (
-                    <CarouselItem key={index} className="pl-1 basis-1/2 md:basis-1/4 lg:basis-1/4">
-            
-            {/* Binghatti */}
-            <div className="flex flex-col items-center">
+                  {/* Binghatti */}
+                  <CarouselItem className="pl-1 basis-1/2 md:basis-1/4 lg:basis-1/4">
+                    <div className="flex flex-col items-center">
               <div 
                 className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
@@ -498,10 +496,12 @@ export default function Home() {
                   View Collection
                 </div>
               </Link>
-            </div>
+                    </div>
+                  </CarouselItem>
 
-            {/* Danube Properties */}
-            <div className="flex flex-col items-center">
+                  {/* Danube Properties */}
+                  <CarouselItem className="pl-1 basis-1/2 md:basis-1/4 lg:basis-1/4">
+                    <div className="flex flex-col items-center">
               <div 
                 className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
@@ -549,10 +549,12 @@ export default function Home() {
                   View Collection
                 </div>
               </Link>
-            </div>
+                    </div>
+                  </CarouselItem>
 
-            {/* Ellington Properties */}
-            <div className="flex flex-col items-center">
+                  {/* Ellington Properties */}
+                  <CarouselItem className="pl-1 basis-1/2 md:basis-1/4 lg:basis-1/4">
+                    <div className="flex flex-col items-center">
               <div 
                 className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
@@ -600,10 +602,12 @@ export default function Home() {
                   View Collection
                 </div>
               </Link>
-            </div>
+                    </div>
+                  </CarouselItem>
 
-            {/* Emaar */}
-            <div className="flex flex-col items-center">
+                  {/* Emaar */}
+                  <CarouselItem className="pl-1 basis-1/2 md:basis-1/4 lg:basis-1/4">
+                    <div className="flex flex-col items-center">
               <div 
                 className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
@@ -651,10 +655,12 @@ export default function Home() {
                   View Collection
                 </div>
               </Link>
-            </div>
+                    </div>
+                  </CarouselItem>
 
-            {/* Iman Developers */}
-            <div className="flex flex-col items-center">
+                  {/* Iman Developers */}
+                  <CarouselItem className="pl-1 basis-1/2 md:basis-1/4 lg:basis-1/4">
+                    <div className="flex flex-col items-center">
               <div 
                 className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
@@ -702,10 +708,12 @@ export default function Home() {
                   View Collection
                 </div>
               </Link>
-            </div>
+                    </div>
+                  </CarouselItem>
 
-            {/* Marquis */}
-            <div className="flex flex-col items-center">
+                  {/* Marquis */}
+                  <CarouselItem className="pl-1 basis-1/2 md:basis-1/4 lg:basis-1/4">
+                    <div className="flex flex-col items-center">
               <div 
                 className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
@@ -753,10 +761,12 @@ export default function Home() {
                   View Collection
                 </div>
               </Link>
-            </div>
+                    </div>
+                  </CarouselItem>
 
-            {/* Rabdan */}
-            <div className="flex flex-col items-center">
+                  {/* Rabdan */}
+                  <CarouselItem className="pl-1 basis-1/2 md:basis-1/4 lg:basis-1/4">
+                    <div className="flex flex-col items-center">
               <div 
                 className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
@@ -804,10 +814,12 @@ export default function Home() {
                   View Collection
                 </div>
               </Link>
-            </div>
+                    </div>
+                  </CarouselItem>
 
-            {/* Tiger Properties */}
-            <div className="flex flex-col items-center">
+                  {/* Tiger Properties */}
+                  <CarouselItem className="pl-1 basis-1/2 md:basis-1/4 lg:basis-1/4">
+                    <div className="flex flex-col items-center">
               <div 
                 className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
                 style={{
@@ -855,9 +867,10 @@ export default function Home() {
                   View Collection
                 </div>
               </Link>
-            </div>
-
-              </div>
+                    </div>
+                  </CarouselItem>
+                </CarouselContent>
+              </Carousel>
               
               {/* Elegant Text Below Partners */}
               <div className="text-center mt-8">
