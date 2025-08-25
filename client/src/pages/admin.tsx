@@ -292,6 +292,8 @@ export default function AdminPanel() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    console.log('Form submission - formData:', formData);
+    console.log('Form submission - imageUrl:', formData.imageUrl);
     if (isEditing && selectedProperty) {
       updatePropertyMutation.mutate({ id: selectedProperty.id, data: formData as InsertProperty });
     } else {
