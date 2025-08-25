@@ -284,42 +284,51 @@ export default function Home() {
 
         {/* Radio buttons always visible - no performance issues */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30">
-          <div className="flex gap-4 items-center">
+          <div className="flex gap-6 items-center">
             <div 
               onClick={() => setHeroView('video')}
-              className={`h-3 w-3 rounded-full border cursor-pointer transition-colors duration-200 ${
+              className="flex flex-col items-center gap-1 cursor-pointer"
+            >
+              <div className={`h-3 w-3 rounded-full border transition-colors duration-200 ${
                 heroView === 'video' 
                   ? 'border-gold bg-gold' 
                   : 'border-white/60 hover:border-gold/80'
-              }`}
-            >
-              {heroView === 'video' && (
-                <div className="h-1 w-1 rounded-full bg-black m-0.5" />
-              )}
+              }`}>
+                {heroView === 'video' && (
+                  <div className="h-1 w-1 rounded-full bg-black m-0.5" />
+                )}
+              </div>
+              <span className="text-white/50 text-xs font-light">Properties</span>
             </div>
             <div 
               onClick={() => setHeroView('story')}
-              className={`h-3 w-3 rounded-full border cursor-pointer transition-colors duration-200 ${
+              className="flex flex-col items-center gap-1 cursor-pointer"
+            >
+              <div className={`h-3 w-3 rounded-full border transition-colors duration-200 ${
                 heroView === 'story' 
                   ? 'border-gold bg-gold' 
                   : 'border-white/60 hover:border-gold/80'
-              }`}
-            >
-              {heroView === 'story' && (
-                <div className="h-1 w-1 rounded-full bg-black m-0.5" />
-              )}
+              }`}>
+                {heroView === 'story' && (
+                  <div className="h-1 w-1 rounded-full bg-black m-0.5" />
+                )}
+              </div>
+              <span className="text-white/50 text-xs font-light">Stories</span>
             </div>
             <div 
               onClick={() => setHeroView('updates')}
-              className={`h-3 w-3 rounded-full border cursor-pointer transition-colors duration-200 ${
+              className="flex flex-col items-center gap-1 cursor-pointer"
+            >
+              <div className={`h-3 w-3 rounded-full border transition-colors duration-200 ${
                 heroView === 'updates' 
                   ? 'border-gold bg-gold' 
                   : 'border-white/60 hover:border-gold/80'
-              }`}
-            >
-              {heroView === 'updates' && (
-                <div className="h-1 w-1 rounded-full bg-black m-0.5" />
-              )}
+              }`}>
+                {heroView === 'updates' && (
+                  <div className="h-1 w-1 rounded-full bg-black m-0.5" />
+                )}
+              </div>
+              <span className="text-white/50 text-xs font-light">Updates</span>
             </div>
           </div>
         </div>
