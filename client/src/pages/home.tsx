@@ -138,6 +138,7 @@ export default function Home() {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [showStory, setShowStory] = useState(true);
   const [heroView, setHeroView] = useState<'video' | 'story' | 'updates'>('story');
+  const [autoSwitch, setAutoSwitch] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
   
   // Prioritize properties first (most important for LCP)
@@ -164,6 +165,21 @@ export default function Home() {
     }, 1000); // Delay video loading by 1 second
     return () => clearTimeout(timer);
   }, []);
+
+  // Auto-switch between video and stories every 5 seconds
+  useEffect(() => {
+    if (!autoSwitch) return;
+    
+    const interval = setInterval(() => {
+      setHeroView(current => {
+        if (current === 'video') return 'story';
+        if (current === 'story') return 'video';
+        return 'video'; // fallback
+      });
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [autoSwitch]);
 
   const featuredProperties = properties?.filter(p => p.featured) || [];
   const activeCategory = serviceCategories.find(cat => cat.id === activeTab);
@@ -287,7 +303,11 @@ export default function Home() {
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30">
           <div className="flex gap-6 items-center">
             <div 
-              onClick={() => setHeroView('video')}
+              onClick={() => {
+                setHeroView('video');
+                setAutoSwitch(false);
+                setTimeout(() => setAutoSwitch(true), 10000); // Resume auto-switch after 10s
+              }}
               className="flex flex-col items-center gap-1 cursor-pointer"
             >
               <div className={`h-3 w-3 rounded-full border transition-colors duration-200 ${
@@ -305,7 +325,11 @@ export default function Home() {
               </span>
             </div>
             <div 
-              onClick={() => setHeroView('story')}
+              onClick={() => {
+                setHeroView('story');
+                setAutoSwitch(false);
+                setTimeout(() => setAutoSwitch(true), 10000); // Resume auto-switch after 10s
+              }}
               className="flex flex-col items-center gap-1 cursor-pointer"
             >
               <div className={`h-3 w-3 rounded-full border transition-colors duration-200 ${
@@ -323,7 +347,11 @@ export default function Home() {
               </span>
             </div>
             <div 
-              onClick={() => setHeroView('updates')}
+              onClick={() => {
+                setHeroView('updates');
+                setAutoSwitch(false);
+                setTimeout(() => setAutoSwitch(true), 10000); // Resume auto-switch after 10s
+              }}
               className="flex flex-col items-center gap-1 cursor-pointer"
             >
               <div className={`h-3 w-3 rounded-full border transition-colors duration-200 ${
