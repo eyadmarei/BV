@@ -3,6 +3,7 @@ import { useLocation, Link } from 'wouter';
 import { motion } from 'framer-motion';
 import { useQuery } from '@tanstack/react-query';
 import { Search } from 'lucide-react';
+import { Partner } from '@shared/schema';
 
 // Import partner logos
 import binghatiLogo from '@assets/binghate_1754074726263.png';
@@ -14,17 +15,17 @@ import marquisLogo from '@assets/mareques_1754074726267.png';
 import rabdanLogo from '@assets/Rabdan_1754074726268.png';
 import tigerLogo from '@assets/tiger_1754074726270.png';
 
-const partners = [
-  { name: 'All Partners', logo: null, description: 'View all partner properties', established: null, totalProperties: null },
-  { name: 'Binghatti', logo: binghatiLogo, description: 'Innovative architectural designs with distinctive lifestyle developments', established: '2008', totalProperties: 25 },
-  { name: 'Danube Properties', logo: danubeLogo, description: 'Affordable luxury properties with modern amenities and prime locations', established: '1993', totalProperties: 18 },
-  { name: 'Ellington Properties', logo: ellingtonLogo, description: 'Contemporary design-focused developments in premium Dubai locations', established: '2014', totalProperties: 12 },
-  { name: 'Emaar', logo: emaarLogo, description: 'World-class developments including Dubai Mall, Burj Khalifa and luxury communities', established: '1997', totalProperties: 45 },
-  { name: 'Iman Developers', logo: imanLogo, description: 'Quality residential and commercial developments with modern infrastructure', established: '2010', totalProperties: 8 },
-  { name: 'Marquis', logo: marquisLogo, description: 'Luxury residential projects with premium finishes and exclusive amenities', established: '2015', totalProperties: 6 },
-  { name: 'Rabdan', logo: rabdanLogo, description: 'Sustainable and innovative property developments in key Dubai areas', established: '2016', totalProperties: 10 },
-  { name: 'Tiger Properties AE', logo: tigerLogo, description: 'Premium villa communities and luxury residential developments', established: '2012', totalProperties: 15 },
-];
+// Logo mapping for imported assets
+const logoMap: Record<string, string> = {
+  'Binghatti': binghatiLogo,
+  'Danube Properties': danubeLogo,
+  'Ellington Properties': ellingtonLogo,
+  'Emaar': emaarLogo,
+  'IMAN Developers': imanLogo,
+  'Marquis': marquisLogo,
+  'Rabdan': rabdanLogo,
+  'Tiger Properties': tigerLogo,
+};
 
 const propertyTypes = ['All', 'Villa', 'Townhouse', 'Apartment'];
 
@@ -47,6 +48,19 @@ export default function Projects() {
   const { data: properties = [], isLoading } = useQuery({
     queryKey: ['/api/properties']
   });
+
+  const { data: partnersFromAPI = [], isLoading: partnersLoading } = useQuery<Partner[]>({
+    queryKey: ['/api/partners']
+  });
+
+  // Combine API partners with "All Partners" option and map logos
+  const partners = [
+    { name: 'All Partners', logo: null, description: 'View all partner properties', established: null, totalProperties: null },
+    ...partnersFromAPI.map(partner => ({
+      ...partner,
+      logo: logoMap[partner.name] || null // Use imported logo or fallback to null
+    }))
+  ];
 
   // Filter partners based on search term
   const filteredPartners = partners.filter(partner => 

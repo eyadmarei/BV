@@ -4,7 +4,7 @@ import { storage } from "./storage";
 import { ObjectStorageService, ObjectNotFoundError, objectStorageClient } from "./objectStorage";
 import { setupAuth, isAuthenticated, isAdmin } from "./replitAuth";
 import { seedDatabase } from "./seedDatabase";
-import { insertPropertySchema, insertServiceSchema, insertInquirySchema, insertFeaturedStorySchema, insertContactContentSchema } from "@shared/schema";
+import { insertPropertySchema, insertServiceSchema, insertInquirySchema, insertFeaturedStorySchema, insertContactContentSchema, insertPartnerSchema } from "@shared/schema";
 import { z } from "zod";
 import multer from "multer";
 import path from "path";
@@ -389,5 +389,31 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   const httpServer = createServer(app);
+  // Partners API routes
+  app.get('/api/partners', async (req, res) => {
+    try {
+      const partners = await storage.getPartners();
+      res.json(partners);
+    } catch (error) {
+      console.error('Error fetching partners:', error);
+      res.status(500).json({ message: 'Failed to fetch partners' });
+    }
+  });
+
+  app.get('/api/partners/:id', async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const partner = await storage.getPartner(id);
+      if (partner) {
+        res.json(partner);
+      } else {
+        res.status(404).json({ message: 'Partner not found' });
+      }
+    } catch (error) {
+      console.error('Error fetching partner:', error);
+      res.status(500).json({ message: 'Failed to fetch partner' });
+    }
+  });
+
   return httpServer;
 }

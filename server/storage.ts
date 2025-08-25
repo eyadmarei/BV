@@ -1,4 +1,4 @@
-import { properties, services, inquiries, users, featuredStories, contactContent, type Property, type Service, type Inquiry, type User, type UpsertUser, type InsertProperty, type InsertService, type InsertInquiry, type FeaturedStory, type InsertFeaturedStory, type ContactContent, type InsertContactContent } from "@shared/schema";
+import { properties, services, inquiries, users, featuredStories, contactContent, partners, type Property, type Service, type Inquiry, type User, type UpsertUser, type InsertProperty, type InsertService, type InsertInquiry, type FeaturedStory, type InsertFeaturedStory, type ContactContent, type InsertContactContent, type Partner, type InsertPartner } from "@shared/schema";
 import { db } from "./db";
 import { eq } from "drizzle-orm";
 
@@ -36,6 +36,14 @@ export interface IStorage {
   getContactContent(): Promise<ContactContent | undefined>;
   createContactContent(content: InsertContactContent): Promise<ContactContent>;
   updateContactContent(id: number, content: Partial<InsertContactContent>): Promise<ContactContent | undefined>;
+  
+  // Partners
+  getPartners(): Promise<Partner[]>;
+  getPartner(id: number): Promise<Partner | undefined>;
+  getPartnerByName(name: string): Promise<Partner | undefined>;
+  createPartner(partner: InsertPartner): Promise<Partner>;
+  updatePartner(id: number, partner: Partial<InsertPartner>): Promise<Partner | undefined>;
+  deletePartner(id: number): Promise<boolean>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -185,6 +193,43 @@ export class DatabaseStorage implements IStorage {
       .returning();
     return content;
   }
+
+  // Partners
+  async getPartners(): Promise<Partner[]> {
+    return await db.select().from(partners);
+  }
+
+  async getPartner(id: number): Promise<Partner | undefined> {
+    const [partner] = await db.select().from(partners).where(eq(partners.id, id));
+    return partner;
+  }
+
+  async getPartnerByName(name: string): Promise<Partner | undefined> {
+    const [partner] = await db.select().from(partners).where(eq(partners.name, name));
+    return partner;
+  }
+
+  async createPartner(insertPartner: InsertPartner): Promise<Partner> {
+    const [partner] = await db
+      .insert(partners)
+      .values(insertPartner)
+      .returning();
+    return partner;
+  }
+
+  async updatePartner(id: number, updateData: Partial<InsertPartner>): Promise<Partner | undefined> {
+    const [partner] = await db
+      .update(partners)
+      .set(updateData)
+      .where(eq(partners.id, id))
+      .returning();
+    return partner;
+  }
+
+  async deletePartner(id: number): Promise<boolean> {
+    const result = await db.delete(partners).where(eq(partners.id, id));
+    return result.rowCount !== null && result.rowCount > 0;
+  }
 }
 
 export class MemStorage implements IStorage {
@@ -193,11 +238,13 @@ export class MemStorage implements IStorage {
   private inquiries: Map<number, Inquiry>;
   private users: Map<number, User>;
   private featuredStories: Map<number, FeaturedStory>;
+  private partners: Map<number, Partner>;
   private currentPropertyId: number;
   private currentServiceId: number;
   private currentInquiryId: number;
   private currentUserId: number;
   private currentFeaturedStoryId: number;
+  private currentPartnerId: number;
 
   constructor() {
     this.properties = new Map();
@@ -205,17 +252,84 @@ export class MemStorage implements IStorage {
     this.inquiries = new Map();
     this.users = new Map();
     this.featuredStories = new Map();
+    this.partners = new Map();
     this.currentPropertyId = 1;
     this.currentServiceId = 1;
     this.currentInquiryId = 1;
     this.currentUserId = 1;
     this.currentFeaturedStoryId = 1;
+    this.currentPartnerId = 1;
     
     // Initialize with sample data
     this.initializeData();
   }
 
   private initializeData() {
+    // Sample partners with their logos
+    const samplePartners: InsertPartner[] = [
+      {
+        name: "Binghatti",
+        logo: "@assets/binghatte_1754074726263.png", 
+        description: "Innovative architectural designs with distinctive lifestyle developments",
+        established: "2008",
+        totalProperties: 25
+      },
+      {
+        name: "Danube Properties",
+        logo: "@assets/danube.png",
+        description: "Affordable luxury properties with flexible payment plans",
+        established: "1996",
+        totalProperties: 35
+      },
+      {
+        name: "Ellington Properties",
+        logo: "@assets/ellington.png",
+        description: "Contemporary living spaces with artistic architectural designs",
+        established: "2014",
+        totalProperties: 20
+      },
+      {
+        name: "Emaar",
+        logo: "@assets/emaar.png",
+        description: "World-class master-planned communities and iconic developments",
+        established: "1997",
+        totalProperties: 45
+      },
+      {
+        name: "IMAN Developers",
+        logo: "@assets/iman.png",
+        description: "Premium residential and commercial developments with modern amenities",
+        established: "2015",
+        totalProperties: 18
+      },
+      {
+        name: "Marquis",
+        logo: "@assets/marquis.png",
+        description: "High-end luxury properties in prime Dubai locations",
+        established: "2010",
+        totalProperties: 22
+      },
+      {
+        name: "Rabdan",
+        logo: "@assets/rabdan.png",
+        description: "Strategic property investments with strong returns",
+        established: "2012",
+        totalProperties: 28
+      },
+      {
+        name: "Tiger Properties",
+        logo: "@assets/tiger.png",
+        description: "Dynamic property solutions with innovative investment opportunities",
+        established: "2009",
+        totalProperties: 30
+      }
+    ];
+
+    // Initialize partners
+    samplePartners.forEach(partner => {
+      this.createPartner(partner);
+    });
+
     // Sample properties organized by partner
     const sampleProperties: InsertProperty[] = [
       // Emaar Properties
@@ -572,6 +686,46 @@ export class MemStorage implements IStorage {
     };
     this.contactContentData = updated;
     return updated;
+  }
+
+  // Partners - Memory Storage implementation
+  async getPartners(): Promise<Partner[]> {
+    return Array.from(this.partners.values());
+  }
+
+  async getPartner(id: number): Promise<Partner | undefined> {
+    return this.partners.get(id);
+  }
+
+  async getPartnerByName(name: string): Promise<Partner | undefined> {
+    return Array.from(this.partners.values()).find(p => p.name === name);
+  }
+
+  async createPartner(insertPartner: InsertPartner): Promise<Partner> {
+    const id = this.currentPartnerId++;
+    const partner: Partner = {
+      id,
+      ...insertPartner,
+      createdAt: new Date(),
+    };
+    this.partners.set(id, partner);
+    return partner;
+  }
+
+  async updatePartner(id: number, updateData: Partial<InsertPartner>): Promise<Partner | undefined> {
+    const existing = this.partners.get(id);
+    if (!existing) return undefined;
+    
+    const updated: Partner = {
+      ...existing,
+      ...updateData,
+    };
+    this.partners.set(id, updated);
+    return updated;
+  }
+
+  async deletePartner(id: number): Promise<boolean> {
+    return this.partners.delete(id);
   }
 }
 
