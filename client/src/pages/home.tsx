@@ -337,16 +337,10 @@ export default function Home() {
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 5.9 }}
-              className="mt-8 flex gap-4 justify-center"
+              className="mt-8"
             >
               <button className="bg-gradient-to-r from-gold to-yellow-500 text-black px-8 py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-gold/25 transition-all duration-300 transform hover:scale-105">
                 Be the First to Know
-              </button>
-              <button 
-                onClick={() => setHeroView('video')}
-                className="bg-white/10 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold hover:bg-white/20 transition-all duration-300"
-              >
-                Back to Video
               </button>
             </motion.div>
 
@@ -359,38 +353,38 @@ export default function Home() {
             >
               <div className="flex gap-4 items-center">
                 <div 
-                  onClick={() => setActiveTab('partners')}
+                  onClick={() => setHeroView('video')}
                   className={`h-3 w-3 rounded-full border cursor-pointer transition-colors ${
-                    activeTab === 'partners' 
+                    heroView === 'video' 
                       ? 'border-gold bg-gold' 
                       : 'border-white/60 hover:border-gold/80'
                   }`}
                 >
-                  {activeTab === 'partners' && (
+                  {heroView === 'video' && (
                     <div className="h-1 w-1 rounded-full bg-black m-0.5" />
                   )}
                 </div>
                 <div 
-                  onClick={() => setActiveTab('services')}
+                  onClick={() => setHeroView('story')}
                   className={`h-3 w-3 rounded-full border cursor-pointer transition-colors ${
-                    activeTab === 'services' 
+                    heroView === 'story' 
                       ? 'border-gold bg-gold' 
                       : 'border-white/60 hover:border-gold/80'
                   }`}
                 >
-                  {activeTab === 'services' && (
+                  {heroView === 'story' && (
                     <div className="h-1 w-1 rounded-full bg-black m-0.5" />
                   )}
                 </div>
                 <div 
-                  onClick={() => setActiveTab('market-updates')}
+                  onClick={() => setHeroView('updates')}
                   className={`h-3 w-3 rounded-full border cursor-pointer transition-colors ${
-                    activeTab === 'market-updates' 
+                    heroView === 'updates' 
                       ? 'border-gold bg-gold' 
                       : 'border-white/60 hover:border-gold/80'
                   }`}
                 >
-                  {activeTab === 'market-updates' && (
+                  {heroView === 'updates' && (
                     <div className="h-1 w-1 rounded-full bg-black m-0.5" />
                   )}
                 </div>
@@ -436,15 +430,6 @@ export default function Home() {
                 Expert analysis and trends to guide your investment decisions.
               </motion.p>
 
-              <motion.button
-                initial={{ y: 30, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                onClick={() => setHeroView('video')}
-                className="bg-white/10 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold hover:bg-white/20 transition-all duration-300"
-              >
-                Back to Video
-              </motion.button>
             </div>
           </motion.div>
         )}
