@@ -7,7 +7,7 @@ import {
   Home as HomeIcon, Settings, Calculator, Briefcase, ArrowLeft,
   MapPin, Users, FileText, DollarSign, Shield, Wrench, 
   Clipboard, Phone, CreditCard, Building2, Globe, Award, Search, Eye,
-  Sparkles, TrendingUp
+  Sparkles
 } from "lucide-react";
 import { 
   Carousel,
@@ -137,7 +137,7 @@ export default function Home() {
   const [partnerFilter, setPartnerFilter] = useState("");
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [showStory, setShowStory] = useState(true);
-  const [heroView, setHeroView] = useState<'video' | 'story' | 'updates'>('story');
+  const [heroView, setHeroView] = useState<'video' | 'story'>('story');
   const [autoSwitch, setAutoSwitch] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
   
@@ -346,28 +346,6 @@ export default function Home() {
                 Stories
               </span>
             </div>
-            <div 
-              onClick={() => {
-                setHeroView('updates');
-                setAutoSwitch(false);
-                setTimeout(() => setAutoSwitch(true), 10000); // Resume auto-switch after 10s
-              }}
-              className="flex flex-col items-center gap-1 cursor-pointer"
-            >
-              <div className={`h-3 w-3 rounded-full border transition-colors duration-200 ${
-                heroView === 'updates' 
-                  ? 'border-gold bg-gold' 
-                  : 'border-white/60 hover:border-gold/80'
-              }`}>
-                {heroView === 'updates' && (
-                  <div className="h-1 w-1 rounded-full bg-black m-0.5" />
-                )}
-              </div>
-              <span className="text-white/60 text-xs font-light flex items-center gap-1">
-                <TrendingUp size={10} />
-                Updates
-              </span>
-            </div>
           </div>
         </div>
         
@@ -475,38 +453,6 @@ export default function Home() {
           </motion.div>
         )}
 
-        {/* Updates Section */}
-        {heroView === 'updates' && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="absolute inset-0 bg-gradient-to-b from-black/80 to-black/90 z-20 flex items-center justify-center"
-          >
-            <div className="text-center px-4 sm:px-6 lg:px-8">
-              <motion.h2
-                initial={{ y: 30, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-4xl md:text-6xl font-bold text-white mb-6"
-              >
-                Market Updates
-              </motion.h2>
-              
-              <motion.p
-                initial={{ y: 30, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-lg text-white/80 max-w-3xl mx-auto leading-relaxed mb-8"
-              >
-                Stay informed with the latest insights from Dubai's dynamic real estate market. 
-                Expert analysis and trends to guide your investment decisions.
-              </motion.p>
-
-            </div>
-          </motion.div>
-        )}
 
       </section>
 
@@ -523,8 +469,8 @@ export default function Home() {
                   activeTab === 'partners' 
                     ? 'left-0.5 w-[calc(28%-2px)]' 
                     : activeTab === 'services' 
-                    ? 'left-[calc(28%+1px)] w-[calc(30%-2px)]' 
-                    : 'left-[calc(58%+1px)] w-[calc(42%-2px)]'
+                    ? 'left-[calc(48%+1px)] w-[calc(52%-2px)]' 
+                    : 'left-[0%+1px] w-[calc(48%-2px)]'
                 }`}
                 style={{
                   background: 'rgba(0, 0, 0, 0.9)',
@@ -554,18 +500,6 @@ export default function Home() {
                   }`}
                 >
                   Our Services
-                </button>
-                <button 
-                  onClick={() => setActiveTab('market-updates')}
-                  className={`relative px-2 sm:px-4 md:px-6 py-1.5 sm:py-2 text-xs sm:text-sm font-medium transition-all duration-300 rounded-full flex items-center gap-1 sm:gap-2 whitespace-nowrap ${
-                    activeTab === 'market-updates' 
-                      ? 'text-white' 
-                      : 'text-black/70 hover:text-black opacity-70'
-                  }`}
-                >
-                  <span className="hidden sm:inline">📈</span>
-                  <span className="sm:hidden">📈</span>
-                  Property Market Updates
                 </button>
               </div>
               
@@ -1198,102 +1132,6 @@ export default function Home() {
             </motion.div>
           )}
 
-          {/* Property Market Updates Tab Content */}
-          {activeTab === 'market-updates' && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              {/* Market Updates Content */}
-              <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Property Market Updates</h3>
-                  <p className="text-gray-600">Latest insights and trends from Dubai's real estate market</p>
-                </div>
-                
-                {/* News Stories Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {[
-                    {
-                      id: 1,
-                      title: "Dubai Property Market Hits Record High",
-                      summary: "Q4 2024 shows unprecedented growth in luxury property segment",
-                      icon: "📈",
-                      category: "Market Trends"
-                    },
-                    {
-                      id: 2,
-                      title: "New Development Projects Announced",
-                      summary: "Major developers unveil ambitious projects for 2025",
-                      icon: "🏗️",
-                      category: "Development News"
-                    },
-                    {
-                      id: 3,
-                      title: "Investment Opportunities in Downtown",
-                      summary: "Prime locations showing strong ROI potential",
-                      icon: "💰",
-                      category: "Investment"
-                    },
-                    {
-                      id: 4,
-                      title: "Expo Area Real Estate Boom",
-                      summary: "Post-Expo developments attract international buyers",
-                      icon: "🌍",
-                      category: "International"
-                    },
-                    {
-                      id: 5,
-                      title: "Sustainability in Real Estate",
-                      summary: "Green building initiatives gain momentum",
-                      icon: "🌱",
-                      category: "Sustainability"
-                    },
-                    {
-                      id: 6,
-                      title: "Tech-Enabled Property Solutions",
-                      summary: "Digital transformation in property management",
-                      icon: "💻",
-                      category: "Technology"
-                    }
-                  ].map((story, index) => (
-                    <motion.a
-                      key={story.id}
-                      href="#news-section"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="bg-gray-50 border border-gray-200 rounded-lg p-4 hover:bg-gray-100 transition-all duration-300 group cursor-pointer block"
-                      whileHover={{ scale: 1.02 }}
-                    >
-                      <div className="flex items-start gap-3">
-                        {/* Story Icon */}
-                        <div className="flex-shrink-0">
-                          <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center text-2xl">
-                            {story.icon}
-                          </div>
-                        </div>
-                          
-                        {/* Story Content */}
-                        <div className="flex-1 min-w-0">
-                          <h4 className="font-semibold text-gray-900 text-sm mb-1 group-hover:text-blue-600 transition-colors">
-                            {story.title}
-                          </h4>
-                          <p className="text-gray-600 text-xs mb-2">
-                            {story.summary}
-                          </p>
-                          <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-blue-50 text-blue-700">
-                            {story.category}
-                          </span>
-                        </div>
-                      </div>
-                    </motion.a>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          )}
           
         </div>
       </section>
