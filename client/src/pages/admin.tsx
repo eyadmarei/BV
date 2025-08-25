@@ -308,7 +308,7 @@ export default function AdminPanel() {
       content: story.content,
       imageUrl: story.imageUrl,
       featured: story.featured || false,
-      publishedAt: story.publishedAt
+      publishedAt: story.publishedAt || undefined
     });
     setIsEditingStory(true);
   };
@@ -330,10 +330,19 @@ export default function AdminPanel() {
       return;
     }
     
+    // Prepare data with proper date handling
+    const submitData = {
+      title: storyFormData.title.trim(),
+      content: storyFormData.content.trim(),
+      imageUrl: storyFormData.imageUrl.trim(),
+      featured: storyFormData.featured || false,
+      ...(storyFormData.publishedAt && { publishedAt: storyFormData.publishedAt })
+    };
+    
     if (isEditingStory && selectedStory) {
-      updateStoryMutation.mutate({ id: selectedStory.id, data: storyFormData as InsertFeaturedStory });
+      updateStoryMutation.mutate({ id: selectedStory.id, data: submitData as InsertFeaturedStory });
     } else {
-      createStoryMutation.mutate(storyFormData as InsertFeaturedStory);
+      createStoryMutation.mutate(submitData as InsertFeaturedStory);
     }
   };
 

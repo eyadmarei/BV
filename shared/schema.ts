@@ -103,6 +103,9 @@ export const insertInquirySchema = createInsertSchema(inquiries).omit({
 export const insertFeaturedStorySchema = createInsertSchema(featuredStories).omit({
   id: true,
   createdAt: true,
+  publishedAt: true,
+}).extend({
+  publishedAt: z.date().optional()
 });
 
 export const insertContactContentSchema = createInsertSchema(contactContent).omit({
