@@ -469,8 +469,8 @@ export default function Home() {
                   activeTab === 'partners' 
                     ? 'left-0.5 w-[calc(28%-2px)]' 
                     : activeTab === 'services' 
-                    ? 'left-[calc(48%+1px)] w-[calc(52%-2px)]' 
-                    : 'left-[0%+1px] w-[calc(48%-2px)]'
+                    ? 'left-[calc(52%+1px)] w-[calc(48%-2px)]' 
+                    : 'left-[0%+1px] w-[calc(52%-2px)]'
                 }`}
                 style={{
                   background: 'rgba(0, 0, 0, 0.9)',
