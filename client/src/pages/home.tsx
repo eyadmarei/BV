@@ -6,7 +6,8 @@ import PropertyCard from "@/components/property-card";
 import { 
   Home as HomeIcon, Settings, Calculator, Briefcase, ArrowLeft,
   MapPin, Users, FileText, DollarSign, Shield, Wrench, 
-  Clipboard, Phone, CreditCard, Building2, Globe, Award, Search, Eye
+  Clipboard, Phone, CreditCard, Building2, Globe, Award, Search, Eye,
+  Sparkles, TrendingUp
 } from "lucide-react";
 import { 
   Carousel,
@@ -298,7 +299,10 @@ export default function Home() {
                   <div className="h-1 w-1 rounded-full bg-black m-0.5" />
                 )}
               </div>
-              <span className="text-white/50 text-xs font-light">Properties</span>
+              <span className="text-white/60 text-xs font-light flex items-center gap-1">
+                <HomeIcon size={10} />
+                Properties
+              </span>
             </div>
             <div 
               onClick={() => setHeroView('story')}
@@ -313,7 +317,10 @@ export default function Home() {
                   <div className="h-1 w-1 rounded-full bg-black m-0.5" />
                 )}
               </div>
-              <span className="text-white/50 text-xs font-light">Stories</span>
+              <span className="text-white/60 text-xs font-light flex items-center gap-1">
+                <Sparkles size={10} />
+                Stories
+              </span>
             </div>
             <div 
               onClick={() => setHeroView('updates')}
@@ -328,7 +335,10 @@ export default function Home() {
                   <div className="h-1 w-1 rounded-full bg-black m-0.5" />
                 )}
               </div>
-              <span className="text-white/50 text-xs font-light">Updates</span>
+              <span className="text-white/60 text-xs font-light flex items-center gap-1">
+                <TrendingUp size={10} />
+                Updates
+              </span>
             </div>
           </div>
         </div>
