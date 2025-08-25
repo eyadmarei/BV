@@ -275,52 +275,6 @@ export default function Home() {
                 </div>
               </motion.div>
 
-              {/* Small Radio Navigation for Video Content */}
-              <motion.div
-                className="mt-12 flex justify-center"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 2 }}
-              >
-                <div className="flex gap-4 items-center">
-                  <div 
-                    onClick={() => setActiveTab('partners')}
-                    className={`h-3 w-3 rounded-full border cursor-pointer transition-colors ${
-                      activeTab === 'partners' 
-                        ? 'border-white bg-white' 
-                        : 'border-white/60 hover:border-white/80'
-                    }`}
-                  >
-                    {activeTab === 'partners' && (
-                      <div className="h-1 w-1 rounded-full bg-black m-0.5" />
-                    )}
-                  </div>
-                  <div 
-                    onClick={() => setActiveTab('services')}
-                    className={`h-3 w-3 rounded-full border cursor-pointer transition-colors ${
-                      activeTab === 'services' 
-                        ? 'border-white bg-white' 
-                        : 'border-white/60 hover:border-white/80'
-                    }`}
-                  >
-                    {activeTab === 'services' && (
-                      <div className="h-1 w-1 rounded-full bg-black m-0.5" />
-                    )}
-                  </div>
-                  <div 
-                    onClick={() => setActiveTab('market-updates')}
-                    className={`h-3 w-3 rounded-full border cursor-pointer transition-colors ${
-                      activeTab === 'market-updates' 
-                        ? 'border-white bg-white' 
-                        : 'border-white/60 hover:border-white/80'
-                    }`}
-                  >
-                    {activeTab === 'market-updates' && (
-                      <div className="h-1 w-1 rounded-full bg-black m-0.5" />
-                    )}
-                  </div>
-                </div>
-              </motion.div>
 
             </motion.div>
           </div>
@@ -384,6 +338,53 @@ export default function Home() {
               <button className="bg-gradient-to-r from-gold to-yellow-500 text-black px-8 py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-gold/25 transition-all duration-300 transform hover:scale-105">
                 Be the First to Know
               </button>
+            </motion.div>
+
+            {/* Small Radio Navigation */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 6.2 }}
+              className="mt-8 flex justify-center"
+            >
+              <div className="flex gap-4 items-center">
+                <div 
+                  onClick={() => setActiveTab('partners')}
+                  className={`h-3 w-3 rounded-full border cursor-pointer transition-colors ${
+                    activeTab === 'partners' 
+                      ? 'border-gold bg-gold' 
+                      : 'border-white/60 hover:border-gold/80'
+                  }`}
+                >
+                  {activeTab === 'partners' && (
+                    <div className="h-1 w-1 rounded-full bg-black m-0.5" />
+                  )}
+                </div>
+                <div 
+                  onClick={() => setActiveTab('services')}
+                  className={`h-3 w-3 rounded-full border cursor-pointer transition-colors ${
+                    activeTab === 'services' 
+                      ? 'border-gold bg-gold' 
+                      : 'border-white/60 hover:border-gold/80'
+                  }`}
+                >
+                  {activeTab === 'services' && (
+                    <div className="h-1 w-1 rounded-full bg-black m-0.5" />
+                  )}
+                </div>
+                <div 
+                  onClick={() => setActiveTab('market-updates')}
+                  className={`h-3 w-3 rounded-full border cursor-pointer transition-colors ${
+                    activeTab === 'market-updates' 
+                      ? 'border-gold bg-gold' 
+                      : 'border-white/60 hover:border-gold/80'
+                  }`}
+                >
+                  {activeTab === 'market-updates' && (
+                    <div className="h-1 w-1 rounded-full bg-black m-0.5" />
+                  )}
+                </div>
+              </div>
             </motion.div>
 
             {/* Background decoration */}
