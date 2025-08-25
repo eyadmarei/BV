@@ -354,63 +354,45 @@ export default function Home() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Transparent Toggle Slider */}
+          {/* Small Radio Navigation */}
           <div className="flex justify-center mb-8">
-            <div className="relative bg-white/20 backdrop-blur-sm rounded-full p-0.5 shadow-lg border border-white/30 overflow-x-auto">
-              {/* Sliding Highlight Button - Black for active tabs */}
+            <div className="flex gap-4 items-center">
               <div 
-                className={`absolute top-0.5 h-[calc(100%-4px)] rounded-full shadow-md transition-all duration-400 ease-out ${
+                onClick={() => setActiveTab('partners')}
+                className={`h-4 w-4 rounded-full border cursor-pointer transition-colors ${
                   activeTab === 'partners' 
-                    ? 'left-0.5 w-[calc(28%-2px)]' 
-                    : activeTab === 'services' 
-                    ? 'left-[calc(28%+1px)] w-[calc(30%-2px)]' 
-                    : 'left-[calc(58%+1px)] w-[calc(42%-2px)]'
+                    ? 'border-gray-400' 
+                    : 'border-gray-300 hover:border-gray-400'
                 }`}
-                style={{
-                  background: 'rgba(0, 0, 0, 0.9)',
-                  backdropFilter: 'blur(8px)',
-                  boxShadow: '0 4px 12px rgba(0,0,0,0.1), inset 0 1px 2px rgba(255,255,255,0.4)'
-                }}
-              />
-              
-              {/* Radio Buttons */}
-              <div className="relative flex">
-                <button 
-                  onClick={() => setActiveTab('partners')}
-                  className={`relative px-2 sm:px-4 md:px-6 py-1.5 sm:py-2 text-xs sm:text-sm font-medium transition-all duration-300 rounded-full whitespace-nowrap ${
-                    activeTab === 'partners' 
-                      ? 'text-white' 
-                      : 'text-black/70 hover:text-black opacity-70'
-                  }`}
-                >
-                  Premium Partners
-                </button>
-                <button 
-                  onClick={() => setActiveTab('services')}
-                  className={`relative px-2 sm:px-4 md:px-6 py-1.5 sm:py-2 text-xs sm:text-sm font-medium transition-all duration-300 rounded-full whitespace-nowrap ${
-                    activeTab === 'services' 
-                      ? 'text-white' 
-                      : 'text-black/70 hover:text-black opacity-70'
-                  }`}
-                >
-                  Our Services
-                </button>
-                <button 
-                  onClick={() => setActiveTab('market-updates')}
-                  className={`relative px-2 sm:px-4 md:px-6 py-1.5 sm:py-2 text-xs sm:text-sm font-medium transition-all duration-300 rounded-full flex items-center gap-1 sm:gap-2 whitespace-nowrap ${
-                    activeTab === 'market-updates' 
-                      ? 'text-white' 
-                      : 'text-black/70 hover:text-black opacity-70'
-                  }`}
-                >
-                  <span className="hidden sm:inline">📈</span>
-                  <span className="sm:hidden">📈</span>
-                  Property Market Updates
-                </button>
+              >
+                {activeTab === 'partners' && (
+                  <div className="h-2 w-2 rounded-full bg-blue-500 m-0.5" />
+                )}
               </div>
-              
-              {/* Transparent Shine Overlay */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-40 pointer-events-none" />
+              <div 
+                onClick={() => setActiveTab('services')}
+                className={`h-4 w-4 rounded-full border cursor-pointer transition-colors ${
+                  activeTab === 'services' 
+                    ? 'border-gray-400' 
+                    : 'border-gray-300 hover:border-gray-400'
+                }`}
+              >
+                {activeTab === 'services' && (
+                  <div className="h-2 w-2 rounded-full bg-blue-500 m-0.5" />
+                )}
+              </div>
+              <div 
+                onClick={() => setActiveTab('market-updates')}
+                className={`h-4 w-4 rounded-full border cursor-pointer transition-colors ${
+                  activeTab === 'market-updates' 
+                    ? 'border-gray-400' 
+                    : 'border-gray-300 hover:border-gray-400'
+                }`}
+              >
+                {activeTab === 'market-updates' && (
+                  <div className="h-2 w-2 rounded-full bg-blue-500 m-0.5" />
+                )}
+              </div>
             </div>
           </div>
 
