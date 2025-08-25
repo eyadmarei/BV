@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Upload, X } from "lucide-react";
@@ -7,12 +7,23 @@ interface LocalImageUploaderProps {
   onImageSelected: (imageUrl: string) => void;
   children?: React.ReactNode;
   className?: string;
+  reset?: boolean; // Add reset prop
 }
 
-export function LocalImageUploader({ onImageSelected, children, className }: LocalImageUploaderProps) {
+export function LocalImageUploader({ onImageSelected, children, className, reset }: LocalImageUploaderProps) {
   const [uploading, setUploading] = useState(false);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // Reset component when reset prop changes
+  useEffect(() => {
+    if (reset) {
+      setPreviewUrl(null);
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+    }
+  }, [reset]);
 
   const handleFileSelect = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];

@@ -51,6 +51,9 @@ export default function AdminPanel() {
     brochureUrl: ''
   });
 
+  // Reset state for image uploader
+  const [resetImageUploader, setResetImageUploader] = useState(false);
+
   // Featured story form state
   const [storyFormData, setStoryFormData] = useState<Partial<InsertFeaturedStory>>({
     title: '',
@@ -259,6 +262,11 @@ export default function AdminPanel() {
       featured: false,
       brochureUrl: ''
     });
+    setIsEditing(false);
+    setSelectedProperty(null);
+    // Reset image uploader
+    setResetImageUploader(true);
+    setTimeout(() => setResetImageUploader(false), 100);
   };
 
   const resetStoryForm = () => {
@@ -962,6 +970,7 @@ export default function AdminPanel() {
                   <LocalImageUploader
                     onImageSelected={(imageUrl) => setFormData(prev => ({ ...prev, imageUrl }))}
                     className="w-full"
+                    reset={resetImageUploader}
                   >
                     <div className="flex flex-col items-center">
                       <div className="text-4xl mb-2">📁</div>
@@ -1138,6 +1147,7 @@ export default function AdminPanel() {
                   <LocalImageUploader
                     onImageSelected={(imageUrl) => setFormData(prev => ({ ...prev, imageUrl }))}
                     className="w-full"
+                    reset={resetImageUploader}
                   >
                     📁 Upload New Image
                   </LocalImageUploader>
