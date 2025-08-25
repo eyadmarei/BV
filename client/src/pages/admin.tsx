@@ -182,6 +182,8 @@ export default function AdminPanel() {
       queryClient.invalidateQueries({ queryKey: ['/api/featured-stories'] });
       setIsEditingStory(false);
       setSelectedStory(null);
+      setShowAddStoryForm(false);
+      resetStoryForm();
     },
   });
 
@@ -191,11 +193,14 @@ export default function AdminPanel() {
         method: 'DELETE',
       });
       if (!response.ok) throw new Error('Failed to delete featured story');
-      return response.json();
+      return null; // DELETE returns 204 with no content
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/featured-stories'] });
       setSelectedStory(null);
+      setIsEditingStory(false);
+      setShowAddStoryForm(false);
+      resetStoryForm();
     },
   });
 
