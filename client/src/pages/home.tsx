@@ -282,54 +282,47 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Radio buttons always visible */}
-        {heroView === 'video' && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 2 }}
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30"
-          >
-            <div className="flex gap-4 items-center">
-              <div 
-                onClick={() => setHeroView('video')}
-                className={`h-3 w-3 rounded-full border cursor-pointer transition-colors ${
-                  heroView === 'video' 
-                    ? 'border-gold bg-gold' 
-                    : 'border-white/60 hover:border-gold/80'
-                }`}
-              >
-                {heroView === 'video' && (
-                  <div className="h-1 w-1 rounded-full bg-black m-0.5" />
-                )}
-              </div>
-              <div 
-                onClick={() => setHeroView('story')}
-                className={`h-3 w-3 rounded-full border cursor-pointer transition-colors ${
-                  heroView === 'story' 
-                    ? 'border-gold bg-gold' 
-                    : 'border-white/60 hover:border-gold/80'
-                }`}
-              >
-                {heroView === 'story' && (
-                  <div className="h-1 w-1 rounded-full bg-black m-0.5" />
-                )}
-              </div>
-              <div 
-                onClick={() => setHeroView('updates')}
-                className={`h-3 w-3 rounded-full border cursor-pointer transition-colors ${
-                  heroView === 'updates' 
-                    ? 'border-gold bg-gold' 
-                    : 'border-white/60 hover:border-gold/80'
-                }`}
-              >
-                {heroView === 'updates' && (
-                  <div className="h-1 w-1 rounded-full bg-black m-0.5" />
-                )}
-              </div>
+        {/* Radio buttons always visible - no performance issues */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30">
+          <div className="flex gap-4 items-center">
+            <div 
+              onClick={() => setHeroView('video')}
+              className={`h-3 w-3 rounded-full border cursor-pointer transition-colors duration-200 ${
+                heroView === 'video' 
+                  ? 'border-gold bg-gold' 
+                  : 'border-white/60 hover:border-gold/80'
+              }`}
+            >
+              {heroView === 'video' && (
+                <div className="h-1 w-1 rounded-full bg-black m-0.5" />
+              )}
             </div>
-          </motion.div>
-        )}
+            <div 
+              onClick={() => setHeroView('story')}
+              className={`h-3 w-3 rounded-full border cursor-pointer transition-colors duration-200 ${
+                heroView === 'story' 
+                  ? 'border-gold bg-gold' 
+                  : 'border-white/60 hover:border-gold/80'
+              }`}
+            >
+              {heroView === 'story' && (
+                <div className="h-1 w-1 rounded-full bg-black m-0.5" />
+              )}
+            </div>
+            <div 
+              onClick={() => setHeroView('updates')}
+              className={`h-3 w-3 rounded-full border cursor-pointer transition-colors duration-200 ${
+                heroView === 'updates' 
+                  ? 'border-gold bg-gold' 
+                  : 'border-white/60 hover:border-gold/80'
+              }`}
+            >
+              {heroView === 'updates' && (
+                <div className="h-1 w-1 rounded-full bg-black m-0.5" />
+              )}
+            </div>
+          </div>
+        </div>
         
         {/* Story Section - Slides over video */}
         {heroView === 'story' && (
@@ -393,52 +386,6 @@ export default function Home() {
               </button>
             </motion.div>
 
-            {/* Small Radio Navigation */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 6.2 }}
-              className="mt-8 flex justify-center"
-            >
-              <div className="flex gap-4 items-center">
-                <div 
-                  onClick={() => setHeroView('video')}
-                  className={`h-3 w-3 rounded-full border cursor-pointer transition-colors ${
-                    heroView === 'video' 
-                      ? 'border-gold bg-gold' 
-                      : 'border-white/60 hover:border-gold/80'
-                  }`}
-                >
-                  {heroView === 'video' && (
-                    <div className="h-1 w-1 rounded-full bg-black m-0.5" />
-                  )}
-                </div>
-                <div 
-                  onClick={() => setHeroView('story')}
-                  className={`h-3 w-3 rounded-full border cursor-pointer transition-colors ${
-                    heroView === 'story' 
-                      ? 'border-gold bg-gold' 
-                      : 'border-white/60 hover:border-gold/80'
-                  }`}
-                >
-                  {heroView === 'story' && (
-                    <div className="h-1 w-1 rounded-full bg-black m-0.5" />
-                  )}
-                </div>
-                <div 
-                  onClick={() => setHeroView('updates')}
-                  className={`h-3 w-3 rounded-full border cursor-pointer transition-colors ${
-                    heroView === 'updates' 
-                      ? 'border-gold bg-gold' 
-                      : 'border-white/60 hover:border-gold/80'
-                  }`}
-                >
-                  {heroView === 'updates' && (
-                    <div className="h-1 w-1 rounded-full bg-black m-0.5" />
-                  )}
-                </div>
-              </div>
-            </motion.div>
 
             {/* Background decoration */}
             <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
