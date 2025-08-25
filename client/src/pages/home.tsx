@@ -135,6 +135,7 @@ export default function Home() {
   const [partnerStyle, setPartnerStyle] = useState('fancy'); // 'fancy' or 'black'
   const [partnerFilter, setPartnerFilter] = useState("");
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const [showStory, setShowStory] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
   
   // Prioritize properties first (most important for LCP)
@@ -281,12 +282,14 @@ export default function Home() {
         </div>
         
         {/* Story Section - Slides over video */}
-        <motion.div
-          initial={{ x: "100%", opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 2, delay: 4, ease: "easeOut" }}
-          className="absolute inset-0 bg-black/90 z-20 flex items-center justify-center"
-        >
+        {showStory && (
+          <motion.div
+            initial={{ x: "100%", opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: "100%", opacity: 0 }}
+            transition={{ duration: 2, delay: 4, ease: "easeOut" }}
+            className="absolute inset-0 bg-black/90 z-20 flex items-center justify-center"
+          >
           <div className="text-center px-4 sm:px-6 lg:px-8">
             {/* Story Badge */}
             <motion.div
@@ -333,10 +336,16 @@ export default function Home() {
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 5.9 }}
-              className="mt-8"
+              className="mt-8 flex gap-4 justify-center"
             >
               <button className="bg-gradient-to-r from-gold to-yellow-500 text-black px-8 py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-gold/25 transition-all duration-300 transform hover:scale-105">
                 Be the First to Know
+              </button>
+              <button 
+                onClick={() => setShowStory(false)}
+                className="bg-white/10 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full font-semibold hover:bg-white/20 transition-all duration-300"
+              >
+                Back to Video
               </button>
             </motion.div>
 
@@ -395,6 +404,7 @@ export default function Home() {
             </div>
           </div>
         </motion.div>
+        )}
 
       </section>
 
