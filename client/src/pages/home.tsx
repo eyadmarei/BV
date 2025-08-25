@@ -281,6 +281,55 @@ export default function Home() {
             </motion.div>
           </div>
         </div>
+
+        {/* Radio buttons always visible */}
+        {heroView === 'video' && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 2 }}
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30"
+          >
+            <div className="flex gap-4 items-center">
+              <div 
+                onClick={() => setHeroView('video')}
+                className={`h-3 w-3 rounded-full border cursor-pointer transition-colors ${
+                  heroView === 'video' 
+                    ? 'border-gold bg-gold' 
+                    : 'border-white/60 hover:border-gold/80'
+                }`}
+              >
+                {heroView === 'video' && (
+                  <div className="h-1 w-1 rounded-full bg-black m-0.5" />
+                )}
+              </div>
+              <div 
+                onClick={() => setHeroView('story')}
+                className={`h-3 w-3 rounded-full border cursor-pointer transition-colors ${
+                  heroView === 'story' 
+                    ? 'border-gold bg-gold' 
+                    : 'border-white/60 hover:border-gold/80'
+                }`}
+              >
+                {heroView === 'story' && (
+                  <div className="h-1 w-1 rounded-full bg-black m-0.5" />
+                )}
+              </div>
+              <div 
+                onClick={() => setHeroView('updates')}
+                className={`h-3 w-3 rounded-full border cursor-pointer transition-colors ${
+                  heroView === 'updates' 
+                    ? 'border-gold bg-gold' 
+                    : 'border-white/60 hover:border-gold/80'
+                }`}
+              >
+                {heroView === 'updates' && (
+                  <div className="h-1 w-1 rounded-full bg-black m-0.5" />
+                )}
+              </div>
+            </div>
+          </motion.div>
+        )}
         
         {/* Story Section - Slides over video */}
         {heroView === 'story' && (
