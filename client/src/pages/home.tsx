@@ -213,7 +213,7 @@ export default function Home() {
               
               {/* Property Type Boxes with View Collection Buttons */}
               <motion.div
-                className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center max-w-lg sm:max-w-none mx-auto"
+                className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center max-w-xs sm:max-w-none mx-auto px-2 sm:px-0"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 1.5 }}
