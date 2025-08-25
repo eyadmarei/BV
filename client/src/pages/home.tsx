@@ -166,7 +166,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Video Section */}
-      <section className="relative h-screen overflow-hidden bg-black">
+      <section className="relative h-[120vh] sm:h-screen overflow-hidden bg-black">
         {/* Background Video - Lazy Loaded */}
         {videoLoaded && (
           <video 
