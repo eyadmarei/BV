@@ -270,24 +270,20 @@ export default function Home() {
             </motion.div>
           </div>
         </div>
-      </section>
-
-      {/* Story Section - Sliding in */}
-      <section className="py-16 bg-black relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ x: -100, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
+        
+        {/* Story Section - Slides over video */}
+        <motion.div
+          initial={{ x: "100%", opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 2, delay: 4, ease: "easeOut" }}
+          className="absolute inset-0 bg-black/90 z-20 flex items-center justify-center"
+        >
+          <div className="text-center px-4 sm:px-6 lg:px-8">
             {/* Story Badge */}
             <motion.div
               initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              viewport={{ once: true }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.5, delay: 4.5 }}
               className="inline-flex items-center gap-2 bg-gradient-to-r from-gold/20 to-yellow-500/20 border border-gold/30 rounded-full px-6 py-2 mb-6"
             >
               <div className="w-2 h-2 bg-gold rounded-full animate-pulse"></div>
@@ -297,9 +293,8 @@ export default function Home() {
             {/* Story Content */}
             <motion.h2
               initial={{ y: 30, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              viewport={{ once: true }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 5 }}
               className="text-4xl md:text-6xl font-bold text-white mb-4"
             >
               BestView Properties
@@ -307,9 +302,8 @@ export default function Home() {
             
             <motion.p
               initial={{ y: 30, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-              viewport={{ once: true }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 5.3 }}
               className="text-xl md:text-2xl text-gold font-semibold mb-8"
             >
               Opening Soon
@@ -317,9 +311,8 @@ export default function Home() {
 
             <motion.p
               initial={{ y: 30, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
-              viewport={{ once: true }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 5.6 }}
               className="text-lg text-white/80 max-w-3xl mx-auto leading-relaxed"
             >
               Get ready to experience Dubai's most exclusive real estate destination. 
@@ -329,24 +322,24 @@ export default function Home() {
             {/* Call to Action */}
             <motion.div
               initial={{ y: 30, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 1.1 }}
-              viewport={{ once: true }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 5.9 }}
               className="mt-8"
             >
               <button className="bg-gradient-to-r from-gold to-yellow-500 text-black px-8 py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-gold/25 transition-all duration-300 transform hover:scale-105">
                 Be the First to Know
               </button>
             </motion.div>
-          </motion.div>
-        </div>
 
-        {/* Background decoration */}
-        <div className="absolute top-0 left-0 w-full h-full opacity-10">
-          <div className="absolute top-10 left-10 w-20 h-20 border border-gold/30 rounded-full"></div>
-          <div className="absolute bottom-10 right-10 w-32 h-32 border border-gold/20 rounded-full"></div>
-          <div className="absolute top-1/2 right-20 w-16 h-16 border border-gold/25 rounded-full"></div>
-        </div>
+            {/* Background decoration */}
+            <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+              <div className="absolute top-10 left-10 w-20 h-20 border border-gold/30 rounded-full"></div>
+              <div className="absolute bottom-10 right-10 w-32 h-32 border border-gold/20 rounded-full"></div>
+              <div className="absolute top-1/2 right-20 w-16 h-16 border border-gold/25 rounded-full"></div>
+            </div>
+          </div>
+        </motion.div>
+
       </section>
 
       {/* Tabbed Section - Partners & Services */}
