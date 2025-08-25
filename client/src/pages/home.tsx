@@ -359,38 +359,38 @@ export default function Home() {
             >
               <div className="flex gap-4 items-center">
                 <div 
-                  onClick={() => setHeroView('video')}
+                  onClick={() => setActiveTab('partners')}
                   className={`h-3 w-3 rounded-full border cursor-pointer transition-colors ${
-                    heroView === 'video' 
+                    activeTab === 'partners' 
                       ? 'border-gold bg-gold' 
                       : 'border-white/60 hover:border-gold/80'
                   }`}
                 >
-                  {heroView === 'video' && (
+                  {activeTab === 'partners' && (
                     <div className="h-1 w-1 rounded-full bg-black m-0.5" />
                   )}
                 </div>
                 <div 
-                  onClick={() => setHeroView('story')}
+                  onClick={() => setActiveTab('services')}
                   className={`h-3 w-3 rounded-full border cursor-pointer transition-colors ${
-                    heroView === 'story' 
+                    activeTab === 'services' 
                       ? 'border-gold bg-gold' 
                       : 'border-white/60 hover:border-gold/80'
                   }`}
                 >
-                  {heroView === 'story' && (
+                  {activeTab === 'services' && (
                     <div className="h-1 w-1 rounded-full bg-black m-0.5" />
                   )}
                 </div>
                 <div 
-                  onClick={() => setHeroView('updates')}
+                  onClick={() => setActiveTab('market-updates')}
                   className={`h-3 w-3 rounded-full border cursor-pointer transition-colors ${
-                    heroView === 'updates' 
+                    activeTab === 'market-updates' 
                       ? 'border-gold bg-gold' 
                       : 'border-white/60 hover:border-gold/80'
                   }`}
                 >
-                  {heroView === 'updates' && (
+                  {activeTab === 'market-updates' && (
                     <div className="h-1 w-1 rounded-full bg-black m-0.5" />
                   )}
                 </div>
