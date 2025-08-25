@@ -171,7 +171,7 @@ export default function Home() {
         {videoLoaded && (
           <video 
             ref={videoRef}
-            className="absolute top-5 left-0 w-full h-[calc(100%-1.25rem)] object-cover"
+            className="absolute top-0 left-0 w-full h-full object-cover"
             autoPlay
             muted
             loop
@@ -188,7 +188,7 @@ export default function Home() {
         
         {/* Fallback background while video loads */}
         {!videoLoaded && (
-          <div className="absolute top-5 left-0 w-full h-[calc(100%-1.25rem)] bg-gradient-to-r from-black via-gray-900 to-black"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black via-gray-900 to-black"></div>
         )}
         
         {/* Dark Overlay */}
