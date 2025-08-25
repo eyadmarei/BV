@@ -316,6 +316,8 @@ export default function AdminPanel() {
   const handleStorySubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
+    console.log('Story form data:', storyFormData);
+    
     // Validate required fields
     if (!storyFormData.title?.trim()) {
       alert('Please enter a story title');
@@ -335,9 +337,10 @@ export default function AdminPanel() {
       title: storyFormData.title.trim(),
       content: storyFormData.content.trim(),
       imageUrl: storyFormData.imageUrl.trim(),
-      featured: storyFormData.featured || false,
-      ...(storyFormData.publishedAt && { publishedAt: storyFormData.publishedAt })
+      featured: storyFormData.featured || false
     };
+    
+    console.log('Submitting story data:', submitData);
     
     if (isEditingStory && selectedStory) {
       updateStoryMutation.mutate({ id: selectedStory.id, data: submitData as InsertFeaturedStory });
@@ -1259,6 +1262,7 @@ export default function AdminPanel() {
                       value={storyFormData.title || ''}
                       onChange={(e) => setStoryFormData(prev => ({ ...prev, title: e.target.value }))}
                       className="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2"
+                      placeholder="Enter story title..."
                       required
                     />
                   </div>
@@ -1270,6 +1274,7 @@ export default function AdminPanel() {
                       onChange={(e) => setStoryFormData(prev => ({ ...prev, content: e.target.value }))}
                       className="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2"
                       rows={6}
+                      placeholder="Enter story content..."
                       required
                     />
                   </div>
