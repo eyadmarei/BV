@@ -8,6 +8,14 @@ import {
   MapPin, Users, FileText, DollarSign, Shield, Wrench, 
   Clipboard, Phone, CreditCard, Building2, Globe, Award, Search, Eye
 } from "lucide-react";
+import { 
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  CarouselDots,
+} from "@/components/ui/carousel";
 import type { Property, Service, FeaturedStory } from "@shared/schema";
 import heroVideo from "@assets/WhatsApp Video 2025-07-06 at 03.15.52_6b085703_1751757407515.mp4";
 import binghatiLogo from "@assets/binghate_1754074726263.png";
@@ -429,8 +437,17 @@ export default function Home() {
             >
               {partnerStyle === 'fancy' ? (
                 <div>
-              {/* Partner Cards Grid - Horizontal Layout */}
-              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
+              {/* Partner Cards Carousel - Sliding Layout */}
+              <Carousel 
+                opts={{
+                  align: "start",
+                  loop: true,
+                }}
+                className="relative"
+              >
+                <CarouselContent className="-ml-1">
+                  {partners.map((partner, index) => (
+                    <CarouselItem key={index} className="pl-1 basis-1/2 md:basis-1/4 lg:basis-1/4">
             
             {/* Binghatti */}
             <div className="flex flex-col items-center">
