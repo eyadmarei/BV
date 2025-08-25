@@ -315,6 +315,21 @@ export default function AdminPanel() {
 
   const handleStorySubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate required fields
+    if (!storyFormData.title?.trim()) {
+      alert('Please enter a story title');
+      return;
+    }
+    if (!storyFormData.content?.trim()) {
+      alert('Please enter story content');
+      return;
+    }
+    if (!storyFormData.imageUrl?.trim()) {
+      alert('Please upload a story image');
+      return;
+    }
+    
     if (isEditingStory && selectedStory) {
       updateStoryMutation.mutate({ id: selectedStory.id, data: storyFormData as InsertFeaturedStory });
     } else {
