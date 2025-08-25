@@ -42,10 +42,12 @@ export function LocalImageUploader({ onImageSelected, children, className }: Loc
       }
 
       const data = await response.json();
+      console.log('Image uploaded successfully:', data.imageUrl);
       onImageSelected(data.imageUrl);
     } catch (error) {
       console.error('Error uploading file:', error);
-      alert('Failed to upload image');
+      console.error('Response status:', error);
+      alert(`Failed to upload image: ${error instanceof Error ? error.message : 'Unknown error'}`);
     } finally {
       setUploading(false);
     }
