@@ -377,71 +377,102 @@ export default function Home() {
             initial={{ x: "100%", opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: "100%", opacity: 0 }}
-            transition={{ duration: 2, delay: 4, ease: "easeOut" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="absolute inset-0 bg-black/90 z-20 flex items-center justify-center"
           >
-          <div className="text-center px-4 sm:px-6 lg:px-8">
-            {/* Story Badge */}
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.5, delay: 4.5 }}
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-gold/20 to-yellow-500/20 border border-gold/30 rounded-full px-6 py-2 mb-6"
-            >
-              <div className="w-2 h-2 bg-gold rounded-full animate-pulse"></div>
-              <span className="text-gold text-sm font-medium">BREAKING NEWS</span>
-            </motion.div>
+            <div className="text-center px-4 sm:px-6 lg:px-8 max-w-4xl">
+              {featuredStories && featuredStories.length > 0 ? (
+                featuredStories.slice(0, 1).map((story) => (
+                  <div key={story.id}>
+                    {/* Story Badge */}
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ duration: 0.5, delay: 0.2 }}
+                      className="inline-flex items-center gap-2 bg-gradient-to-r from-gold/20 to-yellow-500/20 border border-gold/30 rounded-full px-6 py-2 mb-6"
+                    >
+                      <div className="w-2 h-2 bg-gold rounded-full animate-pulse"></div>
+                      <span className="text-gold text-sm font-medium">FEATURED STORY</span>
+                    </motion.div>
 
-            {/* Story Content */}
-            <motion.h2
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 5 }}
-              className="text-4xl md:text-6xl font-bold text-white mb-4"
-            >
-              BestView Properties
-            </motion.h2>
-            
-            <motion.p
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 5.3 }}
-              className="text-xl md:text-2xl text-gold font-semibold mb-8"
-            >
-              Opening Soon
-            </motion.p>
+                    {/* Story Image */}
+                    {story.imageUrl && (
+                      <motion.div
+                        initial={{ y: 30, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                        className="mb-6"
+                      >
+                        <img
+                          src={story.imageUrl}
+                          alt={story.title}
+                          className="w-64 h-48 object-cover rounded-lg mx-auto shadow-xl"
+                        />
+                      </motion.div>
+                    )}
 
-            <motion.p
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 5.6 }}
-              className="text-lg text-white/80 max-w-3xl mx-auto leading-relaxed"
-            >
-              Get ready to experience Dubai's most exclusive real estate destination. 
-              Where luxury meets innovation, and every property tells a story of excellence.
-            </motion.p>
+                    {/* Story Title */}
+                    <motion.h2
+                      initial={{ y: 30, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ duration: 0.8, delay: 0.6 }}
+                      className="text-3xl md:text-5xl font-bold text-white mb-4"
+                    >
+                      {story.title}
+                    </motion.h2>
+                    
+                    {/* Story Content */}
+                    <motion.p
+                      initial={{ y: 30, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ duration: 0.8, delay: 0.8 }}
+                      className="text-lg text-white/80 max-w-3xl mx-auto leading-relaxed"
+                    >
+                      {story.content}
+                    </motion.p>
+                  </div>
+                ))
+              ) : (
+                <div>
+                  {/* Fallback content when no stories */}
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    className="inline-flex items-center gap-2 bg-gradient-to-r from-gold/20 to-yellow-500/20 border border-gold/30 rounded-full px-6 py-2 mb-6"
+                  >
+                    <div className="w-2 h-2 bg-gold rounded-full animate-pulse"></div>
+                    <span className="text-gold text-sm font-medium">COMING SOON</span>
+                  </motion.div>
 
-            {/* Call to Action */}
-            <motion.div
-              initial={{ y: 30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 5.9 }}
-              className="mt-8"
-            >
-              <button className="bg-gradient-to-r from-gold to-yellow-500 text-black px-8 py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-gold/25 transition-all duration-300 transform hover:scale-105">
-                Be the First to Know
-              </button>
-            </motion.div>
+                  <motion.h2
+                    initial={{ y: 30, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                    className="text-4xl md:text-6xl font-bold text-white mb-4"
+                  >
+                    Latest Stories
+                  </motion.h2>
+                  
+                  <motion.p
+                    initial={{ y: 30, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.6 }}
+                    className="text-lg text-white/80 max-w-3xl mx-auto leading-relaxed"
+                  >
+                    Stay tuned for the latest updates and featured stories from Best View Properties.
+                  </motion.p>
+                </div>
+              )}
 
-
-            {/* Background decoration */}
-            <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-              <div className="absolute top-10 left-10 w-20 h-20 border border-gold/30 rounded-full"></div>
-              <div className="absolute bottom-10 right-10 w-32 h-32 border border-gold/20 rounded-full"></div>
-              <div className="absolute top-1/2 right-20 w-16 h-16 border border-gold/25 rounded-full"></div>
+              {/* Background decoration */}
+              <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+                <div className="absolute top-10 left-10 w-20 h-20 border border-gold/30 rounded-full"></div>
+                <div className="absolute bottom-10 right-10 w-32 h-32 border border-gold/20 rounded-full"></div>
+                <div className="absolute top-1/2 right-20 w-16 h-16 border border-gold/25 rounded-full"></div>
+              </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
         )}
 
         {/* Updates Section */}
