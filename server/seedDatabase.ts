@@ -1,5 +1,5 @@
 import { storage } from "./storage";
-import type { InsertProperty, InsertService } from "@shared/schema";
+import type { InsertProperty, InsertService, InsertPartner } from "@shared/schema";
 
 export async function seedDatabase() {
   try {
@@ -185,6 +185,71 @@ export async function seedDatabase() {
     // Insert services
     for (const service of sampleServices) {
       await storage.createService(service);
+    }
+
+    // Sample partners
+    const samplePartners: InsertPartner[] = [
+      {
+        name: "Binghatti",
+        logo: "/images/binghatti-logo.png",
+        description: "Innovative architectural designs with distinctive lifestyle developments",
+        established: "2008",
+        totalProperties: 25
+      },
+      {
+        name: "Danube Properties",
+        logo: "/images/danube-logo.png",
+        description: "Affordable luxury properties with modern amenities and prime locations",
+        established: "1993",
+        totalProperties: 30
+      },
+      {
+        name: "Ellington Properties",
+        logo: "/images/ellington-logo.png",
+        description: "Contemporary design-focused developments in premium Dubai locations",
+        established: "2014",
+        totalProperties: 18
+      },
+      {
+        name: "Emaar",
+        logo: "/images/emaar-logo.png",
+        description: "World-class developments including Dubai Mall, Burj Khalifa and luxury communities",
+        established: "1997",
+        totalProperties: 45
+      },
+      {
+        name: "Iman Developers",
+        logo: "/images/iman-logo.png",
+        description: "Quality residential and commercial developments with modern infrastructure",
+        established: "2010",
+        totalProperties: 22
+      },
+      {
+        name: "Marquis",
+        logo: "/images/marquis-logo.png",
+        description: "Luxury residential projects with premium finishes and exclusive amenities",
+        established: "2015",
+        totalProperties: 12
+      },
+      {
+        name: "Rabdan",
+        logo: "/images/rabdan-logo.png",
+        description: "Sustainable and innovative property developments in key Dubai areas",
+        established: "2012",
+        totalProperties: 16
+      },
+      {
+        name: "Tiger Properties AE",
+        logo: "/images/tiger-logo.png",
+        description: "Premium villa communities and luxury residential developments",
+        established: "2011",
+        totalProperties: 20
+      }
+    ];
+
+    // Insert partners
+    for (const partner of samplePartners) {
+      await storage.createPartner(partner);
     }
 
     console.log("Database seeded successfully");

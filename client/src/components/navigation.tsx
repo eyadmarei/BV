@@ -11,6 +11,7 @@ export default function Navigation() {
 
   const navLinks = [
     { href: "/buy-sell", label: "Buy & Sell" },
+    { href: "/partners", label: "Partners" },
     { href: "/services", label: "Services" },
     { href: "/about", label: "About" },
   ];
