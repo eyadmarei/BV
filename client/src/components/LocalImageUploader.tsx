@@ -18,7 +18,9 @@ export function LocalImageUploader({ onImageSelected, children, className, reset
   // Reset component when reset prop changes
   useEffect(() => {
     if (reset) {
+      console.log('Resetting image uploader');
       setPreviewUrl(null);
+      setUploading(false);
       if (fileInputRef.current) {
         fileInputRef.current.value = '';
       }
@@ -27,7 +29,12 @@ export function LocalImageUploader({ onImageSelected, children, className, reset
 
   const handleFileSelect = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
-    if (!file) return;
+    if (!file) {
+      console.log('No file selected');
+      return;
+    }
+
+    console.log('File selected:', file.name, file.size);
 
     // Show preview
     const reader = new FileReader();
@@ -38,6 +45,7 @@ export function LocalImageUploader({ onImageSelected, children, className, reset
 
     // Upload file
     setUploading(true);
+    console.log('Starting upload...');
     try {
       const formData = new FormData();
       formData.append('image', file);
@@ -48,8 +56,10 @@ export function LocalImageUploader({ onImageSelected, children, className, reset
         credentials: 'include', // Include session cookies for authentication
       });
 
+      console.log('Upload response status:', response.status);
+
       if (!response.ok) {
-        throw new Error('Upload failed');
+        throw new Error(`Upload failed with status: ${response.status}`);
       }
 
       const data = await response.json();
@@ -57,7 +67,10 @@ export function LocalImageUploader({ onImageSelected, children, className, reset
       onImageSelected(data.imageUrl);
     } catch (error) {
       console.error('Error uploading file:', error);
-      console.error('Response status:', error);
+      setPreviewUrl(null); // Reset preview on error
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
       alert(`Failed to upload image: ${error instanceof Error ? error.message : 'Unknown error'}`);
     } finally {
       setUploading(false);
