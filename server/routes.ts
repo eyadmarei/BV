@@ -388,7 +388,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  const httpServer = createServer(app);
   // Partners API routes
   app.get('/api/partners', async (req, res) => {
     try {
@@ -415,5 +414,54 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Admin partner routes
+  app.post('/api/admin/partners', /* isAuthenticated, isAdmin, */ async (req, res) => {
+    try {
+      const validatedData = insertPartnerSchema.parse(req.body);
+      const partner = await storage.createPartner(validatedData);
+      res.status(201).json(partner);
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ message: "Invalid partner data", errors: error.errors });
+      }
+      console.error('Error creating partner:', error);
+      res.status(500).json({ message: "Failed to create partner" });
+    }
+  });
+
+  app.put('/api/admin/partners/:id', /* isAuthenticated, isAdmin, */ async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const validatedData = insertPartnerSchema.partial().parse(req.body);
+      const partner = await storage.updatePartner(id, validatedData);
+      if (!partner) {
+        return res.status(404).json({ message: 'Partner not found' });
+      }
+      res.json(partner);
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ message: "Invalid partner data", errors: error.errors });
+      }
+      console.error('Error updating partner:', error);
+      res.status(500).json({ message: "Failed to update partner" });
+    }
+  });
+
+  app.delete('/api/admin/partners/:id', /* isAuthenticated, isAdmin, */ async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const success = await storage.deletePartner(id);
+      if (success) {
+        res.json({ message: 'Partner deleted successfully' });
+      } else {
+        res.status(404).json({ message: 'Partner not found' });
+      }
+    } catch (error) {
+      console.error('Error deleting partner:', error);
+      res.status(500).json({ message: 'Failed to delete partner' });
+    }
+  });
+
+  const httpServer = createServer(app);
   return httpServer;
 }

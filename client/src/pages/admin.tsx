@@ -4,7 +4,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { LocalImageUploader } from '../components/LocalImageUploader';
 import { useAuth } from '../hooks/useAuth';
 import { apiRequest } from '../lib/queryClient';
-import type { Property, InsertProperty, FeaturedStory, InsertFeaturedStory, ContactContent, InsertContactContent, Inquiry } from '@shared/schema';
+import type { Property, InsertProperty, FeaturedStory, InsertFeaturedStory, ContactContent, InsertContactContent, Inquiry, Partner, InsertPartner } from '@shared/schema';
 
 // Helper function to handle image URLs (now local images)
 const convertImageUrl = (url: string): string => {
@@ -24,16 +24,18 @@ export default function AdminPanel() {
   const [showAddStoryForm, setShowAddStoryForm] = useState(false);
   const [selectedStory, setSelectedStory] = useState<FeaturedStory | null>(null);
   const [isEditingStory, setIsEditingStory] = useState(false);
+  const [showAddPartnerForm, setShowAddPartnerForm] = useState(false);
+  const [selectedPartner, setSelectedPartner] = useState<Partner | null>(null);
+  const [isEditingPartner, setIsEditingPartner] = useState(false);
   const queryClient = useQueryClient();
 
-  // Available partners from database
-  const partners = [
-    'Emaar',
-    'Binghatti', 
-    'Danube Properties',
-    'Tiger Properties AE',
-    'Ellington Properties'
-  ];
+  // Fetch partners from API
+  const { data: partnersData = [] } = useQuery<Partner[]>({
+    queryKey: ['/api/partners'],
+    queryFn: () => fetch('/api/partners').then(res => res.json()),
+  });
+
+  const partners = partnersData;
 
   // Form state
   const [formData, setFormData] = useState<Partial<InsertProperty>>({
@@ -72,6 +74,15 @@ export default function AdminPanel() {
     email: '',
     address: '',
     officeHours: ''
+  });
+
+  // Partner form state
+  const [partnerFormData, setPartnerFormData] = useState<Partial<InsertPartner>>({
+    name: '',
+    logo: '',
+    description: '',
+    established: '',
+    totalProperties: undefined
   });
 
   // Fetch properties for admin
@@ -514,7 +525,18 @@ export default function AdminPanel() {
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-xl font-bold text-gray-900">Manage Partners</h2>
               <button
-                onClick={() => {/* Add partner functionality can be added here */}}
+                onClick={() => {
+                  setSelectedPartner(null);
+                  setIsEditingPartner(false);
+                  setPartnerFormData({
+                    name: '',
+                    logo: '',
+                    description: '',
+                    established: '',
+                    totalProperties: undefined
+                  });
+                  setShowAddPartnerForm(true);
+                }}
                 className="bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800"
               >
                 Add Partner
@@ -523,10 +545,10 @@ export default function AdminPanel() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {partners.map((partner) => {
-                const partnerProperties = (properties as Property[]).filter(p => p.partner === partner);
+                const partnerProperties = (properties as Property[]).filter(p => p.partner === partner.name);
                 return (
                   <motion.div
-                    key={partner}
+                    key={partner.id}
                     className="bg-white rounded-lg shadow-md p-6"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -534,7 +556,7 @@ export default function AdminPanel() {
                   >
                     <div className="flex justify-between items-start mb-4">
                       <div>
-                        <h3 className="text-lg font-semibold text-gray-900">{partner}</h3>
+                        <h3 className="text-lg font-semibold text-gray-900">{partner.name}</h3>
                         <p className="text-sm text-gray-500">{partnerProperties.length} projects</p>
                       </div>
                       <div className="text-2xl">🏢</div>
@@ -561,7 +583,11 @@ export default function AdminPanel() {
                         View Projects
                       </button>
                       <button
-                        onClick={() => {/* Edit partner functionality */}}
+                        onClick={() => {
+                          setSelectedPartner(partner);
+                          setIsEditingPartner(true);
+                          setShowAddPartnerForm(true);
+                        }}
                         className="flex-1 bg-blue-600 text-white px-3 py-2 rounded-md text-sm hover:bg-blue-700"
                       >
                         Edit Partner
@@ -587,7 +613,7 @@ export default function AdminPanel() {
                 >
                   <option value="">Select Partner</option>
                   {partners.map(partner => (
-                    <option key={partner} value={partner}>{partner}</option>
+                    <option key={partner.id} value={partner.name}>{partner.name}</option>
                   ))}
                 </select>
                 <button
@@ -609,13 +635,13 @@ export default function AdminPanel() {
             {/* Projects Grid - Organized by Partner */}
             <div className="space-y-8">
               {partners.map((partner) => {
-                const partnerProperties = (properties as Property[]).filter((p: Property) => p.partner === partner);
+                const partnerProperties = (properties as Property[]).filter((p: Property) => p.partner === partner.name);
                 if (partnerProperties.length === 0) return null;
                 
                 return (
-                  <div key={partner}>
+                  <div key={partner.id}>
                     <div className="flex justify-between items-center mb-4">
-                      <h3 className="text-lg font-semibold text-gray-900">{partner}</h3>
+                      <h3 className="text-lg font-semibold text-gray-900">{partner.name}</h3>
                       <span className="text-sm text-gray-500">{partnerProperties.length} projects</span>
                     </div>
                     
@@ -716,7 +742,7 @@ export default function AdminPanel() {
                 >
                   <option value="">Select Partner</option>
                   {partners.map(partner => (
-                    <option key={partner} value={partner}>{partner}</option>
+                    <option key={partner.id} value={partner.name}>{partner.name}</option>
                   ))}
                 </select>
                 <button
@@ -1061,7 +1087,7 @@ export default function AdminPanel() {
                     >
                       <option value="">Select Partner</option>
                       {partners.map(partner => (
-                        <option key={partner} value={partner}>{partner}</option>
+                        <option key={partner.id} value={partner.name}>{partner.name}</option>
                       ))}
                     </select>
                   </div>
