@@ -1866,14 +1866,27 @@ export default function AdminPanel() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Logo URL</label>
-                  <input
-                    type="text"
-                    value={partnerFormData.logo || ''}
-                    onChange={(e) => setPartnerFormData(prev => ({ ...prev, logo: e.target.value }))}
-                    className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
-                    placeholder="e.g., /images/binghatti-logo.png"
-                  />
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Partner Logo</label>
+                  <LocalImageUploader
+                    onImageSelected={(imageUrl) => setPartnerFormData(prev => ({ ...prev, logo: imageUrl }))}
+                    reset={false}
+                    className="w-full"
+                  >
+                    <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center hover:border-gray-400 transition-colors">
+                      <div className="w-6 h-6 mx-auto text-gray-400 mb-2">📁</div>
+                      <p className="text-sm text-gray-600">Click to upload partner logo</p>
+                      <p className="text-xs text-gray-400 mt-1">PNG, JPG up to 10MB</p>
+                    </div>
+                  </LocalImageUploader>
+                  {partnerFormData.logo && (
+                    <div className="mt-2">
+                      <img 
+                        src={partnerFormData.logo} 
+                        alt="Partner logo preview" 
+                        className="h-16 object-contain"
+                      />
+                    </div>
+                  )}
                 </div>
 
                 <div>
