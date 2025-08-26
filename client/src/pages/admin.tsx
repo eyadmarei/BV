@@ -1925,6 +1925,19 @@ export default function AdminPanel() {
                   />
                 </div>
 
+                <div className="flex items-center">
+                  <input
+                    type="checkbox"
+                    id="showOnHomePage"
+                    checked={partnerFormData.showOnHomePage !== false}
+                    onChange={(e) => setPartnerFormData(prev => ({ ...prev, showOnHomePage: e.target.checked }))}
+                    className="mr-2 h-4 w-4 text-black focus:ring-black border-gray-300 rounded"
+                  />
+                  <label htmlFor="showOnHomePage" className="text-sm font-medium text-gray-700">
+                    Show on Home Page (Premium Partner)
+                  </label>
+                </div>
+
                 <div className="flex gap-3 pt-4">
                   <button
                     type="submit"

@@ -192,7 +192,10 @@ export default function Home() {
   const activeCategory = serviceCategories.find(cat => cat.id === activeTab);
   
   // Filter partners based on search term
-  const filteredPartners = partners.filter(partner => 
+  // Filter partners to only show those marked for home page
+  const homePagePartners = partners.filter(partner => partner.showOnHomePage !== false);
+  
+  const filteredPartners = homePagePartners.filter(partner => 
     partner.name.toLowerCase().includes(partnerFilter.toLowerCase()) ||
     (partner.description || '').toLowerCase().includes(partnerFilter.toLowerCase())
   );

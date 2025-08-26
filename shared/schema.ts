@@ -68,6 +68,7 @@ export const partners = pgTable("partners", {
   description: text("description").notNull(),
   established: text("established"),
   totalProperties: integer("total_properties"),
+  showOnHomePage: boolean("show_on_home_page").default(true),
   createdAt: timestamp("created_at").defaultNow(),
 });
 
