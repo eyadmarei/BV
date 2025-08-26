@@ -17,7 +17,7 @@ import {
   CarouselPrevious,
   CarouselDots,
 } from "@/components/ui/carousel";
-import type { Property, Service, FeaturedStory } from "@shared/schema";
+import type { Property, Service, FeaturedStory, Partner } from "@shared/schema";
 import heroVideo from "@assets/WhatsApp Video 2025-07-06 at 03.15.52_6b085703_1751757407515.mp4";
 import binghatiLogo from "@assets/binghate_1754074726263.png";
 import danubeLogo from "@assets/danube_1754074726264.png";
@@ -28,16 +28,17 @@ import marquisLogo from "@assets/mareques_1754074726267.png";
 import rabdanLogo from "@assets/Rabdan_1754074726268.png";
 import tigerLogo from "@assets/tiger_1754074726270.png";
 
-const partners = [
-  { name: "Binghatti", logo: binghatiLogo, description: "Luxury Developments" },
-  { name: "Danube Properties", logo: danubeLogo, description: "Premium Locations" },
-  { name: "Ellington Properties", logo: ellingtonLogo, description: "Modern Design" },
-  { name: "Emaar", logo: emaarLogo, description: "Iconic Projects" },
-  { name: "Iman Developers", logo: imanLogo, description: "Quality Living" },
-  { name: "Marquis", logo: marquisLogo, description: "Elite Properties" },
-  { name: "Rabdan", logo: rabdanLogo, description: "Contemporary Style" },
-  { name: "Tiger Properties AE", logo: tigerLogo, description: "Investment Focus" }
-];
+// Legacy logo mappings for existing partners
+const logoMappings: { [key: string]: string } = {
+  "Binghatti": binghatiLogo,
+  "Danube Properties": danubeLogo,
+  "Ellington Properties": ellingtonLogo,
+  "Emaar": emaarLogo,
+  "Iman Developers": imanLogo,
+  "Marquis": marquisLogo,
+  "Rabdan": rabdanLogo,
+  "Tiger Properties AE": tigerLogo
+};
 
 
 const serviceCategories = [
@@ -158,6 +159,12 @@ export default function Home() {
     staleTime: 10 * 60 * 1000, // Cache for 10 minutes
   });
 
+  // Fetch partners from API
+  const { data: partners = [], isLoading: partnersLoading } = useQuery<Partner[]>({
+    queryKey: ['/api/partners'],
+    staleTime: 5 * 60 * 1000, // Cache for 5 minutes
+  });
+
   // Load video after critical content
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -187,7 +194,7 @@ export default function Home() {
   // Filter partners based on search term
   const filteredPartners = partners.filter(partner => 
     partner.name.toLowerCase().includes(partnerFilter.toLowerCase()) ||
-    partner.description.toLowerCase().includes(partnerFilter.toLowerCase())
+    (partner.description || '').toLowerCase().includes(partnerFilter.toLowerCase())
   );
 
   return (
@@ -538,164 +545,74 @@ export default function Home() {
                 className="relative"
               >
                 <CarouselContent className="-ml-1">
-                  {/* Binghatti */}
-                  <CarouselItem className="pl-1 basis-1/2 md:basis-1/4 lg:basis-1/4">
-                    <div className="flex flex-col items-center">
-              <div 
-                className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
-                style={{
-                  background: 'linear-gradient(160deg, #fefefe, #faf9f7 30%, #f5f4f2 70%, #f0efed)',
-                  boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.9), inset 0 -1px 3px rgba(0,0,0,0.05), 0 6px 25px rgba(0,0,0,0.08), 0 0 20px rgba(255,248,220,0.8)',
-                  transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease',
-                  border: '1px solid rgba(255,255,255,0.4)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-4px)';
-                  e.currentTarget.style.boxShadow = 'inset 0 2px 8px rgba(255,255,255,1), inset 0 -1px 4px rgba(0,0,0,0.08), 0 12px 35px rgba(0,0,0,0.12), 0 0 30px rgba(255,248,220,1)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0px)';
-                  e.currentTarget.style.boxShadow = 'inset 0 2px 6px rgba(255,255,255,0.9), inset 0 -1px 3px rgba(0,0,0,0.05), 0 6px 25px rgba(0,0,0,0.08), 0 0 20px rgba(255,248,220,0.8)';
-                }}
-              >
-                <img 
-                  src={binghatiLogo} 
-                  alt="Binghatti logo"
-                  loading="lazy"
-                  style={{
-                    maxWidth: '90%',
-                    maxHeight: '90%',
-                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
-                  }}
-                />
-              </div>
-              <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', color: '#6b7280' }}>
-                Binghatti
-              </div>
-              <Link href="/projects?partner=Binghatti" className="mt-1">
-                <div 
-                  className="text-xs cursor-pointer transition-all hover:opacity-90 px-3 py-1 rounded-full"
-                  style={{ 
-                    background: '#ffffff',
-                    color: '#000000',
-                    fontSize: '10px',
-                    letterSpacing: '.1px',
-                    fontWeight: '400',
-                    border: '1px solid #e5e7eb',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
-                  }}
-                >
-                  View Collection
-                </div>
-              </Link>
-                    </div>
-                  </CarouselItem>
-
-                  {/* Danube Properties */}
-                  <CarouselItem className="pl-1 basis-1/2 md:basis-1/4 lg:basis-1/4">
-                    <div className="flex flex-col items-center">
-              <div 
-                className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
-                style={{
-                  background: 'linear-gradient(160deg, #fefefe, #faf9f7 30%, #f5f4f2 70%, #f0efed)',
-                  boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.9), inset 0 -1px 3px rgba(0,0,0,0.05), 0 6px 25px rgba(0,0,0,0.08), 0 0 20px rgba(255,248,220,0.8)',
-                  transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease',
-                  border: '1px solid rgba(255,255,255,0.4)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-4px)';
-                  e.currentTarget.style.boxShadow = 'inset 0 2px 8px rgba(255,255,255,1), inset 0 -1px 4px rgba(0,0,0,0.08), 0 12px 35px rgba(0,0,0,0.12), 0 0 30px rgba(255,248,220,1)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0px)';
-                  e.currentTarget.style.boxShadow = 'inset 0 2px 6px rgba(255,255,255,0.9), inset 0 -1px 3px rgba(0,0,0,0.05), 0 6px 25px rgba(0,0,0,0.08), 0 0 20px rgba(255,248,220,0.8)';
-                }}
-              >
-                <img 
-                  src={danubeLogo} 
-                  alt="Danube Properties logo"
-                  loading="lazy"
-                  style={{
-                    maxWidth: '90%',
-                    maxHeight: '90%',
-                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
-                  }}
-                />
-              </div>
-              <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', color: '#6b7280' }}>
-                Danube Properties
-              </div>
-              <Link href="/projects?partner=Danube Properties" className="mt-1">
-                <div 
-                  className="text-xs cursor-pointer transition-all hover:opacity-90 px-3 py-1 rounded-full"
-                  style={{ 
-                    background: '#ffffff',
-                    color: '#000000',
-                    fontSize: '10px',
-                    letterSpacing: '.1px',
-                    fontWeight: '400',
-                    border: '1px solid #e5e7eb',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
-                  }}
-                >
-                  View Collection
-                </div>
-              </Link>
-                    </div>
-                  </CarouselItem>
-
-                  {/* Ellington Properties */}
-                  <CarouselItem className="pl-1 basis-1/2 md:basis-1/4 lg:basis-1/4">
-                    <div className="flex flex-col items-center">
-              <div 
-                className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
-                style={{
-                  background: 'linear-gradient(160deg, #fefefe, #faf9f7 30%, #f5f4f2 70%, #f0efed)',
-                  boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.9), inset 0 -1px 3px rgba(0,0,0,0.05), 0 6px 25px rgba(0,0,0,0.08), 0 0 20px rgba(255,248,220,0.8)',
-                  transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease',
-                  border: '1px solid rgba(255,255,255,0.4)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-4px)';
-                  e.currentTarget.style.boxShadow = 'inset 0 2px 8px rgba(255,255,255,1), inset 0 -1px 4px rgba(0,0,0,0.08), 0 12px 35px rgba(0,0,0,0.12), 0 0 30px rgba(255,248,220,1)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0px)';
-                  e.currentTarget.style.boxShadow = 'inset 0 2px 6px rgba(255,255,255,0.9), inset 0 -1px 3px rgba(0,0,0,0.05), 0 6px 25px rgba(0,0,0,0.08), 0 0 20px rgba(255,248,220,0.8)';
-                }}
-              >
-                <img 
-                  src={ellingtonLogo} 
-                  alt="Ellington Properties logo"
-                  loading="lazy"
-                  style={{
-                    maxWidth: '90%',
-                    maxHeight: '90%',
-                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
-                  }}
-                />
-              </div>
-              <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', color: '#6b7280' }}>
-                Ellington Properties
-              </div>
-              <Link href="/projects?partner=Ellington Properties" className="mt-1">
-                <div 
-                  className="text-xs cursor-pointer transition-all hover:opacity-90 px-3 py-1 rounded-full"
-                  style={{ 
-                    background: '#ffffff',
-                    color: '#000000',
-                    fontSize: '10px',
-                    letterSpacing: '.1px',
-                    fontWeight: '400',
-                    border: '1px solid #e5e7eb',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
-                  }}
-                >
-                  View Collection
-                </div>
-              </Link>
-                    </div>
-                  </CarouselItem>
+                  {partnersLoading ? (
+                    // Loading skeleton
+                    Array.from({ length: 4 }).map((_, index) => (
+                      <CarouselItem key={`skeleton-${index}`} className="pl-1 basis-1/2 md:basis-1/4 lg:basis-1/4">
+                        <div className="flex flex-col items-center">
+                          <div className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full bg-gray-100 animate-pulse">
+                            <div className="w-20 h-10 bg-gray-200 rounded"></div>
+                          </div>
+                          <div className="h-4 w-24 bg-gray-200 rounded mt-2 animate-pulse"></div>
+                          <div className="h-6 w-20 bg-gray-200 rounded mt-1 animate-pulse"></div>
+                        </div>
+                      </CarouselItem>
+                    ))
+                  ) : (
+                    filteredPartners.map((partner, index) => (
+                      <CarouselItem key={partner.id} className="pl-1 basis-1/2 md:basis-1/4 lg:basis-1/4">
+                        <div className="flex flex-col items-center">
+                          <div 
+                            className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
+                            style={{
+                              background: 'linear-gradient(160deg, #fefefe, #faf9f7 30%, #f5f4f2 70%, #f0efed)',
+                              boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.9), inset 0 -1px 3px rgba(0,0,0,0.05), 0 6px 25px rgba(0,0,0,0.08), 0 0 20px rgba(255,248,220,0.8)',
+                              transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease',
+                              border: '1px solid rgba(255,255,255,0.4)'
+                            }}
+                            onMouseEnter={(e) => {
+                              e.currentTarget.style.transform = 'translateY(-4px)';
+                              e.currentTarget.style.boxShadow = 'inset 0 2px 8px rgba(255,255,255,1), inset 0 -1px 4px rgba(0,0,0,0.08), 0 12px 35px rgba(0,0,0,0.12), 0 0 30px rgba(255,248,220,1)';
+                            }}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.style.transform = 'translateY(0px)';
+                              e.currentTarget.style.boxShadow = 'inset 0 2px 6px rgba(255,255,255,0.9), inset 0 -1px 3px rgba(0,0,0,0.05), 0 6px 25px rgba(0,0,0,0.08), 0 0 20px rgba(255,248,220,0.8)';
+                            }}
+                          >
+                            <img 
+                              src={logoMappings[partner.name] || partner.logo || '/images/default-partner-logo.png'} 
+                              alt={`${partner.name} logo`}
+                              loading="lazy"
+                              style={{
+                                maxWidth: '90%',
+                                maxHeight: '90%',
+                                filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
+                              }}
+                            />
+                          </div>
+                          <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', color: '#6b7280' }}>
+                            {partner.name}
+                          </div>
+                          <Link href={`/projects?partner=${encodeURIComponent(partner.name)}`} className="mt-1">
+                            <div 
+                              className="text-xs cursor-pointer transition-all hover:opacity-90 px-3 py-1 rounded-full"
+                              style={{ 
+                                background: '#ffffff',
+                                color: '#000000',
+                                fontSize: '10px',
+                                letterSpacing: '.1px',
+                                fontWeight: '400',
+                                border: '1px solid #e5e7eb',
+                                boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+                              }}
+                            >
+                              View Collection
+                            </div>
+                          </Link>
+                        </div>
+                      </CarouselItem>
+                    ))
+                  )}
 
                   {/* Emaar */}
                   <CarouselItem className="pl-1 basis-1/2 md:basis-1/4 lg:basis-1/4">
@@ -1014,19 +931,7 @@ export default function Home() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6 }}
                     >
-                      {[
-                        { name: 'Binghatti', logo: binghatiLogo, description: 'Innovative architectural designs with distinctive lifestyle developments' },
-                        { name: 'Danube Properties', logo: danubeLogo, description: 'Affordable luxury properties with modern amenities and prime locations' },
-                        { name: 'Ellington Properties', logo: ellingtonLogo, description: 'Contemporary design-focused developments in premium Dubai locations' },
-                        { name: 'Emaar', logo: emaarLogo, description: 'World-class developments including Dubai Mall, Burj Khalifa and luxury communities' },
-                        { name: 'Iman Developers', logo: imanLogo, description: 'Quality residential and commercial developments with modern infrastructure' },
-                        { name: 'Marquis', logo: marquisLogo, description: 'Luxury residential projects with premium finishes and exclusive amenities' },
-                        { name: 'Rabdan', logo: rabdanLogo, description: 'Sustainable and innovative property developments in key Dubai areas' },
-                        { name: 'Tiger Properties AE', logo: tigerLogo, description: 'Premium villa communities and luxury residential developments' }
-                      ].filter(partner => 
-                        partner.name.toLowerCase().includes(partnerFilter.toLowerCase()) ||
-                        partner.description.toLowerCase().includes(partnerFilter.toLowerCase())
-                      ).map((partner, index) => (
+                      {filteredPartners.map((partner, index) => (
                         <motion.div
                           key={partner.name}
                           initial={{ opacity: 0, y: 30 }}
@@ -1038,14 +943,14 @@ export default function Home() {
                           <div className="text-center">
                             <div className="flex items-center justify-center h-16 mb-3">
                               <img 
-                                src={partner.logo} 
+                                src={logoMappings[partner.name] || partner.logo || '/images/default-partner-logo.png'} 
                                 alt={`${partner.name} logo`}
                                 loading="lazy"
                                 className="max-h-full max-w-full object-contain filter drop-shadow-md"
                               />
                             </div>
                             <h4 className="text-white text-xs font-bold mb-1">{partner.name}</h4>
-                            <p className="text-white/80 text-[10px] mb-3">{partner.description}</p>
+                            <p className="text-white/80 text-[10px] mb-3">{partner.description || 'Premium property development'}</p>
                             <Link href={`/projects?partner=${encodeURIComponent(partner.name)}`}>
                               <button className="bg-black text-white px-3 py-1.5 rounded-full text-[10px] font-medium hover:bg-gray-800 transition-colors w-full">
                                 View Collection
