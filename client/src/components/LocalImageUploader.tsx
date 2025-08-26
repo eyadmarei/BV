@@ -28,6 +28,9 @@ export function LocalImageUploader({ onImageSelected, children, className, reset
   }, [reset]);
 
   const handleFileSelect = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    // Prevent event bubbling that might close modal
+    event.stopPropagation();
+    
     const file = event.target.files?.[0];
     if (!file) {
       console.log('No file selected');
@@ -36,7 +39,20 @@ export function LocalImageUploader({ onImageSelected, children, className, reset
 
     console.log('File selected:', file.name, file.size);
 
-    // Show preview
+    // Validate file type
+    if (!file.type.startsWith('image/')) {
+      alert('Please select an image file (JPG, PNG, GIF, etc.)');
+      return;
+    }
+
+    // Validate file size (max 10MB)
+    const maxSize = 10 * 1024 * 1024; // 10MB in bytes
+    if (file.size > maxSize) {
+      alert(`Image size must be less than 10MB. Selected file is ${(file.size / 1024 / 1024).toFixed(1)}MB`);
+      return;
+    }
+
+    // Show preview immediately
     const reader = new FileReader();
     reader.onload = (e) => {
       setPreviewUrl(e.target?.result as string);
@@ -77,11 +93,17 @@ export function LocalImageUploader({ onImageSelected, children, className, reset
     }
   };
 
-  const handleButtonClick = () => {
+  const handleButtonClick = (e: React.MouseEvent) => {
+    // Prevent event bubbling that might close modal
+    e.preventDefault();
+    e.stopPropagation();
     fileInputRef.current?.click();
   };
 
-  const clearPreview = () => {
+  const clearPreview = (e: React.MouseEvent) => {
+    // Prevent event bubbling that might close modal
+    e.preventDefault();
+    e.stopPropagation();
     setPreviewUrl(null);
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
@@ -100,11 +122,11 @@ export function LocalImageUploader({ onImageSelected, children, className, reset
       
       {previewUrl ? (
         <div className="space-y-2">
-          <div className="relative w-32 h-32">
+          <div className="relative w-full max-w-xs mx-auto">
             <img 
               src={previewUrl} 
               alt="Preview" 
-              className="w-full h-full object-cover rounded-md border"
+              className="w-full h-48 object-cover rounded-md border"
             />
             <Button
               variant="destructive"
@@ -115,6 +137,7 @@ export function LocalImageUploader({ onImageSelected, children, className, reset
               <X className="h-3 w-3" />
             </Button>
           </div>
+          <p className="text-xs text-green-600 text-center">✓ Image ready for upload</p>
         </div>
       ) : (
         <Button
@@ -122,6 +145,7 @@ export function LocalImageUploader({ onImageSelected, children, className, reset
           disabled={uploading}
           variant="outline"
           className="w-full"
+          type="button"
         >
           <Upload className="mr-2 h-4 w-4" />
           {uploading ? 'Uploading...' : (children || 'Upload Image')}
