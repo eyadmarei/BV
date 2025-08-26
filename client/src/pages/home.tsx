@@ -882,8 +882,8 @@ export default function Home() {
                     </div>
                   </CarouselItem>
                 </CarouselContent>
-                <CarouselPrevious className="hidden md:flex" />
-                <CarouselNext className="hidden md:flex" />
+                <CarouselPrevious className="hidden md:flex -left-8 top-20 bg-white/90 hover:bg-white shadow-lg border border-gray-200" />
+                <CarouselNext className="hidden md:flex -right-8 top-20 bg-white/90 hover:bg-white shadow-lg border border-gray-200" />
               </Carousel>
               
               {/* Elegant Text Below Partners */}
