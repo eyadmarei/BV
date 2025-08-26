@@ -962,6 +962,8 @@ export default function Home() {
                     </div>
                   </CarouselItem>
                 </CarouselContent>
+                <CarouselPrevious className="hidden md:flex" />
+                <CarouselNext className="hidden md:flex" />
               </Carousel>
               
               {/* Elegant Text Below Partners */}
