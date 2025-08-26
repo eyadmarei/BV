@@ -547,6 +547,10 @@ export default function Home() {
                 }}
                 className="relative"
               >
+                {/* Left Creamy Edge Indicator */}
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-transparent via-stone-300/40 to-transparent z-10 rounded-full"></div>
+                {/* Right Creamy Edge Indicator */}
+                <div className="absolute right-0 top-0 bottom-0 w-1 bg-gradient-to-b from-transparent via-stone-300/40 to-transparent z-10 rounded-full"></div>
                 <CarouselContent className="-ml-1">
                   {partnersLoading ? (
                     // Loading skeleton
@@ -882,8 +886,8 @@ export default function Home() {
                     </div>
                   </CarouselItem>
                 </CarouselContent>
-                <CarouselPrevious className="hidden md:flex -left-8 top-20 bg-white/90 hover:bg-white shadow-lg border border-gray-200" />
-                <CarouselNext className="hidden md:flex -right-8 top-20 bg-white/90 hover:bg-white shadow-lg border border-gray-200" />
+                <CarouselPrevious className="hidden md:flex -left-8 top-20 bg-gradient-to-r from-white to-stone-50 hover:from-stone-50 hover:to-stone-100 text-gray-700 shadow-xl border-2 border-stone-200 rounded-full w-12 h-12 hover:scale-110 transition-all duration-300" />
+                <CarouselNext className="hidden md:flex -right-8 top-20 bg-gradient-to-r from-white to-stone-50 hover:from-stone-50 hover:to-stone-100 text-gray-700 shadow-xl border-2 border-stone-200 rounded-full w-12 h-12 hover:scale-110 transition-all duration-300" />
               </Carousel>
               
               {/* Elegant Text Below Partners */}
