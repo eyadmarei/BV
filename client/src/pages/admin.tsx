@@ -258,6 +258,80 @@ export default function AdminPanel() {
     },
   });
 
+  // Partner mutations
+  const createPartnerMutation = useMutation({
+    mutationFn: async (data: InsertPartner) => {
+      const response = await fetch('/api/partners', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) throw new Error('Failed to create partner');
+      return response.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['/api/partners'] });
+      setShowAddPartnerForm(false);
+      setPartnerFormData({
+        name: '',
+        logo: '',
+        description: '',
+        established: '',
+        totalProperties: undefined
+      });
+      alert('Partner created successfully!');
+    },
+    onError: () => {
+      alert('Failed to create partner. Please try again.');
+    },
+  });
+
+  const updatePartnerMutation = useMutation({
+    mutationFn: async (data: InsertPartner & { id: number }) => {
+      const response = await fetch(`/api/partners/${data.id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) throw new Error('Failed to update partner');
+      return response.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['/api/partners'] });
+      setShowAddPartnerForm(false);
+      setSelectedPartner(null);
+      setIsEditingPartner(false);
+      setPartnerFormData({
+        name: '',
+        logo: '',
+        description: '',
+        established: '',
+        totalProperties: undefined
+      });
+      alert('Partner updated successfully!');
+    },
+    onError: () => {
+      alert('Failed to update partner. Please try again.');
+    },
+  });
+
+  const deletePartnerMutation = useMutation({
+    mutationFn: async (id: number) => {
+      const response = await fetch(`/api/partners/${id}`, {
+        method: 'DELETE',
+      });
+      if (!response.ok) throw new Error('Failed to delete partner');
+      return response.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['/api/partners'] });
+      alert('Partner deleted successfully!');
+    },
+    onError: () => {
+      alert('Failed to delete partner. Please try again.');
+    },
+  });
+
   const resetForm = () => {
     setFormData({
       title: '',
@@ -372,6 +446,22 @@ export default function AdminPanel() {
       updateStoryMutation.mutate({ id: selectedStory.id, data: submitData as InsertFeaturedStory });
     } else {
       createStoryMutation.mutate(submitData as InsertFeaturedStory);
+    }
+  };
+
+  const handlePartnerSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Validate required fields
+    if (!partnerFormData.name?.trim()) {
+      alert('Please enter a partner name');
+      return;
+    }
+    
+    if (isEditingPartner && selectedPartner) {
+      updatePartnerMutation.mutate({ ...partnerFormData, id: selectedPartner.id } as InsertPartner & { id: number });
+    } else {
+      createPartnerMutation.mutate(partnerFormData as InsertPartner);
     }
   };
 
@@ -576,6 +666,16 @@ export default function AdminPanel() {
                     <div className="flex gap-2">
                       <button
                         onClick={() => {
+                          if (confirm(`Are you sure you want to delete ${partner.name}?`)) {
+                            deletePartnerMutation.mutate(partner.id);
+                          }
+                        }}
+                        className="flex-1 bg-red-600 text-white px-3 py-2 rounded-md text-sm hover:bg-red-700"
+                      >
+                        Delete
+                      </button>
+                      <button
+                        onClick={() => {
                           setActiveTab('projects');
                         }}
                         className="flex-1 bg-gray-100 text-gray-700 px-3 py-2 rounded-md text-sm hover:bg-gray-200"
@@ -586,6 +686,13 @@ export default function AdminPanel() {
                         onClick={() => {
                           setSelectedPartner(partner);
                           setIsEditingPartner(true);
+                          setPartnerFormData({
+                            name: partner.name,
+                            logo: partner.logo || '',
+                            description: partner.description || '',
+                            established: partner.established || '',
+                            totalProperties: partner.totalProperties || undefined
+                          });
                           setShowAddPartnerForm(true);
                         }}
                         className="flex-1 bg-blue-600 text-white px-3 py-2 rounded-md text-sm hover:bg-blue-700"
@@ -1714,6 +1821,130 @@ export default function AdminPanel() {
                   <p className="text-gray-600">Facebook, LinkedIn, and TikTok integration in development</p>
                 </div>
               </div>
+            </div>
+          </div>
+        )}
+
+        {/* Partner Form Modal */}
+        {showAddPartnerForm && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white rounded-lg p-6 w-full max-w-lg max-h-[90vh] overflow-y-auto">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-xl font-bold">
+                  {isEditingPartner ? 'Edit Partner' : 'Add Partner'}
+                </h2>
+                <button
+                  onClick={() => {
+                    setShowAddPartnerForm(false);
+                    setSelectedPartner(null);
+                    setIsEditingPartner(false);
+                    setPartnerFormData({
+                      name: '',
+                      logo: '',
+                      description: '',
+                      established: '',
+                      totalProperties: undefined
+                    });
+                  }}
+                  className="text-gray-500 hover:text-gray-700 text-xl"
+                >
+                  ✕
+                </button>
+              </div>
+
+              <form onSubmit={handlePartnerSubmit} className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Partner Name *</label>
+                  <input
+                    type="text"
+                    value={partnerFormData.name || ''}
+                    onChange={(e) => setPartnerFormData(prev => ({ ...prev, name: e.target.value }))}
+                    className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+                    placeholder="e.g., Binghatti"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Logo URL</label>
+                  <input
+                    type="text"
+                    value={partnerFormData.logo || ''}
+                    onChange={(e) => setPartnerFormData(prev => ({ ...prev, logo: e.target.value }))}
+                    className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+                    placeholder="e.g., /images/binghatti-logo.png"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Description</label>
+                  <textarea
+                    value={partnerFormData.description || ''}
+                    onChange={(e) => setPartnerFormData(prev => ({ ...prev, description: e.target.value }))}
+                    className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+                    rows={3}
+                    placeholder="Brief description of the partner company..."
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Established Year</label>
+                  <input
+                    type="text"
+                    value={partnerFormData.established || ''}
+                    onChange={(e) => setPartnerFormData(prev => ({ ...prev, established: e.target.value }))}
+                    className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+                    placeholder="e.g., 2008"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Total Properties</label>
+                  <input
+                    type="number"
+                    value={partnerFormData.totalProperties || ''}
+                    onChange={(e) => setPartnerFormData(prev => ({ 
+                      ...prev, 
+                      totalProperties: e.target.value ? parseInt(e.target.value) : undefined 
+                    }))}
+                    className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+                    placeholder="e.g., 25"
+                  />
+                </div>
+
+                <div className="flex gap-3 pt-4">
+                  <button
+                    type="submit"
+                    disabled={createPartnerMutation.isPending || updatePartnerMutation.isPending}
+                    className="flex-1 bg-black text-white py-2 px-4 rounded-md hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {createPartnerMutation.isPending || updatePartnerMutation.isPending
+                      ? 'Saving...'
+                      : isEditingPartner
+                      ? 'Update Partner'
+                      : 'Add Partner'
+                    }
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setShowAddPartnerForm(false);
+                      setSelectedPartner(null);
+                      setIsEditingPartner(false);
+                      setPartnerFormData({
+                        name: '',
+                        logo: '',
+                        description: '',
+                        established: '',
+                        totalProperties: undefined
+                      });
+                    }}
+                    className="flex-1 bg-gray-300 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-400"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         )}
