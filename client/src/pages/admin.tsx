@@ -261,7 +261,7 @@ export default function AdminPanel() {
   // Partner mutations
   const createPartnerMutation = useMutation({
     mutationFn: async (data: InsertPartner) => {
-      const response = await fetch('/api/partners', {
+      const response = await fetch('/api/admin/partners', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
@@ -288,7 +288,7 @@ export default function AdminPanel() {
 
   const updatePartnerMutation = useMutation({
     mutationFn: async (data: InsertPartner & { id: number }) => {
-      const response = await fetch(`/api/partners/${data.id}`, {
+      const response = await fetch(`/api/admin/partners/${data.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
@@ -317,7 +317,7 @@ export default function AdminPanel() {
 
   const deletePartnerMutation = useMutation({
     mutationFn: async (id: number) => {
-      const response = await fetch(`/api/partners/${id}`, {
+      const response = await fetch(`/api/admin/partners/${id}`, {
         method: 'DELETE',
       });
       if (!response.ok) throw new Error('Failed to delete partner');
