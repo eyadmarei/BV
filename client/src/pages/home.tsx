@@ -782,7 +782,7 @@ export default function Home() {
                 />
               </div>
               <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', color: '#6b7280' }}>
-                IMAN Developers
+                Iman Developers
               </div>
               <Link href="/projects?partner=Iman Developers" className="mt-1">
                 <div 
@@ -890,7 +890,7 @@ export default function Home() {
               <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', color: '#6b7280' }}>
                 Rabdan
               </div>
-              <Link href="/projects?partner=Rabdan Developments" className="mt-1">
+              <Link href="/projects?partner=Rabdan" className="mt-1">
                 <div 
                   className="text-xs cursor-pointer transition-all hover:opacity-90 px-3 py-1 rounded-full"
                   style={{ 
@@ -941,7 +941,7 @@ export default function Home() {
                 />
               </div>
               <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', color: '#6b7280' }}>
-                Tiger Properties
+                Tiger Properties AE
               </div>
               <Link href="/projects?partner=Tiger Properties AE" className="mt-1">
                 <div 
