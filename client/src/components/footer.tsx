@@ -1,5 +1,6 @@
 import { Link } from "wouter";
-import { Linkedin, Instagram, Twitter } from "lucide-react";
+import { Instagram } from "lucide-react";
+import { SiFacebook, SiTiktok } from "react-icons/si";
 
 export default function Footer() {
   return (
@@ -39,14 +40,14 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4">Connect</h4>
             <div className="flex space-x-4 mb-4">
-              <a href="#" className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center hover:bg-yellow-400 hover:text-black transition-all duration-300">
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center hover:bg-yellow-400 hover:text-black transition-all duration-300">
+              <a href="https://www.instagram.com/bestview.ae?igsh=MnNsNXFleXVmejNq" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center hover:bg-yellow-400 hover:text-black transition-all duration-300">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center hover:bg-yellow-400 hover:text-black transition-all duration-300">
-                <Twitter className="w-5 h-5" />
+              <a href="https://www.facebook.com/share/1HPFsmMpG5/?mibextid=wwXIfrf" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center hover:bg-yellow-400 hover:text-black transition-all duration-300">
+                <SiFacebook className="w-5 h-5" />
+              </a>
+              <a href="https://www.tiktok.com/@bestview.properties?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center hover:bg-yellow-400 hover:text-black transition-all duration-300">
+                <SiTiktok className="w-5 h-5" />
               </a>
             </div>
             <p className="text-white/80 text-sm">Book an appointment</p>
