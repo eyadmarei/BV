@@ -309,30 +309,22 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Radio buttons always visible - no performance issues */}
+        {/* Volume bar style radio buttons */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30">
-          <div className="flex gap-6 items-center">
+          <div className="flex gap-4 items-center">
             <div 
               onClick={() => {
                 setHeroView('video');
                 setAutoSwitch(false);
                 setTimeout(() => setAutoSwitch(true), 10000); // Resume auto-switch after 10s
               }}
-              className="flex flex-col items-center gap-1 cursor-pointer"
+              className="cursor-pointer"
             >
-              <div className={`h-3 w-3 rounded-full border transition-colors duration-200 ${
+              <div className={`w-8 h-2 rounded-full transition-all duration-300 ${
                 heroView === 'video' 
-                  ? 'border-gold bg-gold' 
-                  : 'border-white/60 hover:border-gold/80'
-              }`}>
-                {heroView === 'video' && (
-                  <div className="h-1 w-1 rounded-full bg-black m-0.5" />
-                )}
-              </div>
-              <span className="text-white/60 text-xs font-light flex items-center gap-1">
-                <HomeIcon size={10} />
-                Properties
-              </span>
+                  ? 'bg-white shadow-lg' 
+                  : 'bg-white/30 hover:bg-white/50'
+              }`} />
             </div>
             <div 
               onClick={() => {
@@ -340,21 +332,13 @@ export default function Home() {
                 setAutoSwitch(false);
                 setTimeout(() => setAutoSwitch(true), 10000); // Resume auto-switch after 10s
               }}
-              className="flex flex-col items-center gap-1 cursor-pointer"
+              className="cursor-pointer"
             >
-              <div className={`h-3 w-3 rounded-full border transition-colors duration-200 ${
+              <div className={`w-8 h-2 rounded-full transition-all duration-300 ${
                 heroView === 'story' 
-                  ? 'border-gold bg-gold' 
-                  : 'border-white/60 hover:border-gold/80'
-              }`}>
-                {heroView === 'story' && (
-                  <div className="h-1 w-1 rounded-full bg-black m-0.5" />
-                )}
-              </div>
-              <span className="text-white/60 text-xs font-light flex items-center gap-1">
-                <Sparkles size={10} />
-                Stories
-              </span>
+                  ? 'bg-white shadow-lg' 
+                  : 'bg-white/30 hover:bg-white/50'
+              }`} />
             </div>
           </div>
         </div>
