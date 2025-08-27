@@ -16,12 +16,12 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/">
-            <div className="flex items-center space-x-3 cursor-pointer bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2">
+            <div className="flex items-center space-x-3 cursor-pointer">
               <img 
                 src={bvLogo} 
                 alt="BV Logo" 
@@ -39,8 +39,8 @@ export default function Navigation() {
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href}>
-                <span className={`nav-link text-white hover:text-gray-200 font-medium cursor-pointer ${
-                  location === link.href ? 'text-gray-200' : ''
+                <span className={`nav-link text-charcoal hover:text-black font-medium cursor-pointer ${
+                  location === link.href ? 'text-black' : ''
                 }`}>
                   {link.label}
                 </span>
@@ -59,7 +59,6 @@ export default function Navigation() {
               variant="ghost"
               size="icon"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-white hover:text-gray-200"
             >
               <Menu className="h-5 w-5" />
             </Button>
@@ -68,12 +67,12 @@ export default function Navigation() {
         
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 bg-white/90 backdrop-blur-sm rounded-b-lg mx-4">
+          <div className="md:hidden py-4 border-t border-gray-100">
             <div className="flex flex-col space-y-3">
               {navLinks.map((link) => (
                 <Link key={link.href} href={link.href}>
                   <span 
-                    className="text-black hover:text-gray-700 font-medium px-3 py-2 cursor-pointer block"
+                    className="text-charcoal hover:text-black font-medium px-3 py-2 cursor-pointer block"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {link.label}
