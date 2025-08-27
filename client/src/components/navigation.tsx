@@ -21,7 +21,7 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/">
-            <div className="flex items-center space-x-3 cursor-pointer">
+            <div className="flex items-center space-x-3 cursor-pointer bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2">
               <img 
                 src={bvLogo} 
                 alt="BV Logo" 
@@ -39,8 +39,8 @@ export default function Navigation() {
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href}>
-                <span className={`nav-link text-charcoal hover:text-black font-medium cursor-pointer ${
-                  location === link.href ? 'text-black' : ''
+                <span className={`nav-link text-white hover:text-gray-200 font-medium cursor-pointer ${
+                  location === link.href ? 'text-gray-200' : ''
                 }`}>
                   {link.label}
                 </span>
@@ -59,6 +59,7 @@ export default function Navigation() {
               variant="ghost"
               size="icon"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="text-white hover:text-gray-200"
             >
               <Menu className="h-5 w-5" />
             </Button>
@@ -72,7 +73,7 @@ export default function Navigation() {
               {navLinks.map((link) => (
                 <Link key={link.href} href={link.href}>
                   <span 
-                    className="text-charcoal hover:text-black font-medium px-3 py-2 cursor-pointer block"
+                    className="text-black hover:text-gray-700 font-medium px-3 py-2 cursor-pointer block"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {link.label}
