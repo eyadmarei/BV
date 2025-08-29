@@ -713,58 +713,6 @@ export default function Home() {
                   </CarouselItem>
 
 
-                  {/* Tiger Properties */}
-                  <CarouselItem className="pl-1 basis-1/2 md:basis-1/4 lg:basis-1/4">
-                    <div className="flex flex-col items-center">
-              <div 
-                className="relative rounded-lg p-4 overflow-hidden flex items-center justify-center h-32 w-full"
-                style={{
-                  background: 'linear-gradient(160deg, #fefefe, #faf9f7 30%, #f5f4f2 70%, #f0efed)',
-                  boxShadow: 'inset 0 2px 6px rgba(255,255,255,0.9), inset 0 -1px 3px rgba(0,0,0,0.05), 0 6px 25px rgba(0,0,0,0.08), 0 0 20px rgba(255,248,220,0.8)',
-                  transition: 'transform .18s ease, outline-color .18s ease, box-shadow .18s ease',
-                  border: '1px solid rgba(255,255,255,0.4)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-4px)';
-                  e.currentTarget.style.boxShadow = 'inset 0 2px 8px rgba(255,255,255,1), inset 0 -1px 4px rgba(0,0,0,0.08), 0 12px 35px rgba(0,0,0,0.12), 0 0 30px rgba(255,248,220,1)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0px)';
-                  e.currentTarget.style.boxShadow = 'inset 0 2px 6px rgba(255,255,255,0.9), inset 0 -1px 3px rgba(0,0,0,0.05), 0 6px 25px rgba(0,0,0,0.08), 0 0 20px rgba(255,248,220,0.8)';
-                }}
-              >
-                <img 
-                  src={tigerLogo} 
-                  alt="Tiger Properties logo"
-                  loading="lazy"
-                  style={{
-                    maxWidth: '90%',
-                    maxHeight: '90%',
-                    filter: 'drop-shadow(0 1px 2px rgba(0,0,0,.5))'
-                  }}
-                />
-              </div>
-              <div className="font-semibold text-xs mt-2" style={{ letterSpacing: '.1px', color: '#6b7280' }}>
-                Tiger Properties AE
-              </div>
-              <Link href="/projects?partner=Tiger Properties AE" className="mt-1">
-                <div 
-                  className="text-xs cursor-pointer transition-all hover:opacity-90 px-3 py-1 rounded-full"
-                  style={{ 
-                    background: '#ffffff',
-                    color: '#000000',
-                    fontSize: '10px',
-                    letterSpacing: '.1px',
-                    fontWeight: '400',
-                    border: '1px solid #e5e7eb',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
-                  }}
-                >
-                  View Collection
-                </div>
-              </Link>
-                    </div>
-                  </CarouselItem>
                 </CarouselContent>
                 <CarouselPrevious className="hidden md:flex -left-8 top-20 bg-gradient-to-r from-white to-stone-50 hover:from-stone-50 hover:to-stone-100 text-gray-700 shadow-xl border-2 border-stone-200 rounded-full w-12 h-12 hover:scale-110 transition-all duration-300" />
                 <CarouselNext className="hidden md:flex -right-8 top-20 bg-gradient-to-r from-white to-stone-50 hover:from-stone-50 hover:to-stone-100 text-gray-700 shadow-xl border-2 border-stone-200 rounded-full w-12 h-12 hover:scale-110 transition-all duration-300" />
