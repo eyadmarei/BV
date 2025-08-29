@@ -685,6 +685,9 @@ export class MemStorage implements IStorage {
     const partner: Partner = {
       id,
       ...insertPartner,
+      established: insertPartner.established ?? null,
+      totalProperties: insertPartner.totalProperties ?? null,
+      showOnHomePage: insertPartner.showOnHomePage ?? true,
       createdAt: new Date(),
     };
     this.partners.set(id, partner);
