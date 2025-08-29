@@ -108,20 +108,6 @@ export async function seedDatabase() {
         area: 750,
         featured: false
       },
-      // Tiger Properties AE
-      {
-        title: "Tiger Residences",
-        type: "villa",
-        description: "Luxury villa community with contemporary design and exclusive amenities for discerning residents.",
-        imageUrl: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-        partner: "Tiger Properties AE",
-        price: 2800000,
-        location: "Dubai Land, Dubai",
-        bedrooms: 4,
-        bathrooms: 4,
-        area: 3500,
-        featured: true
-      },
       // Ellington Properties
       {
         title: "Ellington House",
@@ -237,13 +223,6 @@ export async function seedDatabase() {
         description: "Sustainable and innovative property developments in key Dubai areas",
         established: "2012",
         totalProperties: 16
-      },
-      {
-        name: "Tiger Properties AE",
-        logo: "/images/tiger-logo.png",
-        description: "Premium villa communities and luxury residential developments",
-        established: "2011",
-        totalProperties: 20
       }
     ];
 

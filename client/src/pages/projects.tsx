@@ -13,7 +13,6 @@ import emaarLogo from '@assets/emar_1754074726266.png';
 import imanLogo from '@assets/iman_1754074726267.png';
 import marquisLogo from '@assets/mareques_1754074726267.png';
 import rabdanLogo from '@assets/Rabdan_1754074726268.png';
-import tigerLogo from '@assets/tiger_1754074726270.png';
 
 // Logo mapping for imported assets
 const logoMap: Record<string, string> = {
@@ -24,7 +23,6 @@ const logoMap: Record<string, string> = {
   'IMAN Developers': imanLogo,
   'Marquis': marquisLogo,
   'Rabdan': rabdanLogo,
-  'Tiger Properties': tigerLogo,
 };
 
 const propertyTypes = ['All', 'Villa', 'Townhouse', 'Apartment'];

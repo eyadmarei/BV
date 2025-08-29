@@ -315,13 +315,6 @@ export class MemStorage implements IStorage {
         description: "Strategic property investments with strong returns",
         established: "2012",
         totalProperties: 28
-      },
-      {
-        name: "Tiger Properties",
-        logo: "@assets/tiger.png",
-        description: "Dynamic property solutions with innovative investment opportunities",
-        established: "2009",
-        totalProperties: 30
       }
     ];
 
@@ -425,20 +418,6 @@ export class MemStorage implements IStorage {
         bathrooms: 1,
         area: 750,
         featured: false
-      },
-      // Tiger Properties AE
-      {
-        title: "Tiger Residences",
-        type: "villa",
-        description: "Luxury villa community with contemporary design and exclusive amenities for discerning residents.",
-        imageUrl: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-        partner: "Tiger Properties AE",
-        price: 2800000,
-        location: "Dubai Land, Dubai",
-        bedrooms: 4,
-        bathrooms: 4,
-        area: 3500,
-        featured: true
       },
       // Ellington Properties
       {

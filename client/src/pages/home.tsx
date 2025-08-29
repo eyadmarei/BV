@@ -26,7 +26,6 @@ import emaarLogo from "@assets/emar_1754074726266.png";
 import imanLogo from "@assets/iman_1754074726267.png";
 import marquisLogo from "@assets/mareques_1754074726267.png";
 import rabdanLogo from "@assets/Rabdan_1754074726268.png";
-import tigerLogo from "@assets/tiger_1754074726270.png";
 
 // Legacy logo mappings for existing partners
 const logoMappings: { [key: string]: string } = {
@@ -37,7 +36,6 @@ const logoMappings: { [key: string]: string } = {
   "Iman Developers": imanLogo,
   "Marquis": marquisLogo,
   "Rabdan": rabdanLogo,
-  "Tiger Properties AE": tigerLogo
 };
 
 
@@ -805,7 +803,6 @@ export default function Home() {
                       { name: 'Iman Developers', logo: imanLogo, description: 'Quality residential and commercial developments with modern infrastructure' },
                       { name: 'Marquis', logo: marquisLogo, description: 'Luxury residential projects with premium finishes and exclusive amenities' },
                       { name: 'Rabdan', logo: rabdanLogo, description: 'Sustainable and innovative property developments in key Dubai areas' },
-                      { name: 'Tiger Properties AE', logo: tigerLogo, description: 'Premium villa communities and luxury residential developments' }
                     ].filter(partner => 
                       partner.name.toLowerCase().includes(partnerFilter.toLowerCase()) ||
                       partner.description.toLowerCase().includes(partnerFilter.toLowerCase())
