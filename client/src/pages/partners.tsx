@@ -5,16 +5,7 @@ import { Search } from "lucide-react";
 import { Link } from "wouter";
 import type { Partner } from "@shared/schema";
 
-// For now, use placeholder logos - these can be replaced with actual images later
-const logoMap: Record<string, string> = {
-  "Binghatti": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=200&h=100&fit=crop",
-  "Danube Properties": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=200&h=100&fit=crop",
-  "Ellington Properties": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=200&h=100&fit=crop",
-  "Emaar": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=200&h=100&fit=crop",
-  "Iman Developers": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=200&h=100&fit=crop",
-  "Marquis": "https://images.unsplash.com/photo-1571444114052-b5fe8c8de5e5?w=200&h=100&fit=crop",
-  "Rabdan": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=200&h=100&fit=crop",
-};
+// Removed hardcoded logoMap - now using logos from database only
 
 export default function Partners() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -24,11 +15,8 @@ export default function Partners() {
     queryKey: ['/api/partners'],
   });
 
-  // Map partners with logos
-  const partners = partnersFromAPI.map(partner => ({
-    ...partner,
-    logo: logoMap[partner.name] || null
-  }));
+  // Use partners from database as-is
+  const partners = partnersFromAPI;
 
   // Filter partners based on search
   const filteredPartners = partners.filter(partner => 

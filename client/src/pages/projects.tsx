@@ -5,25 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import { Search } from 'lucide-react';
 import { Partner } from '@shared/schema';
 
-// Import partner logos
-import binghatiLogo from '@assets/binghate_1754074726263.png';
-import danubeLogo from '@assets/danube_1754074726264.png';
-import ellingtonLogo from '@assets/download_1754074726265.png';
-import emaarLogo from '@assets/emar_1754074726266.png';
-import imanLogo from '@assets/iman_1754074726267.png';
-import marquisLogo from '@assets/mareques_1754074726267.png';
-import rabdanLogo from '@assets/Rabdan_1754074726268.png';
-
-// Logo mapping for imported assets
-const logoMap: Record<string, string> = {
-  'Binghatti': binghatiLogo,
-  'Danube Properties': danubeLogo,
-  'Ellington Properties': ellingtonLogo,
-  'Emaar': emaarLogo,
-  'IMAN Developers': imanLogo,
-  'Marquis': marquisLogo,
-  'Rabdan': rabdanLogo,
-};
+// Removed logo imports - now using partner logos from database only
 
 const propertyTypes = ['All', 'Villa', 'Townhouse', 'Apartment'];
 
@@ -54,10 +36,7 @@ export default function Projects() {
   // Combine API partners with "All Partners" option and map logos
   const partners = [
     { name: 'All Partners', logo: null, description: 'View all partner properties', established: null, totalProperties: null },
-    ...partnersFromAPI.map(partner => ({
-      ...partner,
-      logo: logoMap[partner.name] || null // Use imported logo or fallback to null
-    }))
+    ...partnersFromAPI // Use partners from database as-is
   ];
 
   // Filter partners based on search term
