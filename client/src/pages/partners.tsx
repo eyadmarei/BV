@@ -14,7 +14,6 @@ const logoMap: Record<string, string> = {
   "Iman Developers": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=200&h=100&fit=crop",
   "Marquis": "https://images.unsplash.com/photo-1571444114052-b5fe8c8de5e5?w=200&h=100&fit=crop",
   "Rabdan": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=200&h=100&fit=crop",
-  "Tiger Properties AE": "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=200&h=100&fit=crop",
 };
 
 export default function Partners() {
