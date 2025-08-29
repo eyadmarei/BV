@@ -260,8 +260,6 @@ export class MemStorage implements IStorage {
     this.currentFeaturedStoryId = 1;
     this.currentPartnerId = 1;
     
-    // Initialize with sample data
-    this.initializeData();
   }
 
   private initializeData() {

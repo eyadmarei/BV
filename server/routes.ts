@@ -3,7 +3,6 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { ObjectStorageService, ObjectNotFoundError, objectStorageClient } from "./objectStorage";
 import { setupAuth, isAuthenticated, isAdmin } from "./replitAuth";
-import { seedDatabase } from "./seedDatabase";
 import { insertPropertySchema, insertServiceSchema, insertInquirySchema, insertFeaturedStorySchema, insertContactContentSchema, insertPartnerSchema } from "@shared/schema";
 import { z } from "zod";
 import multer from "multer";
@@ -14,12 +13,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Setup authentication - temporarily disabled to fix issues
   // await setupAuth(app);
 
-  // Seed database if empty (only once on startup)
-  try {
-    await seedDatabase();
-  } catch (error) {
-    console.log("Database seeding skipped or failed:", error);
-  }
 
   // Object storage service
   const objectStorageService = new ObjectStorageService();
