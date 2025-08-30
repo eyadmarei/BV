@@ -1,4 +1,4 @@
-import type { Express } from "express";
+import express, { type Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { ObjectStorageService, ObjectNotFoundError, objectStorageClient } from "./objectStorage";
@@ -13,6 +13,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Setup authentication - temporarily disabled to fix issues
   // await setupAuth(app);
 
+  // Serve uploaded images for production deployment
+  app.use("/images", express.static(path.join(process.cwd(), "uploads", "images")));
 
   // Object storage service
   const objectStorageService = new ObjectStorageService();
