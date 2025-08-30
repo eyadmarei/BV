@@ -33,6 +33,37 @@ export class CloudflareImagesService {
     }
   }
 
+  async testCredentials(): Promise<void> {
+    // Test API credentials by making a simple GET request
+    try {
+      const testUrl = `https://api.cloudflare.com/client/v4/accounts/${this.accountId}/images/v1`;
+      console.log('Testing Cloudflare credentials with URL:', testUrl);
+      
+      const response = await fetch(testUrl, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${this.apiToken}`,
+          'Content-Type': 'application/json'
+        }
+      });
+      
+      const result = await response.json();
+      console.log('Credential test result:', {
+        status: response.status,
+        ok: response.ok,
+        result: result
+      });
+      
+      if (response.ok) {
+        console.log('✅ Cloudflare credentials are VALID!');
+      } else {
+        console.log('❌ Cloudflare credentials failed:', result);
+      }
+    } catch (error) {
+      console.log('❌ Credential test error:', error);
+    }
+  }
+
   async uploadImage(imageBuffer: Buffer, filename: string): Promise<CloudflareImageUploadResult> {
     try {
       // Check if credentials are available
@@ -42,6 +73,9 @@ export class CloudflareImagesService {
           error: 'Cloudflare credentials not configured'
         };
       }
+
+      // Test credentials first
+      await this.testCredentials();
 
       console.log('Uploading to Cloudflare Images:', {
         accountId: this.accountId?.substring(0, 8) + '...',
