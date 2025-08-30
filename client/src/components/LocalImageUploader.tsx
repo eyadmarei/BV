@@ -81,6 +81,13 @@ export function LocalImageUploader({ onImageSelected, children, className, reset
       const data = await response.json();
       console.log('Image uploaded successfully:', data.imageUrl);
       onImageSelected(data.imageUrl);
+      
+      // Show success notification with URL
+      if (data.imageUrl.includes('imagedelivery.net')) {
+        alert(`✅ SUCCESS: Image uploaded to Cloudflare Images!\n\nURL: ${data.imageUrl}\n\nThis image will persist through all deployments.`);
+      } else {
+        alert(`✅ Image uploaded to local storage!\n\nURL: ${data.imageUrl}\n\n⚠️ Note: Local images may be deleted during deployments.`);
+      }
     } catch (error) {
       console.error('Error uploading file:', error);
       setPreviewUrl(null); // Reset preview on error
