@@ -1885,6 +1885,16 @@ export default function AdminPanel() {
                         alt="Partner logo preview" 
                         className="h-16 object-contain"
                       />
+                      <div className="mt-2 p-2 bg-green-50 border border-green-200 rounded">
+                        <p className="text-xs font-medium text-green-800">Image URL:</p>
+                        <p className="text-xs text-green-600 break-all">{partnerFormData.logo}</p>
+                        {partnerFormData.logo.includes('imagedelivery.net') && (
+                          <p className="text-xs text-green-700 font-medium mt-1">✅ Stored on Cloudflare Images</p>
+                        )}
+                        {partnerFormData.logo.startsWith('/images/') && (
+                          <p className="text-xs text-orange-700 font-medium mt-1">⚠️ Stored locally (temporary)</p>
+                        )}
+                      </div>
                     </div>
                   )}
                 </div>
