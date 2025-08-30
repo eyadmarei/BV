@@ -45,10 +45,10 @@ export function LocalImageUploader({ onImageSelected, children, className, reset
       return;
     }
 
-    // Validate file size (max 10MB)
-    const maxSize = 10 * 1024 * 1024; // 10MB in bytes
+    // Validate file size (max 15MB)
+    const maxSize = 15 * 1024 * 1024; // 15MB in bytes
     if (file.size > maxSize) {
-      alert(`Image size must be less than 10MB. Selected file is ${(file.size / 1024 / 1024).toFixed(1)}MB`);
+      alert(`Image size must be less than 15MB. Selected file is ${(file.size / 1024 / 1024).toFixed(1)}MB`);
       return;
     }
 

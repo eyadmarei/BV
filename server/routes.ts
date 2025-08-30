@@ -4,6 +4,7 @@ import { storage } from "./storage";
 import { ObjectStorageService, ObjectNotFoundError, objectStorageClient } from "./objectStorage";
 import { setupAuth, isAuthenticated, isAdmin } from "./replitAuth";
 import { insertPropertySchema, insertServiceSchema, insertInquirySchema, insertFeaturedStorySchema, insertContactContentSchema, insertPartnerSchema } from "@shared/schema";
+import { cloudflareImages } from "./cloudflareImages";
 import { z } from "zod";
 import multer from "multer";
 import path from "path";
@@ -207,33 +208,31 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Local file storage setup
-  const storage_multer = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, 'uploads/images/');
-    },
-    filename: function (req, file, cb) {
-      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-      cb(null, uniqueSuffix + path.extname(file.originalname));
-    }
-  });
-
+  // In-memory storage for Cloudflare Images upload
   const upload = multer({ 
-    storage: storage_multer,
+    storage: multer.memoryStorage(),
     limits: {
       fileSize: 15 * 1024 * 1024 // 15MB limit
     }
   });
 
-  // Local file upload endpoint
+  // Cloudflare Images upload endpoint
   app.post("/api/upload-image", /* isAuthenticated, */ upload.single('image'), async (req, res) => {
     try {
       if (!req.file) {
         return res.status(400).json({ error: "No file uploaded" });
       }
 
-      const imageUrl = `/images/${req.file.filename}`;
-      res.json({ imageUrl });
+      const result = await cloudflareImages.uploadImage(req.file.buffer, req.file.originalname);
+      
+      if (!result.success) {
+        return res.status(500).json({ error: result.error || "Failed to upload to Cloudflare Images" });
+      }
+
+      res.json({ 
+        imageUrl: result.imageUrl,
+        imageId: result.imageId
+      });
     } catch (error) {
       console.error("Error uploading file:", error);
       res.status(500).json({ error: "Failed to upload file" });
