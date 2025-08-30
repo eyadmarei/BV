@@ -122,6 +122,9 @@ export class CloudflareImagesService {
       }
 
       const imageUrl = `https://imagedelivery.net/${this.accountHash}/${imageId}/public`;
+      
+      console.log('Generated Cloudflare URL:', imageUrl);
+      console.log('Using hash:', this.accountHash);
 
       return {
         success: true,
