@@ -14,23 +14,35 @@ export class CloudflareImagesService {
   private accountHash: string;
 
   constructor() {
-    this.accountId = process.env.CLOUDFLARE_ACCOUNT_ID?.trim()!;
-    this.apiToken = process.env.CLOUDFLARE_API_TOKEN?.trim()!;
-    this.accountHash = process.env.CLOUDFLARE_ACCOUNT_HASH?.trim()!;
+    this.accountId = process.env.CLOUDFLARE_ACCOUNT_ID?.trim() || '';
+    this.apiToken = process.env.CLOUDFLARE_API_TOKEN?.trim() || '';
+    this.accountHash = process.env.CLOUDFLARE_ACCOUNT_HASH?.trim() || '';
 
     if (!this.accountId || !this.apiToken || !this.accountHash) {
-      throw new Error('Missing required Cloudflare environment variables');
+      console.warn('Missing Cloudflare environment variables - Cloudflare Images will not work:', {
+        hasAccountId: !!this.accountId,
+        hasToken: !!this.apiToken,
+        hasHash: !!this.accountHash
+      });
+    } else {
+      console.log('Cloudflare credentials loaded:', {
+        accountId: this.accountId.substring(0, 8) + '...',
+        tokenLength: this.apiToken.length,
+        hashLength: this.accountHash.length
+      });
     }
-    
-    console.log('Cloudflare credentials loaded:', {
-      accountId: this.accountId.substring(0, 8) + '...',
-      tokenLength: this.apiToken.length,
-      hashLength: this.accountHash.length
-    });
   }
 
   async uploadImage(imageBuffer: Buffer, filename: string): Promise<CloudflareImageUploadResult> {
     try {
+      // Check if credentials are available
+      if (!this.accountId || !this.apiToken || !this.accountHash) {
+        return {
+          success: false,
+          error: 'Cloudflare credentials not configured'
+        };
+      }
+
       console.log('Uploading to Cloudflare Images:', {
         accountId: this.accountId?.substring(0, 8) + '...',
         filename,
