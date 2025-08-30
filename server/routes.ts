@@ -237,9 +237,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Fallback to local storage if Cloudflare fails
       console.log("Cloudflare Images failed, falling back to local storage:", result.error);
       
-      const fs = require('fs');
-      const path = require('path');
-      
       // Ensure uploads directory exists
       const uploadsDir = path.join(process.cwd(), 'uploads', 'images');
       if (!fs.existsSync(uploadsDir)) {
