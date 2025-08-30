@@ -216,23 +216,47 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Cloudflare Images upload endpoint
+  // Cloudflare Images upload endpoint with local fallback
   app.post("/api/upload-image", /* isAuthenticated, */ upload.single('image'), async (req, res) => {
     try {
       if (!req.file) {
         return res.status(400).json({ error: "No file uploaded" });
       }
 
+      // Try Cloudflare Images first
       const result = await cloudflareImages.uploadImage(req.file.buffer, req.file.originalname);
       
-      if (!result.success) {
-        return res.status(500).json({ error: result.error || "Failed to upload to Cloudflare Images" });
+      if (result.success) {
+        res.json({ 
+          imageUrl: result.imageUrl,
+          imageId: result.imageId
+        });
+        return;
       }
 
-      res.json({ 
-        imageUrl: result.imageUrl,
-        imageId: result.imageId
-      });
+      // Fallback to local storage if Cloudflare fails
+      console.log("Cloudflare Images failed, falling back to local storage:", result.error);
+      
+      const fs = require('fs');
+      const path = require('path');
+      
+      // Ensure uploads directory exists
+      const uploadsDir = path.join(process.cwd(), 'uploads', 'images');
+      if (!fs.existsSync(uploadsDir)) {
+        fs.mkdirSync(uploadsDir, { recursive: true });
+      }
+      
+      // Generate filename
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+      const filename = uniqueSuffix + path.extname(req.file.originalname);
+      const filepath = path.join(uploadsDir, filename);
+      
+      // Save file locally
+      fs.writeFileSync(filepath, req.file.buffer);
+      
+      const imageUrl = `/images/${filename}`;
+      res.json({ imageUrl });
+
     } catch (error) {
       console.error("Error uploading file:", error);
       res.status(500).json({ error: "Failed to upload file" });
